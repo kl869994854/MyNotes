@@ -1,7 +1,7 @@
 # 泛函-Baire Theorem and its three applications
 ## Baire Theorem
 P109
-设（E,d）是完备度量空间，``(O_{n})_{n\geq 1}``是一列在E中稠密的开子集，则``O=\cap_{n\geq 1}O_{n}``在E中稠密。
+设（E,d）是完备度量空间，$(O_{n})_{n\geq 1}$是一列在E中稠密的开子集，则``O=\cap_{n\geq 1}O_{n}``在E中稠密。
 ### **证明：**
 
 
@@ -16,6 +16,7 @@ P110
 2. Baire性质可以用闭集来等价刻画：可数个无内点的闭集的并无内点。
    因为，无内点闭集的补集是稠密开集。
    
+
 E是Baire空间，E中可数多个贫集的并是贫集，可数多个剩余集的交是剩余集。
 
 ## Banach-Steinhaus Theorem(principle of concentration of singularity)
