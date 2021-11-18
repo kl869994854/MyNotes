@@ -5,9 +5,9 @@ K:紧的``T_{2}``空间。E:度量空间。
 Ascoli定理考察C(K,E)中集合的紧性，Stone-Weierstrass定理考察C(K,E)上的逼近。
 
 ## **Ascoli定理：**
-``\mathcal H\subset C(K,E)``为相对紧的``\Leftrightarrow`` 
-1. ``\mathcal H``等度连续。
-2. 轨道``\mathcal H(x)=\{f(x)\,|\,\forall \, f\in \mathcal H \}``在E中是相对紧的。
+$\mathcal H\subset C(K,E)$为相对紧的$\Leftrightarrow$
+1. $\mathcal H$等度连续。
+2. 轨道$\mathcal H(x)=\{f(x)\,|\,\forall \, f\in \mathcal H \}$在E中是相对紧的。
 
 
 
@@ -31,7 +31,7 @@ Ascoli定理考察C(K,E)中集合的紧性，Stone-Weierstrass定理考察C(K,E)
 # 泛函-Baire Theorem and its three applications
 ## Baire Theorem
 P109
-设（E,d）是完备度量空间，$(O_{n})_{n\geq 1}$是一列在E中稠密的开子集，则``O=\cap_{n\geq 1}O_{n}``在E中稠密。
+设（E,d）是完备度量空间，$(O_{n})_{n\geq 1}$是一列在E中稠密的开子集，则$O=\cap_{n\geq 1}O_{n}$在E中稠密。
 ### **证明：**
 
 
@@ -50,23 +50,23 @@ P110
 E是Baire空间，E中可数多个贫集的并是贫集，可数多个剩余集的交是剩余集。
 
 ## Banach-Steinhaus Theorem(principle of concentration of singularity)
-E是Banach空间，F是赋范空间，``(u_{i})_{i \in E} \subset B(E,F)``，若满足
+E是Banach空间，F是赋范空间，$(u_{i})_{i \in E} \subset B(E,F)$，若满足
 
-```math
+$$
 sup_{i \in I}||u_{i}(x)||<\infty \quad (\forall \, x \in E)
-```
+$$
 
 则有
 
-```math
+$$
 sup_{i \in I}||u_{i}|| < \infty
-```
+$$
 
 更进一步，有
 ## **定理6.2.4**
-设E是Banach空间，F是赋范空间，``\{u_{n}\}_{n\geq 1}\subset B(E,F)``。若``\sup_{n}||u_{n}|| = \infty``，则``\{x\in E\, |\, \sup_{n}||u_{n}(x)||=\infty\}``为稠密的``G_{\delta}``集。
+设E是Banach空间，F是赋范空间，$\{u_{n}\}_{n\geq 1}\subset B(E,F)$。若$\sup_{n}||u_{n}|| = \infty$，则$\{x\in E\, |\, \sup_{n}||u_{n}(x)||=\infty\}$为稠密的$G_{\delta}$集。
 
-逆否命题：若``\{x \in E| \sup_{n} ||u_{n}(x)||=\infty \}``不是稠密的``G_{\delta}``集，则``\sup_{n}||u_{n}||<\infty``。
+逆否命题：若$\{x \in E| \sup_{n} ||u_{n}(x)||=\infty \}$不是稠密的``G_{\delta}``集，则``\sup_{n}||u_{n}||<\infty``。
 ``\{x \in E| \sup_{n} ||u_{n}(x)||=\infty \}``不是稠密的``G_{\delta}``集``\Leftrightarrow`` ``\{x \in E| \sup_{n} ||u_{n}(x)||<\infty \}``不是无内点的``F_{\sigma}``集。
 也就是说只要验证某点及其一个邻域内满足``\sup_{n}||u_{n}(x)||\leq\infty``，即可得到``\sup_{n}||u_{n}||<\infty``。
 
