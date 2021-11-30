@@ -1,0 +1,208 @@
+This is XeTeX, Version 3.141592653-2.6-0.999993 (TeX Live 2021/W32TeX) (preloaded format=xelatex 2021.11.18)  30 NOV 2021 12:37
+entering extended mode
+ restricted \write18 enabled.
+ %&-line parsing enabled.
+**Section8.tex
+(./Section8.tex
+LaTeX2e <2021-11-15>
+L3 programming layer <2021-11-12>
+! Undefined control sequence.
+l.2 \section
+            {Hahn-Banach定理，弱拓扑和弱*拓扑}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+
+! LaTeX Error: Missing \begin{document}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.2 \section{H
+              ahn-Banach定理，弱拓扑和弱*拓扑}
+You're in trouble here.  Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+Missing character: There is no H ("48) in font nullfont!
+Missing character: There is no a ("61) in font nullfont!
+Missing character: There is no h ("68) in font nullfont!
+Missing character: There is no n ("6E) in font nullfont!
+Missing character: There is no - ("2D) in font nullfont!
+Missing character: There is no B ("42) in font nullfont!
+Missing character: There is no a ("61) in font nullfont!
+Missing character: There is no n ("6E) in font nullfont!
+Missing character: There is no a ("61) in font nullfont!
+Missing character: There is no c ("63) in font nullfont!
+Missing character: There is no h ("68) in font nullfont!
+Missing character: There is no 定 ("5B9A) in font nullfont!
+Missing character: There is no 理 ("7406) in font nullfont!
+Missing character: There is no ， ("FF0C) in font nullfont!
+Missing character: There is no 弱 ("5F31) in font nullfont!
+Missing character: There is no 拓 ("62D3) in font nullfont!
+Missing character: There is no 扑 ("6251) in font nullfont!
+Missing character: There is no 和 ("548C) in font nullfont!
+Missing character: There is no 弱 ("5F31) in font nullfont!
+Missing character: There is no * ("2A) in font nullfont!
+Missing character: There is no 拓 ("62D3) in font nullfont!
+Missing character: There is no 扑 ("6251) in font nullfont!
+! Undefined control sequence.
+l.3 \subsection
+               {Hahn-Banach定理：分析形式}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+Missing character: There is no H ("48) in font nullfont!
+Missing character: There is no a ("61) in font nullfont!
+Missing character: There is no h ("68) in font nullfont!
+Missing character: There is no n ("6E) in font nullfont!
+Missing character: There is no - ("2D) in font nullfont!
+Missing character: There is no B ("42) in font nullfont!
+Missing character: There is no a ("61) in font nullfont!
+Missing character: There is no n ("6E) in font nullfont!
+Missing character: There is no a ("61) in font nullfont!
+Missing character: There is no c ("63) in font nullfont!
+Missing character: There is no h ("68) in font nullfont!
+Missing character: There is no 定 ("5B9A) in font nullfont!
+Missing character: There is no 理 ("7406) in font nullfont!
+Missing character: There is no ： ("FF1A) in font nullfont!
+Missing character: There is no 分 ("5206) in font nullfont!
+Missing character: There is no 析 ("6790) in font nullfont!
+Missing character: There is no 形 ("5F62) in font nullfont!
+Missing character: There is no 式 ("5F0F) in font nullfont!
+
+Overfull \hbox (20.0pt too wide) in paragraph at lines 2--4
+[]
+ []
+
+
+! LaTeX Error: Environment definition undefined.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.5 \begin{definition}
+                      [次线性泛函]
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+! LaTeX Error: Missing \begin{document}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.5 \begin{definition}[
+                       次线性泛函]
+You're in trouble here.  Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+Missing character: There is no [ ("5B) in font nullfont!
+Missing character: There is no 次 ("6B21) in font nullfont!
+Missing character: There is no 线 ("7EBF) in font nullfont!
+Missing character: There is no 性 ("6027) in font nullfont!
+Missing character: There is no 泛 ("6CDB) in font nullfont!
+Missing character: There is no 函 ("51FD) in font nullfont!
+Missing character: There is no ] ("5D) in font nullfont!
+Missing character: There is no 设 ("8BBE) in font nullfont!
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <7> on input line 6.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <5> on input line 6.
+Missing character: There is no 是 ("662F) in font nullfont!
+Missing character: There is no 数 ("6570) in font nullfont!
+Missing character: There is no 域 ("57DF) in font nullfont!
+Missing character: There is no 上 ("4E0A) in font nullfont!
+Missing character: There is no 的 ("7684) in font nullfont!
+Missing character: There is no 向 ("5411) in font nullfont!
+Missing character: There is no 量 ("91CF) in font nullfont!
+Missing character: There is no 空 ("7A7A) in font nullfont!
+Missing character: There is no 间 ("95F4) in font nullfont!
+Missing character: There is no ， ("FF0C) in font nullfont!
+Missing character: There is no 若 ("82E5) in font nullfont!
+Missing character: There is no 泛 ("6CDB) in font nullfont!
+Missing character: There is no 函 ("51FD) in font nullfont!
+Missing character: There is no 满 ("6EE1) in font nullfont!
+Missing character: There is no 足 ("8DB3) in font nullfont!
+Missing character: There is no ： ("FF1A) in font nullfont!
+
+Overfull \hbox (20.0pt too wide) in paragraph at lines 5--7
+[]
+ []
+
+
+Overfull \hbox (27.17001pt too wide) in paragraph at lines 5--7
+\OML/cmm/m/it/10 E$$\OT1/cmr/bx/n/10 R$$\OML/cmm/m/it/10 p \OT1/cmr/m/n/10 :
+ []
+
+
+Overfull \hbox (20.73604pt too wide) in paragraph at lines 5--7
+\OML/cmm/m/it/10 E \OMS/cmsy/m/n/10 !
+ []
+
+
+Overfull \hbox (8.62495pt too wide) in paragraph at lines 5--7
+\OT1/cmr/bx/n/10 R$ 
+ []
+
+Missing character: There is no 正 ("6B63) in font nullfont!
+Missing character: There is no 齐 ("9F50) in font nullfont!
+Missing character: There is no 性 ("6027) in font nullfont!
+Missing character: There is no ： ("FF1A) in font nullfont!
+Missing character: There is no 次 ("6B21) in font nullfont!
+Missing character: There is no 可 ("53EF) in font nullfont!
+Missing character: There is no 加 ("52A0) in font nullfont!
+Missing character: There is no 性 ("6027) in font nullfont!
+Missing character: There is no ： ("FF1A) in font nullfont!
+Missing character: There is no 则 ("5219) in font nullfont!
+Missing character: There is no 称 ("79F0) in font nullfont!
+Missing character: There is no 该 ("8BE5) in font nullfont!
+Missing character: There is no 泛 ("6CDB) in font nullfont!
+Missing character: There is no 函 ("51FD) in font nullfont!
+Missing character: There is no 为 ("4E3A) in font nullfont!
+Missing character: There is no 上 ("4E0A) in font nullfont!
+Missing character: There is no 的 ("7684) in font nullfont!
+Missing character: There is no 次 ("6B21) in font nullfont!
+Missing character: There is no 线 ("7EBF) in font nullfont!
+Missing character: There is no 性 ("6027) in font nullfont!
+Missing character: There is no 泛 ("6CDB) in font nullfont!
+Missing character: There is no 函 ("51FD) in font nullfont!
+Missing character: There is no 。 ("3002) in font nullfont!
+
+! LaTeX Error: \begin{document} ended by \end{definition}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.12 \end{definition}
+                     
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+)
+! Emergency stop.
+<*> Section8.tex
+                
+*** (job aborted, no legal \end found)
+
+ 
+Here is how much of TeX's memory you used:
+ 26 strings out of 476275
+ 417 string characters out of 5815120
+ 304968 words of memory out of 5000000
+ 20778 multiletter control sequences out of 15000+600000
+ 404357 words of font info for 30 fonts, out of 8000000 for 9000
+ 1348 hyphenation exceptions out of 8191
+ 18i,3n,16p,97b,79s stack positions out of 5000i,500n,10000p,200000b,80000s
+No pages of output.

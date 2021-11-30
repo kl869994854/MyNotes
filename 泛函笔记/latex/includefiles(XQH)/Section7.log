@@ -1,0 +1,1357 @@
+This is XeTeX, Version 3.141592653-2.6-0.999993 (TeX Live 2021/W32TeX) (preloaded format=xelatex 2021.11.18)  30 NOV 2021 12:54
+entering extended mode
+ restricted \write18 enabled.
+ %&-line parsing enabled.
+**Section7.tex
+(./Section7.tex
+LaTeX2e <2021-11-15>
+L3 programming layer <2021-11-12>
+! Undefined control sequence.
+l.2 \section
+            {拓扑向量空间}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+
+! LaTeX Error: Missing \begin{document}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.2 \section{拓
+              扑向量空间}
+You're in trouble here.  Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+Missing character: There is no 拓 ("62D3) in font nullfont!
+Missing character: There is no 扑 ("6251) in font nullfont!
+Missing character: There is no 向 ("5411) in font nullfont!
+Missing character: There is no 量 ("91CF) in font nullfont!
+Missing character: There is no 空 ("7A7A) in font nullfont!
+Missing character: There is no 间 ("95F4) in font nullfont!
+! Undefined control sequence.
+l.3 \subsection
+               {定义和性质}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+Missing character: There is no 定 ("5B9A) in font nullfont!
+Missing character: There is no 义 ("4E49) in font nullfont!
+Missing character: There is no 和 ("548C) in font nullfont!
+Missing character: There is no 性 ("6027) in font nullfont!
+Missing character: There is no 质 ("8D28) in font nullfont!
+
+Overfull \hbox (20.0pt too wide) in paragraph at lines 2--4
+[]
+ []
+
+
+! LaTeX Error: Environment example undefined.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.5 \begin{example}
+                   
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+! LaTeX Error: Missing \begin{document}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.6 ^^I验
+        证：$L_{p}(\Omega),\, 0<\, p\,\leq\, \infty$为拓扑向量空间。
+You're in trouble here.  Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+Missing character: There is no 验 ("9A8C) in font nullfont!
+Missing character: There is no 证 ("8BC1) in font nullfont!
+Missing character: There is no ： ("FF1A) in font nullfont!
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <7> on input line 6.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <5> on input line 6.
+Missing character: There is no 为 ("4E3A) in font nullfont!
+Missing character: There is no 拓 ("62D3) in font nullfont!
+Missing character: There is no 扑 ("6251) in font nullfont!
+Missing character: There is no 向 ("5411) in font nullfont!
+Missing character: There is no 量 ("91CF) in font nullfont!
+Missing character: There is no 空 ("7A7A) in font nullfont!
+Missing character: There is no 间 ("95F4) in font nullfont!
+Missing character: There is no 。 ("3002) in font nullfont!
+
+! LaTeX Error: \begin{document} ended by \end{example}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.7 \end{example}
+                 
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+Overfull \hbox (68.09451pt too wide) in paragraph at lines 6--8
+[]$\OML/cmm/m/it/10 L[]\OT1/cmr/m/n/10 (
+)\OML/cmm/m/it/10 ;  \OT1/cmr/m/n/10 0 \OML/cmm/m/it/10 <
+ []
+
+
+Overfull \hbox (17.25339pt too wide) in paragraph at lines 6--8
+\OML/cmm/m/it/10 p  \OMS/cmsy/m/n/10 ^^T
+ []
+
+
+Overfull \hbox (10.00002pt too wide) in paragraph at lines 6--8
+\OMS/cmsy/m/n/10 1$
+ []
+
+
+! LaTeX Error: Environment proof undefined.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.9 \begin{proof}
+                 
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+! LaTeX Error: Missing \begin{document}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.10 ^^I\begin{itemize}
+                       
+You're in trouble here.  Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+Overfull \hbox (20.0pt too wide) in paragraph at lines 10--10
+[] 
+ []
+
+Missing character: There is no 首 ("9996) in font nullfont!
+Missing character: There is no 先 ("5148) in font nullfont!
+Missing character: There is no 验 ("9A8C) in font nullfont!
+Missing character: There is no 证 ("8BC1) in font nullfont!
+Missing character: There is no 的 ("7684) in font nullfont!
+Missing character: There is no 情 ("60C5) in font nullfont!
+Missing character: There is no 形 ("5F62) in font nullfont!
+Missing character: There is no ， ("FF0C) in font nullfont!
+Missing character: There is no 此 ("6B64) in font nullfont!
+Missing character: There is no 时 ("65F6) in font nullfont!
+Missing character: There is no 上 ("4E0A) in font nullfont!
+Missing character: There is no 的 ("7684) in font nullfont!
+Missing character: There is no 拓 ("62D3) in font nullfont!
+Missing character: There is no 扑 ("6251) in font nullfont!
+Missing character: There is no 由 ("7531) in font nullfont!
+Missing character: There is no 距 ("8DDD) in font nullfont!
+Missing character: There is no 离 ("79BB) in font nullfont!
+! Undefined control sequence.
+l.11 ...)$上的拓扑由距离$||f-g||^{p}=\int |f-g|^{p}\, \dd
+                                                   x$所诱导：
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+Missing character: There is no 所 ("6240) in font nullfont!
+Missing character: There is no 诱 ("8BF1) in font nullfont!
+Missing character: There is no 导 ("5BFC) in font nullfont!
+Missing character: There is no ： ("FF1A) in font nullfont!
+
+Overfull \hbox (17.22215pt too wide) in paragraph at lines 11--12
+\OT1/cmr/m/n/10 0  \OML/cmm/m/it/10 <
+ []
+
+
+Overfull \hbox (17.25339pt too wide) in paragraph at lines 11--12
+\OML/cmm/m/it/10 p  <
+ []
+
+
+Overfull \hbox (50.7336pt too wide) in paragraph at lines 11--12
+\OT1/cmr/m/n/10 1$$\OML/cmm/m/it/10 L[]\OT1/cmr/m/n/10 (
+)$$\OMS/cmsy/m/n/10 jj\OML/cmm/m/it/10 f \OMS/cmsy/m/n/10 ^^@
+ []
+
+
+Overfull \hbox (25.8619pt too wide) in paragraph at lines 11--12
+\OML/cmm/m/it/10 g\OMS/cmsy/m/n/10 jj[] \OT1/cmr/m/n/10 =
+ []
+
+
+Overfull \hbox (24.86115pt too wide) in paragraph at lines 11--12
+[] \OMS/cmsy/m/n/10 j\OML/cmm/m/it/10 f \OMS/cmsy/m/n/10 ^^@
+ []
+
+
+Overfull \hbox (19.91049pt too wide) in paragraph at lines 11--12
+\OML/cmm/m/it/10 g\OMS/cmsy/m/n/10 j[] \OML/cmm/m/it/10 x$ 
+ []
+
+Missing character: There is no 先 ("5148) in font nullfont!
+Missing character: There is no 验 ("9A8C) in font nullfont!
+Missing character: There is no 证 ("8BC1) in font nullfont!
+Missing character: There is no 加 ("52A0) in font nullfont!
+Missing character: There is no 法 ("6CD5) in font nullfont!
+Missing character: There is no 连 ("8FDE) in font nullfont!
+Missing character: There is no 续 ("7EED) in font nullfont!
+Missing character: There is no 。 ("3002) in font nullfont!
+Missing character: There is no ， ("FF0C) in font nullfont!
+Missing character: There is no 不 ("4E0D) in font nullfont!
+Missing character: There is no 妨 ("59A8) in font nullfont!
+Missing character: There is no 记 ("8BB0) in font nullfont!
+Missing character: There is no ， ("FF0C) in font nullfont!
+Missing character: There is no 此 ("6B64) in font nullfont!
+Missing character: There is no 时 ("65F6) in font nullfont!
+Missing character: There is no ， ("FF0C) in font nullfont!
+Missing character: There is no 考 ("8003) in font nullfont!
+Missing character: There is no 虑 ("8651) in font nullfont!
+Missing character: There is no ， ("FF0C) in font nullfont!
+Missing character: There is no 则 ("5219) in font nullfont!
+Missing character: There is no 有 ("6709) in font nullfont!
+Missing character: There is no ， ("FF0C) in font nullfont!
+Missing character: There is no 所 ("6240) in font nullfont!
+Missing character: There is no 以 ("4EE5) in font nullfont!
+Missing character: There is no 加 ("52A0) in font nullfont!
+Missing character: There is no 法 ("6CD5) in font nullfont!
+Missing character: There is no 连 ("8FDE) in font nullfont!
+Missing character: There is no 续 ("7EED) in font nullfont!
+Missing character: There is no 。 ("3002) in font nullfont!
+
+Overfull \hbox (39.74881pt too wide) in paragraph at lines 13--14
+\OMS/cmsy/m/n/10 8 \OML/cmm/m/it/10 f[]; g[] \OMS/cmsy/m/n/10 2
+ []
+
+
+Overfull \hbox (69.9071pt too wide) in paragraph at lines 13--14
+\OML/cmm/m/it/10 L[]\OT1/cmr/m/n/10 (
+) \OML/cmm/m/it/10 and\OMS/cmsy/m/n/10 8 \OML/cmm/m/it/10 V[] \OMS/cmsy/m/n/10 
+2
+ []
+
+
+Overfull \hbox (51.32509pt too wide) in paragraph at lines 13--14
+\OMS/cmsy/m/n/10 N[]$$\OML/cmm/m/it/10 V[] \OT1/cmr/m/n/10 =
+ []
+
+
+Overfull \hbox (29.1355pt too wide) in paragraph at lines 13--14
+\OML/cmm/m/it/10 B\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 f[] \OT1/cmr/m/n/10 +
+ []
+
+
+Overfull \hbox (41.20488pt too wide) in paragraph at lines 13--14
+\OML/cmm/m/it/10 g[]; r\OT1/cmr/m/n/10 )$$\OML/cmm/m/it/10 f[] \OMS/cmsy/m/n/10
+ 2
+ []
+
+
+Overfull \hbox (22.62672pt too wide) in paragraph at lines 13--14
+\OML/cmm/m/it/10 B[] \OT1/cmr/m/n/10 =
+ []
+
+
+Overfull \hbox (45.52153pt too wide) in paragraph at lines 13--14
+\OML/cmm/m/it/10 B\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 f[]; []\OT1/cmr/m/n/10 ) \O
+MS/cmsy/m/n/10 2
+ []
+
+
+Overfull \hbox (53.31615pt too wide) in paragraph at lines 13--14
+\OMS/cmsy/m/n/10 N\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 f[]\OT1/cmr/m/n/10 ) \OML/c
+mm/m/it/10 ;  g[] \OMS/cmsy/m/n/10 2
+ []
+
+
+Overfull \hbox (22.62672pt too wide) in paragraph at lines 13--14
+\OML/cmm/m/it/10 B[] \OT1/cmr/m/n/10 =
+ []
+
+
+Overfull \hbox (45.39536pt too wide) in paragraph at lines 13--14
+\OML/cmm/m/it/10 B\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 g[]; []\OT1/cmr/m/n/10 ) \O
+MS/cmsy/m/n/10 2
+ []
+
+
+Overfull \hbox (49.35095pt too wide) in paragraph at lines 13--14
+\OMS/cmsy/m/n/10 N\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 g[]\OT1/cmr/m/n/10 )$$\OMS/
+cmsy/m/n/10 8 \OML/cmm/m/it/10 f \OMS/cmsy/m/n/10 2
+ []
+
+
+Overfull \hbox (36.08836pt too wide) in paragraph at lines 13--14
+\OML/cmm/m/it/10 B[] ;  g  \OMS/cmsy/m/n/10 2
+ []
+
+
+Overfull \hbox (33.59894pt too wide) in paragraph at lines 13--14
+\OML/cmm/m/it/10 B[] ;  f \OT1/cmr/m/n/10 +
+ []
+
+
+Overfull \hbox (14.57286pt too wide) in paragraph at lines 13--14
+\OML/cmm/m/it/10 g \OMS/cmsy/m/n/10 2
+ []
+
+
+Overfull \hbox (10.31946pt too wide) in paragraph at lines 13--14
+\OML/cmm/m/it/10 V[]$ 
+ []
+
+Missing character: There is no 再 ("518D) in font nullfont!
+Missing character: There is no 验 ("9A8C) in font nullfont!
+Missing character: There is no 证 ("8BC1) in font nullfont!
+Missing character: There is no 数 ("6570) in font nullfont!
+Missing character: There is no 乘 ("4E58) in font nullfont!
+Missing character: There is no 成 ("6210) in font nullfont!
+Missing character: There is no 立 ("7ACB) in font nullfont!
+Missing character: There is no 。 ("3002) in font nullfont!
+! Undefined control sequence.
+l.14 ...^I^^I\item 再验证数乘成立。$\forall \, k\in\mathbb
+                                                  {K}\, ,f_{0}\in L_{p}(\Ome...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+Missing character: There is no 以 ("4EE5) in font nullfont!
+Missing character: There is no 及 ("53CA) in font nullfont!
+Missing character: There is no ， ("FF0C) in font nullfont!
+Missing character: There is no 要 ("8981) in font nullfont!
+Missing character: There is no 找 ("627E) in font nullfont!
+Missing character: There is no 到 ("5230) in font nullfont!
+Missing character: There is no 开 ("5F00) in font nullfont!
+Missing character: There is no 球 ("7403) in font nullfont!
+Missing character: There is no ， ("FF0C) in font nullfont!
+Missing character: There is no 使 ("4F7F) in font nullfont!
+Missing character: There is no 得 ("5F97) in font nullfont!
+Missing character: There is no ， ("FF0C) in font nullfont!
+Missing character: There is no 满 ("6EE1) in font nullfont!
+Missing character: There is no 足 ("8DB3) in font nullfont!
+Missing character: There is no ： ("FF1A) in font nullfont!
+
+! LaTeX Error: Environment equation* undefined.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.15 ^^I^^I^^I\begin{equation*}
+                               
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+! Missing $ inserted.
+<inserted text> 
+                $
+l.16 ^^I^^I^^I^^I\int
+                      |\lambda g-kf_{0}|^{p}\, \dd x\, < \, r
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+! Undefined control sequence.
+l.16 ^^I^^I^^I^^I\int |\lambda g-kf_{0}|^{p}\, \dd
+                                                   x\, < \, r
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+
+! LaTeX Error: \begin{enumerate} on input line 12 ended by \end{equation*}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.17 ^^I^^I^^I\end{equation*}
+                             
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+! Missing $ inserted.
+<inserted text> 
+                $
+l.17 ^^I^^I^^I\end{equation*}
+                             
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+Missing character: There is no 利 ("5229) in font nullfont!
+Missing character: There is no 用 ("7528) in font nullfont!
+Missing character: There is no 插 ("63D2) in font nullfont!
+Missing character: There is no 值 ("503C) in font nullfont!
+Missing character: There is no 技 ("6280) in font nullfont!
+Missing character: There is no 巧 ("5DE7) in font nullfont!
+Missing character: There is no ： ("FF1A) in font nullfont!
+
+! LaTeX Error: Environment equation* undefined.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.19 ^^I^^I^^I\begin{equation*}
+                               
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+! LaTeX Error: Environment aligned undefined.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.20 ^^I^^I^^I^^I\begin{aligned}
+                                
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+! Missing $ inserted.
+<inserted text> 
+                $
+l.21 ^^I^^I^^I^^I\int
+                      |\lambda g-kf_{0}|^{p}\,\dd
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+! Undefined control sequence.
+l.21 ^^I^^I^^I^^I\int |\lambda g-kf_{0}|^{p}\,\dd
+                                                 
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Misplaced alignment tab character &.
+l.22 ^^I^^I^^I^^I x \, &
+                        =\int |\lambda g-\lambda f_{0} + \lambda f_{0}-kf_{0...
+I can't figure out why you would want to use a tab mark
+here. If you just want an ampersand, the remedy is
+simple: Just type `I\&' now. But if some right brace
+up above has ended a previous alignment prematurely,
+you're probably due for more error messages, and you
+might try typing `S' now just to see what is salvageable.
+
+! Undefined control sequence.
+l.22 ...bda f_{0} + \lambda f_{0}-kf_{0}|^{p}\,\dd
+                                                   x\\
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Misplaced alignment tab character &.
+<recently read> &
+                 
+l.23 ^^I^^I^^I^^I &
+                   \leq \int |\lambda g-\lambda f_{0}|^{p}\,\dd x +\int |\la...
+I can't figure out why you would want to use a tab mark
+here. If you just want an ampersand, the remedy is
+simple: Just type `I\&' now. But if some right brace
+up above has ended a previous alignment prematurely,
+you're probably due for more error messages, and you
+might try typing `S' now just to see what is salvageable.
+
+! Undefined control sequence.
+l.23 ...eq \int |\lambda g-\lambda f_{0}|^{p}\,\dd
+                                                   x +\int |\lambda f_{0}-kf...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.23 ...d x +\int |\lambda f_{0}-kf_{0}|^{p}\, \dd
+                                                   x\\
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Misplaced alignment tab character &.
+<recently read> &
+                 
+l.24 ^^I^^I^^I^^I &
+                   \leq |\lambda|^{p}\, \int |g-f_{0}|^{p}\,\dd x \,+\, |\la...
+I can't figure out why you would want to use a tab mark
+here. If you just want an ampersand, the remedy is
+simple: Just type `I\&' now. But if some right brace
+up above has ended a previous alignment prematurely,
+you're probably due for more error messages, and you
+might try typing `S' now just to see what is salvageable.
+
+! Undefined control sequence.
+l.24 ...eq |\lambda|^{p}\, \int |g-f_{0}|^{p}\,\dd
+                                                   x \,+\, |\lambda -k|^{p} ...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.24 ...+\, |\lambda -k|^{p} \int |f_{0}|^{p}\,\dd
+                                                   x \, < \,r ^^I^^I^^I
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+
+! LaTeX Error: \begin{enumerate} on input line 12 ended by \end{aligned}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.25 ^^I^^I^^I^^I\end{aligned}
+                              
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+! Missing $ inserted.
+<inserted text> 
+                $
+l.25 ^^I^^I^^I^^I\end{aligned}
+                              
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+
+! LaTeX Error: \begin{enumerate} on input line 12 ended by \end{equation*}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.26 ^^I^^I^^I\end{equation*}
+                             
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+Missing character: There is no 可 ("53EF) in font nullfont!
+Missing character: There is no 取 ("53D6) in font nullfont!
+Missing character: There is no ， ("FF0C) in font nullfont!
+Missing character: There is no 所 ("6240) in font nullfont!
+Missing character: There is no 以 ("4EE5) in font nullfont!
+Missing character: There is no 数 ("6570) in font nullfont!
+Missing character: There is no 乘 ("4E58) in font nullfont!
+Missing character: There is no 也 ("4E5F) in font nullfont!
+Missing character: There is no 连 ("8FDE) in font nullfont!
+Missing character: There is no 续 ("7EED) in font nullfont!
+Missing character: There is no 。 ("3002) in font nullfont!
+
+Overfull \hbox (22.18744pt too wide) in paragraph at lines 14--28
+\OMS/cmsy/m/n/10 8 \OML/cmm/m/it/10 k \OMS/cmsy/m/n/10 2
+ []
+
+
+Overfull \hbox (34.14575pt too wide) in paragraph at lines 14--28
+\OML/cmm/m/it/10 K ; f[] \OMS/cmsy/m/n/10 2
+ []
+
+
+Overfull \hbox (52.29247pt too wide) in paragraph at lines 14--28
+\OML/cmm/m/it/10 L[]\OT1/cmr/m/n/10 (
+)$$\OMS/cmsy/m/n/10 8 \OML/cmm/m/it/10 B \OT1/cmr/m/n/10 =
+ []
+
+
+Overfull \hbox (54.96646pt too wide) in paragraph at lines 14--28
+\OML/cmm/m/it/10 B\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 kf[]; r\OT1/cmr/m/n/10 )$$\
+OML/cmm/m/it/10 k \OMS/cmsy/m/n/10 2
+ []
+
+
+Overfull \hbox (22.62672pt too wide) in paragraph at lines 14--28
+\OML/cmm/m/it/10 B[] \OT1/cmr/m/n/10 =
+ []
+
+
+Overfull \hbox (44.27197pt too wide) in paragraph at lines 14--28
+\OML/cmm/m/it/10 B\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 k; r[]\OT1/cmr/m/n/10 ) \OM
+S/cmsy/m/n/10 2
+ []
+
+
+Overfull \hbox (46.24792pt too wide) in paragraph at lines 14--28
+\OMS/cmsy/m/n/10 N\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 k\OT1/cmr/m/n/10 )\OML/cmm/
+m/it/10 ; f[] \OMS/cmsy/m/n/10 2
+ []
+
+
+Overfull \hbox (22.62672pt too wide) in paragraph at lines 14--28
+\OML/cmm/m/it/10 B[] \OT1/cmr/m/n/10 =
+ []
+
+
+Overfull \hbox (48.13312pt too wide) in paragraph at lines 14--28
+\OML/cmm/m/it/10 B\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 f[]; r[]\OT1/cmr/m/n/10 ) \
+OMS/cmsy/m/n/10 2
+ []
+
+
+Overfull \hbox (49.33823pt too wide) in paragraph at lines 14--28
+\OMS/cmsy/m/n/10 N\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 f[]\OT1/cmr/m/n/10 )$$\OMS/
+cmsy/m/n/10 8\OML/cmm/m/it/10 ^^U  \OMS/cmsy/m/n/10 2
+ []
+
+
+Overfull \hbox (34.42174pt too wide) in paragraph at lines 14--28
+\OML/cmm/m/it/10 B[] ;  g \OMS/cmsy/m/n/10 2
+ []
+
+
+Overfull \hbox (12.07121pt too wide) in paragraph at lines 14--28
+\OML/cmm/m/it/10 B[]$
+ []
+
+
+Overfull \hbox (29.85071pt too wide) in paragraph at lines 14--28
+[] \OMS/cmsy/m/n/10 j\OML/cmm/m/it/10 ^^Ug \OMS/cmsy/m/n/10 ^^@
+ []
+
+
+Overfull \hbox (41.907pt too wide) in paragraph at lines 14--28
+\OML/cmm/m/it/10 kf[]\OMS/cmsy/m/n/10 j[] \OML/cmm/m/it/10 x  <
+ []
+
+
+Overfull \hbox (4.78937pt too wide) in paragraph at lines 14--28
+\OML/cmm/m/it/10 r$
+ []
+
+
+Overfull \hbox (29.85071pt too wide) in paragraph at lines 14--28
+[] \OMS/cmsy/m/n/10 j\OML/cmm/m/it/10 ^^Ug \OMS/cmsy/m/n/10 ^^@
+ []
+
+
+Overfull \hbox (41.907pt too wide) in paragraph at lines 14--28
+\OML/cmm/m/it/10 kf[]\OMS/cmsy/m/n/10 j[] \OML/cmm/m/it/10 x  \OT1/cmr/m/n/10 =
+
+ []
+
+
+Overfull \hbox (29.85071pt too wide) in paragraph at lines 14--28
+[] \OMS/cmsy/m/n/10 j\OML/cmm/m/it/10 ^^Ug \OMS/cmsy/m/n/10 ^^@
+ []
+
+
+Overfull \hbox (22.99315pt too wide) in paragraph at lines 14--28
+\OML/cmm/m/it/10 ^^Uf[] \OT1/cmr/m/n/10 +
+ []
+
+
+Overfull \hbox (22.99315pt too wide) in paragraph at lines 14--28
+\OML/cmm/m/it/10 ^^Uf[] \OMS/cmsy/m/n/10 ^^@
+ []
+
+
+Overfull \hbox (29.68486pt too wide) in paragraph at lines 14--28
+\OML/cmm/m/it/10 kf[]\OMS/cmsy/m/n/10 j[] \OML/cmm/m/it/10 x[] 
+ []
+
+
+Overfull \hbox (7.7778pt too wide) in paragraph at lines 14--28
+\OMS/cmsy/m/n/10 ^^T
+ []
+
+
+Overfull \hbox (29.85071pt too wide) in paragraph at lines 14--28
+[] \OMS/cmsy/m/n/10 j\OML/cmm/m/it/10 ^^Ug \OMS/cmsy/m/n/10 ^^@
+ []
+
+
+Overfull \hbox (37.77518pt too wide) in paragraph at lines 14--28
+\OML/cmm/m/it/10 ^^Uf[]\OMS/cmsy/m/n/10 j[] \OML/cmm/m/it/10 x \OT1/cmr/m/n/10 
++
+ []
+
+
+Overfull \hbox (34.10423pt too wide) in paragraph at lines 14--28
+[] \OMS/cmsy/m/n/10 j\OML/cmm/m/it/10 ^^Uf[] \OMS/cmsy/m/n/10 ^^@
+ []
+
+
+Overfull \hbox (29.68486pt too wide) in paragraph at lines 14--28
+\OML/cmm/m/it/10 kf[]\OMS/cmsy/m/n/10 j[] \OML/cmm/m/it/10 x[] 
+ []
+
+
+Overfull \hbox (7.7778pt too wide) in paragraph at lines 14--28
+\OMS/cmsy/m/n/10 ^^T
+ []
+
+
+Overfull \hbox (43.36188pt too wide) in paragraph at lines 14--28
+\OMS/cmsy/m/n/10 j\OML/cmm/m/it/10 ^^U\OMS/cmsy/m/n/10 j[]  [] j\OML/cmm/m/it/1
+0 g \OMS/cmsy/m/n/10 ^^@
+ []
+
+
+Overfull \hbox (33.60844pt too wide) in paragraph at lines 14--28
+\OML/cmm/m/it/10 f[]\OMS/cmsy/m/n/10 j[] \OML/cmm/m/it/10 x  \OT1/cmr/m/n/10 +
+ []
+
+
+Overfull \hbox (16.38895pt too wide) in paragraph at lines 14--28
+\OMS/cmsy/m/n/10 j\OML/cmm/m/it/10 ^^U \OMS/cmsy/m/n/10 ^^@
+ []
+
+
+Overfull \hbox (62.08484pt too wide) in paragraph at lines 14--28
+\OML/cmm/m/it/10 k\OMS/cmsy/m/n/10 j[] [] j\OML/cmm/m/it/10 f[]\OMS/cmsy/m/n/10
+ j[] \OML/cmm/m/it/10 x  <
+ []
+
+
+Overfull \hbox (4.78937pt too wide) in paragraph at lines 14--28
+\OML/cmm/m/it/10 r$
+ []
+
+
+Overfull \hbox (19.55322pt too wide) in paragraph at lines 14--28
+\OML/cmm/m/it/10 r[] \OT1/cmr/m/n/10 =
+ []
+
+
+Overfull \hbox (52.86774pt too wide) in paragraph at lines 14--28
+[] \OML/cmm/m/it/10 ;  r[] \OT1/cmr/m/n/10 =
+ []
+
+
+Overfull \hbox (30.34984pt too wide) in paragraph at lines 14--28
+[]$ 
+ []
+
+Missing character: There is no 再 ("518D) in font nullfont!
+Missing character: There is no 验 ("9A8C) in font nullfont!
+Missing character: There is no 证 ("8BC1) in font nullfont!
+Missing character: There is no 的 ("7684) in font nullfont!
+Missing character: There is no 情 ("60C5) in font nullfont!
+Missing character: There is no 形 ("5F62) in font nullfont!
+Missing character: There is no ， ("FF0C) in font nullfont!
+Missing character: There is no 此 ("6B64) in font nullfont!
+Missing character: There is no 时 ("65F6) in font nullfont!
+Missing character: There is no 上 ("4E0A) in font nullfont!
+Missing character: There is no 的 ("7684) in font nullfont!
+Missing character: There is no 拓 ("62D3) in font nullfont!
+Missing character: There is no 扑 ("6251) in font nullfont!
+Missing character: There is no 是 ("662F) in font nullfont!
+Missing character: There is no 由 ("7531) in font nullfont!
+Missing character: There is no 范 ("8303) in font nullfont!
+Missing character: There is no 数 ("6570) in font nullfont!
+! Undefined control sequence.
+l.29 ...ega)$上的拓扑是由范数$||f||=\Big(\int |f|^{p}\,\dd
+                                                   x\Big)^{\frac{1}{p}}$诱导。
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+Missing character: There is no 诱 ("8BF1) in font nullfont!
+Missing character: There is no 导 ("5BFC) in font nullfont!
+Missing character: There is no 。 ("3002) in font nullfont!
+
+Overfull \hbox (17.22215pt too wide) in paragraph at lines 29--30
+\OT1/cmr/m/n/10 1  \OMS/cmsy/m/n/10 ^^T
+ []
+
+
+Overfull \hbox (17.25339pt too wide) in paragraph at lines 29--30
+\OML/cmm/m/it/10 p  \OMS/cmsy/m/n/10 ^^T
+ []
+
+
+Overfull \hbox (64.06688pt too wide) in paragraph at lines 29--30
+\OMS/cmsy/m/n/10 1$$\OML/cmm/m/it/10 L[]\OT1/cmr/m/n/10 (
+)$$\OMS/cmsy/m/n/10 jj\OML/cmm/m/it/10 f\OMS/cmsy/m/n/10 jj \OT1/cmr/m/n/10 =
+ []
+
+
+Overfull \hbox (52.075pt too wide) in paragraph at lines 29--30
+[] [] \OMS/cmsy/m/n/10 j\OML/cmm/m/it/10 f\OMS/cmsy/m/n/10 j[] \OML/cmm/m/it/10
+ x[][]$ 
+ []
+
+Missing character: There is no 先 ("5148) in font nullfont!
+Missing character: There is no 验 ("9A8C) in font nullfont!
+Missing character: There is no 证 ("8BC1) in font nullfont!
+Missing character: There is no 加 ("52A0) in font nullfont!
+Missing character: There is no 法 ("6CD5) in font nullfont!
+Missing character: There is no 连 ("8FDE) in font nullfont!
+Missing character: There is no 续 ("7EED) in font nullfont!
+Missing character: There is no ， ("FF0C) in font nullfont!
+Missing character: There is no 对 ("5BF9) in font nullfont!
+Missing character: There is no 于 ("4E8E) in font nullfont!
+Missing character: There is no ， ("FF0C) in font nullfont!
+Missing character: There is no 以 ("4EE5) in font nullfont!
+Missing character: There is no 及 ("53CA) in font nullfont!
+Missing character: There is no ， ("FF0C) in font nullfont!
+Missing character: There is no 考 ("8003) in font nullfont!
+Missing character: There is no 虑 ("8651) in font nullfont!
+Missing character: There is no 即 ("5373) in font nullfont!
+Missing character: There is no 可 ("53EF) in font nullfont!
+Missing character: There is no ， ("FF0C) in font nullfont!
+Missing character: There is no 所 ("6240) in font nullfont!
+Missing character: There is no 以 ("4EE5) in font nullfont!
+Missing character: There is no 加 ("52A0) in font nullfont!
+Missing character: There is no 法 ("6CD5) in font nullfont!
+Missing character: There is no 连 ("8FDE) in font nullfont!
+Missing character: There is no 续 ("7EED) in font nullfont!
+Missing character: There is no 。 ("3002) in font nullfont!
+
+Overfull \hbox (39.74881pt too wide) in paragraph at lines 31--32
+\OMS/cmsy/m/n/10 8 \OML/cmm/m/it/10 f[]; g[] \OMS/cmsy/m/n/10 2
+ []
+
+
+Overfull \hbox (62.78564pt too wide) in paragraph at lines 31--32
+\OML/cmm/m/it/10 L[]\OT1/cmr/m/n/10 (
+)$$\OMS/cmsy/m/n/10 8 \OML/cmm/m/it/10 B\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 f[] \
+OT1/cmr/m/n/10 +
+ []
+
+
+Overfull \hbox (31.82289pt too wide) in paragraph at lines 31--32
+\OML/cmm/m/it/10 g[]; r\OT1/cmr/m/n/10 ) \OMS/cmsy/m/n/10 2
+ []
+
+
+Overfull \hbox (30.72717pt too wide) in paragraph at lines 31--32
+\OMS/cmsy/m/n/10 N\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 f[] \OT1/cmr/m/n/10 +
+ []
+
+
+Overfull \hbox (92.95047pt too wide) in paragraph at lines 31--32
+\OML/cmm/m/it/10 g[]\OT1/cmr/m/n/10 )$$\OML/cmm/m/it/10 B\OT1/cmr/m/n/10 (\OML/
+cmm/m/it/10 f[]; []\OT1/cmr/m/n/10 ) \OML/cmm/m/it/10 ;  B\OT1/cmr/m/n/10 (\OML
+/cmm/m/it/10 g[]; []\OT1/cmr/m/n/10 )$ 
+ []
+
+Missing character: There is no 再 ("518D) in font nullfont!
+Missing character: There is no 验 ("9A8C) in font nullfont!
+Missing character: There is no 证 ("8BC1) in font nullfont!
+Missing character: There is no 数 ("6570) in font nullfont!
+Missing character: There is no 乘 ("4E58) in font nullfont!
+Missing character: There is no 连 ("8FDE) in font nullfont!
+Missing character: There is no 续 ("7EED) in font nullfont!
+Missing character: There is no ， ("FF0C) in font nullfont!
+Missing character: There is no 对 ("5BF9) in font nullfont!
+Missing character: There is no 于 ("4E8E) in font nullfont!
+! Undefined control sequence.
+l.32 ...^I\item 再验证数乘连续，对于$\forall k\, \in \mathbb
+                                                  {K}\, , \, f_{0}\in \, L_{...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+Missing character: There is no ， ("FF0C) in font nullfont!
+Missing character: There is no 以 ("4EE5) in font nullfont!
+Missing character: There is no 及 ("53CA) in font nullfont!
+Missing character: There is no , ("2C) in font nullfont!
+Missing character: There is no 要 ("8981) in font nullfont!
+Missing character: There is no 找 ("627E) in font nullfont!
+Missing character: There is no ， ("FF0C) in font nullfont!
+Missing character: There is no 使 ("4F7F) in font nullfont!
+Missing character: There is no 得 ("5F97) in font nullfont!
+Missing character: There is no ， ("FF0C) in font nullfont!
+Missing character: There is no 满 ("6EE1) in font nullfont!
+Missing character: There is no 足 ("8DB3) in font nullfont!
+Missing character: There is no ： ("FF1A) in font nullfont!
+
+! LaTeX Error: Environment equation* undefined.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.33 ^^I^^I\begin{equation*}
+                            
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+Missing character: There is no ( ("28) in font nullfont!
+! Missing $ inserted.
+<inserted text> 
+                $
+l.34 ^^I^^I^^I(\int
+                    \, |\lambda g-kf_{0}|^{p})^{\frac{1}{p}}\, \dd x \, <\, r
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+! Undefined control sequence.
+l.34 ...\lambda g-kf_{0}|^{p})^{\frac{1}{p}}\, \dd
+                                                   x \, <\, r
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+
+! LaTeX Error: \begin{enumerate} on input line 30 ended by \end{equation*}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.35 ^^I^^I\end{equation*}
+                          
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+! Missing $ inserted.
+<inserted text> 
+                $
+l.35 ^^I^^I\end{equation*}
+                          
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+Missing character: There is no 可 ("53EF) in font nullfont!
+Missing character: There is no 先 ("5148) in font nullfont!
+Missing character: There is no 考 ("8003) in font nullfont!
+Missing character: There is no 虑 ("8651) in font nullfont!
+Missing character: There is no ： ("FF1A) in font nullfont!
+
+! LaTeX Error: Environment equation* undefined.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.37 ^^I\begin{equation*}
+                         
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+! LaTeX Error: Environment aligned undefined.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.38 ^^I^^I\begin{aligned}
+                          
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+Missing character: There is no ( ("28) in font nullfont!
+! Missing $ inserted.
+<inserted text> 
+                $
+l.39 ^^I^^I^^I^^I(\int
+                       \, |\lambda g-kf_{0}|^{p})^{\frac{1}{p}}&=(\int \, |\...
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+! Misplaced alignment tab character &.
+l.39 ... \, |\lambda g-kf_{0}|^{p})^{\frac{1}{p}}&
+                                                  =(\int \, |\lambda g-\lamb...
+I can't figure out why you would want to use a tab mark
+here. If you just want an ampersand, the remedy is
+simple: Just type `I\&' now. But if some right brace
+up above has ended a previous alignment prematurely,
+you're probably due for more error messages, and you
+might try typing `S' now just to see what is salvageable.
+
+! Undefined control sequence.
+l.39 ...\lambda f_{0}+\lambda f_{0}-kf_{0}|^{p}\dd
+                                                   x)^{\frac{1}{p}}\\
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Misplaced alignment tab character &.
+<recently read> &
+                 
+l.40 ^^I^^I^^I^^I&
+                  \leq |\lambda|(\int |g-f_{0}|^{p}\dd x)^{\frac{1}{p}}+|\la...
+I can't figure out why you would want to use a tab mark
+here. If you just want an ampersand, the remedy is
+simple: Just type `I\&' now. But if some right brace
+up above has ended a previous alignment prematurely,
+you're probably due for more error messages, and you
+might try typing `S' now just to see what is salvageable.
+
+! Undefined control sequence.
+l.40 ...^I^^I&\leq |\lambda|(\int |g-f_{0}|^{p}\dd
+                                                   x)^{\frac{1}{p}}+|\lambda...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+
+! LaTeX Error: \begin{enumerate} on input line 30 ended by \end{aligned}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.41 ^^I^^I\end{aligned}
+                        
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+! Missing $ inserted.
+<inserted text> 
+                $
+l.41 ^^I^^I\end{aligned}
+                        
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+
+! LaTeX Error: \begin{enumerate} on input line 30 ended by \end{equation*}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.42 ^^I\end{equation*}
+                       
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+Missing character: There is no 由 ("7531) in font nullfont!
+Missing character: There is no 上 ("4E0A) in font nullfont!
+Missing character: There is no 式 ("5F0F) in font nullfont!
+Missing character: There is no 可 ("53EF) in font nullfont!
+Missing character: There is no 取 ("53D6) in font nullfont!
+Missing character: There is no ， ("FF0C) in font nullfont!
+Missing character: There is no 所 ("6240) in font nullfont!
+Missing character: There is no 以 ("4EE5) in font nullfont!
+Missing character: There is no 数 ("6570) in font nullfont!
+Missing character: There is no 乘 ("4E58) in font nullfont!
+Missing character: There is no 连 ("8FDE) in font nullfont!
+Missing character: There is no 续 ("7EED) in font nullfont!
+Missing character: There is no 。 ("3002) in font nullfont!
+
+Overfull \hbox (22.18744pt too wide) in paragraph at lines 32--44
+\OMS/cmsy/m/n/10 8\OML/cmm/m/it/10 k  \OMS/cmsy/m/n/10 2
+ []
+
+
+Overfull \hbox (35.81238pt too wide) in paragraph at lines 32--44
+\OML/cmm/m/it/10 K ;  f[] \OMS/cmsy/m/n/10 2
+ []
+
+
+Overfull \hbox (52.29247pt too wide) in paragraph at lines 32--44
+\OML/cmm/m/it/10 L[]\OT1/cmr/m/n/10 (
+)$$\OMS/cmsy/m/n/10 8 \OML/cmm/m/it/10 B \OT1/cmr/m/n/10 =
+ []
+
+
+Overfull \hbox (51.11224pt too wide) in paragraph at lines 32--44
+\OML/cmm/m/it/10 B\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 kf[]; r\OT1/cmr/m/n/10 )  \
+OMS/cmsy/m/n/10 2
+ []
+
+
+Overfull \hbox (54.98584pt too wide) in paragraph at lines 32--44
+\OMS/cmsy/m/n/10 N\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 kf[]\OT1/cmr/m/n/10 )$$\OML
+/cmm/m/it/10 B[] \OT1/cmr/m/n/10 =
+ []
+
+
+Overfull \hbox (65.23196pt too wide) in paragraph at lines 32--44
+\OML/cmm/m/it/10 B\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 k; r[]\OT1/cmr/m/n/10 ) \OM
+L/cmm/m/it/10 ;  B[] \OT1/cmr/m/n/10 =
+ []
+
+
+Overfull \hbox (61.18867pt too wide) in paragraph at lines 32--44
+\OML/cmm/m/it/10 B\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 f[]; r[]\OT1/cmr/m/n/10 )$$
+\OMS/cmsy/m/n/10 8 \OML/cmm/m/it/10 ^^U \OMS/cmsy/m/n/10 2
+ []
+
+
+Overfull \hbox (34.42174pt too wide) in paragraph at lines 32--44
+\OML/cmm/m/it/10 B[] ;  g \OMS/cmsy/m/n/10 2
+ []
+
+
+Overfull \hbox (12.07121pt too wide) in paragraph at lines 32--44
+\OML/cmm/m/it/10 B[]$
+ []
+
+
+Overfull \hbox (31.51733pt too wide) in paragraph at lines 32--44
+[]  \OMS/cmsy/m/n/10 j\OML/cmm/m/it/10 ^^Ug \OMS/cmsy/m/n/10 ^^@
+ []
+
+
+Overfull \hbox (52.39444pt too wide) in paragraph at lines 32--44
+\OML/cmm/m/it/10 kf[]\OMS/cmsy/m/n/10 j[]\OT1/cmr/m/n/10 )[] \OML/cmm/m/it/10 x
+  <
+ []
+
+
+Overfull \hbox (4.78937pt too wide) in paragraph at lines 32--44
+\OML/cmm/m/it/10 r$
+ []
+
+
+Overfull \hbox (31.51733pt too wide) in paragraph at lines 32--44
+[]  \OMS/cmsy/m/n/10 j\OML/cmm/m/it/10 ^^Ug \OMS/cmsy/m/n/10 ^^@
+ []
+
+
+Overfull \hbox (43.34592pt too wide) in paragraph at lines 32--44
+\OML/cmm/m/it/10 kf[]\OMS/cmsy/m/n/10 j[]\OT1/cmr/m/n/10 )[] =
+ []
+
+
+Overfull \hbox (35.40623pt too wide) in paragraph at lines 32--44
+\OT1/cmr/m/n/10 ([]  \OMS/cmsy/m/n/10 j\OML/cmm/m/it/10 ^^Ug \OMS/cmsy/m/n/10 ^
+^@
+ []
+
+
+Overfull \hbox (22.99315pt too wide) in paragraph at lines 32--44
+\OML/cmm/m/it/10 ^^Uf[] \OT1/cmr/m/n/10 +
+ []
+
+
+Overfull \hbox (22.99315pt too wide) in paragraph at lines 32--44
+\OML/cmm/m/it/10 ^^Uf[] \OMS/cmsy/m/n/10 ^^@
+ []
+
+
+Overfull \hbox (38.50568pt too wide) in paragraph at lines 32--44
+\OML/cmm/m/it/10 kf[]\OMS/cmsy/m/n/10 j[]\OML/cmm/m/it/10 x\OT1/cmr/m/n/10 )[][
+] 
+ []
+
+
+Overfull \hbox (7.7778pt too wide) in paragraph at lines 32--44
+\OMS/cmsy/m/n/10 ^^T
+ []
+
+
+Overfull \hbox (39.29518pt too wide) in paragraph at lines 32--44
+\OMS/cmsy/m/n/10 j\OML/cmm/m/it/10 ^^U\OMS/cmsy/m/n/10 j\OT1/cmr/m/n/10 ([] \OM
+S/cmsy/m/n/10 j\OML/cmm/m/it/10 g \OMS/cmsy/m/n/10 ^^@
+ []
+
+
+Overfull \hbox (40.76263pt too wide) in paragraph at lines 32--44
+\OML/cmm/m/it/10 f[]\OMS/cmsy/m/n/10 j[]\OML/cmm/m/it/10 x\OT1/cmr/m/n/10 )[] +
+
+ []
+
+
+Overfull \hbox (16.38895pt too wide) in paragraph at lines 32--44
+\OMS/cmsy/m/n/10 j\OML/cmm/m/it/10 ^^U \OMS/cmsy/m/n/10 ^^@
+ []
+
+
+Overfull \hbox (11.07642pt too wide) in paragraph at lines 32--44
+\OML/cmm/m/it/10 k\OMS/cmsy/m/n/10 j ^^A
+ []
+
+
+Overfull \hbox (37.33762pt too wide) in paragraph at lines 32--44
+\OMS/cmsy/m/n/10 jj\OML/cmm/m/it/10 f[]\OMS/cmsy/m/n/10 jj[]  \OML/cmm/m/it/10 
+<
+ []
+
+
+Overfull \hbox (4.78937pt too wide) in paragraph at lines 32--44
+\OML/cmm/m/it/10 r$
+ []
+
+
+Overfull \hbox (19.55322pt too wide) in paragraph at lines 32--44
+\OML/cmm/m/it/10 r[] \OT1/cmr/m/n/10 =
+ []
+
+
+Overfull \hbox (55.21774pt too wide) in paragraph at lines 32--44
+[] \OML/cmm/m/it/10 ;  r[] \OT1/cmr/m/n/10 =
+ []
+
+
+Overfull \hbox (25.59984pt too wide) in paragraph at lines 32--44
+[]$ 
+ []
+
+
+! LaTeX Error: \begin{document} ended by \end{proof}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.46 \end{proof}
+                
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+! LaTeX Error: Environment remark undefined.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.48 \begin{remark}
+                   
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+Overfull \hbox (20.0pt too wide) in paragraph at lines 49--49
+[] 
+ []
+
+Missing character: There is no 当 ("5F53) in font nullfont!
+Missing character: There is no 时 ("65F6) in font nullfont!
+Missing character: There is no ， ("FF0C) in font nullfont!
+Missing character: There is no 不 ("4E0D) in font nullfont!
+Missing character: There is no 是 ("662F) in font nullfont!
+Missing character: There is no 赋 ("8D4B) in font nullfont!
+Missing character: There is no 范 ("8303) in font nullfont!
+Missing character: There is no 空 ("7A7A) in font nullfont!
+Missing character: There is no 间 ("95F4) in font nullfont!
+Missing character: There is no 。 ("3002) in font nullfont!
+
+Overfull \hbox (17.22215pt too wide) in paragraph at lines 50--51
+\OT1/cmr/m/n/10 0  \OML/cmm/m/it/10 <
+ []
+
+
+Overfull \hbox (17.25339pt too wide) in paragraph at lines 50--51
+\OML/cmm/m/it/10 p  <
+ []
+
+
+Overfull \hbox (31.42796pt too wide) in paragraph at lines 50--51
+\OT1/cmr/m/n/10 1$$\OML/cmm/m/it/10 L[]\OT1/cmr/m/n/10 (
+)$ 
+ []
+
+Missing character: There is no 当 ("5F53) in font nullfont!
+Missing character: There is no ， ("FF0C) in font nullfont!
+Missing character: There is no 是 ("662F) in font nullfont!
+Missing character: There is no 赋 ("8D4B) in font nullfont!
+Missing character: There is no 范 ("8303) in font nullfont!
+Missing character: There is no 空 ("7A7A) in font nullfont!
+Missing character: There is no 间 ("95F4) in font nullfont!
+Missing character: There is no 。 ("3002) in font nullfont!
+
+Overfull \hbox (17.22215pt too wide) in paragraph at lines 51--52
+\OT1/cmr/m/n/10 1  \OMS/cmsy/m/n/10 ^^T
+ []
+
+
+Overfull \hbox (15.58676pt too wide) in paragraph at lines 51--52
+\OML/cmm/m/it/10 p \OMS/cmsy/m/n/10 ^^T
+ []
+
+
+Overfull \hbox (36.42796pt too wide) in paragraph at lines 51--52
+\OMS/cmsy/m/n/10 1$$\OML/cmm/m/it/10 L[]\OT1/cmr/m/n/10 (
+)$ 
+ []
+
+
+! LaTeX Error: \begin{document} ended by \end{remark}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.53 \end{remark}
+                 
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+)
+! Emergency stop.
+<*> Section7.tex
+                
+*** (job aborted, no legal \end found)
+
+ 
+Here is how much of TeX's memory you used:
+ 26 strings out of 476275
+ 411 string characters out of 5815120
+ 311968 words of memory out of 5000000
+ 20781 multiletter control sequences out of 15000+600000
+ 403430 words of font info for 27 fonts, out of 8000000 for 9000
+ 1348 hyphenation exceptions out of 8191
+ 18i,6n,12p,398b,147s stack positions out of 5000i,500n,10000p,200000b,80000s
+No pages of output.

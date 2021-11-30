@@ -1,0 +1,22 @@
+\documentclass{mynotes}
+
+\includeonly{includefiles(XQH)/Section7,includefiles(XQH)/Section8}
+\input{inputfiles/笔记说明}
+\usepackage{amsmath,physics}
+
+\begin{document}
+	
+	\pdfbookmark[0]{封面}{title}         % 封面页加到 pdf 书签
+	\maketitle
+	
+	\pdfbookmark[0]{目录}{toc}
+	\tableofcontents
+	
+	\newpage	
+	
+	\include{includefiles(XQH)/Section7}
+	\include{includefiles(XQH)/Section8}
+%	\include{includefiles/Section2}
+%	\include{includefiles/Section3}
+%	\include{includefiles/Section4}
+\end{document}
