@@ -1,0 +1,165 @@
+\documentclass{article}
+
+\usepackage{ctex}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\title{数学分析笔记}
+\author{马明文}
+\date{\today}
+
+\begin{document}
+	\maketitle
+	\section{第一章 \quad 一些通用的数学概念与记号}
+	\subsection{逻辑符号}
+	\subsection{集合及其运算}
+	\subsubsection{集合的概念}
+	康托尔：“我们把集合理解为由若干确定的、有充分区别的、具体的或抽象的对象合并而成的一个整体”
+	~\\
+	
+	缺陷：
+	
+	罗素悖论：集合的集合
+	 ~\\
+	 
+	现有的公理化集合论中，集合被定义为具有一组确定性质的数学对象。
+	
+	\subsubsection{包含关系}
+	元素：=组成集合的对象称为该集合的元素
+	
+	“元素x属于集合X”：=$x \in X$
+	
+	"A包含B"称为包含关系
+	
+	$(A\subseteq B):=\forall x((x\in A)\Rightarrow (x\in B))$
+	
+	真子集（ $\subsetneqq$）；空集($\varnothing$)
+	
+	\subsubsection{最简单的集合运算}
+	a. A和B的并集\quad$ A\cup B$
+	~\\
+	\par b. A和B的交集\quad$A\cap B$
+	~\\
+	\par c. A和B的差集\quad $A\setminus B$
+	~\\
+	\par 德摩根定律\par
+	$C_M (A \cup B)=C_M A\cap C_M B$,\par
+	$C_M (A \cap B)=C_M A \cup C_M B$.\par
+	~\\
+	\par d.集合的直积（  笛卡尔积）\par
+	$X\times Y:=\{(x,y)\rvert (x\in X)\land (y\in Y)\}$
+	
+	\subsection{函数}
+	\subsubsection{函数(映射)的概念}
+	值域\par
+	$f(X):=\{y\in Y\rvert \exists x((x\in X)\wedge (y=f(x)))\}$
+	~\\ \par 收缩(限制)
+	~\\ \par 扩展(延拓)
+	~\\ \par 函数三要素(X,f,Y)\par
+	X是被映射的集合或者函数的定义域\par
+	Y是映射所到达的集合或函数的到达域\par
+	f是让每一个元素$x\in X$与确定元素$y\in Y$相对应的规律	
+	~\\ \par
+	n质点系的构型空间
+	\par n质点系的相空间
+	\subsubsection{映射的简单分类}
+	像
+	$f(A):={y\in Y\rvert \exists x((x\in A)\wedge (y=f(x)))}$\par 
+	原像
+	$f^{-1}(B):=\{x\in X\rvert f(x)\in B\}$~\\ \par 
+	映射$f:X\rightarrow Y$分为三类：\par 
+	满射(或称为到上映射，即X到Y上的映射)，这是$f(X)=Y$
+	\par 单射(或称为嵌入)，这时对于集合X的任何元素$x_1,x_2$有$(f(x_1)=f(x_2))\Rightarrow (x_1=x_2)$
+	\par 双射(或称为一一映射)，这时它既单又满
+	~\\ \par 
+	逆映射\par 当f是双射时，f存在逆映射(反函数)$f^{-1}$，逆映射也是双射，逆映射的逆映射是f。
+	~\\ \par 
+	逆映射与原像不同，原像无论f是否为双射均存在，而逆映射只有当f为双射时存在。	
+	\subsubsection{函数的复合与互逆映射}
+	映射$f:X\rightarrow Y$\par 
+	映射$g:Y\rightarrow Z$\par 
+	f与g的复合映射$g\circ f(x):=g(f(x)):=g(f(x))$
+	~\\ \par
+	复合运算满足结合律\par 
+	$h\circ (g\circ f)=(h\circ g)\circ f$
+	~\\ \par 
+	$f_n\circ\cdots\circ f_1$简写为$f^n$
+	~\\ \par 
+	举例\par 
+	$f(x)=(x+a/x)/2$\par 
+	计算正数a的平方根，任取初始值$x_0>0$代入f(x)中作迭代$f^n(x_0)$
+	~\\ \par 
+	引理 \quad $(g\circ f=e_X)\Rightarrow (g\mbox{是满射})\wedge (f\mbox{是单射})$
+	\par 命题(可作为互为逆映射的定义) \quad 映射$f:X\rightarrow Y,g:Y\rightarrow X$当且仅当$g\circ f=e_X,f\circ g=e_Y$时才是互逆的双射。
+	\par $\blacktriangleleft$ 充分性显然\par 必要性：由引理，f,g均为双射。\par 再由已知，$f(x)=y,则g(f(x))=g(y)=x$\par $g(y)=x,f(g(y))=f(x)=y$\par 所以f,g互逆。 $\blacktriangleright$
+	\subsubsection{作为关系的函数.函数的图像.}
+	a.关系.
+	\par 序偶(x,y)的任何集合称为关系$\Re $
+	\par 可以把关系$\Re$ 解释成直积$X\times Y$的子集$\Re $
+	~\\ \par 
+	等价关系
+	\par $a\Re a$(自反性)
+	\par $a\Re b\Rightarrow b\Re a$(对称性)
+	\par $(a\Re b)\wedge (b\Re c)\Rightarrow a\Re c$(传递性)
+	~\\ \par 
+	偏序关系
+	 \par $a\Re a$(自反性)
+	 \par $(a\Re b)\wedge (b\Re c)\Rightarrow a\Re c$(传递性)
+	 \par $(a\Re b)\wedge (b\Re a)\Rightarrow a=b$(反称性)
+	 ~\\ \par
+	 序关系
+	 \par 除了偏序关系中的三个关系外还成立$\forall a\forall b((a\Re b)\wedge (b\Re a))$
+	 \par 即集合X的任何两个元素都是可比的，则关系$\Re$称为序关系，定义了序关系的集合X称为线性序集。
+	 ~\\ \par 	
+	 b.函数与函数的图像.
+	 \par 满足$(x\Re y_1)\wedge (x\Re y_2)\Rightarrow (y_1=y_2)$的关系$\Re$称为函数关系。
+	 \par 函数关系称为函数。
+	~\\ \par 
+	函数图像
+	\par 由一切形如(x,f(x))的元素组成的集合$\Gamma$称为该函数的图像，它是直积$X\times Y$的子集。
+	\par $\Gamma:=\{(x,y)\in X\times Y\rvert y=f(x)\}$
+	\subsection{某些补充}
+	\subsubsection{集合的势(基数类)}
+	如果集合X到集合Y的双射存在，则称集合X和Y等势。
+	\par 等势关系是一个等价关系。等势关系把所有集合划分为彼此等价的集合组成的类，同一类集合具有相同数量的元素(等势)。
+	\par 集合X所在的类称为集合X的势或基数类，记为card X。
+	~\\ \par 
+	$$(card X\leq card Y):=(\exists Z\subset Y\rvert card X=card Y)$$
+	\quad \quad 关系$X\subset Y$并不影响不等式$card Y\leq card X$，即使X是Y的真子集也是如此。
+	~\\ \par 
+	一个集合能够与自身的一部分等势，这是无穷集的特征，戴德金甚至曾经建议把它当作无穷集的定义。因此，如果一个集合不与自己的任何真子集等势，我们就称之为有限集(按戴德金的说法)，否则称之为无穷集。
+	$$1^{\mbox{。}}(cardX\leq cardY)\wedge (cardY\leq cardZ)\Rightarrow (card X\leq cardZ)$$
+	$$2^{\mbox{。}}(cardX\leq cardY)\wedge (cardY\leq cardX)\Rightarrow (card X=card Y)\mbox{(施罗德-伯恩斯坦定理)}$$
+	$$3^{\mbox{。}}\forall X\forall Y(card X\leq card Y)\vee (cardY\leq cardX)\mbox{()康托尔定理)}$$
+	~\\ \par 
+	定理 $cardX\le cardP(X)$
+	\par 
+	$\blacktriangleleft$
+	对空集$\emptyset$显然成立
+	\par 如果$X\ne \emptyset$,P(X)中包含X的所有单元素子集，所以$cardX\leq cardP(X)$。
+	\par 还要证明$cardX\ne cardP(X)$，利用反证法。
+	\par 假设$cardX=cardP(X)$，则存在双射$f：X\rightarrow P(X)$。
+	\par 考虑集合$A=\{x\in X\rvert x\notin f(x)\}$，一定存在X中的元素映射为A，记之为a。
+	\par 若$a\in A$,显然矛盾。
+	\par 若$a\notin A$，显然矛盾。
+	\par 所以结论成立。
+	 $\blacktriangleright$
+	 \par 由这个定理可知，无穷集的“无穷性”是各不相同的。
+	 \subsubsection{公理化集合论}
+	 \par $1^{\mbox{。}}-7^{\mbox{。}}$组成策梅洛-佛伦克尔公理系统：
+	 \par $1^{\mbox{。}}$外延公理：集合A与集合B相等，当且仅当它们所具有的各种元素是相等的。
+	 \par $2^{\mbox{。}}$分离公理：任何集合A和性质P都对应一个集合B，其元素是且仅是A中具有性质P的各元素。
+	 \par $3^{\mbox{。}}$并集公理：对于集合的任何集合M，存在一个被称为集合M的并集的集合$\cup M$,其元素是且仅是M的各元素所包含的那些元素。
+	 \par $4^{\mbox{。}}$配对公理：对于任何集合X和Y，存在一个集合Z，其元素仅为X和Y。
+	 \par $5^{\mbox{。}}$子集之集公理：对于任何集合X，存在一个集合P(X)，其元素是且仅是X的各子集。
+	 \par $6^{\mbox{。}}$无穷公理：归纳集存在。
+	 \par 后继集
+	 \par 集合X的后继集定义为$X^{+}=X\cup \{X\}$
+	 \par 归纳集
+	 \par 如果一个集合包含空集以及任何一个元素的后继集，我们就称该集合为归纳集。
+	 \par $7^{\mbox{。}}$替换公理：设$F(x,y)$是以下命题(更确切地说，这是一个公式)：对于集合X的任何元素$x_{\mbox{。}}$，存在唯一的对象$y_{\mbox{。}}$，使得$F(x_{\mbox{。}},y_{\mbox{。}})$成立。那么，满足以下条件的对象y组成一个集合：存在$x\in X$,使得F(x,y)成立。
+	 \par $8^{\mbox{。}}$选择公理：对于任何由互不相交非空集合组成的集合族，存在集合C，使得对于该集合族中的任何集合X，集合$X\cap C$只由一个元素组成。
+	 \par 换言之，恰好可以从集合族的每个集合中选出一个代表元素并由它们组成集合C。
+	 \subsubsection{关于数学命题的结构及其集合论语言表诉的附注}
+	 
+	
+\end{document}

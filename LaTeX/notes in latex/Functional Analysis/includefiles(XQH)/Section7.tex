@@ -1,0 +1,146 @@
+
+\section{拓扑向量空间}
+\subsection{定义和性质}
+
+\begin{definition}[拓扑向量空间]
+	
+\end{definition}
+
+\begin{example}
+	验证：$L_{p}(\Omega),\, 0<\, p\,\leq\, \infty$为拓扑向量空间。
+\end{example}
+
+\begin{proof}
+	\begin{itemize}
+		\item 首先验证$0\, < \, p\, < \, 1$的情形，此时$L_{p}(\Omega)$上的拓扑由距离$||f-g||^{p}=\int |f-g|^{p}\, \dd x$所诱导：
+		\begin{enumerate}
+			\item 先验证加法连续。$\forall \, f_{0},g_{0}\in \, L_{p}(\Omega) \quad and \forall \, V_{0}\in \mathcal{N}_{f_{0}+g_{0}}$，不妨记$V_{0}=B(f_{0}+g_{0},r)$，此时，考虑$f_{0}\in B_{1}=B(f_{0},\frac{r}{2})\in \mathcal{N}(f_{0})\, ,\, g_{0}\in B_{2}=B(g_{0},\frac{r}{2})\in\mathcal{N}(g_{0})$，则有$\forall \, f\in \, B_{1}\, ,\, g \, \in \, B_{2}\, ,\, f+g\in V_{0}$，所以加法连续。
+			\item 再验证数乘成立。$\forall \, k\in\mathbb{K}\, ,f_{0}\in L_{p}(\Omega)$以及$\forall \, B=B(kf_{0},r)$，要找到开球$k\in B_{1}=B(k,r_{1})\in \mathcal{N}(k),f_{0}\in  B_{2}=B(f_{0},r_{2})\in \mathcal{N}(f_{0})$，使得$\forall \lambda\, \in \, B_{1}\, , \, g\in B_{2}$，满足：
+			\begin{equation*}
+				\int |\lambda g-kf_{0}|^{p}\, \dd x\, < \, r
+			\end{equation*}
+		利用插值技巧：
+			\begin{equation*}
+				\begin{aligned}
+				\int |\lambda g-kf_{0}|^{p}\,\dd
+				 x \, &=\int |\lambda g-\lambda f_{0} + \lambda f_{0}-kf_{0}|^{p}\,\dd x\\
+				 &\leq \int |\lambda g-\lambda f_{0}|^{p}\,\dd x +\int |\lambda f_{0}-kf_{0}|^{p}\, \dd x\\
+				 &\leq |\lambda|^{p}\, \int |g-f_{0}|^{p}\,\dd x \,+\, |\lambda -k|^{p} \int |f_{0}|^{p}\,\dd x \, < \,r 			 
+				\end{aligned}
+			\end{equation*}
+		可取$r_{1}=\frac{r^{\frac{1}{p}}}{2^{\frac{1}{p}}|f_{0}|}\, ,\, r_{2}=\frac{r}{2|\lambda|^{p}_{max}}$，所以数乘也连续。
+		\end{enumerate}
+	\item 再验证$1\, \leq \, p \, \leq \, \infty $的情形，此时$L_{p}(\Omega)$上的拓扑是由范数$||f||=\Big(\int |f|^{p}\,\dd x\Big)^{\frac{1}{p}}$诱导。
+	\begin{enumerate}
+		\item 先验证加法连续，对于$\forall \, f_{0},g_{0}\in L_{p}(\Omega)$，以及$\forall \, B(f_{0}+g_{0},r)\in \, \mathcal{N}(f_{0}+g_{0})$，考虑$B(f_{0},\frac{r}{2})\, , \, B(g_{0},\frac{r}{2})$即可，所以加法连续。
+		\item 再验证数乘连续，对于$\forall k\, \in \mathbb{K}\, , \, f_{0}\in \, L_{p}(\Omega)$，以及$\forall \, B=B(kf_{0},r)\, \in \, \mathcal{N}(kf_{0})$,要找$B_{1}=B(k,r_{1})\, ,\, B_{2}=B(f_{0},r_{2})$，使得$\forall \, \lambda\in B_{1}\, ,\, g\in B_{2}$，满足：
+		\begin{equation*}
+			(\int \, |\lambda g-kf_{0}|^{p})^{\frac{1}{p}}\, \dd x \, <\, r
+		\end{equation*}
+	可先考虑：
+	\begin{equation*}
+		\begin{aligned}
+				(\int \, |\lambda g-kf_{0}|^{p})^{\frac{1}{p}}&=(\int \, |\lambda g-\lambda f_{0}+\lambda f_{0}-kf_{0}|^{p}\dd x)^{\frac{1}{p}}\\
+				&\leq |\lambda|(\int |g-f_{0}|^{p}\dd x)^{\frac{1}{p}}+|\lambda-k|\cdot||f_{0}||_{p}\, <\, r
+		\end{aligned}
+	\end{equation*}
+	由上式可取$r_{1}=\frac{r}{2||f_{0}||_{p}}\,,\, r_{2}=\frac{r}{2\lambda_{max}}$，所以数乘连续。
+	\end{enumerate}
+	\end{itemize}
+\end{proof}
+
+\begin{remark}
+	\begin{itemize}
+		\item 当$0\, <\, p\, <\, 1$时，$L_{p}(\Omega)$不是赋范空间。
+		\item 当$1\, \leq p \leq \infty$，$L_{p}(\Omega)$是赋范空间。
+	\end{itemize}
+\end{remark}
+
+\begin{theorem}
+	设$E$是拓扑向量空间，则“伸缩平移”是$E$上的同胚。
+\end{theorem}
+
+\begin{hint}
+	连续映射的复合仍是连续映射。
+\end{hint}
+
+\begin{definition}
+	\begin{enumerate}
+		\item 平衡的：若任取$|\lambda|\leq 1(\lambda\in \mathbb{K}) $，对$\forall x\in A$，有$\lambda x\in A $，那么称$A$是平衡的。
+		\item 吸收的：对$\forall x\in E $，$\exists a>0 (constant)$，当取$|\lambda|\leq a(\lambda \in \mathbb{K})$时，有$\lambda \, x\in A$，那么称$A$是吸收的。
+	\end{enumerate}
+\end{definition}
+
+\begin{remark}
+	若$A$是平衡的，则$A$是对称的，即$-A=A$，且$0\in A$。
+\end{remark}
+
+\begin{theorem}
+	若$E$是拓扑向量空间，$A\subset E$。则
+	\begin{enumerate}
+		\item 若$A$是向量子空间(凸集或平衡集)，则$\bar{A}$也是向量子空间(凸集或者平衡集)。
+		\item 若$A$是凸集，则$\mathring{A}$也是凸集。
+		\item 若$A$是平衡集且$0\in \mathring{A} $，则$\mathring{A}$也是平衡集。
+	\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+	\begin{enumerate}
+		\item 
+		\item
+		\item
+	\end{enumerate}
+\end{proof}
+
+接下来用$\mathcal{N}(x)$表示$x$点的领域系。
+\begin{theorem}
+	设$E$是拓扑向量空间。则
+	\begin{enumerate}
+		\item 任取$x\in E $，则$\mathcal{N}(x)=\mathcal{N}(x)+x $(即$V\in \mathcal{N}(x)\Leftrightarrow V-x\in \mathcal{N}(0) $)。
+		\item 任取$V\in \mathcal{N}(0) $，存在$U\subset \mathcal{N}(0) $，使得$U+U\subset V $。
+		\item 设$\lambda\in \mathbb{K} $且$\lambda\neq 0 $。则$V\in \mathcal{N}(0)\Leftrightarrow \lambda V\in \mathcal{0} $。
+		\item 任意$V\in \mathcal{N}(0) $是吸收的。
+		\item 原点0有平衡的开(或闭)邻域基。
+	\end{enumerate}
+\end{theorem}
+\begin{proof}
+	
+\end{proof}
+
+
+\begin{theorem}\label{XQHthe070104}
+	设$E$和$F$是两个拓扑向量空间，$u:\, E\, \rightarrow \, F $是线性映射。则以下命题等价：
+	\begin{enumerate}
+		\item $u$是连续映射。
+		\item $u$在原点连续。
+	\end{enumerate}
+	若$F$还是赋范空间，则以上命题与如下命题等价：
+	\begin{enumerate}
+		\item[3.] $u$在原点的某邻域内有界。 
+	\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+	
+\end{proof}
+
+\original
+{定理\ref{XQH070104}意味着连续线性映射$u:E\, \rightarrow \, F $是一致连续的，即对$F$中原点的每个邻域$V$，存在$E$中原点的邻域$W$，使得当$x-y\in W $时，$u(x)-u(y) \in V $
+}
+{P133}
+\begin{remark}
+	类比函数的一致连续理解。
+\end{remark}
+
+\begin{corollary}
+	设$E$是数域$\mathcal{K}$上的拓扑向量空间，$u:E\, \rightarrow \, \mathbb{K} $是线性泛函。则定理\ref{XQH070104}的结论成立。
+\end{corollary}
+
+
+
+
+
+
+
+
+

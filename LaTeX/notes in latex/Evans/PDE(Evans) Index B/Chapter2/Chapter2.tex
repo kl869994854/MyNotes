@@ -1,0 +1,1931 @@
+%--------------------------------------------------导言区------------------------------------------------
+
+%\documentclass{book}%book,report,letter
+
+\documentclass[leqno]{article}
+%\documentclass[leqno]{article}%leqno可选项让行间公式编号在左边
+
+\usepackage{titlesec} %修改标题格式 %\titleformat{command}[shape]{format}{label}{sep}{before-code}[after-code]
+
+\usepackage{ctex}%中文
+
+\usepackage{xltxtra}    %标志符
+
+\usepackage{texnames}   %标志符
+
+\usepackage{mflogo}     %标志符
+
+\usepackage{graphicx}   %插图
+%语法： \includegraphics[<选项>]{<文件名>}
+%格式：EPS,PDF,PNG,JPEG,BMP
+%图片在当前目录下的figures目录  \graphicspath{{figures/}}
+\graphicspath{{figures/}}
+
+\title{PDE（Evans）第二章：四个重要的线性偏微分方程 Latex尝试版}
+\author{马明文}
+\date{\today}
+%以上三行内容要在正文中用/maketitle引用
+
+\usepackage{amsmath}%数学包
+
+\usepackage{mathbbol}%数学符号
+
+\usepackage{bm}%使希腊字体加粗
+
+\usepackage{amssymb}
+
+\usepackage{amsthm}
+
+\usepackage{appendix} %附录包
+
+\usepackage{wasysym}
+
+\usepackage{hyperref}
+
+\usepackage{enumitem}
+
+\usepackage{sectsty}
+\sectionfont{\hspace*{-3em}}
+
+
+%\usepackage[russian]{babel}
+
+%\usepackage[T2C]{fontenc}
+
+%\usepackage[OT2,OT1]{fontenc}
+%{\fontencoding{OT2}}\selectfont}
+
+\def\Xint#1{\mathchoice
+	{\XXint\displaystyle\textstyle{#1}}%
+	{\XXint\textstyle\scriptstyle{#1}}%
+	{\XXint\scriptstyle\scriptscriptstyle{#1}}%
+	{\XXint\scriptscriptstyle\scriptscriptstyle{#1}}%
+	\!\int}
+\def\XXint#1#2#3{{\setbox0=\hbox{$#1{#2#3}{\int}$ }
+		\vcenter{\hbox{$#2#3$ }}\kern-.6\wd0}}
+\def\ddashint{\Xint=}
+\def\dashint{\Xint-}
+
+\usepackage{amsmath}
+\numberwithin{equation}{subsection}%公式从每个二节标题重新记数
+
+\setcounter{secnumdepth}{4}%标题编号的深度为4
+
+\usepackage{enumitem}
+
+%---------------------------------------------------------------正文区（文稿区）-------------------------------------------------------------
+\begin{document}
+\maketitle
+
+\newpage
+
+\renewcommand{\thesection}{}
+\section{介绍}
+
+
+\section{四个重要的线性PDE}
+
+
+\numberwithin{equation}{subsection}
+
+\renewcommand{\theequation}{\arabic{equation}}
+
+
+\begin{enumerate}[fullwidth,itemindent=0em]
+	\item[2.1]运输方程
+	\item[2.2]拉普拉斯方程
+	\item[2.3]热量方程
+	\item[2.4]波方程
+	\item[2.5]问题
+	\item[2.6]参考 
+\end{enumerate}
+\par
+在这一章我们介绍四个基本的线性pde，它们的多种解的明确的公式是可用的。它们是
+\begin{equation*}
+\begin{aligned}
+&\text{运输方程}\quad &u_{t}+b\cdot Du&=0\quad&(\S 2.1),\\
+&\text{拉普拉斯方程}\quad &\Delta u&=0\quad&(\S 2.2),\\
+&\text{热量方程}\quad &u_{t}-\Delta u&=0\quad&(\S 2.3),\\
+&\text{波方程}\quad &u_{tt}-\Delta u&=0\quad&(\S 2.4).
+\end{aligned}
+\end{equation*}
+\par
+在更进一步之前，读者应该回顾在附录B和C中不等式的讨论，分部积分，格林公式，卷积，等等。并且之后在必要之时回看它们。
+
+\renewcommand{\thesubsection}{\arabic{section}.\arabic{subsection}.}
+
+\subsection{运输方程}
+\noindent 可能所有PDE中最简单的PDE是常系数运输方程。这里是PDE
+\begin{equation}
+u_{t}+b\cdot Du=0\quad\text{在}\mathbb{R}^{n}\times (0,\infty),
+\end{equation}
+这里$b$是一个在$\mathbb{R}^{n}$固定向量，$b=(b_{1},...,b_{n})$，并且$u:\mathbb{R}\times[0,\infty)\rightarrow\mathbb{R}$是未知的，$u=u(x,t)$。这里$x=(x_{1},...,x_{n})\in\mathbb{R}^{n}$代表空间中的一个典型点，同时$t\geq 0$代表一个典型的时间。我们写$Du=D_{x}u=(u_{x_{1}},...,u_{x_{n}})$代表$u$关于空间变量$x$的梯度。\par
+哪一个函数$u$解出了(1)?为了回答，让我们暂时假设已经给我们了某个光滑解$u$并且试图取计算它。为了这样做，我们首先必须分辨出PDE(1)断言了$u$的一个特定方向导数消失了。我们进一步利用这个洞察力通过固定任一个点$(x,t)\in\mathbb{R}^{n}\times(0,\infty)$并且定义
+\begin{equation*}
+z(s):=u(x+sb,t+s)\quad(s\in\mathbb{R}).
+\end{equation*}
+然后我们计算
+\begin{equation*}
+\dot{z}(s)=Du(x+sb,t+s)\cdot b+u_{t}(x+sb,t+s)=0\quad \left(\dot{}
+ =\frac{d}{ds}\right),
+\end{equation*}
+根据(1)第二个等号成立。因此$z(\cdot)$是$s$的一个常值函数，并且因此对于每个点$(x,t)$，$u$在经过点$(x,t)$，方向为$(b,1)\in\mathbb{R}^{n+1}$的线上是常数。因此如果我们知道$u$的在每一条这样直线上任一点的值，我们知道它在$\mathbb{R}^{n}\times(0,\infty)$中任何位置的值。
+
+
+\renewcommand{\thesubsubsection}{\arabic{section}.\arabic{subsection}.\arabic{subsubsection}.}
+\subsubsection{初值问题}
+因此为了确定性，让我们考虑初值问题
+\begin{equation}
+\begin{cases}
+\begin{aligned}
+u_{t}+b\cdot Du&=0\quad&\text{在(in)}&\mathbb{R}^{n}\times(0,\infty)\\
+u&=g\quad&\text{在(on)}&\mathbb{R}^{n}\times\{t=0\}.
+\end{aligned}
+\end{cases}
+\end{equation}
+这里$b\in\mathbb{R}^{n}$并且$g:\mathbb{R}^{n}\rightarrow\mathbb{R}$是已知的，并且这个问题是去计算$u$。给定如上的$(x,t)$，经过点$(x,t)$的有方向为$(b,1)$的直线可以参数地表示为$(x+sb,t+s)(s\in\mathbb{R})$。这条线交平面$\Gamma:=\mathbb{R}^{n}\times\{t=0\}$当$s=-t$时于点$(x-tb,0)$。自从$u$在这条线上是常数并且$u(x-tb,0)=g(x-tb)$，我们推出
+\begin{equation}
+u(x,t)=g(x-tb)\quad(x\in\mathbb{R}^{n},t\leq 0).
+\end{equation}
+所以，如果$(2)$有一个足够寻常的解$u$，它一定是由(3)给出的。并且反过来，很容易直接验证如果$g$是$C^{1}$，于是被(3)定义的$u$实际上是(2)的一个解。
+\par
+\noindent\textbf{注记.}如果$g$不是$C^{1}$,则显然(2)没有$C^{1}$解。但是甚至在这种情况下公式(3)无疑提供了一个强的，并且事实上唯一合理的，解的候选。我们也许因此不正式地宣布$u(x,t)=g(x-tb)(x\in\mathbb{R}^{n},t\leq 0)$为(2)的弱解，甚至$g$不必是$C^{1}$。这所有都有意义甚至如果$g$，并且因此$u$，是不连续的。这样一个概念，这样一个非光滑甚至不连续函数也许有时候解了一个PDE，将在之后再次提起当我们学习$\S 3.4$的非线性运输现象时。$\hfill\qedsymbol$
+
+
+
+\subsubsection{非齐次问题.}
+接下来让我们看相关联的非齐次问题
+\begin{equation}
+\begin{cases}
+\begin{aligned}
+u_{t}+b\cdot Du&=f\quad&\text{在(in)}&\mathbb{R}^{n}\times(0,\infty)\\
+u&=g\quad&\text{在(on)}&\mathbb{R}^{n}\times\{t=0\}.
+\end{aligned}
+\end{cases}
+\end{equation}
+如同之前固定$(x,t)\in\mathbb{R}^{n+1}$并且，受到上面计算的启发，设置$z(s):=u(x+sb,t+s)$对于$s\in\mathbb{R}$。于是
+\begin{equation*}
+\dot{z}(s)=Du(x+sb,t+s)\cdot b+u_{t}(x+sb,t+s)=f(x+sb,t+s).
+\end{equation*}
+因此
+\begin{equation*}
+\begin{aligned}
+u(x,t)-g(x-bt)&=z(0)-z(-t)=\int_{t}^{0}\dot{z}(s)ds\\
+&=\int_{t}^{0}f(x+sb,t+s)ds\\
+&=\int_{0}^{t}f(x+(s-t)b,s)ds;
+\end{aligned}
+\end{equation*}
+并且所以
+\begin{equation}
+u(x,t)=g(x-tb)+\int_{0}^{t}f(x+(s-t)b,s)ds\quad(x\in\mathbb{R}^{n},t\leq 0)
+\end{equation}
+解决了初值问题(4)。
+\par
+我们之后将应用这个公式去解决一维波函数，在$\S 2.4.1$。
+\par
+\noindent\textbf{注记.}
+注意到我们已经导出我们的解(3)，(5)实际上通过把PDE转化为ODE。这个程序是特征线法的一个特殊的例子，之后在$\S 3.2$建立的。$\hfill\qedsymbol$
+
+
+
+
+\subsection{拉普拉斯方程}
+所有PDE中最重要的毫无疑问是拉普拉斯方程
+\begin{equation}
+\Delta u=0
+\end{equation}
+以及泊松方程
+\begin{equation}
+-\Delta u=f.^{{}^{*}}
+\end{equation}
+\par
+在(1)和(2)两个中，$x\in U$并且未知函数是$u:\bar{U}\rightarrow\mathbb{R},u=u(x)$，这里$U\subset\mathbb{R}^{n}$是一个给定的开集。在(2)中函数$f:U\rightarrow\mathbb{R}$也是给定的。记住从$\S A.3$中$u$的拉普拉斯算子是$\Delta u=\sum_{i=1}^{n}u_{x_{i}x_{i}}$。
+\par
+\noindent\textbf{定义.}一个$C^{2}$函数$u$满足(1)被称为一个调和函数。
+\par
+\noindent\textbf{物理解释.}拉普拉斯方程在广泛的物理背景中被提出。在一个典型的解释中$u$表示平衡状态下某种数量的密度(比如，化学浓度)。则如果$V$是$U$的任一光滑子区域，则$u$通过$\partial V$的净通量是零：
+\begin{equation*}
+\int_{\partial V}\mathbf{F}\cdot\mathbf{v}dS=0,
+\end{equation*}
+$\mathbf{F}$代表通量密度而$\mathbf{v}$代表单位法向量。考虑高斯-格林定理($\S C.2$)，我们有
+\begin{equation*}
+\int_{V}\text{div}\,\mathbf{F}\,dx=\int_{\partial x}\,\mathbf{F}\cdot\mathbf{v}\,dS=0,
+\end{equation*}
+并且因此
+\begin{equation}
+\text{div}\,\mathbf{F}=0\quad\text{在}U,
+\end{equation}
+因为$V$是任意的。在许多例子中假设通量$\mathbb{F}$和梯度$Du$成比例在物理上是合理的，但是是(和梯度)相反方向的点(因为流是从更高浓度区域流向更低浓度区域)。因此
+\begin{equation}
+\mathbf{F}=-aDu\quad(a>0).
+\end{equation}
+带入(3)中，我们得到了拉普拉斯方程
+\begin{equation*}
+\text{div}\,(Du)=\Delta u=0.
+\end{equation*}
+\par
+如果$u$分别代表
+\begin{equation*}
+\begin{cases}
+\text{化学浓度}\\
+\text{温度}\\
+\text{静电势},
+\end{cases}
+\end{equation*}
+方程(4)就是
+\begin{equation*}
+\begin{cases}
+\text{菲克扩散定律}\\
+\text{傅里叶热量传输定律}\\
+\text{欧姆导电定律},
+\end{cases}
+\end{equation*}
+见费曼-雷顿-桑德[\textbf{F-L-S},十二章]关于在数学物理中普遍存在的拉普拉斯方程的讨论。拉普拉斯方程也产生解析函数的研究和布朗运动的概率调查中。$\hfill\qedsymbol$
+
+
+
+
+\subsubsection{基本解}
+\renewcommand{\theparagraph}{\alph{paragraph}.}
+\paragraph{基本解的微分}~{}
+\par
+一个调查任何PDE的好的策略是，首先去识别某个清楚的解然后，假设这个PDE是线性的，从之前标注的特定的解中去收集更加复杂的解。此外，为了寻找清楚的解，去限制注意力到有某些对称性质的函数类是明智的。因为拉普拉斯方程是不变的在旋转下(问题2)，因此，首先寻找radial solutions，即，函数满足$r=|x|$，似乎是明智的。
+\par
+因此让我们尝试去招拉普拉斯方程(1)的一个在$U=\mathbb{R}^{n}$的解，有着形式
+\begin{equation*}
+u(x)=v(r),
+\end{equation*}
+这里$r=|x|=\left(x_{1}^{2}+\cdots+x_{n}^{2}\right)^{1/2}$并且$v$被挑选为(如果有可能)使$\Delta u=0$成立。首先注意对于$i=1,...,n$有
+\begin{equation*}
+\frac{\partial r}{\partial x_{i}}=\frac{1}{2}\left(x_{1}^{2}+\cdots+x_{n}^{2}\right)^{-1/2}2x_{i}=\frac{x_{i}}{r}\quad(x\neq 0).
+\end{equation*}
+我们因此有
+\begin{equation*}
+u_{x_{i}}=v'(r)\frac{x_{i}}{r},u_{x_{i}x_{i}}=v''(r)\frac{x_{i}^{2}}{r^{2}}+v'(r)\left(\frac{1}{r}-\frac{x_{i}^{2}}{r^{3}}\right)
+\end{equation*}
+对于$i=1,...,n$，并且所以有
+\begin{equation*}
+\Delta u=v''(r)+\frac{n-1}{r}v'(r).
+\end{equation*}
+因此$\Delta u=0$当且仅当
+\begin{equation}
+v''+\frac{n-1}{r}v'=0.
+\end{equation}
+如果$v'\neq 0$ ，我们推断
+\begin{equation*}
+\log (v')'=\frac{v''}{v'}=\frac{1-n}{r}
+\end{equation*}
+并且因此$v'(r)=\frac{a}{r^{n-1}}$对于某个常数$a$成立。因此如果$r>0$，我们有
+\begin{equation*}
+v(r)=
+\begin{cases}
+b\,\log r+c\quad&(n=2)\\
+\frac{b}{r^{n-2}}+c&(n\geq 3),
+\end{cases}
+\end{equation*}
+这里$b$和$c$都是常数。
+\par
+这些考虑推动了下文
+\par
+\noindent\textbf{定义.}函数
+\begin{equation}
+\bm{\Phi}(x):=
+\begin{cases}
+-\frac{1}{2\pi}\log |x|\qquad &(n=2)\\
+\frac{1}{n(n-2)\alpha(n)}\frac{1}{|x|^{n-2}}&(n\geq 3),
+\end{cases}
+\end{equation}
+对全体$x\in\mathbb{R}^{n},x\neq 0$定义，是拉普拉斯方程的基本解。
+\par
+选择公式(6)中的常数的理由马上将会是明显的。(从$\S A.2$中回顾知道$\alpha(n)$代表$\mathbb{R}^{n}$中单位球的体积。)
+\par
+我们有时将会稍微滥用这个记号并且写$\bm{\Phi}(x)=\bm{\Phi}(|x|)$去强调基本解是radial。也注意到我们有估计
+\begin{equation}
+|D\bm{\Phi}(x)|\leq\frac{C}{|x|^{n-1}},\,|D^{2}\bm{\Phi}(x)|\leq\frac{C}{|x|^{n}}\quad(x\neq 0)
+\end{equation}
+对于某个常数$C>0$。
+\paragraph{泊松方程}~{}
+\par
+通过构造，函数$x\mapsto\bm{\Phi}(x)$是调和的对于$x\neq 0$。如果我们改变起点到一个新的点$y$，这个PDE(1)是不变的；并且所以$x\mapsto\bm{\Phi(x-y)}$也是调和的，作为一个$x$的函数，$x\neq y$。让我们现在考虑$f:\mathbb{R}^{n}\rightarrow\mathbb{R}$并且注意到映射$x\mapsto\bm{\Phi}(x-y)f(y)(x\neq y)$是调和的对于每个点$y\in\mathbb{R}^{n}$，并且因此这是有限个许多这样的为不同点$y$构建的表示式之和。
+\par
+这个推理过程可能让人想到了卷积
+\begin{equation}
+\begin{aligned}
+u(x)&=\int_{\mathbb{R}^{n}}\,\bm{\Phi}(x-y)f(y)\,dy\\
+&=
+\begin{cases}
+-\frac{1}{2\pi}\int_{\mathbb{R}^{2}}\,\log(|x-y|)f(y)\,dy\quad &(n=2)\\
+\frac{1}{n(n-2)\alpha(n)}\int_{\mathbb{R}^{n}}\,\frac{f(y)}{|x-y|^{n-2}}\,dy&(n\geq 3)
+\end{cases}
+\end{aligned}
+\end{equation}
+将会解决拉普拉斯方程(1)。然而，这是错的：我们不能只计算
+\begin{equation}
+\Delta u(x)=\int_{\mathbb{R}^{n}}\Delta_{x}\bm{\Phi}(x-y)f(y)dy=0.
+\end{equation}
+事实上，如同估计(7)显示的，$D^{2}\Phi(x-y)$在靠近在$y=x$处的奇点是不可积(not summable)的，并且因此上诉积分符号下的微分是没有理由的(并且是不正确的)。我们必须在计算$\Delta u$式更加仔细。
+\par
+为了简便起见，让我们现在假设$f\in C_{c}^{2}(\mathbb{R}^{n})$；即是，$f$是两阶连续可微的，带有紧支集。
+\par
+\noindent\textbf{定理1}(解决泊松方程)。用(8)来定义$u$。然后
+\begin{enumerate}[fullwidth,itemindent=2em]
+	\item[(i)]$u\in C^{2}(\mathbb{R}^{n})$ \\
+	并且\vspace{-2ex}
+	\item[(ii)]$-\Delta  u=f$在$\mathbb{R}^{n}$中。
+\end{enumerate}
+\par
+因此我们明白(8)给我们提供了$\mathbb{R}^{n}$中泊松方程(2)的解的一个表达式。
+\par
+\noindent\textbf{证明.}1.我们有
+\begin{equation*}
+u(x)=\int_{\mathbb{R}^{n}}\bm{\Phi}(x-y)f(y)dy=\int_{\mathbb{R}^{n}}\bm{\Phi}(y)f(x-y)dy,
+\end{equation*}
+因此
+\begin{equation*}
+\frac{u(x+he_{i})-u(x)}{h}=\int_{\mathbb{R}^{n}}\bm{\Phi}(y)\left[\frac{f(x+he_{i}-y)-f(x-y)}{h}\right]dy,
+\end{equation*}
+这里$h\neq 0$并且$e_{i}=(0,...,1,...,0)$，1位于第$i$位。但是
+\begin{equation*}
+\frac{f(x+he_{i}-y)-f(x-y)}{h}\rightarrow \frac{\partial f}{\partial x_{i}}(x-y)
+\end{equation*}
+当$h\rightarrow 0$，在$\mathbb{R}^{n}$上一致成立，并且因此
+\begin{equation*}
+\frac{\partial u}{\partial x_{i}}(x)=\int_{\mathbb{R}^{n}}\bm{\Phi}(y)\frac{\partial f}{\partial x_{i}}(x-y)dy\quad (i=1,...,n).
+\end{equation*}
+相似地
+\begin{equation}
+\frac{\partial^{2}u}{\partial x_{i}\partial x_{j}}(x)=\int_{\mathbb{R}^{n}}\bm{\Phi}(y)\frac{\partial^{2}f}{\partial x_{i}\partial x_{j}}(x-y)dy\quad (i,j=1,...,n).
+\end{equation}
+因为(10)的右手边的表达式关于变量x是连续的，我们明白$u\in C^{2}(\mathbb{R}^{n})$。
+\par
+2.既然$\Phi$在$0$处爆破(blow up)，我们将需要用随后的计算去在一个小球内孤立奇点。所以固定$\epsilon>0$。于是
+\begin{equation}
+\begin{aligned}
+\Delta u(x)&=\int_{B(0,\varepsilon)}\bm{\Phi}(y)\Delta_{x}f(x-y)dy+\int_{\mathbb{R}^{n}-B(0,\varepsilon)}\bm{\Phi}(y)\Delta_{x}f(x-y)dy\\
+&=:I_{\varepsilon}+J_{\varepsilon}.
+\end{aligned}
+\end{equation}
+现在
+\begin{equation}
+|I_{\varepsilon}|\leq C\|D^{2}f\|_{L^{\infty}(\mathbb{R}^{n})}\int_{B(0,\varepsilon)}|\bm{\Phi}(y)|dy\leq
+\begin{cases}
+C\varepsilon^{2}|\log \varepsilon|\quad&(n=2)\\
+C\varepsilon^{2}&(n\geq 3).
+\end{cases}
+\end{equation}
+分部积分公式($\S C.2$)推出
+\begin{equation}
+\begin{aligned}
+J_{\varepsilon}
+={}&\int_{\mathbb{R}^{n}-B(0,\varepsilon)}\bm{\Phi}(y)\Delta_{y}f(x-y)dy\\
+={}&-\int_{\mathbb{R}^{n}-B(0,\varepsilon)}D\Phi(y)\cdot D_{y}f(x-y)dy\\
+&+\int_{\partial B(0,\varepsilon)}\bm{\Phi}(y)\frac{\partial f}{\partial\nu}(x-y)dS(y)\\
+=:{}&K_{\varepsilon}+L_{\varepsilon},
+\end{aligned}
+\end{equation}
+$\nu$代表向内的沿着$\partial B(0,\varepsilon)$的单位法向量。我们容易核实
+\begin{equation}
+|L_{\varepsilon}|\leq\|Df\|_{L^{\infty}(\mathbb{R}^{n})}\int_{\partial B(0,\varepsilon)}|\bm{\Phi(y)}|dS(y)\leq
+\begin{cases}
+C\varepsilon|\log \varepsilon|\quad&(n=2)\\
+C\varepsilon&(n\geq 3).
+\end{cases}
+\end{equation}
+\par
+3.我们在$K_{\varepsilon}$项继续运用分部积分公式，发现
+\begin{equation*}
+\begin{aligned}
+K_{\varepsilon}&=\int_{\mathbb{R}^{n}-B(0,\varepsilon)}\Delta\bm{\Phi}(y)f(x-y)dy-\int_{\partial B(0,\varepsilon)}\frac{\partial\bm{\Phi}}{\partial\nu}(y)f(x-y)dS(y)\\
+&=-\int_{\partial B(0,\varepsilon)}\frac{\partial\bm{\Phi}}{\partial\nu}(y)f(x-y)dS(y),
+\end{aligned}
+\end{equation*}
+既然$\bm{\Phi}$远离原点是调和的。现在$D\bm{\Phi}(y)=\frac{-1}{n\alpha(n)}\frac{y}{|y|^{n}}(y\neq 0)$并且$\bm{\nu}=\frac{-y}{|y|}=-\frac{y}{\varepsilon}$在$\partial B(0,\varepsilon)$。因此$\frac{\partial \bm{\Phi}}{\partial \nu}(y)=\bm{\nu}\cdot D\bm{\Phi}(y)=\frac{1}{n\alpha(n)\varepsilon^{n-1}}$在$\partial B(0,\varepsilon)$上。既然$n\alpha(n)\varepsilon^{n-1}$是球面$\partial B(0,\varepsilon)$的表面面积，我们有
+\begin{equation}
+\begin{aligned}
+K_{\varepsilon}
+&=-\frac{1}{n\alpha(n)\varepsilon^{n-1}}\int_{\partial B(0,\varepsilon)}f(x-y)dS(y)\\
+&=-\dashint_{\partial B(x,\varepsilon)}f(y)dS(y)\rightarrow-f(x)\quad\text{当}\varepsilon\rightarrow 0.
+\end{aligned}
+\end{equation}
+(记着来自$\S A.3$积分号中穿过一横表示平均积分。)
+\par
+4.现在结合(11)-(15)并且令$\varepsilon\rightarrow 0$，我们发现$-\Delta u(x)=f(x)$，如同宣称的。$\hfill\qedsymbol$
+\par
+\noindent\textbf{注记.}(i)我们有时候写
+\begin{equation*}
+-\Delta\bm{\Phi}=\delta_{0}\qquad\text{在}\mathbb{R}^{n}\text{中},
+\end{equation*}
+$\delta_{0}$代表在$\mathbb{R}^{n}$上的Dirac测度，赋予点$0$单位质量。应用这个记号，我们也许形式上地计算：
+\begin{equation*}
+\begin{aligned}
+-\Delta u(x)&=\int_{\mathbb{R}^{n}}-\Delta_{x}\bm{\Phi}(x-y)f(y)dy\\
+&=\int_{\mathbb{R}^{n}}\delta_{x}f(y)dy=f(x)\quad(x\in\mathbb{R}^{n}),
+\end{aligned}
+\end{equation*}
+与定理1相符合。这更正了错误的计算(9)。
+\par
+(ii)定理1实际上是有效的在对$f$的远远更不严格的光滑性要求下：见$Gilbarg-Trudinger[G-T]$。$\hfill\qedsymbol$
+
+
+\subsubsection{平均值公式}
+现在考虑一个开集$U\subset\mathbb{R}^{n}$并且假设$u$是一个在$U$中的调和函数。我们接下来推导重要的平均值公式，它声明了$u(x)$既等于$u$在球面$\partial B(x,r)$上的平均值，也等于$u$在整个球体$B(x,r)$上的平均值，假设$B(x,r)\subset U$。这些关于$u$的清楚的公式产生了不寻常给数量的结论，如同我们马上将看到。
+\par
+\noindent\textbf{定理2}(拉普拉斯方程的平均值公式)。如果$u\in C^{2}(U)$是调和的，于是
+\begin{equation}
+u(x)=\dashint_{\partial B(x,r)}u\,dS=\dashint_{B(x,r)}u\,dy
+\end{equation}
+对于每个球$B(x,r)\subset U$。
+\par
+\noindent\textbf{证明.}1.设
+\begin{equation*}
+\phi(r):=\dashint_{\partial B(x,r)}u(y)\,dS(y)=\dashint_{B(0,1)}u(x+rz)\,dS(z).
+\end{equation*}
+于是
+\begin{equation*}
+\phi'(r)=\dashint_{\partial B(0,1)}Du(x+rz)\cdot zdS(z),
+\end{equation*}
+并且因此，用来自$\S C.2$的格林公式，我们计算
+\begin{equation*}
+\begin{aligned}
+\phi'(r)&=\dashint_{\partial B(x,r)}Du(y)\cdot\frac{y-x}{r}dS(y)\\
+&=\dashint_{\partial B(x,r)}\frac{\partial u}{\partial\nu}\,dS(y)\\
+&=\frac{r}{n}\dashint_{B(x,r)}\Delta u(y)dy=0.
+\end{aligned}
+\end{equation*}
+因此$\phi$是常数，并且所以
+\begin{equation*}
+\phi(r)=\lim_{t\rightarrow 0}\phi(t)=\lim_{t\rightarrow 0}\dashint_{\partial B(x,t)}u(y)\,dS(y)=u(x).
+\end{equation*}
+\par
+\noindent 2.接下来观察我们要运用极坐标，如同在$\S C.3$中表明的，给出
+\begin{equation*}
+\begin{aligned}
+\int_{B(x,r)}&=\int_{0}^{r}\left(\int_{\partial B(x,s)}u\,dS\right)\,ds\\
+&=u(x)\int_{0}^{r}n\alpha(n)s^{n-1}\,ds=\alpha(n)r^{n}u(x).
+\end{aligned}
+\end{equation*}
+$\hfill\qedsymbol$
+\par
+\noindent\textbf{定理3}(逆平均值性质)。如果$u\in C^{2}(U)$满足
+\begin{equation*}
+u(x)=\dashint_{\partial B(x,r)}u\,dS
+\end{equation*}
+对于每个球$B(x,r)\subset U$，于是$u$是调和的。
+\par
+\noindent\textbf{证明.}如果$\Delta u\not\equiv 0$，存在某个球$B(x,r)\subset U$使得，比如说，$\Delta u>0$在$B(x,r)$中。但是对于上诉的$\phi$，
+\begin{equation*}
+0=\phi'(r)=\frac{r}{n}\dashint_{B(x,r)}\Delta u(y)\,dy\le 0,
+\end{equation*}
+产生矛盾。$\hfill\qedsymbol$
+
+\subsubsection{调和函数的性质}
+我们现在展示一列关于调和函数的有趣的推论。接下来假设$U\subset\mathbb{R}^{n}$是开的且有界的。
+\paragraph{强最大值原理，唯一性.}~{}
+\par
+\noindent\textbf{定理4}(强最大值原理).假设$u\in C^{2}(U)\cap C(\bar{U})$是在$U$内是调和的。
+\begin{enumerate}[itemindent=2em]
+	\item[(i)]于是
+	\begin{equation*}
+	\max_{\bar{U}}u=\max_{\partial U}u.
+	\end{equation*} 
+	\item[(ii)]此外，如果$U$是连通的并且存在一个点$x_{0}\in U$以至于有
+	\begin{equation*}
+	u(x_{0})=\max_{\bar{U}}u,
+	\end{equation*}
+	于是
+	\begin{equation*}
+	u\text{是常数在}U\text{内}.
+	\end{equation*}
+\end{enumerate}
+断言(i)是拉普拉斯方程的最大值原理并且(ii)是强最大值原理。用$-u$代替$u$，我们也重新获得相似的断言用“min”代替“max”。
+\par
+\noindent\textbf{证明.}假设存在一个点$x_{0}\in U$满足$u(x_{0})=M:=\max_{\bar{U}}u.$于是对于$0<r<dist(x_{0},\partial U)$，平均值性质断言
+\begin{equation*}
+M=u(x_{0})=\dashint_{B(x_{0},r)}udy\leq M.
+\end{equation*}
+如同当不等式成立只有当$u\equiv M$在$B(x_{0},r)$，我们看到$u(y)=M$对于所有$y\in B(x,r)$。因此集合$\{x\in M|u(x)=M\}$既是开的又是相对U闭的，并且因此等于U如果U是连通的。这证明了断论(ii)，由此可知(i)也成立。$\hfill\qedsymbol$
+\par
+\noindent\textbf{注记.}强最大值原理特别声明如果$U$是连通的并且$u\in C^{2}(U)\cap C(\bar{U})$满足
+\begin{equation*}
+\begin{cases}
+\begin{aligned}
+\Delta u&=0 \quad \text{在}U\text{中}\\
+u&=g \quad \text{在} \partial U\text{上},
+\end{aligned}
+\end{cases}
+\end{equation*}
+这里$g\geq 0$，于是$u$是在$U$内到处是正的如果$g$是在$\partial U$中某处是正的。$\hfill\qedsymbol$
+\par
+最大值原理的一个重要的应用是建立泊松方程某些边界值问题的解的唯一性。
+\par
+\noindent\textbf{定理5}(唯一性)。让$g\in C(\partial U),f\in C(U)$。于是边界值问题最多存在一个解$u\in C^{2}(U)\cap C(\bar{U})$
+\begin{equation}
+\begin{cases}
+\begin{aligned}
+\Delta u&=0 \quad \text{在}U\text{中}\\
+u&=g \quad \text{在} \partial U\text{上}.
+\end{aligned}
+\end{cases}
+\end{equation}
+\textbf{证明.}如果$u$和$\bar{u}$都满足(17)，应用定理4到调和函数$s:=\pm(u-\bar{u})$(两种情况分别运用定理4).$\hfill\qedsymbol$
+
+\paragraph{正则性.}~{}
+\par
+现在我们证明如果$u\in C^{2}$是调和的，于是必然$u\in C^{\infty}$。因此调和函数自觉地是无穷次可微。这类推论被称为正则性定理。有趣的点是拉普拉斯方程$\Delta u=\sum_{i=1}^{n}u_{x_{i}x_{i}}=0$导出解析的推论，$u$的所有的偏导数存在，甚至哪些没有出现在这个PDE中的。
+\par
+\noindent\textbf{定理 6}(光滑)。如果$u\in C(U)$满足局平均值性质(16)对于每个球$B(x,r)\subset U$，于是
+\begin{equation*}
+u\in C^{\infty}(U).
+\end{equation*}
+仔细注意到$u$可能不是光滑的，或者甚至连续的，到$\partial U$上。
+\par
+\noindent\textbf{证明.}令$\eta$为一个标准磨光函数如同在$\S C.4$中描述的，并且回想起$\eta$是一个辐射函数(radial function)。设$u^{\varepsilon}:=\eta_{\varepsilon}*u$在$U_{\varepsilon}=\{x\in U|dist(x,\partial U)>\varepsilon\}$。如同在$\S C.4$中展示的，$u^{\varepsilon}\in C^{\infty}(U_{\varepsilon})$。
+\par
+我们将会证明$u$是光滑的通过证明是事实上$u\equiv u^{\varepsilon}$在$U_{\varepsilon}$。的确如果$x\in U_{\varepsilon}$，于是
+\begin{equation*}
+\begin{aligned}
+u^{\varepsilon}(x)&=\int_{U}\eta_{\varepsilon}(x-y)u(y)dy\\
+&=\frac{1}{\varepsilon^{n}}\int_{B(x,\varepsilon)}\eta\left(\frac{|x-y|}{\varepsilon}\right)u(y)\,dy\\
+&=\frac{1}{\varepsilon^{n}}\int_{0}^{\varepsilon}\eta\left(\frac{r}{\varepsilon}\right)\left(\int_{\partial B(x,r)}u\,dS\right)\,dr\\
+&=\frac{1}{\varepsilon^{n}}u(x)\int_{0}^{\varepsilon}\eta\left(\frac{r}{\varepsilon}\right)n\alpha(n)r^{n-1}\,dr \quad \text{通过}(16)\\
+&=u(x)\int_{B(0,\varepsilon)}\eta_{\varepsilon}\,dy=u(x).
+\end{aligned}
+\end{equation*}
+因此$u^{\varepsilon}\equiv u$在$U_{\varepsilon}$，并且所以$u\in C^{\infty}(U_{\varepsilon})$对于每个$\varepsilon>0$成立。$\hfill\qedsymbol$
+\paragraph{调和函数的局部估计}~{}
+\par
+接下来我们运用平均值公式取推导调和函数不同偏导数仔细的估计。这些估计精确的结构接下来将会用到，当我们证明分析性质时。
+\par
+\noindent\textbf{定理 7}(微分的估计)。假设$u$在$U$内是调和的。于是
+\begin{equation}
+|D^{\alpha}u(x_{0})|\leq\frac{C_{k}}{r^{n+k}}\|u\|_{L^{1}(B(x_{0},r))}
+\end{equation}
+对于每个球$B(x_{0},r)\subset U$并且每个复指标$\alpha$满足$|\alpha|=k$。
+\par
+这里
+\begin{equation}
+C_{0}=\frac{1}{\alpha (n)},\,C_{k}=\frac{(2^{n+1}nk)^{k}}{\alpha (n)}\,(k=1,...).
+\end{equation}
+\textbf{证明.}1.我们建立(18),(19),通过对$k$进行归纳，从平均值公式(16)$k=0$的情形是直接的。对于$k=1$，我们注意到将拉普拉斯方程微分，$u_{x_{i}}\,(i=1,...,n)$是调和的。接下来
+\begin{equation}
+\begin{aligned}
+|u_{x_{i}}(x_{0})|&=|\dashint_{B(x_{0},r/2)}u_{x_{i}}\,dx|\\
+&=|\frac{2^{n}}{\alpha(n)r^{n}}\int_{\partial B(x_{0},r/2)}u\nu_{i}\,dS|\\
+&\leq\frac{2n}{r}\|u\|_{L^{\infty}(\partial B(x_{0},\frac{r}{2}))}
+\end{aligned}
+\end{equation}
+现在如果$x\in\partial B(x_{0},r/2)$，于是$B(x,r/2)\subset B(x_{0},r)\subset U$，并于所以
+\begin{equation*}
+|u(x)|\leq\frac{1}{\alpha(n)}\left(\frac{2}{r}\right)^{n}\|u\|_{L^{1}(B(x_{0},r))}
+\end{equation*}
+通过(18)，(19)对于$k=0$的情况。结合上述不等式，我们推断
+\begin{equation*}
+|D^{\alpha}u(x_{0})|\leq\frac{2^{n+1}n}{\alpha(n)}\frac{1}{r^{n+1}}\|u\|_{L^{1}(B(x_{0},r))}
+\end{equation*}
+如果$|\alpha|=1$。这核实了(18),(19)对于$k=1$的情况。
+\par
+2.现在假设$k\geq 2$并且(18),(19)对于$U$中的所有球是有效的并且每个复指标的序小于或者等于$k-1$。固定$B(x_{0},r)\subset U$并且令$\alpha$为复指标满足$|\alpha|=k$。于是$D^{\alpha}u=(D^{\beta}u)_{x_{i}}$对于某个$i\in\{1,...,n\},|\beta|=k-1$。通过和(20)中相似的计算，我们建立
+\begin{equation*}
+|D^{\alpha}u(x_{0})|\geq\frac{nk}{r}\|D^{\beta}\|_{L^{\infty}(\partial B(x_{0},\frac{r}{k}))}.
+\end{equation*}
+\par
+如果$x\in\partial B(x_{0},\frac{r}{k})$，于是$B(x,\frac{k-1}{k})r\subset B(x_{0},r)\subset U$。因此(18),(19)对于k-1情形推出
+\begin{equation*}
+|D^{\beta}u(x)|\leq \frac{\left(2^{n+1}n\left(k-1\right)\right)^{k-1}}{\alpha(n)\left(\frac{k-1}{k}r\right)^{n+k-1}}\|u\|_{L^{1}\left(B\left(x_{0},r\right)\right)}.
+\end{equation*}
+结合这两个之前的估计推出边界
+\begin{equation}
+|D^{\alpha}u(x_{0})|  \leq \frac{\left(2^{n+1}nk\right)^{k}}{\alpha(n)r^{n+k}} \|u\|_{L^{1}(B(x_{0},r))}.
+\end{equation}
+这证明了$|\alpha|=k$情形的(18),(19)。$\hfill\qedsymbol$
+
+
+
+\paragraph{刘维尔定理}~{}
+\par
+接下来我们看到在整个$\mathbb{R}^{n}$没有非平凡的调和函数。
+\par
+\noindent\textbf{定理 8}(刘维尔定理)。假设$u:\mathbb{R}^{n}\rightarrow\mathbb{R}$是调和的并且有界的。于是$u$是常数。
+\par
+\noindent\textbf{证明.}固定$x_{0}\in\mathbb{R}^{n},r\le 0$，并且运用定理7在$B(x_{0},r)$上：
+\begin{equation*}
+\begin{aligned}
+|Du(x_{0})|&\leq\frac{C_{1}}{r^{n+1}}\|u\|_{L^{1}(B(x_{0},r))}\\
+&\leq\frac{C_{1}\alpha(n)}{r}\|u\|_{L^{\infty}(\mathbb{R}^{n})}\rightarrow 0,
+\end{aligned}
+\end{equation*}
+当$r\rightarrow \infty$。因此$Du\equiv 0$ ，因此$u$是常数。$\hfill\qedsymbol$
+\par
+\noindent\textbf{定理 9}(表示公式)。令$f\in C_{c}^{2}(\mathbb{R}^{n}),n\geq 3$。于是方程
+\begin{equation*}
+-\Delta u=f\qquad\text{在}\mathbb{R}^{n}\text{上}
+\end{equation*}
+的任意有界解有形式
+\begin{equation*}
+u(x)=\int_{\mathbb{R}^{n}}\Phi(x-y)f(y)dy+C\quad (x\in\mathbb{R}^{n})
+\end{equation*}
+对于某个常数C成立。
+\par
+\noindent\textbf{证明.}因为$\Phi(x)\rightarrow 0$当$|x|\rightarrow\infty$对于$n\geq 3$的情形，$\tilde{u}(x):=\int_{\mathbb{R}^{n}}\Phi(x-y)f(y)dy$是$-\Delta u=0$的$\mathbb{R}^{n}$的一个有界解。如果$u$是另一个解，$w:=u-\tilde{u}$是一个常数，根据刘维尔定理。$\hfill\qedsymbol$
+\par
+\textbf{注记.}如果$n=2,\Phi(x)=-\frac{1}{2\pi}\log|x|$是无界的当$|x|\rightarrow\infty$，所以$\int_{\mathbb{R}^{2}}\Phi(x-y)f(y)\,dy$也是。$\hfill\qedsymbol$
+
+\paragraph{解析性.}~{}
+\par
+接下来我们改进定理6：
+\par
+\noindent\textbf{定理 10}(解析性)。假设$u$在$U$内是调和的。则$u$在$U$内是解析的。
+\par
+\noindent\textbf{证明.}1.固定任一个点$x_{0}\in U$。我们必须展示$u$能够在$x_{0}$的某个领域被一个收敛的幂级数表示。
+\par
+令$r:=\frac{1}{4}dist(x_{0},\partial U)$。于是$M:=\frac{1}{\alpha(n)r^{n}}\|u\|_{L^{1}(B(x_{0},2r))}\le\infty$。
+\par
+2.因为$B(x,r)\subset B(x_{0},2r)\subset U$对于每个$x\in B(x_{0},r)$，定理7提供了边界
+\begin{equation*}
+\|D^{\alpha}u\|_{L^{\infty}\left(B\left(x_{0},r\right)\right)}\leq M\left(\frac{2^{n+1}n}{r}\right)^{|\alpha|}|\alpha|^{|\alpha|}.
+\end{equation*}
+现在Stirling公式([RD,$\S 8.22$])声称$\lim_{k\rightarrow\infty}\frac{k^{k+\frac{1}{2}}}{k!e^{k}}=\frac{1}{(2\pi)^{1/2}}$。因此
+\begin{equation*}
+	|\alpha|^{|\alpha|}\leq Ce^{|\alpha|}|\alpha|!
+\end{equation*}
+对于某个常数C和所有复指标$\alpha$。更进一步，多项式定理推出
+\begin{equation*}
+n^{k}=(1+\cdots+1)^{k}=\sum_{|\alpha|=k}\frac{|\alpha|!}{\alpha!};
+\end{equation*}
+由此
+\begin{equation*}
+|\alpha|!\leq n^{|\alpha|}\alpha !.
+\end{equation*}
+结合之前的不等式现在推出
+\begin{equation}
+\|D^{\alpha}u\|_{L^{\infty}(B(x_{0},r))}\leq CM\left(\frac{2^{n+1}n^{2}e}{r}\right)^{|\alpha|}\alpha!.
+\end{equation}
+\par
+3.$u$在$x_{0}$处的泰勒展开式为
+\begin{equation*}
+\sum_{\alpha}\frac{D^{\alpha u(x_{0})}}{\alpha !}(x-x_{0})^{\alpha},
+\end{equation*}
+这个和取遍所有的指标。我们声明这个幂级数收敛，如果
+\begin{equation}
+|x-x_{0}|\le\frac{r}{2^{n+2}n^{3}e}.
+\end{equation}
+为了核实这点，让我们对于每个$N$计算余项：
+\begin{equation*}
+\begin{aligned}
+R_{N}(x)&:=u(x)-\sum_{k=0}^{N-1}\sum_{|\alpha|=k}\frac{D^{\alpha}u(x_{0})(x-x_{0})^{\alpha}}{\alpha !}\\
+&=\sum_{|\alpha|=N}\frac{D^{\alpha}u(x_{0}+t(x-x_{0}))(x-x_{0})^{\alpha}}{\alpha !}
+\end{aligned}
+\end{equation*}
+对于某个$0\leq t\leq 1,t$依赖于$x$。我们建立这个公式通过，写出单变元函数$g(t):=u(x_{0}+t(x-x_{0}))$在$0$处的泰勒展式的前$N$项和误差项，在$t=1$时。应用(22),(23)，我们能估计
+\begin{equation*}
+\begin{aligned}
+|R_{N}(x)|&\leq CM\sum_{|\alpha|=N}\left(\frac{2^{n+1}n^{2}e}{r}\right)^{N}\left(\frac{r}{2^{n+2}n^{3}e}\right)^{N}\\
+&\leq CMn^{N}\frac{1}{(2n)^{N}}=\frac{CM}{2^{N}}\\
+&\rightarrow 0 \quad \text{当}N\rightarrow\infty\text{时}.
+\end{aligned}
+\end{equation*}
+$\hfill\qedsymbol$
+\par
+见$\S 4.6.2$获取更多关于解析函数和PDE的内容。
+
+\paragraph{Harnack's不等式.}
+从$\S A.2$中回想我们写$V\subset\subset U$是意味着$V\subset \bar{V}\subset U$并且$\bar{V}$是紧的。
+\par
+\noindent\textbf{定理 11}(Harnack不等式)。对于每个连通的开集$V\subset\subset U$，存在一个正常数$C$，只依赖于$V$，因此有
+\begin{equation*}
+\sup_{V}u\leq C\inf_{V}u
+\end{equation*}
+对于所有在$U$中的非负调和函数$u$。
+\par
+因此特别地
+\begin{equation*}
+\frac{1}{C}u(y)\leq u(x)\leq Cu(y)
+\end{equation*}
+对于所有点$x,y\in V$成立。这些不等式断言$V$内的非负调和函数的值都是可比的：$u$不能是非常小的(或者非常大的)在$V$中的任一点除非$u$是非常小(或者非常大)在$V$中任何地方。直觉上的想法是因为$V$是一个正距离离$\partial U$，存在"room for the averaging effects of Laplace's equation to occur"。
+\par
+\noindent\textbf{证明.}令$r:=\frac{1}{4}dist(V,\partial U)$。选择$x,y\in V,|x-y|\leq r$。于是
+\begin{equation*}
+\begin{aligned}
+u(x)&=\dashint_{B(x,2r)}u\,dz\geq\frac{1}{\alpha(n)2^{n}r^{n}}\int_{B(y,r)}u\,dz\\
+&=\frac{1}{2^{n}}\dashint_{B(y,r)}u\,dz=\frac{1}{2^{n}}u(y).
+\end{aligned}
+\end{equation*}
+因此$2^{n}u(y)\geq u(x)\geq \frac{1}{2^{n}}u(y)$如果$x,y\in V,|x-y|\leq r$。
+\par
+因为$V$是连通的并且$\bar{V}$是紧的，我们能覆盖$\bar{V}$用一列有限多的球$\{B_{i}\}_{i=1}^{N}$，每一个球有半径$r$并且满足$B_{i}\cap B_{i-1}\neq\emptyset$对于$i=2,...,N$。于是
+\begin{equation*}
+u(x)\geq\frac{1}{2^{nN}}u(y)
+\end{equation*}
+对于所有$x,y\in V$成立。$\hfill\qedsymbol$
+
+
+\subsubsection{格林函数}
+现在假设$U\subset\mathbb{R}^{n}$是开的，有界的，并且$\partial U$是$C^{1}$的。我们接下来计划去得到泊松方程解的一个广义的表示公式
+\begin{equation*}
+-\Delta u=f\qquad\text{在}U\text{中},
+\end{equation*}
+满足规定的边界条件
+\begin{equation*}
+u=g\qquad\text{在}\partial U\text{中}
+\end{equation*}
+
+\paragraph{格林函数的推导.}~{}
+\par
+首先假设$u\in C(\bar{U})$是一个任意的函数。固定$x\in U$，选择$\epsilon>0$足够小使得$B(x,\epsilon)\subset U$，并且应用来自$\S C.2$的格林公式在区域$V_{\varepsilon}:=U-B(x,\varepsilon)$到$u(y)$和$\Phi (y-x)$。我们从而计算
+\begin{equation}
+\begin{aligned}
+\int_{V_{\varepsilon}}&u(y)\Delta\Phi(y-x)-\Phi(y-x)\Delta u(y)\,dy\\
+&=\int_{\partial V_{\varepsilon}}u(y)\frac{\partial\Phi}{\partial\nu}(y-x)-\Phi(y-x)\frac{\partial u}{\partial\nu}(y)\,dS(y),
+\end{aligned}
+\end{equation}
+$\nu$代表单位外法向量在$\partial V_{\varepsilon}$上。接下来回顾$\Delta(x-y)=0$对于$x\neq y$。我们也观察到
+\begin{equation*}
+|\int_{\partial B(x,\varepsilon)}\Phi(y-x)\frac{\partial u}{\partial\nu}(y)\,dS(y)|\leq C\varepsilon^{n-1}\max_{\partial B(0,\varepsilon)}|\Phi|=o(1)
+\end{equation*}
+当$\varepsilon\rightarrow 0$时。此外在定理1的证明中的计算展示
+\begin{equation*}
+\int_{\partial B(x,\varepsilon)}u(y)\frac{\partial \Phi}{\partial\nu}(y-x)\,dS(y)=\dashint_{\partial B(x,\varepsilon)}u(y\,dS(y))\rightarrow u(x)
+\end{equation*}
+当$\varepsilon\rightarrow 0$时。因此我们在(24)中令$\varepsilon\rightarrow 0$推出公式：
+\begin{equation}
+\begin{aligned}
+u(x)=\int_{\partial U}&\Phi(y-x)\frac{\partial u}{\partial\nu}(y)-u(y)\frac{\partial\Phi}{\partial\nu}(y-x)\,dS(y)\\&-\int_{U}\Phi(y-x)\Delta u(y)\,dy.
+\end{aligned}
+\end{equation}
+这个不等式对于任意点$x\in U$和任意函数$u\in C^{2}(\bar{U})$都是有效的。
+\par
+现在公式(25)允许我们解$u(x)$，如果我们知道$\Delta u$在$U$内的值以及$u,\partial u/\partial \nu$沿着$\partial U$的值。然而对于我们在带有$u$的规定的边界值的泊松方程上的应用，沿着$\partial U$的法方向的导数$\partial u/\partial \nu$对我们来说是未知的。因此我们必须以某种方式修改(25)去移除这些项。
+\par
+现在想法是去给固定的点$x$介绍一个矫正函数(corrector function)$\phi^{x}=\phi^{x}(y)$，解这个边界值问题：
+\begin{equation}
+\begin{cases}
+\begin{aligned}
+\Delta&{}\phi^{x}=0 &\text{在} &U \text{中}\\
+&\phi^{x}=\Phi(y-x) &\text{在} &\partial U\text{上}.
+\end{aligned}
+\end{cases}
+\end{equation}
+让我们再一次用格林公式，现在去计算
+\begin{equation}
+\begin{aligned}
+-\int_{U}\phi^{x}(y)\Delta u(y)dy&=\int_{\partial U}u(y)\frac{\partial\phi^{x}}{\partial\nu}(y)-\phi^{x}(y)\frac{\partial u}{\partial\nu}(y)\,dS(y)\\
+&=\int_{\partial U}u(y)\frac{\partial\phi^{x}}{\partial\nu}(y)-\Phi(y-x)\frac{\partial u}{\partial\nu}(y)\,dS(y).
+\end{aligned}
+\end{equation}
+我们接下来介绍
+\par
+\noindent\textbf{定义.}区域$U$的格林函数是
+\begin{equation*}
+G(x,y):=\Phi(y-x)-\phi^{x}(y)\qquad(x,y\in U,x\neq y).
+\end{equation*}
+\par
+采用这个专业术语并且把(27)加入到(25)中，我们发现
+\begin{equation}
+u(x)=-\int_{\partial U}u(y)\frac{\partial G}{\partial\nu}(x,y)\,dS(y)-\int_{U}G(x,y)\Delta u(y)\,dy\quad(x\in U),
+\end{equation}
+这里
+\begin{equation*}
+\frac{\partial G}{\partial\nu}(x,y)=D_{u}G(x,y)\cdot\nu(y)
+\end{equation*}
+是$G$的向外的关于变量$y$法方向导数。观察到项$\partial u/\partial \nu$不出现在方程(28)中：我们恰好介绍修正函数$\phi^{x}$去完成它。
+\par
+现在假设$u\in C^{2}(\bar{U})$解决了边界值问题
+\begin{equation}
+\begin{cases}
+\begin{aligned}
+-\Delta&u=f &\text{在} &U \text{中}\\
+&u=g&\text{在} &\partial U\text{上}.
+\end{aligned}
+\end{cases}
+\end{equation}
+对于给定的连续函数$f,g$。接通(28)，我们得到
+\par
+\noindent\textbf{定理 12}(用格林函数的表示公式)。如果$u\in C^{2}(\bar{U})$解了问题(29)，于是
+\begin{equation}
+u(x)=-\int_{\partial U}g(y)\frac{\partial G}{\partial\nu}(x,y)\,dS(y)+\int_{U}f(y)G(x,y)\,dy\qquad(x\in U).
+\end{equation}
+\par
+如果我们对给定区域$U$能建立格林函数$G$，则对边界值问题(29)的解我们有一个公式。总体上这是一个困难的事情，并且只有当$U$有简单的几何结构时能被完成。接下来的小节认出了一些特别的例子，这里$G$的清楚的计算是可能的(对这些特殊的例子)。
+\par
+\noindent\textbf{注记.}固定$x\in U$。于是把$G$看作一个$y$的函数，我们也许形式上地写
+\begin{equation*}
+\begin{cases}
+\begin{aligned}
+-\Delta G&=\delta_{x}\quad&\text{在}&U\text{内}\\
+G&=0&\text{在}&\partial U\text{上},
+\end{aligned}
+\end{cases}
+\end{equation*}
+$\delta_{x}$代表Dirac测度，赋予单位质量给点x。$\hfill\qedsymbol$
+\par
+在前进到特殊的例子之前，让我们揭露这个一般的断言$G$在变量$x$和$y$是对称的：
+\par
+\noindent\textbf{定理 13}(格林函数的对称性)。对于所有$x,y\in U,x\neq y$，我们有
+\begin{equation*}
+G(y,x)=G(x,y)
+\end{equation*}
+\textbf{证明.}固定$x,y\in U,x\neq y$。写
+\begin{equation*}
+v(z):=G(x,z),w(z):=G(y,z)\qquad(z\in U).
+\end{equation*}
+\par
+于是$\Delta v(z)=0(z\neq x),\Delta w(z)=0(z\neq y)$并且$w=v=0$在$\partial U$上。因此我们在$V:=U-[B(x,\varepsilon)\cup B(y,\varepsilon)]$对于足够小的$\varepsilon>0$应用格林恒等式推出
+\begin{equation}
+\int_{\partial B(x,\varepsilon)}\frac{\partial v}{\partial \nu}w-\frac{\partial w}{\partial \nu}v\,dS(z)=\int_{\partial B(y,\varepsilon)}\frac{\partial w}{\partial\nu}v-\frac{\partial v}{\partial\nu}w\,dS(z),
+\end{equation}
+$\nu$代表在$\partial B(x,\varepsilon)\cup \partial B(y,\varepsilon)$上的向内的单位向量场。现在$w$是光滑的靠近$x$；由此
+\begin{equation*}
+\left|\int_{\partial B(x,\varepsilon)}\frac{\partial w}{\partial\nu}v\,dS\right|\leq C\varepsilon^{n-1}\sup_{\partial B(x,\varepsilon)}|v|=o(1)\qquad\text{当}\varepsilon\rightarrow 0.
+\end{equation*}
+另一方面，$v(z)=\Phi(z-x)-\phi^{x}(z)$，其中$\phi^{x}$在$U$内光滑。因此
+\begin{equation*}
+\lim_{\varepsilon\rightarrow 0}\int_{\partial B(x,\varepsilon)}\frac{\partial v}{\partial \nu}w\,dS=\lim_{\varepsilon\rightarrow 0}\int_{\partial B(x,\varepsilon)}\frac{\partial \Phi}{\partial \nu}(x-z)w(z)\,dS=w(x),
+\end{equation*}
+通过在定理1的证明中的计算。因此(31)的左手边收敛到$w(x)$当$\varepsilon\rightarrow 0$。相似地右手边收敛到$v(y)$。因此
+\begin{equation*}
+G(y,x)=w(x)=v(y)=G(x,y).
+\end{equation*}
+\par$\hfill\qedsymbol$
+
+
+
+\paragraph{半空间上的格林函数.}~{}
+\par
+在这一节和下一节中我们将建立格林公式对于两个区域带有简单的几何结构，称为半平面$\mathbb{R}_{+}^{n}$以及单位球$B(0,1)$。每一件事依赖于我们清楚地解决修正函数问题(26)在这些区域内，并且反过来依赖于某些精巧的几何反射技巧。
+\par
+首先让我们考虑半平面
+\begin{equation*}
+\mathbb{R}_{+}^{n}=\{x=(x_{1},\cdots,x_{n})\in\mathbb{R}^{n}|x_{n}>0\}.
+\end{equation*}
+虽然这个区域是无界的，并且因此在之前章节的计算没有直接运用，我们仍然将尝试去建立格林函数用之前发展过的想法。当然之后我们必须直接核实相关的表示函数是有效的。
+\par
+\noindent\textbf{定义.}如果$x=(x_{1},...,x_{n-1},x_{n})\in\mathbb{R}_{+}^{n}$它的在平面$\partial\mathbb{R}_{+}^{n}$的反射是点
+\begin{equation*}
+\tilde{x}=x(x_{1},...,x_{n-1},-x_{n}).
+\end{equation*}
+\par
+对于半平面我们将解问题(26)通过设置
+\begin{equation*}
+\phi^{x}:=\Phi(y-\tilde{x})=\Phi(y_{1}-x_{1},...,y_{n-1}-x_{n-1},y_{n}+x_{n})\qquad(x,y\in\mathbb{R}_{+}^{n}).
+\end{equation*}
+想法是修正函数$\phi^{x}$建立来自$\Phi$通过“反射奇点”从$x\in\mathbb{R}_{+}^{n}$到$\tilde{x}\not\in\mathbb{R}_{+}^{n}$。我们注意到
+\begin{equation*}
+\phi^{x}=\Phi(y-x)\qquad \text{如果}y\in\partial\mathbb{R}_{+}^{n},
+\end{equation*}
+并且因此
+\begin{equation*}
+\begin{cases}
+\begin{aligned}
+\Delta \phi^{x}&=0\qquad&\text{在}&\mathbb{R}_{+}^{n}\\
+\phi^{x}&=\Phi(y-x)&\text{在}&\partial\mathbb{R}_{+}^{n},
+\end{aligned}
+\end{cases}
+\end{equation*}
+符合要求。
+\par
+\noindent\textbf{定义.}半平面$\mathbb{R}_{+}^{n}$上的格林函数是
+\begin{equation*}
+G(x,y):=\Phi(y-x)-\Phi(y-\tilde{x})\qquad(x,y\in\mathbb{R}_{+}^{n},x\neq y).
+\end{equation*}
+于是
+\begin{equation*}
+\begin{aligned}
+\frac{\partial G}{\partial y_{n}}(x,y)&=\frac{\partial \Phi}{\partial y_{n}}(y-x)-\frac{\partial \Phi}{\partial y_{n}}(y-\tilde{x})\\
+&=\frac{-1}{n\alpha(n)}\left[\frac{y_{n}-x_{n}}{|y-x|^{n}}-\frac{y_{n}+x_{n}}{|y-\tilde{x}|^{n}}\right].
+\end{aligned}
+\end{equation*}
+因此如果$y\in\partial\mathbb{R}_{+}^{n}$，
+\begin{equation*}
+\frac{\partial G}{\partial\nu}(x,y)=-\frac{\partial G}{\partial y_{n}}(x,y)=-\frac{-2x_{n}}{n\alpha(n)}\frac{1}{|x-y|^{n}}.
+\end{equation*}
+\par
+现在假设$u$解决了边界值问题
+\begin{equation}
+\begin{cases}
+\begin{aligned}
+\Delta u&=0\qquad&\text{在}&\mathbb{R}_{+}^{n}\text{中}\\
+u&=g&\text{在}&\partial\mathbb{R}_{+}^{n}\text{上}.
+\end{aligned}
+\end{cases}
+\end{equation}
+于是从(30)式，我们希望
+\begin{equation}
+u(x)=\frac{2x_{n}}{n\alpha(n)}\int_{\partial\mathbb{R}_{+}^{n}}\frac{g(y)}{|x-y|^{n}}\,dy\qquad(x\in\mathbb{R}_{+}^{n})
+\end{equation}
+是我们解的表示公式。函数
+\begin{equation*}
+K(x,y):=\frac{2x_{n}}{n\alpha(n)}\frac{1}{|x-y|^{n}}\quad(x\in\mathbb{R}_{+}^{n},y\in\partial\mathbb{R}_{+}^{n})
+\end{equation*}
+是$\mathbb{R}_{+}^{n}$的泊松核，并且(33)是泊松公式。
+\par
+我们现在必须直接检查公式(33)确实给我们提供了一个边界值问题(32)的解。
+\par
+\noindent\textbf{定理 14}(半平面的泊松公式)。假设$g\in C(\mathbb{R}^{n-1})\cap L^{\infty}(\mathbb{R}^{n-1})$，并且通过(33)定义u。于是
+\begin{enumerate}[fullwidth,itemindent=2em]
+	\item[(i)]$u\in C^{\infty}(\mathbb{R}_{+}^{n})\cap L^{\infty}(\mathbb{R}_{+}^{n})$,
+	\item[(ii)]$\Delta u=0$ 在$\mathbb{R}_{+}^{n}$，\\
+	并且\vspace{-2ex}
+	\item[(iii)]$\lim\limits_{\substack{x\rightarrow x^{0}\\x\in\mathbb{R}_{+}^{n}}}u(x)=g(x^{0})$对于每个点$x^{0}\in\partial\mathbb{R}_{+}^{n}$成立。 
+\end{enumerate}
+\par
+\noindent\textbf{证明.}1.对于每个固定$x$,映射$y\mapsto G(x,y)$是调和的，除了$y=x$。当$G(x,y)=G(y,x)$根据定理13，$x\mapsto G(x,y)$是调和的，除了$x=y$。因此$x\mapsto -\frac{\partial G}{\partial y_{n}}(x,y)=K(x,y)$对于$x\in\mathbb{R}_{+}^{n},y\in\partial\mathbb{R}_{+}^{n}$是调和的。
+\par
+2.一个直接的计算，我们省略计算的细节，核实
+\begin{equation}
+1=\int_{\partial\mathbb{R}_{+}^{n}}K(x,y)\,dy
+\end{equation}
+对每个$x\in\mathbb{R}_{+}^{n}$。因为$g$是有界的，由(33)定义的$u$同样地是有界的。因为$x\mapsto K(x,y)$是光滑的对于$x\neq y$，我们也容易核实$u\in C^{\infty}(R_{+}^{n})$，满足
+\begin{equation*}
+\Delta u(x)=\int_{\partial \mathbb{R}_{+}^{n}}\Delta_{x}K(x,y)g(y)\,dy=0\quad(x\in\mathbb{R}_{+}^{n}).
+\end{equation*}
+\par
+3.现在固定$x^{0}\in\partial\mathbb{R}_{+}^{n},\varepsilon>0$。选择$\delta>0$足够小以满足
+\begin{equation}
+|g(y)-g(x^{0})|<\varepsilon\quad\text{如果}|y-x^{0}|<\delta,y\in\partial\mathbb{R}_{+}^{n}.
+\end{equation}
+于是如果$|x-x^{0}|<\frac{\delta}{2},x\in\mathbb{R}_{+}^{n}$，
+\begin{equation}
+\begin{aligned}
+|u(x)-g(x^{0})|=&\left|\int_{\partial\mathbb{R}_{+}^{n}}K(x,y)\left[g(y)-g(x^{0})\right]\,dy\right|\\
+\leq&\int_{\partial\mathbb{R}_{+}^{n}\cap B(x^{0},\delta)}K(x,y)|g(y)-g(x^{0})|\,dy\\
+&+\int_{\partial\mathbb{R}_{+}^{n}-B(x^{0},\delta)}K(x,y)|g(y)-g(x^{0})|\,dy\\
+=:&I+J.
+\end{aligned}
+\end{equation}
+现在(34)，(35)推出
+\begin{equation*}
+I\leq\varepsilon\int_{\partial\mathbb{R}_{+}^{n}}K(x,y)\,dy=\varepsilon.
+\end{equation*}
+而且，如果$|x-x^{0}|\leq\frac{\delta}{2}$并且$|y-x^{0}|\geq\delta$，我们有
+\begin{equation*}
+|y-x^{0}|\leq|y-x|+\frac{\delta}{2}\leq|y-x|+\frac{1}{2}|y-x^{0}|;
+\end{equation*}
+并且所以$|y-x|\geq\frac{1}{2}|y-x^{0}|$。因此
+\begin{equation*}
+\begin{aligned}
+J&\leq 2\|g\|_{L^{\infty}}\int_{\partial \mathbb{R}_{+}^{n}-B(x^{0},\delta)}K(x,y)\,dy\\
+&\leq \frac{2^{n+2}\|g\|_{L^{\infty}}x_{n}}{n\alpha(n)}\int_{\partial\mathbb{R}_{+}^{n}-B(x^{0},\delta)}|y-x^{0}|^{-n}\,dy\\
+&\rightarrow 0 \text{当}x_{n}\rightarrow 0^{+}.
+\end{aligned}
+\end{equation*}
+结合估计(36)的计算，我们推论$|u(x)-g(x^{0})|\leq 2\varepsilon$，假设$|x-x^{0}|$是足够小的。$\hfill\qedsymbol$
+\paragraph{对于一个球的格林公式.}~{}
+\par
+为了去建立单位球$B(0,1)$的格林公式，我们将再次应用一种反射，这次通过球面$\partial B(0,1)$。
+\par
+\noindent\textbf{定义.}如果$x\in\mathbb{R}^{n}-{0}$，点
+\begin{equation*}
+\tilde{x}=\frac{x}{|x|^{2}}
+\end{equation*}
+被称为关于$\partial B(0,1)$的$x$的对偶点。映射$x\rightarrow \tilde{x}$是倒数通过单位球面$\partial B(0,1)$。
+\par
+现在我们应用通过球面的倒数去计算格林函数对于单位球$U=B^{0}(0,1)$。固定$x\in B^{0}(0,1)$。记住我们必须找到一个修正函数$\phi^{x}=\phi^{x}(y)$解
+\begin{equation}
+\begin{cases}
+\begin{aligned}
+\Delta \phi^{x}&=0\qquad&\text{在}&\mathbb{R}_{+}^{n}\\
+\phi^{x}&=\Phi(y-x)&\text{在}&\partial\mathbb{R}_{+}^{n};
+\end{aligned}
+\end{cases}
+\end{equation}
+于是格林函数是
+\begin{equation}
+G(x,y)=\Phi(y-x)-\phi^{x}(y).
+\end{equation}
+现在想法是去“倒置奇点”从$x\in B^{0}(0,1)$到$\tilde{x}\not\in B(0,1)$。展示假设$n\geq 3$。现在映射$y\mapsto \Phi(y-\tilde{x})$是调和的对于$y\neq\tilde{x}$。因此$y\mapsto|x|^{2}\Phi(y-\tilde{x})$是调和的对于$y\neq\tilde{x}$，并且所以
+\begin{equation}
+\phi^{x}(y):=\Phi(|x|(y-\tilde{x}))
+\end{equation}
+在$U$内是调和的。此外，如果$y\in\partial B(0,1)$以及$x\neq 0$，
+\begin{equation*}
+\begin{aligned}
+|x|^{2}|y-\tilde{x}|^{2}&=|x|^{2}\left(|y|^{2}-\frac{2y\cdot x}{|x|^{2}}+\frac{1}{|x|^{2}}\right)\\
+&=|x|^{2}-2y\cdot x+1=|x-y|^{2}.
+\end{aligned}
+\end{equation*}
+因此$(|x||y-\tilde{x}|)^{-(n-2)}=|x-y|^{-(n-2)}$。因此
+\begin{equation}
+\phi^{x}(y)=\Phi(y-x)\quad(y\in\partial B(0,1)),
+\end{equation}
+如同要求的。
+\par
+\noindent\textbf{定义.}单位球的格林函数是
+\begin{equation}
+G(x,y):=\Phi(y-x)-\Phi(|x|(y-\tilde{x}))\quad(x,y\in B(0,1),x\neq y).
+\end{equation}
+对于$n=2$相同的公式也试用。
+\par
+现在假设$u$解了边界值问题
+\begin{equation}
+\begin{cases}
+\begin{aligned}
+\Delta &u=0 \quad &\text{在}&B^{0}(0,1)\\
+&u=g&\text{在}&\partial B(0,1).
+\end{aligned}
+\end{cases}
+\end{equation}
+于是运用公式(30)，我们看见
+\begin{equation}
+u(x)=-\int_{\partial B(0,1)}g(y)\frac{\partial G}{\partial\nu}\,dS(y).
+\end{equation}
+根据公式(41)，
+\begin{equation*}
+\frac{\partial G}{\partial y_{i}}(x,y)=\frac{\partial \Phi}{\partial y_{i}}(y-x)-\frac{\partial}{\partial y_{i}}\Phi(|x|(y-\tilde{x})).
+\end{equation*}
+但是
+\begin{equation*}
+\frac{\partial\Phi}{\partial y_{i}}(x-y)=\frac{1}{n\alpha(n)}\frac{x_{i}-f_{i}}{|x-y|^{n}},
+\end{equation*}
+并且此外
+\begin{equation*}
+\frac{\Phi}{y_{i}}(|x|(y-\tilde{x}))=\frac{-1}{n\alpha(n)}\frac{y_{i}|x|^{2}-x_{i}}{(|x||y-\tilde{x}|)^{n}}=-\frac{1}{n\alpha(n)}\frac{y_{i}|x|^{2}-x_{i}}{|x-y|^{n}}
+\end{equation*}
+如果$y\in\partial B(0,1)$。因此
+\begin{equation*}
+\begin{aligned}
+\frac{\partial G}{\partial\nu}(x,y)&=\sum_{i=1}^{n}y_{i}\frac{\partial G}{\partial y_{i}}(x,y)\\
+&=\frac{-1}{n\alpha{n}}\frac{1}{|x-y|^{n}}\sum_{i}^{n}y_{i}((y_{i}-x_{i})-y_{i}|x|^{2}+x_{i})\\
+&=\frac{-1}{n\alpha(n)}\frac{1-|x|^{2}}{|x-y|^{n}}.
+\end{aligned}
+\end{equation*}
+因此公式(43)推出表示公式
+\begin{equation*}
+u(x)=\frac{1-|x|^{2}}{n\alpha(n)}\int_{\partial B(0,1)}\frac{g(y)}{|x-y|^{n}}\,dS(y).
+\end{equation*}
+\par
+现在假设(42)$u$解了边界值问题
+\begin{equation}
+\begin{cases}
+\begin{aligned}
+\Delta &u=0 \quad &\text{在}&B^{0}(0,r)\\
+&u=g&\text{在}&\partial B(0,r)
+\end{aligned}
+\end{cases}
+\end{equation}
+对于$r>0$。于是$\tilde{u}(x)=u(rx)$解决了(42)，通过$\tilde{g}(x)=g(rx)$代替$g$。我们改变变量去得到泊松公式
+\begin{equation}
+u(x)=\frac{r^{2}-|x|^{2}}{n\alpha(n)r}\int_{\partial B(0,r)}\frac{g(y)}{|x-y|^{n}}\,dS(y)\quad(x\in B^{0}(0,r)).
+\end{equation}
+函数
+\begin{equation*}
+K(x,y):=\frac{r^{2}-|x|^{2}}{n\alpha(n)r}\frac{1}{|x-y|^{n}}\quad(x\in B^{0}(0,r),y\in\partial B(0,r))
+\end{equation*}
+是对于球$B(0,r)$的泊松核。
+\par
+我们已经建立(45)，在假设(44)的一个光滑解存在之下。我接下来声明这个公式事实上给出了一个解。于是
+\begin{enumerate}[fullwidth,itemindent=2em]
+	\item[(i)]$u\in C^{\infty}(B^{0}(0,r))$，
+	\item[(ii)]$\Delta u=0$在$B^{0}(0,r)$，\\
+	并且\vspace{-2ex}
+	\item[(iii)]$\lim\limits_{\substack{x\rightarrow x^{0}\\x\in B^{0}(0,r)}} u(x)=g(x^{0})$对于每个点$x^{0}\in\partial B(0,r)$.
+\end{enumerate}
+这个证明和定理14类似，并且留作一个练习。
+
+\subsubsection{能量方法.}
+目前我们对调和函数的分析大多数基于相当地表示公式，需要基本解，格林函数等。在这个结束的章节我们描述了一些“能量”方法，它可以说是关于不同表达式的$L^{2}$范数。这些想法是后面在$PART\quad II$和$PART\quad III$的理论发展的预兆。
+\paragraph{唯一性.}~{}
+\par
+首先考虑边界值问题
+\begin{equation}
+\begin{cases}
+\begin{aligned}
+-\Delta &u=f\quad&\text{在}& U\text{中}\\
+&u=g&\text{在}&\partial U\text{上}.
+\end{aligned}
+\end{cases}
+\end{equation}
+我们已经应用$\S 2.2.3$中的最大值原理去展示唯一性，但是现在提出一个简单的非正统证明。假设$U$是开集，有界的，并且$\partial U$是$C^{1}$。
+\par
+\noindent\textbf{定理 16}(唯一性)。存在最多一个方程(46)的解$u\in C^{2}(\tilde{U})$。
+\par
+\noindent\textbf{证明.}假设$\tilde{u}$是另外一个解并且设$w:=u-\tilde{u}$。于是$\Delta w=0$在$U$中，并且以分部积分表明
+\begin{equation*}
+0=-\int_{U}w\Delta w\,dx=\int_{U}|Dw|^{2}\,dx.
+\end{equation*}
+因此$Dw\equiv 0$在$U$中，并且，因为$w=0$在$\partial U$上，我们推断处$w=u-\tilde{u}\equiv 0$在$U$中。$\hfill\qedsymbol$
+
+\paragraph{迪里克莱原理.}~{}
+\par
+接下来让我们举例说明边界值问题泊松方程(46)的解能被描述为一个合适函数的最小值。为了这样，我们定义能量函数
+\begin{equation*}
+I[w]=\int_{U}\frac{1}{2}|Dw|^{2}-wf\,dx,
+\end{equation*}
+$w$属于容许集
+\begin{equation*}
+\mathcal{A}=\{w\in C^{2}(\tilde{U})|w=g\text{在}\partial U\text{上}\}.
+\end{equation*}
+\par
+\noindent\textbf{迪里克莱原理}。假设$u\in C^{2}(\tilde{U})$解了方程(46)。于是
+\begin{equation}
+I[u]=\min_{w\in \mathcal{A}}I[w].
+\end{equation}
+反过来，如果$u\in\mathcal{A}$满足(47)，于是$u$解了边界值问题(46)。
+\par
+换句话来说如果$u\in\mathcal{A}$，这个PDE$-\Delta u=f$成立等价于声明$u$使能量函数$I[\cdot]$最小化。
+\par
+\noindent\textbf{证明.}1.选择$w\in\mathcal{A}$。于是(46)推出
+\begin{equation*}
+0=\int_{U}(-\Delta u-f)(u-w)\,dw.
+\end{equation*}
+分部积分推导出
+\begin{equation*}
+0=\int_{U}Du\cdot D(u-w)-f(u-w)\,dx,
+\end{equation*}
+这里没有边界项因为$u-w=g-g=0$在$\partial U$上。因此
+\begin{equation*}
+\begin{aligned}
+\int_{U}|Du|^{2}-uf\,dx&=\int_{U}Du\cdot Dw-wf\,dx\\
+&\leq\int_{U}\frac{1}{2}|Du|^{2}\,dx+\int_{U}\frac{1}{2}|Dw|^{2}-wf\,dx,
+\end{aligned}
+\end{equation*}
+这里我们应用估计
+\begin{equation*}
+|Du\cdot Dw|\leq|Du||Dw|\leq\frac{1}{2}|Du|^{2}+\frac{1}{2}|Dw|^{2},
+\end{equation*}
+根据的是柯西-史瓦兹不等式和柯西不等式($\S B.2.$)。重新排列，我们得出结论
+\begin{equation}
+I[u]\leq I[w]\quad(w\in\mathcal{A}).
+\end{equation}
+因为$u\in\mathcal{A}$，(47)由(48)推出。
+\par
+2.现在，相反地，假设(47)式成立。固定任一个$v\in C_{c}^{\infty}(U)$并且写
+\begin{equation*}
+i{\to}:=I[u+\to v]\quad(to\in\mathbb{R}).
+\end{equation*}
+因为$u+\tau v\in\mathcal{A}$对于每个$\tau$成立，标量函数$i(\cdot)$在零处有一个最小值，并且因此
+\begin{equation*}
+i'(0)=0\quad\left('=\frac{d}{d\tau}\right),
+\end{equation*}
+如果这个导数存在。但是
+\begin{equation*}
+\begin{aligned}
+i(\tau)&=\int_{U}\frac{1}{2}|Du+\tau Dv|^{2}-(u+rv)f\,dx\\
+&=\int_{U}\frac{1}{2}|Du|^{2}+\tau Du\cdot Dv+\frac{\tau^{2}}{2}|Dv|^{2}-(u+\tau v)f\,dx.
+\end{aligned}
+\end{equation*}
+因此
+\begin{equation*}
+0=i'(0)=\int_{U}Du\cdot Dv-vf\,dx=\int_{U}(-\Delta u-f)v\,dx.
+\end{equation*}
+这个恒等式是有效的对于每个函数$v\in C{c}^{\infty}(U)$并且所以$-\Delta u=f$在$U$中。$\hfill\qedsymbol$
+\par
+迪里克莱原理是变分计算引用与拉普拉斯方程的一个例子。见章节8获取更多内容。
+
+\subsection{热方程}
+接下来我们学习热方程
+\begin{equation}
+u_{t}-\Delta u=0
+\end{equation}
+并且非齐次热方程
+\begin{equation}
+u_{t}-\Delta u=f,
+\end{equation}
+满足合适的初边值条件。这里$t>0$并且$x\in U$，这里$U\subset\mathbb{R}^{n}$是开的。未知函数是$u:\bar{U}\times[0,\infty)\rightarrow\mathbb{R},u=u(x,t)$，并且拉普拉斯算子$\Delta$与空间变量$x=(x_{1},...,x_{n}):\Delta u=\Delta_{x}u=\sum_{i=1}^{n}u_{x_{i}x_{i}}$。在(2)中函数$f:U\times[0,\infty)\rightarrow\mathbb{R}$是给定的。
+\par
+一个导向原则是关于调和函数的任意断言推导一个相似的(但是更加复杂的)陈述关于热方程的解。因此我们的进展将极大的平行于相关的拉普拉斯方程的理论。
+\par
+\noindent\textbf{物理解释.}热方程，也被认为扩展方程，典型的应用，描述某种数量比如热量，或者化学浓度等等的密度$u$随时间的演变。如果$V\subset U$是任意光滑区域，在$V$内的总体数量的改变率等于负的净通量通过$\partial V$:
+\begin{equation*}
+\frac{d}{dt}\int_{V}u\,dx=-\int_{\partial V}\mathbf{F}\cdot\bm{\nu}\,dS,
+\end{equation*}
+$\mathbb{F}$是通量密度。因此
+\begin{equation}
+u_{t}=-div\mathbf{F},
+\end{equation}
+$V$是任意的。在许多情况$\mathbf{F}$是和$u$的梯度成比例的，但是在相反方向的店(因为流是从更高的区域到更低的区域)：
+\begin{equation*}
+\mathbf{F}=-\alpha Du\quad(a>0)
+\end{equation*}
+带入(3)，我们得到这个PDE
+\begin{equation*}
+u_{t}=a div(Du)=a\Delta u,
+\end{equation*}
+对于$a=1$是热方程。
+\par
+热方程也出现在布朗运动中。
+\par
+{}$\hfill\qedsymbol$
+\subsubsection{基础解.}
+\paragraph{基础解的推导.}~{}
+\par
+如同在$\S 2.2.1$中提到，一个重要的首页步骤在研究任何PDE通常是去提出某种特殊的解。
+\par
+我们注意到包含于关于时间变量$t$的一阶导数的热方程，但是包含关于空间变量$x_{i}\quad(i=1,...,n)$的两阶导数。因此我们看到如果$u$解了方程(1)，于是$u(\lambda x,\lambda^{2}t)$对于$\lambda\in\mathbb{R}$也解了这个方程。这个这个缩放表明比例$\frac{r^{2}}{t}(r=|x|)$对于热方程是重要的并且表明我们寻找(1)的解有形式$u(x,t)=v(\frac{r^{2}}{t})=v(\frac{|x|^{2}}{t})(t>0,x\in\mathbb{R}^{n})$，对于现在未知的某个函数$v$。
+\par
+虽然这个方法最终得到我们想要的(见问题11),去寻找一个有特殊结构的解$u$是更快的
+\begin{equation}
+u(x,t)=\frac{1}{t^{\alpha}}v\left(\frac{x}{t^{\beta}}\right)\quad(x\in\mathbb{R}^{n},t>0),
+\end{equation}
+这里常数$\alpha,\beta$和函数$v:\mathbb{R}^{n}\rightarrow\mathbb{R}$一定被发现。我们来到(4)，如果我们寻找热方程的解$u$，在扩大放缩
+\begin{equation*}
+u(x,t)\mapsto\lambda^{\alpha}u(\lambda^{\beta}x,\lambda t).
+\end{equation*}
+是不变的。即是，我们要求
+\begin{equation*}
+u(x,t)=\lambda^{\alpha}u(\lambda^{\beta}x,\lambda t)
+\end{equation*}
+对于所有$\lambda>0,x\in\mathbb{R}^{n},t>0$。令$\lambda=t^{-1}$，我们得到(4)对于$v(y):=u(y,1)$。
+\par
+让我们把(4)带入到(1)，并且此后计算
+\begin{equation}
+\alpha t^{-(\alpha+1)}v(y)+\beta t^{-\alpha+1}y\cdot Dv(y)+t^{-(\alpha+2\beta)}\Delta v(y)=0
+\end{equation}
+对于$y:=t^{-\beta}x$。为了去把(5)转化为一个只包含$y$的表达式，我们取$\beta=\frac{1}{2}$。于是带有$t$的项是齐次的，并且所以$(5)$化简为
+\begin{equation}
+\alpha v+\frac{1}{2}y\cdot Dv+\Delta v=0.
+\end{equation}
+\par
+我们更进一步化简通过把$v$视为放射状的；即是，$v(y)=w()|y|$对于某个$w:\mathbb{R}\rightarrow\mathbb{R}$。随即(6)成为
+\begin{equation*}
+\alpha w+\frac{1}{2}rw'+w''+\frac{n-1}{r}w'=0,
+\end{equation*}
+对于$r=||y,'=\frac{d}{dx}$。现在如果我们设$\alpha=\frac{n}{2}$，这个简化去读
+\begin{equation*}
+(r^{n-1}w')'+\frac{1}{2}(r^{n}w)'=0.
+\end{equation*}
+因此
+\begin{equation*}
+r^{n-1}w'+\frac{1}{2}r^{n}w=a
+\end{equation*}
+对于某个常数$a$。假设$\lim_{r\rightarrow \infty}w,w'=0$，我们得出结论$a=0$；由此
+\begin{equation*}
+w'=-\frac{1}{2}rw.
+\end{equation*}
+但是于是对于某个常数$b$
+\begin{equation}
+w=be^{-\frac{r^{2}}{4}}.
+\end{equation}
+结合(4),(7)并且我们对于$\alpha,\beta$的选择，我们得出结论$\frac{b}{t^{n/2}}e^{-\frac{|x|^{2}}{4t}}$解了这个热方程(1)。
+\par
+这个计算推动了解析来
+\par
+\noindent\textbf{定义.}函数
+\begin{equation*}
+\Phi(x,t):=
+\begin{cases}
+\begin{aligned}
+&\frac{1}{(4\pi t)^{n/2}}e^{-\frac{|x|^{2}}{4t}}\quad&(x\in\mathbb{R}^{n},t>0)\\
+&0&(x\in\mathbb{R}^{n},t<0)
+\end{aligned}
+\end{cases}
+\end{equation*}
+被称为热方程的基本解。
+\par
+注意到$\Phi$在点(0,1)是奇异的。我们将有时写$\Phi(x,t)=\Phi(|x|,t)$去强调这个基本解在变量$x$是放射的。选择常化常数$(4\pi )^{-n/2}$是由下文所叙述的
+\par
+\noindent\textbf{引理}(基本解的积分)。对于每个时间$t>0$，
+\begin{equation*}
+\int_{\mathbb{R}^{n}}\Phi(x,t)\,dx=1.
+\end{equation*}
+\par
+\noindent\textbf{证明.}我们计算
+\begin{equation*}
+\begin{aligned}
+\int_{\mathbb{R}^{n}}\Phi(x,t)\,dx&=\frac{1}{(4\pi t)^{n/2}}\int_{\mathbb{R}^{n}}e^{-\frac{|x|^{2}}{4t}}\,dx\\
+&=\frac{1}{\pi^{n/2}}\int_{\mathbb{R}^{n}}e^{-|z|^{2}}\,dz\\
+&=\frac{1}{\pi^{n/2}}\Pi_{i=1}^{n}\int_{-\infty}^{\infty}e^{-z_{i}^{2}}\,dz_{i}=1.
+\end{aligned}
+\end{equation*}
+$\hfill\qedsymbol$
+\\热方程的基本解的一个不同的推导出现在$\S 4.3.2$。
+
+\paragraph{初值问题.}~{}
+\par
+我们现在应用$\Phi$去塑造初值(或者柯西)问题 
+\begin{equation}
+\begin{cases}
+\begin{aligned}
+u_{t}-\Delta&u=0\quad&\text{在}&\mathbb{R}^{n}\times(0,\infty)\text{中}\\
+&u=g&\text{在}&\mathbb{R}^{n}\times\{t=0\}\text{上}.
+\end{aligned}
+\end{cases}
+\end{equation}
+\par
+让我们注意函数$(x,t)\mapsto\Phi(x,t)$解决了热方程远离在(0,0)处的奇异点，并且因此$(x,t)\mapsto\Phi(x-y,t)$对于每个固定的$y\in\mathbb{R}^{n}$是成立的。因此卷积
+\begin{equation}
+\begin{aligned}
+u(x,t)&=\int_{\mathbb{R}^{n}}\Phi(x-y,t)g(y)\,dy\\
+&=\frac{1}{(4\pi t)^{n/2}}\int_{\mathbb{R}^{n}}e^{-\frac{|x-y|^{2}}{4t}}g(y)\,dy\quad(x\in\mathbb{R}^{n},t>0)
+\end{aligned}
+\end{equation}
+应该也是一个解。
+\par
+\noindent\textbf{定理 1}(初值问题的解)。假设$g\in C(\mathbb{R}^{n})\cap L^{\infty}(\mathbb{R}\times(0,\infty))$，并且定义$u$通过(9)。于是
+\begin{enumerate}
+	\item[(i)]$u\in C^{\infty}$,
+	\item[(ii)]$u_{t}(x,t)-\Delta u(x,t)=0\quad(x\in\mathbb{R}^{n},t>0)$,
+	\par
+	\noindent 并且\vspace{-2ex}
+	\item[(iii)]
+	 $\lim\limits_{\substack{(x,t)\rightarrow(x^{0},0)\\ x\in\mathbb{R}^{n},t>0}}u(x,t)=g(x^{0}) $对于每个点$x^{0}\in\mathbb{R}^{n}$成立。
+\end{enumerate}
+\par
+\noindent\textbf{证明.}1.因为函数$\frac{1}{t^{n/2}}e^{-\frac{|x|^{2}}{4t}}$是无限可微的，带有所有阶数一致有界的导数，在$\mathbb{R}^{n}\times[\delta,\infty)$上对于每一个$\delta>0$成立，我们看到$u\in C^{\infty}(\mathbb{R}^{n}\times (0,\infty))$。此外
+\begin{equation}
+\begin{aligned}
+u_{t}(x,t)-\Delta u(x,t)&=\int_{\mathbb{R}^{n}}[(\Phi_{t}-\Delta_{z}\Phi)(x-y,t)]g(y)\,dy\\
+&=0\quad(x\in\mathbb{R}^{n},t>0),
+\end{aligned}
+\end{equation}
+因为$\Phi$本身解决了热方程。
+\par
+2.固定$x^{0}\in\mathbb{R}^{n},\varepsilon>0$。选择$\delta>0$使得
+\begin{equation}
+|g(y)-g(x^{0})|<\varepsilon\quad\text{如果}|y-x^{0}|<\delta,y\in\mathbb{R}^{n}.
+\end{equation}
+于是如果$|x-x^{0}|<\frac{\delta}{2}$，我们有，根据引理，
+\begin{equation*}
+\begin{aligned}
+|u(x,t)-g(x^{0})|=&|\int_{\mathbb{R}^{n}}\Phi(x-y,t)[g(y)-g(x^{0})]\,dy|\\
+\leq&\int_{B(x^{0},\delta)}\Phi(x-y,t)|g(y)-g(x^{0})|\,dy\\
+&{\quad}{}+\int_{\mathbb{R}^{n}-B(x^{0},\delta)}\Phi(x-y,t)|g(y)-g(x^{0})|\,dy\\
+=:&I+J.
+\end{aligned}
+\end{equation*}
+现在
+\begin{equation*}
+I\leq\varepsilon\int_{\mathbb{R}^{n}}\Phi(x-y,t)dy=\varepsilon,
+\end{equation*}
+因为(11)和这个引理。此外，如果$|x-x^{0}|\leq\frac{\delta}{2}$以及$|y-x^{0}|\geq\delta$,于是
+\begin{equation*}
+|y-x^{0}|\leq|y-x|+\frac{\delta}{2}\leq|y-x|+\frac{1}{2}|y-x^{0}|.
+\end{equation*}
+因此$|y-x|\geq\frac{1}{2}|y-x^{0}|$。因此
+\begin{equation*}
+\begin{aligned}
+J&\leq 2\|g\|_{L^{\infty}}\int_{\mathbb{R}^{n}-B(x^{0},\delta)}\Phi(x-y,t)\,dy\\
+&\leq\frac{C}{t^{n/2}}\int_{\mathbb{R}^{n}-B(x^{0},\delta)}e^{-\frac{|x-y|^{2}}{4t}}\,dy\\
+&\leq\frac{C}{t^{n/2}}\int_{\mathbb{R}^{n}-B(x^{0},\delta)}e^{-\frac{|y-x^{0}|^{2}}{16t}}\,dy\\
+&=\frac{C}{t^{n/2}}\int_{\delta}^{\infty}e^{-\frac{r^{2}}{16t}}r^{n-1}\,dr\rightarrow 0\qquad\text{当}t\rightarrow 0^{+}.
+\end{aligned}
+\end{equation*}
+因此如果$|x-x^{0}|<\frac{\delta}{2}$并且$t>0$是足够小的，$|u(x,t)-g(x^{0})|<2\varepsilon$$\hfill\qedsymbol$
+\par
+\noindent\textbf{注记.}(i)考虑定理1我们有时写
+\begin{equation*}
+\begin{cases}
+\begin{aligned}
+\Phi_{t}-\Delta &\Phi=0\qquad&\text{在}&\mathbb{R}^{n}\times(0,\infty)\\
+&\Phi=\delta_{0}&\text{在}&\mathbb{R}^{n}\times\{t=0\},
+\end{aligned}
+\end{cases}
+\end{equation*}
+$\delta_{0}$代表Dirac测度在$\mathbb{R}^{n}$上，给了点0单位质量。
+\par
+(ii)注意如果$g$是有界的，连续的，$g\geq 0,g\not\equiv 0$，于是
+\begin{equation*}
+	u(x,t)=\frac{1}{(4\pi t)^{n/2}}\int_{\mathbb{R}^{n}}e^{-\frac{|x-y|^{2}}{4t}}g(y)\,dy
+\end{equation*}
+事实上对于所有点$x\in\mathbb{R}^{n}$是正的并且时间$t>0$。我们解释这个意见通过说这个热方程为干扰施加了无限的运动速度。如果这个初始温度是非负的并且在某处是正的，在任一之后的时间(无论多小)，任一位置温度都是正的。(我们将在$\S 2.4.3$知道波方程与此相反，对于扰动支持有限的传播速度。)$\hfill\qedsymbol$
+
+
+
+\paragraph{非齐次问题.}~{}
+\par
+现在让我们注意非齐次初值问题
+\begin{equation}
+\begin{cases}
+\begin{aligned}
+u_{t}-\Delta &u=f\quad&\text{在}&\mathbb{R}^{n}\times(0,\infty)\text{中}\\
+&u=0&\text{在}&\mathbb{R}^{n}\times\{t=0\}.
+\end{aligned}
+\end{cases}
+\end{equation}
+我们怎样能产生一个解的公式？如果我们回忆导向(9)的动机，我们应该进一步注意到映射$(x,t)\mapsto \Phi(x-y,t-s)$是热方程的一个解(对于给定的$y\in\mathbb{R}^{n},0<s<t$)。现在对于固定的$s$，函数
+\begin{equation*}
+u=u(x,t;s)=\int_{\mathbb{R}^{n}}\Phi(x-y,t-s)f(y,s)\,dy
+\end{equation*}
+解了
+
+\begin{equation*}
+\tag{$12_{s}$}
+\begin{cases}
+\begin{aligned}
+u_{t}(\cdot;s)-\Delta &u(\cdot;s)=0\qquad&\text{在}&\mathbb{R}^{n}\times(s,\infty)\text{中}\\
+&u(\cdot;s)=f(\cdot,s)&\text{在}&\mathbb{R}^{n}\times\{t=s\}\text{中},
+\end{aligned}
+\end{cases}
+\end{equation*}
+它就是形式(8)的一个初值问题，开始时间$t=0$被$t=s$代替，并且$g$被$f(\cdot,s)$代替。因此$(\cdot;s)$当然不是(12)的一个解。
+\par
+然而Duhamel's原理论证我们能建立(12)的一个解基于$(12_{s})$的解，通过关于$s$积分。想法是去考虑
+\begin{equation*}
+u(x,t)=\int_{0}^{t}u(x,t;s)\,ds\qquad(x\in\mathbb{R}^{n},t\geq 0).
+\end{equation*}
+重写，我们有
+\begin{equation}
+\begin{aligned}
+u(x,t)&=\int_{0}^{t}\int_{\mathbb{R}^{n}}\Phi(x-y,t-s)f(y,s)\,dyds\\
+&=\int_{0}^{t}\frac{1}{(4\pi(t-s))^(n/2)}\int_{\mathbb{R}^{n}}e^{-\frac{|x-y|^{2}}{4(t-s)}}f(y,s)\,dyds,
+\end{aligned}
+\end{equation}
+对于所有$x\in\mathbb{R}^{n},t>0$。
+\par
+为了去证明公式(13)可行，让我们为了简便起见假设$f\in C_{1}^{2}(\mathbb{R}^{n}\times[0,\infty))$并且$f$有紧支集。
+\par
+\noindent\textbf{定理 2}(非齐次问题的解)。用(13)定义$u$。于是
+\begin{enumerate}[fullwidth,itemindent=2em]
+	\item[(i)]$u\in C_{1}^{2}(\mathbb{R}^{n}\times(0,\infty))$,
+	\item[(ii)]$u_{t}(x,t)-\Delta u(x,t)=f(x,t)\quad(x\in\mathbb{R}^{n},t>0)$,\\
+	和\vspace{-2ex}
+	\item[(iii)]$\lim\limits_{\substack{(x,t)\rightarrow(x^(0),0)\\x\in\mathbb{R}^{n},t>0}}u(x,t)=0$对于每个点$x^{0}\in\mathbb{R}^{n}$。 
+\end{enumerate}
+\par
+\noindent\textbf{证明.}1.因为$\Phi$在点(0,0)处有一个奇点，我们不能在积分号下直接证明微分。相反我们有点进展的如同在$\S 2.2.1$中的定理1一样。
+\par
+首先我们改变变量，去写
+\begin{equation*}
+u(x,t)=\int_{0}^{t}\int_{\mathbb{R}^{n}}\Phi(y,s)f(x-y,t-s)\,dyds.
+\end{equation*}
+因为$f\in C_{1}^{2}(\mathbb{R}^{n}\times[0,\infty))$有紧集并且$\Phi=\Phi(y,s)$是光滑的靠近$s=t>0$，我们计算
+\begin{equation*}
+\begin{aligned}
+u_{t}(x,t)&=\int_{0}^{t}\int_{\mathbb{R}^{n}}\Phi(y,s)f_{t}(x-y,t-s)\,dyds\\
+&{\qquad}+\int_{\mathbb{R}^{n}}\Phi(y,t)f(x-y,0)\,dy
+\end{aligned}
+\end{equation*}
+并且
+\begin{equation*}
+\frac{\partial^{2}u}{\partial x_{i}\partial x_{j}}(x,t)=\int_{0}^{t}\int_{\mathbb{R}^{n}}\Phi(y,s)\frac{\partial^{2}}{\partial x_{i}\partial x_{j}}f(x-y,t-s)\,dyds\quad(i,j=1,...,n).
+\end{equation*}
+因此$u_{t},D_{x}^{2}u$，以及相似地$u,D_{x}u$，属于$C(\mathbb{R}^{n}\times(0,\infty))$。
+\par
+2.于是我们计算
+\begin{equation}
+\begin{aligned}
+u_{t}(x,t)-\Delta u(x,t)=&\int_{0}^{t}\int_{\mathbb{R}^{n}}\Phi(y,s)[(\frac{\partial}{\partial t}-\Delta_{x})f(x-y,t-s)]\,dyds\\
+&{\quad}+\int_{\mathbb{R}^{n}}\Phi(y,t)f(x-y,0)\,dy\\
+=&\int_{\varepsilon}^{t}\int_{\mathbb{R}^{n}}\Phi(y,s)[(-\frac{\partial}{\partial s}-\Delta_{y})f(x-y,t-s)]\,dyds\\
+&{\quad}+\int_{0}^{\varepsilon}\int_{\mathbb{R}^{n}}\Phi(y,s)[(-\frac{\partial}{\partial s}-\Delta_{y})f(x-y,t-s)]\,dyds\\
+&{\quad}+\int_{\mathbb{R}^{n}}\Phi(y,t)f(x-y,0)\,dy.\\
+=:&I_{\varepsilon}+J_{\varepsilon}+K.
+\end{aligned}
+\end{equation}
+现在
+\begin{equation}
+|J_{\varepsilon}|\leq(\|f_{t}\|_{L^{\infty}}+\|D^{2}f\|_{L^{\infty}})\int_{0}^{\varepsilon}\int_{\mathbb{R}^{n}}\Phi(y,s)\,dyds\leq\varepsilon C,
+\end{equation}
+通过引理成立。分部积分，我们也发现
+\begin{equation}
+\begin{aligned}
+I_{\varepsilon}=&\int_{\varepsilon}^{t}\int_{\mathbb{R}^{n}}[(\frac{\partial}{\partial  s}-\Delta_{y})\Phi(y,s)]f(x-y,t-s)\,dyds\\
+&{\quad}+\int_{\mathbb{R}^{n}}\Phi(y,\varepsilon)f(x-y,t-\varepsilon)\,dy\\
+&{\quad}-\int_{\mathbb{R}^{n}}\Phi(y,t)f(x-y,0)\,dy\\
+=&\int_{\mathbb{R}^{n}}\Phi(y,\varepsilon)f(x-y,t-\varepsilon)\,dy-K,
+\end{aligned}
+\end{equation}
+因为$\Phi$解决了热方程。结合(14)-(16)，我们弄清
+\begin{equation*}
+\begin{aligned}
+u_{t}(x,t)-\Delta u(x,t)&=\lim\limits_{\varepsilon\rightarrow 0}\int_{\mathbb{R}^{n}}\Phi(y,\varepsilon)f(x-y,t-\varepsilon)\,dy\\
+&=f(x,t)\quad(x\in\mathbb{R}^{n},t>0),
+\end{aligned}
+\end{equation*}
+当$\varepsilon\rightarrow 0$时，这个极限按照定理1的证明中那样计算。最后注意到$\|u(\cdot,t)\|_{L^{\infty}}\leq t\|f\|_{L^{\infty}}\rightarrow 0$。$\hfill\qedsymbol$
+\par
+\noindent\textbf{注记.}我们当然能结合定理1和定理2去发现
+\begin{equation}
+u(x,t)=\int_{\mathbb{R}^{n}}\Phi(x-y,t)g(y)\,dy+\int_{0}^{t}\int_{\mathbb{R}^{n}}\Phi(x-y,t-s)f(y,s)\,dyds
+\end{equation}
+是，基于以上对$g$和$f$的假设，方程
+\begin{equation}
+\begin{cases}
+\begin{aligned}
+u_{t}-\Delta &u=f\qquad&\text{在}&\mathbb{R}^{n}\times(0,\infty)\\
+&u=g&\text{在}&\mathbb{R}^{n}\times\{t=0\}.
+\end{aligned}
+\end{cases}
+\end{equation}
+$\hfill\qedsymbol$
+
+
+
+\subsubsection{平均值公式.}
+首先我们回忆来自$\S A.2.$的一些有用的记号。假设$U\subset\mathbb{R}^{n}$是开的而且是有界的，并且固定一个时间$T>0$。
+\par
+\noindent\textbf{定义.}
+\begin{enumerate}[fullwidth,itemindent=2em]
+	\item[(i)]我们定义抛物柱面
+	\begin{equation*}
+	U_{T}:=U\times(0,T].
+	\end{equation*}
+	\includegraphics[scale=0.9]{第二章2.3.2插图1}
+	\item[(ii)]$U_{T}$的抛物线边界是
+	\begin{equation*}
+	\Gamma_{T}:=\bar{U}_{T}-U_{T}.
+	\end{equation*} 
+\end{enumerate}
+\par
+我们解释$U_{T}$为$\bar{U}\times [0,T]$的抛物内部：仔细注意到$U_{T}$包括顶部$U\times {t=T}$。抛物边界$\Gamma_{T}$包含底部和$U\times [0,T]$的数值边界，但是不包含顶部。
+\par
+接下来我们想要去推导一种和调和方程的平均值性质的类似情况，如同在$\S 2.2.2$中讨论的。这里没有那种简单的公式。但是让我们注意对于固定的点$x$球面$\partial B(x,r)$是拉普拉斯方程的基本解$\Phi(x-y)$的水平集。这表明也许对于定点$(x,t)$基本解$\Phi(x-y,t-s)$的水平集对于热方程来说也许是有关的。
+\par
+\noindent\textbf{定义.}对于固定的$x\in\mathbb{R}^{n},t\in\mathbb{R},r>0$，我们定义
+\begin{equation*}
+E(x,t;r):=\left\{(y,s)\in\mathbb{R}^{n+1}|s\leq t,\Phi(x-y,t-s)\geq\frac{1}{r^{n}}\right\}.
+\end{equation*}
+这是时空中的一个区域，它的边界是$\Phi(x-y,t-s)$的一个水平集。注意点$(x,t)$是在顶部的中间。$E(x,t;r)$有时被称为“热球”。
+\par
+\noindent\textbf{定理 3}(热方程的平均值性质)。让$u\in C_{1}^{2}(U_{T})$解了热方程。于是
+\begin{equation}
+u(x,t)=\frac{1}{4r^{n}}\int\!\int_{E(x,t;r)}u(y,s)\frac{|x-y|^{2}}{(t-s)^{2}}\,dyds
+\end{equation}
+\includegraphics[scale=0.85]{第二章2.3.2插图2}
+对于每个$E(x,t;r)\subset U_{T}$。
+\par
+公式(19)是一种拉普拉斯方程的平均值公式对于热方程的类似物。注意到右手边只包含$u(y,s)$对于时间$s\leq t$。这是合理的，因为值$u(x,t)$不应该依赖于未来的时间。
+\par
+\noindent\textbf{证明.}我们也许也基于转化假设时空坐标$x=0$，以及$t=0$。写出$E(r)=E(0,0;r)$并且设置
+\begin{equation}
+\begin{aligned}
+\phi(r)&:=\frac{1}{r^{n}}\int\!\int_{E(r)}u(y,s)\frac{|y|^{2}}{s^{2}}\,dyds\\
+&=\int\!\int_{E(1)}u(ry,r^{2}s)\frac{|y|^{2}}{s^{2}}\,dyds.
+\end{aligned}
+\end{equation}
+我们计算
+\begin{equation*}
+	\begin{aligned}
+	\phi'(r)&=\int\!\int_{E(1)}\sum_{i=1}^{n}u_{y_{i}}y_{i}\frac{|y|^{2}}{s^{2}}+2ru_{s}\frac{|y|^{2}}{s}\,dyds\\
+	&=\frac{1}{r^{n+1}}\int\!\int_{E(r)}\sum_{i=1}^{n}u_{y_{i}}y_{i}\frac{|y|^{2}}{s^{2}}+2u_{s}\frac{|y|^{2}}{s}\,dyds\\
+	&=:A+B.
+	\end{aligned}
+\end{equation*}
+同样，让我们介绍有用的函数
+\begin{equation}
+	\psi:=-\frac{n}{2}log(-4\pi s )+\frac{|y|^{2}}{4s}+nlog\,r,
+\end{equation}
+并且注意到$\psi =0$在$\partial E(r)$上，因为$\Phi(y,-s)=r^{-n}$在$\partial E(r)$上。我们利用(21)去写
+\begin{equation*}
+	\begin{aligned}
+	B&=\frac{1}{n+1}\int\!\int_{E(r)}4u_{s}\sum_{i=1}^{n}y_{i}\psi_{y_{i}}\,dyds\\
+	&=-\frac{1}{r^{n+1}}\int\!\int_{E(r)}4nu_{s}\psi+4\sum_{i=1}^{n}u_{sy_{i}}y_{i}\psi\,dyds;
+	\end{aligned}
+\end{equation*}
+这里没有边界项因为$\psi =0$在$\partial E(r)$上。对$s$分部积分,我们发现
+\begin{equation*}
+	\begin{aligned}
+	B&=\frac{1}{r^{n+1}}\int\!\int_{E(r)}-4nu_{s}\psi+4\sum_{i=1}^{n}u_{y_{i}}y_{i}\psi_{s}\,dyds\\
+	&=\frac{1}{r^{n+1}}\int\!\int_{E(r)}-4nu_{s}\psi+4\sum_{i=1}^{n}u_{y_{i}}y_{i}\left(-\frac{n}{2s}-\frac{|y|^{2}}{4s^{2}}\right)\,dyds\\\\
+	&=\frac{1}{r^{n+1}}\int\!\int_{E(r)}-4nu_{s}\psi-\frac{2n}{s}\sum_{i=1}^{n}u_{y_{i}}y_{i}\,dyds-A.
+	\end{aligned}
+\end{equation*}
+因此，因为$u$解了热方程，
+\begin{equation*}
+	\begin{aligned}
+	\phi'(r)&=A+B\\
+	&=\frac{1}{r^{n+1}}\int\!\int_{E(r)}-4n\Delta u\psi-\frac{2n}{s}\sum_{i=1}^{n}u_{y_{i}}y_{i}\,dyds\\
+	&=\sum_{i=1}^{n}\frac{1}{r^{n+1}}\int\!\int_{E(r)}4nu_{y_{i}}\psi_{y_{i}}-\frac{2n}{s}u_{y_{i}}y_{i}\,dyds\\
+	&=0,\quad\text{根据}(21).
+	\end{aligned}
+\end{equation*}
+因此$\phi$是常数，并且因此
+\begin{equation*}
+\phi(r)=\lim_{t\rightarrow 0}\phi(t)=u(0,0)(\lim_{t\rightarrow 0}\frac{1}{t^{n}}\int\!\int_{E(t)}\frac{|y|^{2}}{s^{2}}\,dyds)=4u(0,0),
+\end{equation*}
+因为
+\begin{equation*}
+\frac{1}{t^{n}}\int\!\int_{E(t)}\frac{|y|^{2}}{s^{2}}\,dyds=\int\!\int_{E(1)}\frac{|y|^{2}}{s^{2}}\,dyds=4.
+\end{equation*}
+我们省略最后一个计算的细节。$\hfill\qedsymbol$
+
+\subsubsection{解的性质.}
+
+\paragraph{强最大值原理，唯一性.}~{}
+\par
+首先我们应用平均值性质去给出强最大值原理的一个快速的证明。
+\par
+\noindent\textbf{定理 4}(热方程的强最大值原理)。假设$u\in C_{1}^{2}(U_{T})\cap C(\bar{U}_{T})$解了热方程在$U_{T}$内。
+\begin{enumerate}
+	\item[(i)]于是
+	\begin{equation*}
+	\max_{\bar{U}_{T}}u=\max_{\Gamma_{T}}u.
+	\end{equation*} 
+	\includegraphics[scale=0.93]{第二章2.3.3插图1}
+	\item[(ii)]此外，如果$U$是连通的并且存在一个点$(x_{0},t_{0})\in U_{T}$使得
+	\begin{equation*}
+	u(x_{0},t_{0})=\max_{\bar{U}_{T}} u,
+	\end{equation*}
+	于是
+	\begin{equation*}
+	u\text{是常数在}\bar{U}_{t_{0}}\text{中}.
+	\end{equation*}
+\end{enumerate}
+\par
+推论(i)是对于热方程的最大值原理并且(ii)是最大值原理。相似的推论是成立的，用"min"代替"max"。
+\par
+\noindent\textbf{注记.}所以如果$u$达到它的最大值(或者最小值)在一个内点，于是$u$是常数在所有更早的时间。这符合我们强烈的直觉解释，变量$t$作为指标时间：这个解将是常数在时间区间$[0,t_{0}]$上，如果初值和边界条件是常数。让二，这个解可能在时间$t>t_{0}$改变，如果这个边界条件在$t_{0}$之后改变。然而解将不会回应边界条件的改变直到这个改变发生。
+\par
+注意，但是所有的这些是明显的在直觉的，物理背景下，这种洞察力没有建立一个证明。这个任务是去从PDE中演绎这种行为。$\hfill\qedsymbol$
+\par
+\noindent\textbf{证明.}1.假设存在一个点$(x_{0},t_{0})\in U_{T}$满足$u(x_{0},t_{0})=M:=\lim\max_{\bar{U}_{T}}u$。于是对于所有足够小的$r>0,E(x_{0},t_{0};r)\subset U_{T}$;并且我们应用平均值性质去推断
+\begin{equation*}
+M=u(x_{0},t_{0})=\frac{1}{4r^{n}}\int\!\int_{E(x_{0},t_{0};r)}u(y,s)\frac{|x_{0}-y|^{2}}{(t_{0}-s)^{2}}\,dyds\leq M,
+\end{equation*}
+自从
+\begin{equation*}
+1=\frac{1}{4r^{n}}\int\!\int_{E(x_{0},t_{0};r)}\frac{|x_{0}-y|^{2}}{(t_{0}-s)^{2}}\,dyds
+\end{equation*}
+等式成立当$u$在$E(x_{0},t_{0};r)$中是恒等于$M$的。因此
+\begin{equation*}
+u(y,s)=M\text{对于所有}(y,s)\in E(x_{0},t_{0};r).\text{成立.}
+\end{equation*}
+\par
+作任一条线段$L$在$U_{T}$中连接$(x_{0},t_{0})$和某个其它点$(y_{0},s_{0})\in U_{T}$,满足$s_{0}<t_{0}$。考虑
+\begin{equation*}
+r_{0}:=min\{s\geq s_{0}|u(x,t)=M\text{对于所有点}(x,t)\in L,s\leq t\leq t_{0}\}.
+\end{equation*}
+\par
+因为$u$是连续的，最小值是存在的。假设$r_{0}>s_{0}$。于是$u(z_{0},r_{0})=M$对于某个点$(z_{0},r_{0})$在$L\cap U_{T}$上并且所以$u\equiv M$在$E(z_{0},r_{0};r)$对于所有足够小的$r>0$成立。因为$E(z_{0},r_{0};r)$包括$L\cap \{r_{0}-\sigma\leq t\leq r_{0}\}$对于某个小的$\sigma>0$，我们产生了一个矛盾。因此$r_{0}=s_{0}$，并且因此$u\equiv M$在$L$上。
+\par
+2.现在固定任一个点$x\in U$并且任一时间$0\leq t< t_{0}$。存在点$\{x_{0},x_{1},\cdots,x_{m}=x\}$使得有$\mathbb{R}^{n}$中的线段连接$x_{i-1}$到$x_{i}$位于$U$中对于$i=1,...,m$。(这成立，因为$U$中能通过一个多边形路径连接到$x_{0}$的点的集合是非空的，开的和在U中相对闭的。)选择时刻$t_{0}>t_{1}>\cdots>t_{m}=t$。在$\mathbb{R}^{n+1}$中的这些线段连接$(x_{i-1},t_{i-1})$到$(x_{i},t_{i})(i=1,...,m)$位于$U_{T}$中。根据步骤1，在每个线段上$u\equiv M$并且所以$u(x,t)=M$$\hfill\qedsymbol$
+\par
+\noindent\textbf{注记.}强最大值原理推断，如果$U$是连通的并且$u\in C_{1}^{2}(U_{T}\cap C(\bar{U}_{T}))$满足
+\begin{equation*}
+\begin{cases}
+\begin{aligned}
+u_{t}-\Delta &u=0\quad&\text{在}&U_{T}\text{中}\\
+&u=0&\text{在}&\partial U\times [0,T]\text{上}\\
+&u=g&\text{在}&U\times\{t=0\}\text{上}
+\end{aligned}
+\end{cases}
+\end{equation*}
+这里$g\geq 0$，于是$u$处处是正的在$U_{T}$内，如果$g$是正的在$U$上的某处。这是对于湍流的无限传播速度的另一个刻画。$\hfill\qedsymbol$
+\par
+最大值原理的一个重要的应用是接下来的唯一性断论。
+\par
+\noindent\textbf{定理 5}(在有界区域上的唯一性).令$g\in C(\Gamma_{T}),f\in C(U_{T})$。于是初值/边值问题
+\begin{equation}
+\begin{cases}
+\begin{aligned}
+u_{t}-\Delta &u=f\quad&\text{在}&U_{T}\text{中}\\
+&u=g&\text{在}&\Gamma_{T}\text{上}.
+\end{aligned}
+\end{cases}
+\end{equation}
+存在最多一个解$u\in C_{1}^{2}(U_{T})\cap C(\bar{U}_{T})$
+\noindent\textbf{证明.}如果$u$和$\title{u}$是(22)的两个解，应用定理4到$w:=\pm(u-\title{u})$。$\hfill\qedsymbol$
+\par
+我们接下来延伸我们的唯一性推论到柯西问题上，即是，对于$U=\mathbb{R}^{n}$的初值问题。当我们不再在一个有界区域时，我们必须介绍一些在解的行为上的控制对于大的$|x|$。
+\par
+\noindent\textbf{定理 6}(柯西问题的最大值原理).假设$u\in C_{1}^{2}(\mathbb{R}^{n}\times (0,T])\cap C(\mathbb{R}^{n}\times(0,T])$解了
+\begin{equation}
+\begin{cases}
+\begin{aligned}
+u_{t}-\Delta &u=0\quad&\text{在}&\mathbb{R}^{n}\times (0,T)\text{中}\\
+&u=g&\text{在}&]\mathbb{R}^{n}\times \{t=0\}\text{上}.
+\end{aligned}
+\end{cases}
+\end{equation}
+并且满足增长估计
+\begin{equation}
+u(x,t)\leq Ae^{a|x|^{2}}\qquad(x\in\mathbb{R}^{n},0\leq t\leq T)
+\end{equation}
+对于常数$A,a>0$。于是
+\begin{equation*}
+\sup_{\mathbb{R}^{n}\times[0,T]}u=\sup_{\mathbb{R}^{n}}g.
+\end{equation*}
+\par
+\noindent\textbf{证明.}1.首先假设
+\begin{equation}
+4aT<1;
+\end{equation}
+在这种情况下
+\begin{equation}
+4a(T+\varepsilon)<1
+\end{equation}
+对于某个$\varepsilon>0$。固定$y\in\mathbb{R}^{n},\mu>0$，并且定义
+\begin{equation*}
+v(x,t):=u(x,t)-\frac{\mu}{(T+\varepsilon-t)^{n/2}}e^{\frac{|x-y|^{2}}{4(T+\varepsilon-t)}}\quad(x\in\mathbb{R}^{n},t>0).
+\end{equation*}
+一个直接的计算(cf.$\S 2.3.1$)显示
+\begin{equation*}
+v_{t}-\Delta v=0\qquad\text{在}\mathbb{R}^{n}\times(0.T]\text{中}.
+\end{equation*}
+固定$r>0$并且设置$U:=B^{0}(y,r),U_{T}=B^{0}(y,r)\times(0,T]$。于是根据定理4，
+\begin{equation}
+\max_{\bar{U}_{T}}v=\max_{\Gamma_{T}}v.
+\end{equation}
+\par
+2.现在如果$x\in\mathbb{R}^{n}$
+\begin{equation}
+\begin{aligned}
+v(x,0)&=u(x,0)-\frac{\mu}{(T+\varepsilon)^{n/2}}e^{\frac{|x-y|^{2}}{4(T+\varepsilon)}}\\
+&\leq u(x,0)=g(x);
+\end{aligned}
+\end{equation}
+并且如果$|x-y|=r,0\leq t\leq T$，于是
+\begin{equation*}
+\begin{aligned}
+v(x,t)&=u(x,t)-\frac{\mu}{(T+\varepsilon-t)^{n/2}}e^{\frac{r^{2}}{4(T+\varepsilon-t)}}\\
+&\leq Ae^{a|x|^{2}}-\frac{\mu}{(T+\varepsilon-t)^{n/2}}e^{\frac{r^{2}}{4(T+\varepsilon-t)}}\\
+&\leq Ae^{a(|y|+r)^{2}}-\frac{\mu}{(T+\varepsilon)^{n/2}}e^{\frac{r^{2}}{4(T+\varepsilon)}}.
+\end{aligned}
+\quad\text{通过}(24)
+\end{equation*}
+现在根据(26),$\frac{1}{4(T+\varepsilon)}=a+\gamma$对于某个$\gamma>0$。因此我们也许继续这个以上的计算去发现
+\begin{equation}
+v(x,t)\leq Ae^{a(|y|+r)^{2}}-\mu(4(a+\gamma))^{n/2}e^{(a+\gamma)r^{2}}\leq\sup_{R^{n}}g,
+\end{equation}
+对于选定的$r$足够大成立。因此$(27)-(29)$推出
+\begin{equation*}
+v(y,t)\leq\sup_{\mathbb{R}^{n}}g
+\end{equation*}
+对于所有$y\in\mathbb{R}^{n},0\leq t\leq T$成立，如果$(25)$是有效的。令$\mu\rightarrow 0$。
+\par
+3.在一般情形下(25)失效，我们重复运用上诉的结果在时间区间$[0,T_{1}],[T_{1},2T_{2}]$，等，对于$T_{1}=\frac{1}{8a}$。$\hfill\qedsymbol$
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\end{document}
+
+
+

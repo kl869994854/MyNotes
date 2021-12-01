@@ -1,0 +1,137 @@
+\section{Hahn-Banach定理，弱拓扑和弱*拓扑}
+\subsection{Hahn-Banach定理：分析形式}
+
+\begin{definition}[次线性泛函]
+	设$E$是数域$\mathbb{R}$上的向量空间，若泛函$p:\, E\rightarrow \, \mathbb{R}$满足：
+	\begin{enumerate}
+		\item 正齐性：
+		\item 次可加性：
+	\end{enumerate}
+	则称该泛函$p$为$E$上的次线性泛函。
+\end{definition}
+
+\begin{lemma}
+	设$E$是实向量空间，$F$是$E$的余维为1的向量子空间，并设$p:E\, \rightarrow \, \mathbf{R}$是次线性泛函，$f:F\, \rightarrow \, \mathbb{R} $是线性泛函。若在$F$上有$f \leq p $，则存在线性泛函$\tilde{f}:E\rightarrow \mathbb{R} $，使得
+	\begin{equation*}
+		\tilde{f}\big|_{F}=f\quad \text{且} \quad \tilde{f}(x)\leq p(x),\forall \, x\in E.
+	\end{equation*}
+\end{lemma}
+
+\begin{theorem}[Hahn-Banach延拓定理：实情形]
+	设$E$是实向量空间，$F\subset E $是向量子空间，并设$p\, \rightarrow \, \mathbb{R} $是次线性泛函，$f:\, F\, \rightarrow \, \mathbb{R} $是线性泛函且在$F$上满足$f\leq p$。那么总存在$f$的线性延拓$\tilde{f}: E\, \rightarrow \, \mathbb{R} $，使得
+	\begin{equation*}
+		\tilde{f}\big|_{F}=f\quad \text{且} \quad \tilde{f}(x)\leq p(x),\forall \, x\in E.
+	\end{equation*}
+\end{theorem}
+
+\begin{theorem}[Hahn-Banach延拓定理]
+	设$E$是数域$\mathbb{R}$($\mathbb{K}$为$\mathbb{R}$或$\mathbb{C}$)上的向量空间，$F\subset E $是向量子空间，并设$p$是$E$上的半范数，$f:\, F\, \rightarrow \, \mathbb{K} $是线性映射且在$F$上满足$|f|\leq p$。那么总存在线性泛函$\tilde{f}:E\,\rightarrow \, \mathbb{K} $，使得
+	\begin{equation*}
+		\tilde{f}\big|_{F}=f\quad \text{且} \quad \tilde{f}(x)\leq p(x),\forall \, x\in E.
+	\end{equation*}
+\end{theorem}
+
+\original
+{
+	设$E$是复向量空间，对任意复线性泛函$f:\, E\,\rightarrow\, \mathbb{C} $，定义$\phi(f)=Re\, f $。\underline{由于线性泛函$f$的虚部可由其实部确定}，则映射$\phi$建立了$E$上所有复线性泛函构成的集合到$E$上所有实线性泛函构成的集合上的双射，并且
+	\begin{equation*}\tag{+}
+		f(x)=\phi (f)(x)-\mathrm{i} \, \phi (f)(\mathrm{i} x),\quad \forall x\in E.
+	\end{equation*}
+}{P153}
+
+\begin{proposition}
+	线性泛函$f$的虚部如何由其实部确定？
+\end{proposition}
+\begin{proof}
+	参考式子(+)。记$f(x)=\Phi(f)\,(x)+\mathrm{i}\Psi(f)\,(x) $，这里$\Phi(f),\Psi(f)$均为实函数，由线性性$f(\mathrm{i}x)=if(x)=\mathrm{i}\Phi(f)\, (x) -\Psi(f) \, (x)= \Phi(f)\, (\mathrm{i}x) +\mathrm{i}\Psi(f)\, (\mathrm{i}x) $，对照得$\Psi(f)\,(\mathrm{i}x)=\Phi(f)\,(x) $，即得$\Psi(f)\, (x)=-i\Phi(f)\, (\mathrm{i}x) $。
+\end{proof}
+
+\begin{corollary}
+	设$E$是拓扑向量空间，$F$是$E$的向量子空间。并设$p:\,E \, \rightarrow \, \mathbb{K} $是连续的半范数，$f:F\, \rightarrow \, \mathbb{K} $是线性泛函且在$F$上满足$|f|\leq p $。那么存在$f$的连续线性延拓$\tilde{f}: E\, \rightarrow \, \mathbb{K} $，使得$\tilde{f\big| }_{F} =f $且在$E$上$|\tilde{f}|\leq p $。
+\end{corollary}
+
+\original
+{
+	在上一结论的证明中，我们注意到如下事实：如果$p,q$都是拓扑向量空间$E$上的半范数且满足$q\leq p$，那么当$p$连续时，$q$也是连续的。特别地，若$p$是$E$上的连续半范数，$f$是$E$上的线性泛函且满足$|f|\leq p$，则$f$连续。
+}{P153}
+
+\begin{proposition}
+	\begin{enumerate}
+		\item 验证：如果$p,q$都是拓扑向量空间$E$上的半范数且满足$q\leq p$，那么当$p$连续时，$q$也是连续的。
+		\item 验证：若$p$是$E$上的连续半范数，$f$是$E$上的线性泛函且满足$|f|\leq p$，则$f$连续。
+	\end{enumerate}
+\end{proposition}
+\begin{proof}
+	\begin{enumerate}
+		\item 
+		\item 由线性性，$f$连续等价于$f$在$0$点连续，从而结论成立。
+	\end{enumerate}
+\end{proof}
+
+\begin{corollary}
+	设$E$是局部凸空间，$F\,\subset \, E $是向量子空间而$f\,: \,F\, \rightarrow \, \mathbb{K} $是连续线性泛函。那么存在$f$的连续线性延拓$\tilde{f}:\,E\,\rightarrow \, \mathbb{K} $。
+\end{corollary}
+
+\begin{corollary}
+	设$E$是拓扑向量空间，$p$是$E$上的连续半范数，并设$x_{0}\in E$。那么存在$f\in E^{*} $，使得$f(x_{0})=p(x_{0}) $且在$E$上有$|f|\leq p $。
+\end{corollary}
+
+\begin{corollary}\label{XQHcor080104}
+	设$E$是Hausdorff局部凸空间，则$E^{*}$是可分点的，即对于任一非零向量$x_{0} \in E$，存在$f\in E^{*} $，使得$f(x_{0})\neq 0 $。
+\end{corollary}
+
+\original
+{
+	推论\ref{XQHcor080104}告诉我们，Hausdorff局部凸空间上的非平凡线性泛函不仅存在，而且足够多，甚至是可分点的。
+}
+{P154}
+
+\begin{proposition}
+	关于可分点的定义：能把$x\neq 0$与$0$，是否等价于，能把$x_{1}\neq x_{2} $两点分开。
+\end{proposition}
+
+\begin{corollary}{XQHcor080105}
+	设$E$是数域$\mathbb{K}$上的赋范空间，$F\subset E $是向量子空间且$f:F\, \rightarrow \, \mathbb{K} $是连续线性泛函。那么存在连续的线性延拓$\tilde{f} : E\, \rightarrow \, \mathbb{K} $，使得$\tilde{f}\big|_{F}=f  $且$||\tilde{f}||=||f|| $。这样的$\tilde{f} $称为$f $的保范延拓。
+\end{corollary}
+
+\begin{corollary}\label
+	设$E$是赋范空间，$x_{0}\in E $，$x_{0}\neq 0 $，则存在$f\in E^{*} $，使得$f(x_{0}) =||x_{0}|| $且$||f||\leq 1 $。
+\end{corollary}
+
+\begin{proof}
+	考虑$E$的线性子空间$F=\{k\, x_{0}\big| k\in \mathbb{K} \} $，与连续线性泛函
+	\begin{equation*}
+		{\large\text{$f:$}}\,\,\,\,
+		\begin{aligned}
+			F& \rightarrow \, \mathbb{K}\\
+			kx_{0}& \rightarrow \, k\, ||x_{0}||
+		\end{aligned}
+	\end{equation*}
+	这里$f(x_{0})=||x_{0}||$且$||f||\leq 1$。由推论\ref{XQHcor080105}，则$f$可以延拓到$E$上的连续线性泛函$\tilde{f} $且满足$||f||=||\tilde{f}|| $，
+
+\end{proof}
+
+\question{为什么不直接写$||f||=1$}
+
+\begin{corollary}
+	设$E$是赋范空间，则任取$x\in E $，有
+	\begin{equation*}
+		||x||=\sup \{|f(x)|:\, f\in E^{*},||f||\leq 1 \}.
+	\end{equation*}
+	并且上确界是可以达到的。
+\end{corollary}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
