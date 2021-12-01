@@ -1,7 +1,7 @@
 # My Notes
 
 #### 介绍
-电子笔记：latex 和 markdown
+电子笔记，工具为latex 和 markdown。
 
 
 #### 特技
