@@ -56,7 +56,7 @@
 	\end{itemize}
 \end{remark}
 
-\begin{theorem}
+\begin{theorem}\label{XQHthe070101}
 	设$E$是拓扑向量空间，则“伸缩平移”是$E$上的同胚。
 \end{theorem}
 
@@ -87,18 +87,23 @@
 \begin{proof}
 	\begin{enumerate}
 		\item 
+		\begin{itemize}
+			\item $\forall x,y\in \bar{A} $，证明$x+y \in \bar{A}$
+			\item $\forall x\in \bar{A} ,k\in \mathbb{K}  $，证明$k\, x\in \bar{A} $。\\
+			$\forall V_{k\, x}\in \mathcal{N}(k\, x) $，考虑$\frac{1}{k} V_{k\, x } $。由定理\ref{XQHthe070101}可知$\frac{1}{k}V_{k\,x } \in \mathcal{N}( x ) $，由于$x\in \bar{A} $，所以$\exists \{x_{n}\} \subset A $ ，满足$x_{n} \rightarrow x \,\,(n\rightarrow\infty) $。则$\exists N>0$，使得$n > N$时，满足$x_{n} \in \frac{1}{k}V_{k\, x}$ 。则可证$k\, x_{n} \rightarrow kx (n\rightarrow\infty) $，所以$k\, x\in \bar{A} $。
+		\end{itemize}
 		\item
 		\item
 	\end{enumerate}
 \end{proof}
 
-接下来用$\mathcal{N}(x)$表示$x$点的领域系。
+接下来用$\mathcal{N}(x)$表示$x$点的邻域系。
 \begin{theorem}
 	设$E$是拓扑向量空间。则
 	\begin{enumerate}
 		\item 任取$x\in E $，则$\mathcal{N}(x)=\mathcal{N}(x)+x $(即$V\in \mathcal{N}(x)\Leftrightarrow V-x\in \mathcal{N}(0) $)。
 		\item 任取$V\in \mathcal{N}(0) $，存在$U\subset \mathcal{N}(0) $，使得$U+U\subset V $。
-		\item 设$\lambda\in \mathbb{K} $且$\lambda\neq 0 $。则$V\in \mathcal{N}(0)\Leftrightarrow \lambda V\in \mathcal{0} $。
+		\item 设$\lambda\in \mathbb{K} $且$\lambda\neq 0 $。则$V\in \mathcal{N}(0)\Leftrightarrow \lambda V\in \mathcal{N}(0) $。
 		\item 任意$V\in \mathcal{N}(0) $是吸收的。
 		\item 原点0有平衡的开(或闭)邻域基。
 	\end{enumerate}
@@ -125,7 +130,7 @@
 \end{proof}
 
 \original
-{定理\ref{XQH070104}意味着连续线性映射$u:E\, \rightarrow \, F $是一致连续的，即对$F$中原点的每个邻域$V$，存在$E$中原点的邻域$W$，使得当$x-y\in W $时，$u(x)-u(y) \in V $
+{定理\ref{XQHthe070104}意味着连续线性映射$u:E\, \rightarrow \, F $是一致连续的，即对$F$中原点的每个邻域$V$，存在$E$中原点的邻域$W$，使得当$x-y\in W $时，$u(x)-u(y) \in V $。
 }
 {P133}
 \begin{remark}
@@ -133,7 +138,7 @@
 \end{remark}
 
 \begin{corollary}
-	设$E$是数域$\mathcal{K}$上的拓扑向量空间，$u:E\, \rightarrow \, \mathbb{K} $是线性泛函。则定理\ref{XQH070104}的结论成立。
+	设$E$是数域$\mathcal{K}$上的拓扑向量空间，$u:E\, \rightarrow \, \mathbb{K} $是线性泛函。则定理\ref{XQHthe070104}的结论成立。
 \end{corollary}
 
 

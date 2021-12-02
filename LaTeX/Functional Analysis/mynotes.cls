@@ -115,7 +115,7 @@
 
 %%%%%%环境，命令%%%%%%%%%%%%%%%
 %\newcommand{\original}[2]{原文(#2)：\textcolor{magenta}{#1}}%%%%%原文
-\newcommand{\original}[2]{{\textbf{\textcolor{orange}{原文(#2):}}\color{darkgray}#1}}%%%%%原文
+\newcommand{\original}[2]{{\textbf{\textcolor{orange}{原文(#2):}}\color{darkgray}#1}\vspace{2ex}}%%%%%原文
 \newcommand{\question}[1]{\noindent\textcolor{red}{\large\bfseries?\,Q:}\,\,#1 ?}
 
 
@@ -126,6 +126,7 @@
 \theoremheaderfont{\bfseries}
 \theorembodyfont{\slshape}
 \theorempreskip{\topsep}
+\theorempostskip{2ex}
 \theoremindent0cm
 \newtheorem{remark}{Remark:}
 
@@ -133,6 +134,7 @@
 \theoremheaderfont{\bfseries}
 \theorembodyfont{\slshape}
 \theorempreskip{\topsep}
+\theorempostskip{2ex}
 \theoremindent0cm
 \newtheorem{hint}{Hint:}
 \RequirePackage{thmbox}
@@ -141,12 +143,14 @@
 \theoremstyle{plain}
 \theoremheaderfont{\bfseries}
 \theorembodyfont{\itshape}
+\theorempostskip{2ex}
 \newtheorem[L]{theorem}{Theorem}[subsection]
 \newtheorem[L]{definition}{Definition}[subsection]
 
 \theoremstyle{plain}
 \theoremheaderfont{\ssfamily}
 \theorembodyfont{\slshape}
+\theorempostskip{2ex}
 \newtheorem[M]{lemma}{Lemma}[subsection]
 \newtheorem[M]{corollary}{Corollary}[subsection]
 \newtheorem[S]{proposition}{Proposition}[subsection]

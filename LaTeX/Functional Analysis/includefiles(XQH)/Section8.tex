@@ -40,7 +40,7 @@
 }{P153}
 
 \begin{proposition}
-	线性泛函$f$的虚部如何由其实部确定？
+	说明：线性泛函$f$的虚部如何由其实部确定。
 \end{proposition}
 \begin{proof}
 	参考式子(+)。记$f(x)=\Phi(f)\,(x)+\mathrm{i}\Psi(f)\,(x) $，这里$\Phi(f),\Psi(f)$均为实函数，由线性性$f(\mathrm{i}x)=if(x)=\mathrm{i}\Phi(f)\, (x) -\Psi(f) \, (x)= \Phi(f)\, (\mathrm{i}x) +\mathrm{i}\Psi(f)\, (\mathrm{i}x) $，对照得$\Psi(f)\,(\mathrm{i}x)=\Phi(f)\,(x) $，即得$\Psi(f)\, (x)=-i\Phi(f)\, (\mathrm{i}x) $。
@@ -153,9 +153,31 @@
 	验证：线性映射$x\mapsto B(x,\cdot) $是$E$到$E^{**}$的等距同构映射。
 \end{proposition}
 
+\begin{proof}
+	\begin{enumerate}
+		\item 等距已证。
+		\item 单射。由推论\ref{XQHcor080104}，可知$B(x,\cdot)$是单射。
+		\item 满射。?
+	\end{enumerate}
+\end{proof}
 
+\begin{corollary}\label{XQHcor080108}
+	设$E$是赋范空间，而$F$是$E$的闭向量子空间，并设$x\in E \backslash F $。那么$\exists f\in E^{*} $，使得$||f||=1$，$f\big|_{F} = 0 $且有$f(x) =d(x,F) $
+\end{corollary}
 
+\original
+{
+	应用推论\ref{XQHcor080108}时，我们往往去获得命题中条件的反面，也就是说，当我们想证明向量$x$属于闭子空间$F$时，只需证明：对任意$f\in E^{*} $，若$f\big|_{F}=0 $，必有$f(x)=0 $
+}
+{P156}
 
+\begin{proposition}
+	验证：对$\forall f\in E^{*} $，若$f\big|_{F}=0 $，必有$f(x)=0 $，则有$x\in F $。
+\end{proposition}
+
+\begin{proof}
+	应用推论\ref{XQHcor080108}。
+\end{proof}
 
 
 
