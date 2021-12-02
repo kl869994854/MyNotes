@@ -90,7 +90,7 @@
 	关于可分点的定义：能把$x\neq 0$与$0$，是否等价于，能把$x_{1}\neq x_{2} $两点分开。
 \end{proposition}
 
-\begin{corollary}{XQHcor080105}
+\begin{corollary}\label{XQHcor080105}
 	设$E$是数域$\mathbb{K}$上的赋范空间，$F\subset E $是向量子空间且$f:F\, \rightarrow \, \mathbb{K} $是连续线性泛函。那么存在连续的线性延拓$\tilde{f} : E\, \rightarrow \, \mathbb{K} $，使得$\tilde{f}\big|_{F}=f  $且$||\tilde{f}||=||f|| $。这样的$\tilde{f} $称为$f $的保范延拓。
 \end{corollary}
 
@@ -113,13 +113,45 @@
 
 \question{为什么不直接写$||f||=1$}
 
-\begin{corollary}
+\begin{corollary}\label{XQHcor080107}
 	设$E$是赋范空间，则任取$x\in E $，有
 	\begin{equation*}
 		||x||=\sup \{|f(x)|:\, f\in E^{*},||f||\leq 1 \}.
 	\end{equation*}
 	并且上确界是可以达到的。
 \end{corollary}
+
+\original
+{
+	推论\ref{XQHcor080107}直接意味着任一赋范空间上向量的范数可以通过其对偶空间上的元素来表达，因而赋范空间和它的对偶空间之间存在着密切的联系，\uline{并且在对偶空间上我们可以再考虑它的对偶，即二次对偶空间}，它又联系于原来的赋范空间，这将是泛函分析中关于对偶理论的重要内容。
+	\par
+	设$E$是赋范空间，$E^{*}$其对偶空间。对任意$f\in E^{*} $，根据定义
+	\begin{equation*}
+		||f||=\sup_{x\in E,x\neq 0}\frac{|f(x)|}{||x||}
+	\end{equation*}
+	我们考虑双线性泛函
+	\begin{equation*}
+		\text{\large $B:$}
+		\begin{aligned}
+			E\times E^{*}\, &\rightarrow \, \mathbb{K}\\
+			(x,f) \, &\mapsto \, f(x)
+		\end{aligned}
+	\end{equation*}
+	对任意$(x,f)\in E\times E^{*} $，有$|B(x,f)|\leq ||x||\, ||f|| $，这意味着$B$是连续的。从而对任意给定的$x\in E $，$B(x,\cdot):E^{*}\rightarrow \mathbb{K} $也是连续的，这意味着
+	\begin{equation*}
+		B(x,\cdot)\in (E^{*})^{*}=E^{**}\text{(称$E^{**}$为$E$的二次对偶)}
+	\end{equation*}
+	结合推论\ref{XQHcor080107}，有
+	\begin{equation*}
+		||B(x,\cdot)||_{E^{**}}=||x||_{E}.
+	\end{equation*}
+	\underline{由此可知，线性映射$x\mapsto B(x,\cdot) $是$E$到$E^{**} $的等距同构映射。}在此意义下，我们可以将$E$等距嵌入到$E^{**}$，记作$E\,\hookrightarrow E^{**} $。
+}
+{P154-155}
+
+\begin{proposition}
+	验证：线性映射$x\mapsto B(x,\cdot) $是$E$到$E^{**}$的等距同构映射。
+\end{proposition}
 
 
 

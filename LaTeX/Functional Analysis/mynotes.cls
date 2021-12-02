@@ -94,6 +94,7 @@
 %------------------------ Abstract & Keywords -------------------------
 
 %%------------------------常用宏包-----------------------------------
+\RequirePackage{ulem}%下划线，波浪线等标注
 \RequirePackage{amsmath,amssymb,physics}
 \RequirePackage[amsmath,thmmarks]{ntheorem}% AMSLaTeX宏包.
 \RequirePackage{graphicx}                 % 图形
@@ -113,7 +114,8 @@
 
 
 %%%%%%环境，命令%%%%%%%%%%%%%%%
-\newcommand{\original}[2]{原文(#2)：\textcolor{magenta}{#1}}%%%%%原文
+%\newcommand{\original}[2]{原文(#2)：\textcolor{magenta}{#1}}%%%%%原文
+\newcommand{\original}[2]{{\textbf{\textcolor{orange}{原文(#2):}}\color{darkgray}#1}}%%%%%原文
 \newcommand{\question}[1]{\noindent\textcolor{red}{\large\bfseries?\,Q:}\,\,#1 ?}
 
 
