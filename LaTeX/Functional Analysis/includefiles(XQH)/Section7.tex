@@ -189,6 +189,138 @@
 \end{corollary}
 
 
+\subsection{半赋范空间}
+
+\begin{definition}
+	设$E$是数域$\mathbb{K}$上的向量空间，若$E$上的泛函$p: E\, \rightarrow \mathbb{R} $满足：
+	\begin{itemize}
+		\item 非负性
+		\item 正齐性
+		\item 三角不等式
+	\end{itemize}
+	则称$p$为$E$上的半范数。
+\end{definition}
+
+设$p$是$E$上的半范数。我们可定义相应的“半距离”为:
+\begin{equation*}
+	d_{p}(x,y)=p(x-y), \, \forall x,y\in E.
+\end{equation*}
+它显然满足距离的定义：
+\begin{enumerate}
+	\item $d_{p}(x,y)\geq 0  $，且$d_{p}(x,x)=0 $。
+	\item $d_{p}(x,y)=d_{p}(y,x)$。
+	\item $d_{p}(x,y) \leq d_{p}(x,z) +d_{p}(z,y) $。
+\end{enumerate}
+定义相应于半范数$p$的开球：
+\begin{equation*}
+	B_{p}(a,r)=\{x\in E: p(x-a)<r\},\, a\in E,r>0
+\end{equation*}
+称$B_{p}(a,r) $为一个开$p-$球，其中心为$a$，半径为$r$。\par
+有了开球的概念，我们定义$E$上由半范数$p$诱导的拓扑$\tau_{p}$：若子集$A\subset E $可以表示成$E$中开$p-$球的并，则$A$为$E$中的开集。\original{容易验证所有这样的开集构成的集族的确是$E$上的拓扑}{P34}，我们称该拓扑为$E$上的半范数$p$诱导的拓扑或$p-$拓扑。
+\begin{proposition}
+	验证，这样的开集构成的集族的确是$E$上的拓扑。
+\end{proposition}
+\begin{proof}
+	\begin{itemize}
+		\item $\emptyset ,E$可以写成开$p-$球的并。
+		\item 任意并封闭。
+		\item 有限交封闭。设$B_{1}=B_{p}(a_{1},r_{1}),B_{2}=B_{p}(a_{2},r_{2}) $。若$B_{1}\cap B_{2}=\emptyset$，则可以写成$p-$球的并。若$B_{1}\cap B_{2}\neq \emptyset$，则$\forall x\in B_{1}\cap B_{2} $，考虑$B_{x}=B_{p}(x,min\{r_{1}-p(a_{1},x),r_{2}-p(a_{2},x)\} ) $，可验证$B_{x}\subset B_{1}\cap B_{2} $。
+	\end{itemize}
+\end{proof}
+
+\original{注意，$p-$拓扑是Hausdorff拓扑当且仅当$p$是一个范数。}{P134}正是因为单个半范数诱导的拓扑不一定是Hausdorff拓扑，我们往往从一族半范数出发，希望诱导出的拓扑是Hausdorff拓扑。
+\begin{proposition}
+	验证：$p-$拓扑是Hausdorff拓扑当且仅当$p$是一个范数。
+\end{proposition}
+
+\begin{proof}
+	“$\Rightarrow$”，$\forall x\neq y$，因为$x-y\neq 0$，由$p-$拓扑是Hausdorff拓扑，所以$p(x-y)>0$，所以$p(x)=0$，则 $x=0$，$p$是范数。\par
+	“$\Leftarrow$”，$\forall x\neq y $，因为$p$为范数，所以$p(x-y)\neq 0 $，考虑$B_{1}=B_{p}(x,\frac{p(x-y)}{2}),B_{2}=B_{p}(y,\frac{p(x-y)}{2})$，则可把$x,y$分开。
+\end{proof}
+
+设$(p_{i})_{i\in I} $是$E$上的一族半范数，$I$是指标集。
+\original
+{
+	对任意有限子集$J\subset I $，令
+	\begin{equation*}
+		q_{J}=\max_{i\in J}\,p_{i}.
+	\end{equation*}
+	容易验证$q_{J}$也是$E$上的半范数。由此，我们定义如下半范数族诱导的拓扑。
+}
+{P134}
+
+\begin{proposition}
+	验证：$q_{J}$是$E$上的半范数。
+\end{proposition}
+
+\begin{proof}
+	显然。
+\end{proof}
+
+\begin{definition}
+	设$(p_{i})_{i\in I} $是$E$上的一族半范数。令$\tau$是由如下的子集组成的子集族:$O\in \tau $当且仅当
+	\begin{equation*}
+		O=\bigcup_{\alpha\in \Lambda}B_{q_{J_{\alpha}}}(x_{\alpha},r_{\alpha}),
+	\end{equation*}
+	其中$\Lambda $为某个指标集，每个$J_{\alpha} \subset I $是有限集，并且$x_{\alpha} \in E ,r_{\alpha}>0$。
+\end{definition}
+
+\begin{proposition}
+	验证：$\tau$是$E$上的拓扑。
+\end{proposition}
+
+\begin{proof}
+	\begin{enumerate}
+		\item $\emptyset, E \in \tau $
+		\item 任意并封闭。
+		\item 有限交封闭。取$B_{1}=B_{J_{\alpha}}(x_{\alpha},r_{\alpha}), B_{2}=B_{J_{\beta}}(x_{\beta},r_{\beta}) $，若$B_{1}\cap B_{2}=\emptyset $，则结论成立。若$B_{1}\cap B_{2}\neq \emptyset $，$\forall x \in B_{1}\cap B_{2} $。考虑$B_{x}=B_{q'}(x,r_{x})$，这里$q'=\max\{q_{J_{\alpha}},q_{J_{\beta}}\} ,r_{x}=\min\{r_{\alpha}-p_{J_{\alpha}}(x,x_{\alpha}),r_{\beta}-p_{J_{\beta}}(x,x_{\beta}) \}$。
+	\end{enumerate}
+\end{proof}
+
+\original
+{
+	如果$(p_{i})_{i\in I } $本身满足性质：任取$i,j\in I $，存在$k\in I $，使得
+	\begin{equation*}
+		p_{k}\geq \max\{p_{i},p_{j}\},
+	\end{equation*}
+	则我们不必定义新的$(q_{J})_{J\subset I} $。此时，我们称半范数族$(p_{i})_{i\in I} $是定向的。实际上，我们之所以由半范数族$(p_{i})_{i\in I} $来构造新的半范数族$(q_{J})_{J\subset I} $($J$为有限集)，正是为了使新的半范数族称为一个定向集。\uline{若\text{$(p_{i})_{i\in I} $}是定向的，则用\text{$p_{i}-$}球定义的拓扑和用\text{$q_{J}-$}定义的拓扑是一致的。}
+}
+{P135}
+
+\begin{proposition}
+		验证：$若(p_{i})_{i}$是定向的，则用$p_{i}- $球定义的拓扑和用$q_{J}- $定义的拓扑是一致的。 
+\end{proposition}
+
+\begin{proof}
+	用定义验证即可。
+\end{proof}
+
+\original
+{
+	由半范数族$(p_{i})_{i\in I} $诱导的拓扑是Hausdorff拓扑当且仅当$(p_{i})_{i\in I} $在$E $上是可分点的，即对$\forall x\in E $且$x\neq 0 $，$\exists i \in I $，使得$p_{i}(x)\neq 0 $。(等价地，若$\sup_{i\in I} p_{i}(x)=0$，则$x=0$)。
+}
+{P136}
+\begin{proposition}
+	\begin{itemize}
+		\item 验证：半范数族诱导的拓扑是Hausdorff拓扑当且仅当$(p_{i})_{i\in I} $在$E$上是可分点的。
+		\item 验证：此处可分点的定义是否等价于$\forall x,y\in E$，若$x\neq y $，则$\exists i\in I $，使得$p_{i}(x)\neq 0 $。
+		\item 验证：此处可分点的定义等价于若$\sup_{i \in I} p_{i}(x) =0 $，则$x=0 $。
+	\end{itemize}
+\end{proposition}
+
+\begin{proof}
+	\begin{enumerate}
+		\item “$\Rightarrow$”若$\exists x\neq  0$，使得$\sup_{i \in I}p_{i}(x)=0 $，则根据半范数族诱导的拓扑不能把$x,0$分开。\\
+		“$\Leftarrow $”$\forall x,y\in E $，若$ x-y \neq 0$，因为$(p_{i})_{i\in I} $可分，所以$\exists i\in I $，满足$p_{i}(x,y)\neq 0 $，考虑$B_{1}=B_{p_{i}}(x,\frac{p_{i}(x,y)}{2}) ,B_{2}=B_{p_{i}}(y,\frac{p_{i}(x,y)}{2})$，可验证$B_{1}\cap B_{2} $。
+	\end{enumerate}
+\end{proof}
+
+
+
+
+
+
+
 
 
 
