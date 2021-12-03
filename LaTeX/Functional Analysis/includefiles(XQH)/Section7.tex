@@ -1,6 +1,6 @@
 
 \section{拓扑向量空间}
-\subsection{定义和性质}
+\subsection{定义和基本性质}
 
 \begin{definition}[拓扑向量空间]
 	
@@ -63,6 +63,10 @@
 \begin{hint}
 	连续映射的复合仍是连续映射。
 \end{hint}
+
+\begin{remark}
+	注意这里的伸缩指的是$\lambda \neq 0 $的情形。
+\end{remark}
 
 \begin{definition}
 	\begin{enumerate}
@@ -142,6 +146,15 @@
 	\end{equation*}
 	又拓扑向量空间的定义，这是连续映射，不妨设$V\in \mathcal{N}(0) $为开集。则$(0,0)\in f^{-1}(V) \subset E\, \times \, E $也为开集，所以$\exists U_{1},U_{2} \in \tau(E) $，且满足$U_{1},U_{2}\in \mathcal{N}(0) $，考虑$U= U_{1}\cap U_{2} $，即可验证满足定理结论。
 	\item 由定理\ref{XQHthe070101}可得。
+	\item $\forall V\in \mathcal{N}(0) $，$\forall x\in V $ ，考虑映射：
+	\begin{equation*}
+		\text{\large$\phi_{x}:$}\,\,
+		\begin{aligned}
+			\mathbb{K}\, & \rightarrow \, E\\
+			k\, & \rightarrow kx.
+		\end{aligned}
+	\end{equation*}
+	由拓扑向量空间的定义可得$\phi_{x} $为连续映射。$\phi_{x}^{-1}(V)$为$\mathbb{K}$的开集，且$0\in \phi_{x}^{-1}(V) $，所以$\exists \alpha >0 $，使得$B_{\mathbb{K}}(0,\alpha) \subset \phi_{x}^{-1}(V) $。从而结论成立。
 	\item 
 	\end{enumerate}
 \end{proof}
