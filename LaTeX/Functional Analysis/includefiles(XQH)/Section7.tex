@@ -87,13 +87,30 @@
 \begin{proof}
 	\begin{enumerate}
 		\item 
-		\begin{itemize}
+			\unfinished
+			{\begin{itemize}
 			\item $\forall x,y\in \bar{A} $，证明$x+y \in \bar{A}$
 			\item $\forall x\in \bar{A} ,k\in \mathbb{K}  $，证明$k\, x\in \bar{A} $。\\
-			$\forall V_{k\, x}\in \mathcal{N}(k\, x) $，考虑$\frac{1}{k} V_{k\, x } $。由定理\ref{XQHthe070101}可知$\frac{1}{k}V_{k\,x } \in \mathcal{N}( x ) $，由于$x\in \bar{A} $，所以$\exists \{x_{n}\} \subset A $ ，满足$x_{n} \rightarrow x \,\,(n\rightarrow\infty) $。则$\exists N>0$，使得$n > N$时，满足$x_{n} \in \frac{1}{k}V_{k\, x}$ 。则可证$k\, x_{n} \rightarrow kx (n\rightarrow\infty) $，所以$k\, x\in \bar{A} $。
-		\end{itemize}
-		\item
-		\item
+				$\forall V_{k\, x}\in \mathcal{N}(k\, x) $，考虑$\frac{1}{k} V_{k\, x } $。由定理\ref{XQHthe070101}可知$\frac{1}{k}V_{k\,x } \in \mathcal{N}( x ) $，由于$x\in \bar{A} $，所以$\exists \{x_{n}\} \subset A $ ，满足$x_{n} \rightarrow x \,\,(n\rightarrow\infty) $。则$\exists N>0$，使得$n > N$时，满足$x_{n} \in \frac{1}{k}V_{k\, x}$ 。则可证$k\, x_{n} \rightarrow kx (n\rightarrow\infty) $，所以$k\, x\in \bar{A} $。
+			\end{itemize}
+			}
+		\finished
+		{
+			$\forall \lambda ,\beta \in \mathbb{K} $，考虑映射:
+			\begin{equation*}
+				{\large\text{$f_{\lambda,\beta}:\,\,\,\,$}}
+				\begin{aligned}
+					\bar{A}\times\bar{A}&\rightarrow E\\
+					(x,y)&\rightarrow \lambda \, x+\beta \, y
+				\end{aligned}
+			\end{equation*}
+		这里，$f_{\lambda,\beta}$是连续映射。要证$\bar{A}$是线性子空间，就是要证$f_{\lambda,\beta}(\bar{A}\times \bar{A})\subset \bar{A} $。这是因为$f_{\lambda,\beta}(\bar{A}\times\bar{A} ) = f_{\lambda,\beta }( \overline{A\times A} ) \subset \overline{ f_{\lambda,\beta}(A\times A) } \subset \bar{A}  $。\par
+		这里补充证明一下：$f(\bar{B}) \subset \overline{f(B)} $(要求$f$连续)。$\forall f(x)\in f(\bar{B})  $(这里取$x\in \bar{B} $)，$\forall V_{f_{x}}\in \mathcal{N}(f(x)) $,由$f$连续，则$f^{-1}(V_{f_{x}}) \in \mathcal{N}(x) $，又$x\in \bar{B} $，所以$f^{-1}(V_{f_{x}})\cap B\neq \emptyset $，所以$V_{f_{x}}\cap f(B) \neq \emptyset $，所以$f(x)\in \overline{f(B)} $。因此$f(\bar{B}) \subset \overline{f(B)} $。
+		}
+	  {课本}
+	   对于凸集和平衡集的情况，也可以类似证明。
+		\item $\forall 0<t<1 $，$t \mathring{A} + (1-t) \mathring{A} \subset A $，又$t \mathring{A} + (1-t) \mathring{A} $为开集，所以$t \mathring{A} + (1-t) \mathring{A}\subset \mathring{A} $。所以$\mathring{A} $为凸集。
+		\item 要证$\forall |\lambda|\leq 1 $，$\lambda \mathring{A} \subset \mathring{A} $。对于$\lambda \neq 0 $，有$\lambda \mathring{A} \subset A $，且由定理\ref{XQHthe070101}，$\lambda \mathring{A} $为开集，所以$\lambda \mathring{A} \subset \mathring{A} $。当$\lambda =0 $时，$\lambda \mathring{A}=0\in \mathring{A} $。所以$\mathring{A} $为平衡集。
 	\end{enumerate}
 \end{proof}
 
@@ -101,7 +118,7 @@
 \begin{theorem}
 	设$E$是拓扑向量空间。则
 	\begin{enumerate}
-		\item 任取$x\in E $，则$\mathcal{N}(x)=\mathcal{N}(x)+x $(即$V\in \mathcal{N}(x)\Leftrightarrow V-x\in \mathcal{N}(0) $)。
+		\item 任取$x\in E $，则$\mathcal{N}(x)=\mathcal{N}(0)+x $(即$V\in \mathcal{N}(x)\Leftrightarrow V-x\in \mathcal{N}(0) $)。
 		\item 任取$V\in \mathcal{N}(0) $，存在$U\subset \mathcal{N}(0) $，使得$U+U\subset V $。
 		\item 设$\lambda\in \mathbb{K} $且$\lambda\neq 0 $。则$V\in \mathcal{N}(0)\Leftrightarrow \lambda V\in \mathcal{N}(0) $。
 		\item 任意$V\in \mathcal{N}(0) $是吸收的。
@@ -109,7 +126,24 @@
 	\end{enumerate}
 \end{theorem}
 \begin{proof}
-	
+	\begin{enumerate}
+		\item 任取$x\in E $，
+		\begin{itemize}
+			\item $"\Rightarrow"$，$\forall V \in \mathcal{N}(x) $，有$0\in V-x $，又由定理\ref{XQHthe070101}，$V-x\in \mathcal{N}(0) $。
+			\item $"\Leftarrow"$，$\forall U\in \mathcal{N}(0) $，有$U+x\in \mathcal{N}(x) $，取$U=V-x $，即得结论。
+		\end{itemize}
+	\item 考虑映射：
+	\begin{equation*}
+		\text{\large $f:$}
+		\begin{aligned}
+			E\, \times\, E\,&\rightarrow E\\
+			(x,y)\,&\rightarrow x+y
+		\end{aligned}
+	\end{equation*}
+	又拓扑向量空间的定义，这是连续映射，不妨设$V\in \mathcal{N}(0) $为开集。则$(0,0)\in f^{-1}(V) \subset E\, \times \, E $也为开集，所以$\exists U_{1},U_{2} \in \tau(E) $，且满足$U_{1},U_{2}\in \mathcal{N}(0) $，考虑$U= U_{1}\cap U_{2} $，即可验证满足定理结论。
+	\item 由定理\ref{XQHthe070101}可得。
+	\item 
+	\end{enumerate}
 \end{proof}
 
 
