@@ -329,7 +329,7 @@
 	\end{itemize}
 \end{definition}
 
-\begin{theorem}
+\begin{theorem}\label{XQHthe070202}
 	半赋范空间$E$的原点有一组由凸集组成的邻域基。
 \end{theorem}
 
@@ -368,6 +368,85 @@
 		再证$\tau_{2}\subset \tau_{1} $，$\forall U\in \tau_{2} $，以及$\forall (x,y)\in \tau_{2}$，$\exists B_{1}=B_{J_{i}}(x,r_{x}),B_{2}=B_{J_{j}}(y,r_{y}) $，满足$B_{1}\times B_{2}\subset V $，考虑指标集$J_{k}=J_{i}\times J_{j} $，以及$B_{0}=B_{J_{k}}((x,y),\min\{r_{x},r_{y}\}) $，容易验证$B_{0}\subset B_{1}\times B_{2} $，所以$U\in \tau_{1} $。所以$\tau_{2}\subset \tau_{1} $。
 	\end{itemize}
 \end{proof}	
+
+\subsection{局部凸空间}
+\hspace{2em}我们在上节看到可半赋范的拓扑向量空间的原点具有凸邻域基(定理\ref{XQHthe070202})。这一节证明其逆命题也成立。
+
+\begin{proposition}
+	一个拓扑向量空间$E$称为局部凸空间，若它的原点有一组由凸集组成的邻域基。
+\end{proposition}
+
+\begin{theorem}
+	设$E$是一个局部凸空间，则其在原点有凸的平衡开(或闭)邻域基。
+\end{theorem}
+
+\original
+{
+	设$E$是拓扑向量空间，$\Omega$是$E$中原点处的凸平衡开邻域。我们称泛函$p_{\Omega}:E\, \rightarrow \mathbb{R} $，
+	\begin{equation*}
+		P_{\Omega}(x)=\inf\{\lambda >0:\frac{x}{\lambda}\in \Omega\}
+	\end{equation*}
+	为相应于$\Omega $的$Minkowski$泛函。
+}
+{P139 Minkowski泛函}
+\begin{remark}
+	由平衡的定义，若$\lambda \geq 1 $，则$\frac{x}{\lambda} \in \Omega $，所以$ p_{\Omega}(x)\leq 1$。
+\end{remark}
+
+\original
+{
+	我们给出几个$Minkowski$泛函的性质：
+	\begin{enumerate}
+		\item 设
+		\begin{equation*}
+			I(x)=\{\lambda>0:\frac{x}{\lambda}\in \Omega\}.
+		\end{equation*}
+	若$\lambda\in I(x) $且$\mu >\lambda $，则$\mu \in I(x) $。因为$\Omega $是平衡的，所以有
+	\begin{equation*}
+		\frac{x}{\mu}=\frac{\lambda}{\mu}\, \frac{x}{\lambda}\in \Omega.
+	\end{equation*}
+	故$I(x) $是以$p_{\Omega}(x) $为左端点的半直线。
+	
+	\item $\forall \lambda_{0}\in I(x) $，$\exists \varepsilon>0 $，使得
+	\begin{equation*}
+		(\lambda_{0}-\varepsilon,\lambda_{0}+\varepsilon)\subset I(x).
+	\end{equation*}
+	因为\text{$\lambda\,\rightarrow \,\frac{x}{\lambda} $}为连续映射，且$\Omega $为开集，所以$\exists \varepsilon>0 $，满足$(\lambda_{0}-\varepsilon,\lambda_{0}+\varepsilon ) \subset I(x)$，这说明$I(x) $为开集，可表示为$I(x)=(P_{\Omega}(x),\infty) $。因此$p_{\Omega}<1 $等价于$1\in I(x) $，即$x\in \Omega $。
+	\end{enumerate}
+}
+{P139}
+
+\begin{theorem}
+	设$E$是一个拓扑向量空间，设$\Omega,\Omega_{1},\Omega_{2} $都是$E $中原点的凸平衡开邻域。则有
+	\begin{enumerate}
+		\item Minkowski泛函$p_{\Omega}:E\, \rightarrow \mathbb{R} $是$E$上的半范数，并有
+		\begin{equation*}
+			\Omega=\{x\in E:p_{\Omega}(x)<1\}.
+		\end{equation*}
+		
+		\item 若$\Omega_{1}\subset \Omega_{2} $，则$I_{\Omega_{1}}(x)\subset I_{\Omega_{2}}(x) $，从而$p_{\Omega_{2}}\leq p_{\Omega_{1}} $。
+		
+		\item 存在$\Omega_{3}=\Omega_{1}\cap\Omega_{2} $，使得$p_{\Omega_{3}}\geq \max \{p_{\Omega_{1}},p_{\Omega_{2}}\} $。
+	\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+	\begin{enumerate}
+		\item \begin{itemize}
+			\item 非负性，显然。
+			\item 正齐性。\par
+			要证$p_{\Omega}(\mu x) =\inf_{\lambda}\{\lambda>0:\frac{\mu x}{\lambda}\in \Omega \}=|\mu|p_{\Omega}(x)(=|\mu|\inf_{\lambda}\{\lambda>0:\frac{x}{\lambda}\in \Omega\})$。$\forall \lambda \in \{\lambda>0: \frac{\mu x}{\lambda}\in \Omega\} $,则由于$\Omega $是平衡的，所以$\frac{x}{\frac{\lambda}{|\mu|}} \in \Omega$，所以$\frac{\lambda}{|\mu|} \geq p_{\Omega}(x)$，所以$p_{\Omega}(\mu x)\geq |\mu|p_{\Omega}(x) $。\par
+			$\forall \lambda\in \{\lambda>0:\frac{x}{\lambda}\in \Omega\} $，由于$\Omega $是平衡的，所以$\frac{\mu x}{|\mu|\lambda}\in \Omega $，所以$|\mu|\lambda\geq p_{\Omega}(\mu x) $，所以$|\mu|p_{\Omega}(x)\geq p_{\Omega}(\mu x) $。
+			\item 三角不等式。$\forall x,y\in E $，若$\lambda_{x}>0,\lambda_{y}>0$，使得$\frac{x}{\lambda_{x}}\in \Omega,\frac{y}{\lambda_{y}}\in \Omega $，考虑
+			\begin{equation*}
+				\frac{x+y}{\lambda_{x}+\lambda_{y}}=\frac{\lambda_{x}}{\lambda_{x}+\lambda_{y}}\frac{x}{\lambda_{x}}+\frac{\lambda_{y}}{\lambda_{x}+\lambda_{y}}\frac{y}{\lambda_{y}}\in \Omega
+			\end{equation*}
+		所以$p_{\Omega}(x+y)\leq p_{\Omega}(x)+p_{\Omega}(y) $。
+		\end{itemize}
+	\item 显然。
+	\item 可以验证$\Omega_{1}\cap\Omega_{2} $为平衡开凸集。$p_{\Omega_{3}}\geq\max\{p_{\Omega_{1}},p_{\Omega_{2}}\} $容易验证。
+	\end{enumerate}
+\end{proof}
 
 
 
