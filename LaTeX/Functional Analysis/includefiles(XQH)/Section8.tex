@@ -63,7 +63,11 @@
 \end{proposition}
 \begin{proof}
 	\begin{enumerate}
-		\item 
+		\item 显然$q$在原点处连续，再证$q$连续。$\forall \varepsilon>0$，有$Vq^{-1}(-\varepsilon,\varepsilon)\in \mathcal{N}(0)$，则$\forall x_{0}\in E $，考虑$\forall x\in x_{0}+V$，有
+		\begin{equation*}
+			|p(x_{0})-p(x)|\leq |p(x_{0}-x)|\subset (-\varepsilon,\varepsilon)
+		\end{equation*}
+		从而$q$连续。
 		\item 由线性性，$f$连续等价于$f$在$0$点连续，从而结论成立。
 	\end{enumerate}
 \end{proof}

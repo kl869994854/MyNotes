@@ -315,7 +315,7 @@
 	\end{enumerate}
 \end{proof}
 
-\begin{theorem}
+\begin{theorem}\label{XQHthe070201}
 	设$(p_{i})_{i\in I} $是向量空间$E$上的半赋范族。那么由$(p_{i})_{i\in I} $诱导的拓扑$\tau $与$E$的线性结构相容。因此，$E$成为一个拓扑向量空间，并且该拓扑是使每个$p_{i}(i\in I)$都连续并与线性结构相容的拓扑中最弱的拓扑。
 \end{theorem}
 \begin{proof}
@@ -416,7 +416,7 @@
 }
 {P139}
 
-\begin{theorem}
+\begin{theorem}\label{XQHthe070302}
 	设$E$是一个拓扑向量空间，设$\Omega,\Omega_{1},\Omega_{2} $都是$E $中原点的凸平衡开邻域。则有
 	\begin{enumerate}
 		\item Minkowski泛函$p_{\Omega}:E\, \rightarrow \mathbb{R} $是$E$上的半范数，并有
@@ -447,6 +447,131 @@
 	\item 可以验证$\Omega_{1}\cap\Omega_{2} $为平衡开凸集。$p_{\Omega_{3}}\geq\max\{p_{\Omega_{1}},p_{\Omega_{2}}\} $容易验证。
 	\end{enumerate}
 \end{proof}
+
+\original
+{
+	设$E$是拓扑向量空间。根据定理\ref{XQHthe070302}，当$\Omega $取遍原点的所有凸平衡开邻域，可得一定向的半范数族$\{p_{\Omega}\}_{\Omega} $，可得
+	\begin{equation*}
+		p_{\Omega}^{-1}((-\varepsilon,\varepsilon))=\varepsilon p_{\Omega}^{-1}((-1,1))=\varepsilon\Omega,
+	\end{equation*}
+	这表明$p_{\Omega} $在原点连续。那么对任意一点$ x_{0}\in E $，当$x\in x_{0}+\varepsilon \Omega $时，有
+	\begin{equation*}
+		|p_{\Omega}(x)-p_{\Omega}(x_{0})|\leq p_{\Omega}(x-x_{0})<\varepsilon.
+	\end{equation*}
+	因此$p_{\Omega}$连续。
+}
+{P140}
+
+\begin{theorem}
+	设$E$是一个局部凸空间，$(p_{\Omega})_{\Omega} $是半范数族，这里$\Omega$取遍$E$中原点的凸平衡开邻域基中所有的元素。那么由半范数族$(p_{\Omega})_{\Omega} $诱导的拓扑与$E$上原拓扑一致。\par
+	因此，拓扑向量空间$E$是局部凸空间的充要条件是$E$为可半赋范的空间。
+\end{theorem}
+
+\begin{proof}
+	记$\tau$为$E$上的原拓扑，$\tau_{1}$为半范数族$(p_{\Omega})_{\Omega}$诱导的拓扑。\par
+	由定理\ref{XQHthe070201}得，$\tau_{1}\subset\tau $。\par
+	再证$\tau \subset \tau_{1}$，即证$\mathcal{N}_{\tau}(0)\subset\mathcal{N}_{\tau_{1}}(0) $，$\forall V\in \mathcal{N}_{\tau}(0) $，$\exists \Omega$，这里$\Omega$是凸的平衡开邻域，使得$\Omega\subset V$，且满足$\Omega=\{x\in E:p_{\Omega}(x)<1\} $，而$\Omega=B_{p_{\Omega}}(0,1)$，所以$V\in \mathcal{N}_{\tau_{1}}(0)$。综上$\tau=\tau_{1}$。
+\end{proof}
+
+\begin{remark}
+	证明拓扑向量空间$E$上两个拓扑$\tau,\tau_{1}$的包含关系，可以等价于证明零点的邻域系的包含关系。
+\end{remark}
+
+
+
+\subsection{局部凸空间的例子}
+
+\begin{example}
+	设$C^{\infty}([0,1]) $表示由$[0,1]$上所有无穷次可微(实值或复值)函数构成的空间，定义其上的半范数为
+	\begin{equation*}
+		p_{i}(f)=\sup_{0\leq t\leq 1}|f^{(i)}(t)|,\quad i=1,2,...
+	\end{equation*}
+	则此半范数族是可分点的，且由其诱导的拓扑可度量化(相应的距离可以是完备的)。此拓扑也由一组递增的半范数$(q_{k})_{k\geq 1} $来定义：
+	\begin{equation*}
+		q_{k}=\sup_{1\leq i\leq k,0\leq t\leq 1}|f^{(i)}(t)|.
+	\end{equation*}
+	在该拓扑下，函数列$(f_{n})$收敛到$f$当且仅当对每个$i\geq 1$，$f_{n}^{(i)} $在$[0,1]$上一致收敛到$f^{i}$。但是，这个拓扑并不能只由$C^{\infty}([0,1]) $上的一个半范数来定义。
+	\par
+	类似地，$C^{\infty}([0,1]^{d})$表示方体$[0,1]^{d}$上所有无穷次可微函数构成的空间。在$C^{\infty}([0,1]^{d}) $上约定如下形式的半范数：设$\alpha=(\alpha_{1},\alpha_{2},...,\alpha_{d})$表示由非负整数构成的多重指标，令
+	\begin{equation*}
+		p_{\alpha}(f)=\sup_{t\in [0,1]^{d}}|D^{\alpha}f(t)|,\quad f\in C^{\infty}([0,1]^{d}),
+	\end{equation*}
+	其中$D^{\alpha}$表示$\alpha$阶的微分单项式
+	\begin{equation*}
+		D^{\alpha}=\frac{\partial^{\alpha_{1}} \cdots\partial^{\alpha_{d}}}{\partial x_{1}^{\alpha_{1}}\cdots\partial x_{d}^{\alpha_{d}}}
+	\end{equation*}
+	从而，$C^{\infty}([0,1]^{d})$也称为一个半赋范空间。
+\end{example}
+
+\begin{proposition}
+	\begin{enumerate}
+		\item 验证：$p_{i}$和$q_{k}$为半范数。
+		\item 验证：半范数族$(p_{i})_{i=1,2...}$是可分点的。
+		\item 验证：$(p_{i})_{i=1,2...}$诱导的拓扑是可度量化的。且相应的距离可以是完备的。
+		\item 验证：在该拓扑下，函数列$(f_{n})$收敛到$f$当且仅当对每个$i\geq 1$，$f_{n}^{(i)} $在$[0,1]$上一致收敛到$f^{i}$。
+		\item 验证：这个拓扑不能只有$C^{\infty}([0,1])$上的一个半范数来定义。
+		\item 验证：$p_{\alpha}$为半范数。
+	\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+	
+\end{proof}
+
+
+\begin{example}
+	设$X$是一个局部紧的Hausdorff空间(例如，$X=\Omega$是$\mathbb{R}^{n}$ 中的开子集)，并令$C(X)=C(X,\mathbb{K})(\mathbb{K}=\mathbb{R}or\mathbb{C})$。设$K\subset X $是紧集，定义
+	\begin{equation*}
+		p_{K}(f)=\sup_{x\in K}|f(x)|.
+	\end{equation*}
+	由此得到的$(p_{K})_{K\subset X}$定义了$C(X) $上的一族可分点的半范数，相应的拓扑意味着在$X$的任一紧子集上一致收敛。若有$X$上递增的紧子集序列$(K_{i})_{i\geq 1} $，使得每一个紧子集$K\subset X $总是包含于某个$K_{i}$($X=\Omega\subset \mathbb{R}^{n} $为开集即满足这种条件)，则该拓扑也可由半范数序列$(p_{K_{i}})_{i\geq 1}$来定义，此时诱导的拓扑可度量化(相应的距离可以是完备的)，但通常不可赋范。
+\end{example}
+
+\begin{proposition}
+	\begin{enumerate}
+
+	\item 验证：$p_{K}$为半范数。
+	\item 验证：相应的拓扑意味着在$X$的任一紧子集上一致收敛。
+	\item 验证：若有$X$上递增的紧子集序列$(K_{i})_{i\geq 1} $，使得每一个紧子集$K\subset X $总是包含于某个$K_{i}$($X=\Omega\subset \mathbb{R}^{n} $为开集即满足这种条件)。
+	...
+	\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+	
+\end{proof}
+
+\begin{example}
+	设$\Omega$为复数域$\mathbb{C}$中的开子集，且$H(\Omega)$表示$\Omega$上所有全纯函数构成的空间。若我们也在$H(\Omega)$上定义上例中一样的拓扑，则它称为一个局部凸空间。该拓扑能由完备的距离诱导。
+\end{example}
+
+\begin{example}
+	设$S(\mathbb{R}^{n})$表示Schwartz函数类，即$\mathbb{R}^{n}$上快速衰减函数构成的集合
+	\begin{equation*}
+		S(\mathbb{R}^{n})=\{f\in C^{\infty}(\mathbb{R}^{n}):||f||_{\alpha,\beta}<\infty,\forall \alpha,\beta\},
+	\end{equation*}
+	其中$\alpha,\beta$是非负整数构成的多重指标。且
+	\begin{equation*}
+		||f||_{\alpha,\beta}=\sup_{x\in \mathbb{R}^{n}}\left|x^{\alpha}D^{\beta}f(x)\right|.
+	\end{equation*}
+	其中$x^{\alpha}=x_{1}^{\alpha_{1}}\cdots x_{n}^{\alpha_{n}} $，$\alpha=(\alpha_{1},\cdots,\alpha_{n}) $。则$(||\cdot||_{\alpha,\beta})_{\alpha,\beta} $是$S(\mathbb{R}^{n})$上的半范数族。$S(\mathbb{R}^{n})$在此半范数族诱导的拓扑下称为一局部凸空间，且此拓扑可度量化，但不可赋范。$S(\mathbb{R}^{n})$是分析中一类重要的空间。
+\end{example}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
