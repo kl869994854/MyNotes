@@ -1,6 +1,6 @@
 % !Mode:: "TeX:UTF-8"
 \NeedsTeXFormat{LaTeX2e}[1999/12/01]
-\ProvidesClass{mynotes}[MMW's note template for Abstract Algebra]
+\ProvidesClass{mynotes}[MMW's note template for FF]
 \LoadClass[a4paper,titlepage,11pt]{article}
 
 \DeclareOption*{\PassOptionsToClass{\CurrentOption}{article}}
@@ -94,7 +94,8 @@
 %------------------------ Abstract & Keywords -------------------------
 
 %%------------------------常用宏包-----------------------------------
-\RequirePackage{amsmath,amssymb}
+\RequirePackage{ulem}%下划线，波浪线等标注
+\RequirePackage{amsmath,amssymb,physics}
 \RequirePackage[amsmath,thmmarks]{ntheorem}% AMSLaTeX宏包.
 \RequirePackage{graphicx}                 % 图形
 \RequirePackage{color,xcolor}             %支持彩色
@@ -111,33 +112,51 @@
 \RequirePackage{float}
 
 
-%%%%%%环境，命令%%%%%%%%%%%%%%%
-\newcommand{\original}[2]{原文(#2)：\textcolor{magenta}{#1}}%%%%%原文
 
-%%%%%----------------------- Theorems -----------------------------------%%%%%
+%%%%%%环境，命令%%%%%%%%%%%%%%%
+%\newcommand{\original}[2]{原文(#2)：\textcolor{magenta}{#1}}%%%%%原文
+\newcommand{\original}[2]{{\textbf{\textcolor{orange}{原文(#2):}}\color{brown}#1}\vspace{2ex}}%%%%%原文
+\newcommand{\question}[1]{\noindent\textcolor{red}{\large\bfseries?\,Q:}\,\,#1 ?}
+\newcommand{\unfinished}[1]{\textbf{未完成的思路：}{\color{gray}#1}}
+\newcommand{\finished}[2]{\textbf{可行的思路(\textcolor{cyan}{来自：#2})：}#1\hfill $\square$\par }
+
+
+%%----------------------- Theorems -----------------------------------
+
 \theoremstyle{nonumberplain}
 \theoremheaderfont{\bfseries}
 \theorembodyfont{\slshape}
 \theorempreskip{\topsep}
+\theorempostskip{2ex}
 \theoremindent0cm
-\newtheorem{remark}{Remark}
+\newtheorem{remark}{Remark:}
 
+\theoremstyle{nonumberplain}
+\theoremheaderfont{\bfseries}
+\theorembodyfont{\slshape}
+\theorempreskip{\topsep}
+\theorempostskip{2ex}
+\theoremindent0cm
+\newtheorem{hint}{Hint:}
 \RequirePackage{thmbox}
 
 
 \theoremstyle{plain}
 \theoremheaderfont{\bfseries}
 \theorembodyfont{\itshape}
+\theorempostskip{2ex}
 \newtheorem[L]{theorem}{Theorem}[subsection]
 \newtheorem[L]{definition}{Definition}[subsection]
 
 \theoremstyle{plain}
 \theoremheaderfont{\ssfamily}
 \theorembodyfont{\slshape}
+\theorempostskip{2ex}
 \newtheorem[M]{lemma}{Lemma}[subsection]
 \newtheorem[M]{corollary}{Corollary}[subsection]
 \newtheorem[S]{proposition}{Proposition}[subsection]
 \newtheorem[M]{example}{Example}[subsection]
+
 
 
 

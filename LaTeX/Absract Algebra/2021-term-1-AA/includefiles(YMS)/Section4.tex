@@ -1,2 +1,68 @@
 %姚慕生，第四章，域与Galois理论
 \section{域与Galois理论}
+
+\subsection{域的扩张}
+
+\original
+{
+	我们已经知道，任何一个域都包含一个“最小子域”。在域的特征为零时，这个子域同构于有理数域；在域的特征为$p$时，这个子域同构于模$p$的剩余类域$Z_{p}$，这样的最小子域称为\textbf{素域}。因此，任何一个域都是其素域的扩张。研究域的一个方法便是从一个较“小”的域出发来构造“大”的域，即它的扩域。
+}
+{P125}
+\begin{proposition}
+	\begin{itemize}
+		\item 任何一个域都包含一个“最小子域”。
+		\item 在域的特征为零时，这个子域同构于有理数域；在域的特征为$p$时，这个子域同构于模$p$的剩余类域$Z_{p}$。
+	\end{itemize}
+\end{proposition}
+
+\begin{hint}
+	考虑乘法单位元生成的子域。
+\end{hint}
+
+\original
+{
+	假定$E$是$F$的扩域，$S$是$E$的子集，记$F(S)$为$E$的由$F$及$S$生成的子域，即$E$的所有包含$F$同时也包含$S$的子域之交。若$T$是$E$的又一个子集，则$F(S)(T)=F(S\cup T)$。原因很简单，因为等式两边都表示$E$的所有包含$F,S,T$的子域之交。特别，当$S$是有限集时，比如$S=\{u_{1},u_{2},\cdots,u_{n}\}$，有
+	\begin{equation*}
+		F(u_{1},\cdots,u_{k})=F(u_{1},\cdots,u_{k-1})(u_{k}),\,\, k=2,3,\cdots ,n,
+	\end{equation*}
+	如果$S=\{u\}$，即$S$是单点集，则称$F(u)$为$F$的单扩张，元素$u$称为本原元。单扩张是最简单的扩张。
+}
+{P125}
+
+\begin{proposition}
+	\begin{itemize}
+		\item $F(S)$长什么样子？
+		\item 验证：$F(S)(T)=F(S\cup T)$。
+	\end{itemize}
+\end{proposition}
+
+\begin{proof}
+	\begin{enumerate}
+		\item\begin{itemize}
+			\item $S=\{a\}$
+			\item $S=\{a_{1},\cdots,a_{n}\}$
+			\item 任意$S\in E$		      \end{itemize}
+		\item 显然。
+	\end{enumerate}
+\end{proof}
+
+\original
+{
+	设$x$是未定元，$F[x]$是$F$上的多项式环，记$F[u]$为$E$中$u$的多项式全体，即形如$a_{0}+a_{1}u+\cdots+a_{n}u^{n}(a_{i}\in F)$的元素全体组成的子集，则不难看出，$F[u]$是$E$的子环。现作$F[x]\rightarrow F[u]$的同态映射$\phi$:
+	\begin{equation*}
+		\phi(f(x))=f(u),
+	\end{equation*}
+	则$\phi$是映上的环同态。由第三章多项式环的理论知道，当$u$是$F$上的代数元时，$Ker\,\phi=(g(x))=(g(x))$，$g(x)$是$F$上的某个不可约多项式，且$F[x]/(g(x))\cong F[u]$，这时$F[x]/(g(x))$是域，因此$F[u]$是$E$的子域，于是$F[u]=F(u)$。$F(u)$中的元素可以写成为次数低于$deg\, g(x)$的$u$的多项式。当$u$是$F$上的超越元时，$F[x]\cong F[u]$，这时$F[u]$不是$E$的子域，显然$F(u)$是$F[u]$的分式域，即$F(u)=\{\frac{f(u)}{g(u)}\big| f,g\in F[u],g\neq 0\}$。
+}
+{P125}
+
+\begin{proposition}
+	\begin{itemize}
+		\item 当$u$是代数元时，$F[u]=F(u)$。
+		\item 当$u$是超越元时，$F(u)$是$F[u]$的分式域
+	\end{itemize}
+\end{proposition}
+
+
+
+
