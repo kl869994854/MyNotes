@@ -1,7 +1,12 @@
 # 忽略所有文件
 *
 # 不忽略目录
-!*/
+!*/*.cls
+!*/*.tex
+!*/*.md
+!*/*/*.cls
+!*/*/*.tex
+!*/*/*.md
 # 不忽略文件.gitignore和*.cls *.tex *.md *.markdown
 !.gitignore
 !*.cls
