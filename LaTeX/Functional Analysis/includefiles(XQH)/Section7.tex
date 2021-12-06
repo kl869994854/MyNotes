@@ -557,6 +557,34 @@
 	其中$x^{\alpha}=x_{1}^{\alpha_{1}}\cdots x_{n}^{\alpha_{n}} $，$\alpha=(\alpha_{1},\cdots,\alpha_{n}) $。则$(||\cdot||_{\alpha,\beta})_{\alpha,\beta} $是$S(\mathbb{R}^{n})$上的半范数族。$S(\mathbb{R}^{n})$在此半范数族诱导的拓扑下称为一局部凸空间，且此拓扑可度量化，但不可赋范。$S(\mathbb{R}^{n})$是分析中一类重要的空间。
 \end{example}
 
+\begin{example}
+	设$\Omega$是$\mathbb{R}^{n}$中的开子集，$m$为非负整数或$m=\infty$。令$C^{m}(\Omega)$表示由$\Omega$上所有$m$次连续可微函数构成的空间。对任一紧集$K\subset\Omega$和次数$|\alpha|=\alpha_{1}+\cdots+\alpha_{d}\leq m$的多重指标$\alpha=(\alpha_{1},\cdots,\alpha_{d})$，定义
+	\begin{equation*}
+		p_{K,\alpha}(f)=\sup_{t\in K}|D^{\alpha}f(t)|.
+	\end{equation*}
+	当我们让$K$取遍$\Omega$中所有紧子集并让$\alpha$取遍所有次数不大于$m$的多重指标，$(p_{K,\alpha})$成为$C^{m}(\Omega)$上的一族可分的半范数，从而$C^{m}(\Omega)$成为一个半赋范空间，该空间也可完备度量化。
+\end{example}
+
+\begin{example}
+	接上例，$\mathcal{D}^{m}(\Omega)$表示$C^{m}(\Omega)$中有紧支撑的函数构成的子空间。任取$\phi\in C(\Omega)$。定义
+	\begin{equation*}
+		p_{\phi,\alpha}(f)=\sup_{t\in \Omega}|\phi(t)f^{(\alpha)}(t)|,\quad |\alpha|\leq ,\quad f\in \mathcal{D}^{m}(\Omega).
+	\end{equation*}
+	这些泛函$p_{\phi,a}$形成了$\mathcal{D}^{m}(\Omega)$上的可分点的半范数族，并使$\mathcal{D}^{m}(\Omega)$成为一个局部凸空间。然而，和前面的例子不同，这里的拓扑无法度量化。
+\end{example}
+
+\begin{example}
+	设$\Omega$是$\mathbb{R}^{n}$中的开子集，$0< p<\infty$。称$\Omega$上的可测函数$f$局部$p-$方可积，若对任意紧集$K\subset \Omega$，有
+	\begin{equation*}
+		N_{p,K}(f)=\left(\int_{K}|f(t)|^{p}\,\dd t \right)^{\frac{1}{p}}<\infty.
+	\end{equation*}
+	令$L_{loc}^{p}(\Omega)$表示由$\Omega$上所有局部$p-$方可积函数构成的空间。则当$p\geq 1$时，$\{N_{p,K}:K\subset\Omega\}$是$L_{loc}^{p}(\Omega)$上的半范数族，这里$K$为紧集，并使$L_{loc}^{p}(\Omega)$成为一个局部凸空间。另一方面，当$p<1$时，$N_{p,K}$诱导一族平移不变的“半距离”$d_{p,K}(f,g)=N_{p,K}(f-g)$，并使$L_{loc}^{p}$成为一个拓扑向量空间，但该空间不是局部凸的。
+\end{example}
+
+
+
+
+
 
 
 
