@@ -76,5 +76,145 @@
 	\end{enumerate}
 \end{proof}
 
+\original
+{
+	通过以上分析我们可以看出：第一，给定$F$及$u$，$F(u)$完全可以构造出来；第二，单扩张可以分为两种不同的类型。对一般的域扩张，我们也有两种类型，即代数扩张与超越扩张。
+}
+{P126}
+\begin{definition}
+	设$E$是$F$的扩域，若$E$中每个元都是$F$上的代数元，则称$E$是$F$的代数扩域或代数扩张。不然，就称$E$是$F$的超越扩张或超越扩域。
+\end{definition}
+
+\begin{example}
+	$F=\mathbb{Q}$，即有理数域，$u=\sqrt[3]{2},E=\mathbb{R}$，为实数域，则$F(u)=Q(\sqrt[3]{2})=\{a+b\sqrt[3]{2}+c\sqrt[3]{4}\big| a,b,c\in \mathbb{Q}\}$。
+\end{example}
+
+\begin{proof}
+	$u=\sqrt[3]{2}$为$F$上的代数元，所以$F(u)=F[u]$。
+\end{proof}
+
+\begin{example}
+	$F=\mathbb{Q},E=\mathbb{C}$，即复数域，$u=\sqrt{-1}$，则
+	\begin{equation*}
+		\mathbb{Q}(\sqrt{-1})=\{a+b\sqrt{-1}\big| a,b\in F\}
+	\end{equation*}
+\end{example}
+
+\begin{proof}
+	$\sqrt{-1}$是$F$上的代数元，所以$F(\sqrt{-1})=F[u]$。
+\end{proof}
+
+\begin{example}
+	$F=\mathbb{Q},E=\mathbb{R},u=\pi$，由于$\pi$是超越数，因此$\mathbb{Q}(\pi)=\{\frac{f(\pi)}{g(\pi)}\big| f,g\in Q[x]\,and\,g\neq 0\}$
+\end{example}
+
+\original
+{
+	我们再从另外一个角度来考察域的扩张问题。设$E$是$F$的扩域，则$E$可以看成是$F$上的线性空间，$E$中元素作为向量。向量加法即是$E$作为域的加法，$F$中元素对$E$中向量的纯量乘法即等于$E$中元素的乘法(注意$F$是$E$的子集)。通常记$[E:F]$为$E$作为$F$上线性空间的维数。如果$[E:F]<\infty$，则称$E$是$F$的有限维扩张或简称为有限扩张；若$[E:F]=\infty$，则称$E$是$F$的无限维扩张或称无限扩张。
+}
+{P126}
+\par 若$E$是$F$的扩域，$K$是$E$的扩域，则有下列重要的维数公式。
+\begin{theorem}
+	$[K:F]$有限的充要条件是$[K:E]$与$[E:F]$皆有限，这时
+	\begin{equation*}
+		[K:F]=[K:E]\,[E:F]
+	\end{equation*}
+\end{theorem}
+
+\begin{proof}
+	
+\end{proof}
+
+
+\begin{corollary}
+	若$F\subset E\subset K$，且$[K:F]<\infty$，则$[E:F]$及$[K:E]$都是$[K:F]$的因子。特别，若$[K:F]$为素数时，则在$K$与$F$之前没有其他的子域。
+\end{corollary}
+
+\original
+{
+	单代数扩域与有限扩域有着密切的关系。设$E$是$F$的扩域，$u$是$F$上的代数元，则$u$必适合一个$F$上的首一多项式$g(x)$。若$g(x)$是这类多项式中次数最低者，则称之为$u$的最小多项式或$u$的极小多项式。$u$的极小多项式实际上就是我们前面谈到的同构式$F[x]/(g(x))\cong F[u]$中的$g(x)$(只要除以一个$F$中元素，即可使$g(x)$变成为首项系数为1的多项式)。事实上，由$\phi(g(x))=0$即知$g(u)=0$。又若$h(x)$是$u$的极小多项式，则由多项式除法，将$g(x)=h(x)q(x)+r(x)$代入$u$得$r(u)=0$。而$r(x)$的次数比$h(x)$更低，因此必有$r(x)=0$，否则将与$h(x)$的极小性相矛盾。这表明$g(x)=h(x)q(x)$。但$g(x)$是不可约多项式，因此$g(x)=c\,h(x),c\in F$。现在由于$g,h$都是首一多项式，故$g(x)=h(x)$。从这里我们得出一个结论：\uline{代数元\text{$u$}的极小多项式必是不可约的。}有了极小多项式的概念，我们可以证明如下结果：
+}
+{P127}
+\begin{remark}
+	这里实际上证明了极小多项式是唯一的。
+\end{remark}
+\begin{proposition}
+	验证：代数元$u$的极小多项式必是不可约的。
+\end{proposition}
+
+\begin{proof}
+	若$g(x)=g_{1}(x)g_{2}(x)$，$g_{1}(x),g_{2}(x)$都是$g(x)$的真因子。由于$g(u)=g_{1}(u)g_{2}(u)=0$，则必有$g_{1}(u)=0\, or\, g_{2}(u)=0$，与$g_{x}$为极小多项式矛盾。
+\end{proof}
+
+
+\begin{theorem}
+	设$E$是$F$的扩域，若$u$是$E$中的元素且是$F$上的代数元，其极小多项式为$g(x)$，则$[F(u):F]$有限且等于$deg \, g(x)$。反之，若$[F(u):F]<\infty$，则$u$必是$F$上的代数元。
+\end{theorem}
+
+\begin{corollary}
+	有限扩张必是代数扩张。
+\end{corollary}
+
+\begin{theorem}[Steinitz定理]
+	设$E$是$F$的扩域且$[E:F]<\infty$，则$E=F(u)$的充要条件是$E$与$F$之间只有有限个中间域。
+\end{theorem}
+
+
+\subsection{代数扩域}
+
+\begin{theorem}
+	设$E$是$F$的扩域，$K$是$E$中所有$F$上代数元的全体组成的集，则$K$是$E$的子域。
+\end{theorem}
+
+\begin{corollary}
+	两个代数数的和、差、积、商仍是代数数。
+\end{corollary}
+
+\original
+{
+	虽然单代数扩域必然是有限扩张，但一般来说，代数扩域不必是有限扩张。比如有理数域上的代数元全体即代数数全体是有理数域的代数扩张，但不是有限扩张。事实上对任意的$n$，由$Eisenstenin$判别法知，有理数域上的$n$次多项式$x^{n}-2$是不可约的，\uline{因此代数数域在有理数域上的维数不可能是有限维的}。
+}
+{P129}
+
+\begin{proposition}
+	验证：代数数域在有理数域上的维数不可能是有限维的。
+\end{proposition}
+
+\begin{proof}
+	由方程$x^{n}-2=0$找出无穷个线性无关的代数元。
+\end{proof}
+
+\begin{theorem}
+	设$E$是$F$的扩域，则下列命题等价：
+	\begin{enumerate}
+		\item[(1)] [E:F]$<\infty$;
+		\item[(2)] 存在$E$中有限个代数元$u_{1},u_{2},\cdots u_{n}$，使$E=F(u_{1},u_{2},\cdots,u_{n})$，此时，$E$必是$F$的代数扩域。
+	\end{enumerate}
+\end{theorem}
+
+
+代数扩域由传递性，即下述定理成立。
+\begin{theorem}
+	若$E$是$F$的代数扩域，$K$是$E$的代数扩域，则$K$是$F$的代数扩域。
+\end{theorem}
+
+\begin{corollary}
+	设$E$是$F$的扩域，$K$是$E$中$F$上代数元全体组成的子域，则任何$E$中$K$上的代数元仍数域$K$。
+\end{corollary}
+
+\begin{proof}
+	$E$中$K$上的代数元全体为$K$的代数扩域，同时也为$F$的代数扩域，所以$E$中$K$上的代数元全体包含于$K$。
+\end{proof}
+
+\begin{definition}
+	设$E$是$F$的扩域，$K$是$E$的子域又是$F$的扩域，若$K$是$F$的代数扩域且任何$K$在$E$中的代数扩域均与$K$重合(即$K$在$E$中无真代数扩张)，则称$K$是$F$在$E$中的\textbf{代数闭包}。$K$也成为在$E$中是\textbf{代数封闭的}。
+\end{definition}
+
+
+
+
+
+
+
 
 
