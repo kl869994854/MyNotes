@@ -183,9 +183,74 @@
 	应用推论\ref{XQHcor080108}。
 \end{proof}
 
+\subsection{Hahn-Banach定理-几何形式}\label{XQHthe080201}
+$Hahn-Banach$定理的几何形式通常也被称为凸集隔离定理。
+\begin{theorem}[Hahn-Banach隔离定理]
+	设$E$是拓扑向量空间，$A,B$都是$E$中的非空凸子集且$A\cap B=\emptyset$。若$A$是开集，则存在$f\in E*$及常数$\alpha \in \mathbb{R}$，使得
+	\begin{equation*}
+		A\subset\{Re f<\alpha\} \, and \, B\subset\{Re f\geq a\}.
+	\end{equation*}
+	或等价地表述为
+	\begin{equation*}
+		Re\, f(a)<\alpha\leq Re\,f(b),\,\,\forall a\in A,b\in B.
+	\end{equation*}
+\end{theorem}
 
+\original
+{
+	在定理\ref{XQHthe080201}的证明中蕴含着一个事实：设$E$是一个拓扑向量空间，$f$是其上非零的线性泛函，则$f$一定是开映射。
+}
+{P157}
 
+\begin{proposition}
+	验证：设$E$是一个拓扑向量空间，$f$是其上非零的线性泛函，则$f$一定是开映射。
+\end{proposition}
 
+\begin{proof}
+	
+\end{proof}
+
+\begin{theorem}[Hahn-Banch严格隔离定理]\label{XQHthe080202}
+	设$E$是Hausdorff局部凸空间，$A$和$B$是$E$中不相交的凸子集。若$A$是紧集而$B$是闭集，则存在$f\in E^*$及常数$\alpha,\beta\in\mathbb{R}$，使得
+	\begin{equation*}
+		\sup\,Ref(A)<\alpha<\beta<\inf\,Re f(B).
+	\end{equation*}
+\end{theorem}
+
+\begin{proof}
+	
+\end{proof}
+
+\original
+{
+	上述两个定理的几何解释如下(设$\mathbb{K}=\mathbb{R}$)：线性泛函$f$和实数$\alpha$决定$E$中的超平面$\{f=\alpha\}$，即$\{x\in E,f(x)=\alpha\}$。该超平面将空间$E$分成两个半空间。上述定理的结论表明不相交凸集$A$和$B$分别属于着两个半空间，换句话说，$A$和$B$可被超平面隔离。在定理\ref{XQHthe080202}的假设下，$A$和$B$可被严格隔离。
+}
+{P158定理1,2的几何解释}
+
+\begin{corollary}
+	设$E$是Hausdorff局部凸空间，$B$是一个平衡的闭凸集，而$x_{0}\in E\backslash B$。那么存在$f\in E^*$，使得$f(x_{0})>1$且$\sup_{x\in B}|f(x)|\leq 1$。
+\end{corollary}
+
+\begin{proof}
+	集合$A=\{x_{0}\}$为紧集。由定理\ref{XQHthe080202}得，$\exists f\in E^{*}$与常数$\alpha ,\beta\in E^{*}$，使得
+	\begin{equation*}
+	 \Re f(x_{0})<\alpha<\beta<\inf\,\Re f(B)
+	\end{equation*}
+	因为$0\in B$，所以$\alpha <0$，考虑$g=\frac{1}{\alpha}f$。由上式可得
+	\begin{equation*}
+		\Re\, g(x_{0})>1>\sup \, \Re f(B)
+	\end{equation*}
+	还有
+	\begin{equation*}
+		\Re\,g(x_{0})\leq |g(x_{0})|=\lambda\,g(x_{0})\quad \lambda=sgn \, g(x_{0})
+	\end{equation*}
+	考虑$h=\lambda g$，则$h(x_{0})>1$。$\sup_{x\in B}|h|=\sup_{x\in B}|g|=\sup_{x\in B}\Re g$
+	最后一个等号证明如下：
+	\begin{itemize}
+		\item 显然成立$\sup_{x\in B}\Re g\leq \sup_{x\in B}|g|$。
+		\item $\forall x_{0}\in B$，记$g(x_{0})=t_{1}+t_{2} \imath $，考虑$|\mu|=\left|\frac{t_{1}-t_{2}\imath}{\sqrt{t_{1}^{2}+t_{2}^{2}}}\right|=1$，则有$|g(x_{0})|=|g(\mu x_{0})|$，这里$g(\mu x_{0})=\mu g(x_{0})\in \mathbb{R}$，且$\mu x_{0}\in B$所以$|g(x_{0})|\leq \sup_{x\in B} \Re g(x)$。所以$\sup_{x\in B}|g|\leq \sup_{x\in B}\Re g$。
+	\end{itemize}
+\end{proof}
 
 
 
