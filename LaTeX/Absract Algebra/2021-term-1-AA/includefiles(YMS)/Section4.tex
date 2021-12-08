@@ -162,9 +162,13 @@
 
 \subsection{代数扩域}
 
-\begin{theorem}
+\begin{theorem}\label{YMSthe040201}
 	设$E$是$F$的扩域，$K$是$E$中所有$F$上代数元的全体组成的集，则$K$是$E$的子域。
 \end{theorem}
+
+\begin{proof}
+	$\forall u,v\in E$，若$u,v$为代数元，则$[F(u,v):F]=[F(u,v):F(u)]\,[F(u):F]<\infty$，所以$[F(u-v):F],[F(u\,v):F],[F(u^{-1}):F]<\infty$。
+\end{proof}
 
 \begin{corollary}
 	两个代数数的和、差、积、商仍是代数数。
@@ -194,7 +198,7 @@
 
 
 代数扩域由传递性，即下述定理成立。
-\begin{theorem}
+\begin{theorem}\label{YMSthe040203}
 	若$E$是$F$的代数扩域，$K$是$E$的代数扩域，则$K$是$F$的代数扩域。
 \end{theorem}
 
@@ -206,9 +210,97 @@
 	$E$中$K$上的代数元全体为$K$的代数扩域，同时也为$F$的代数扩域，所以$E$中$K$上的代数元全体包含于$K$。
 \end{proof}
 
-\begin{definition}
+\begin{definition}\label{YMSdef040201}
 	设$E$是$F$的扩域，$K$是$E$的子域又是$F$的扩域，若$K$是$F$的代数扩域且任何$K$在$E$中的代数扩域均与$K$重合(即$K$在$E$中无真代数扩张)，则称$K$是$F$在$E$中的\textbf{代数闭包}。$K$也成为在$E$中是\textbf{代数封闭的}。
 \end{definition}
+
+\original
+{
+	由定理\ref{YMSthe040201}和定理\ref{YMSthe040203}可知，域$F$上代数元全体构成的$E$的子域就是$F$在$E$中的代数闭包。应当注意，上面的代数封闭概念是一个相对的概念，通常我们所说的代数闭域和代数闭包的定义如下所述。
+}
+{P130}
+
+\begin{proposition}
+	域$F$上代数元全体构成的$E$的子域就是$F$在$E$中的代数闭包。
+\end{proposition}
+
+\begin{proof}
+	按照代数闭包的定义验证，显然成立。
+\end{proof}
+
+\begin{definition}\label{YMSdef040202}
+	设$K$是一个域，如果$K$无真代数扩张，则称$K$是一个代数闭域。
+\end{definition}
+
+\begin{definition}\label{YMSdef040203}
+	设$K$是$F$的扩域，如果$K$是$F$的代数扩域且$K$是一个代数闭域，则称$K$是$F$的代数闭包。
+\end{definition}
+
+\begin{theorem}
+	设$K$是一个域，下列命题等价：
+	\begin{enumerate}
+		\item $K$是代数闭域；
+		\item $K[x]$中任一不可约多项式的次数等于1。
+		\item $K[x]$中任一次数大于零的多项式可分解为一次因子的乘积；
+		\item $K[x]$中任一次数大于零的多项式都在$K$中至少有一个根。
+	\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+	2，3，4容易验证是等价的。
+	\par
+	(2,3,4)$\Rightarrow$(1)，任取$K$的代数扩域记为$K_{1}$，$\forall \alpha\in K_{1}$，$\exists f(x)\in K[x]$，使得$f(\alpha)=0$，由于$f(x)$可分解为一次因子的乘积，所以$\alpha\in K$。
+	\par
+	(1)$\Rightarrow$(2,3,4)，\uline{设 $g(x)\in K[x]$ 是一个不可约多项式，则 $g(x)$ 决定了一个 $K$ 的代数扩域 $E$ 且 $[E:K]=deg\, g(x)$ 。  }
+\end{proof}
+
+\original
+{
+	由代数基本定理知，复数域$\mathbb{C}$是一个代数闭域。
+}
+{P131}
+
+\begin{proposition}
+	验证：复数域$\mathbb{C}$是一个代数闭域。
+\end{proposition}
+
+
+\begin{theorem}
+	设$K$是代数闭域，$F$是其子域，则$F$在$K$中的代数闭包$\overline{F}$一定是代数闭域，$\overline{F}$也是定义\ref{YMSdef040203}意义下$F$的代数闭包。
+\end{theorem}
+
+\begin{proof}
+	$\overline{F}$的代数元一定是$K$的代数元。所以$\overline{F}$的任意代数扩张$H$一定满足$H\subset K$，又由$\overline{F}$的定义，$H\subset \overline{F}$，所以$\overline{F}$为代数闭域。
+\end{proof}
+
+\original
+{
+	由此可知，代数数全体是一个代数闭域，它也可以看成是有理数域的代数闭包。
+}
+{P131}
+
+\begin{theorem}
+	任何一个域都有一个代数闭域作为它的扩域，从而任何一个域都有代数闭包。
+\end{theorem}
+
+
+\begin{theorem}
+	域$F$的两个代数闭包设为$E_{1}$及$E_{2}$，则必存在同构映射$\phi:E_{1}\rightarrow E_{2}$，使得$\phi(a)=a$对一切$a\in F$成立。
+\end{theorem}
+
+\subsection{尺规作图问题}
+
+\subsection{分裂域}
+
+
+
+
+
+
+
+
+
+
 
 
 
