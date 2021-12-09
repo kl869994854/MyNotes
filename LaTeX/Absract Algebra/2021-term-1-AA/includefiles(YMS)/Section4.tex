@@ -290,7 +290,93 @@
 
 \subsection{尺规作图问题}
 
+
+
 \subsection{分裂域}
+
+\original
+{
+	在这一节中，我们要研究由某个多项式$f(x)\in F[x]$所决定的扩域。在这一扩域中，$f(x)$可分解为一次因子的乘积。也就是说，多项式$f(x)$的根全落在这个扩域之中。为此，首先要回答这样一个问题：给定多项式$f(x)$，能否找到一个扩域使$f(x)$在这个扩域中至少由一个根？
+}
+{P137}
+
+\begin{lemma}
+	设$f(x)$是域$F$上的不可约多项式，则必存在$F$的一个扩域$E$，使$f(x)$在$E$中至少有一个根。
+\end{lemma}
+
+\begin{proof}
+	考虑$E=F[x]/(f(x))$，可以证明$E$是$F$的代数扩域。这里$F$是可以同构映射到$E$的某个子集。思路是证明$E$在$F$的基的数目小于等于$deg\, f(x)$。这因为多项式环上的性质决定的，$\forall g(x)\in F[x]$，有
+	\begin{equation*}
+		g(x)=q(x)f(x)+r(x)
+	\end{equation*}
+	这里$deg\,r(x)< deg\,f(x) $，且有$g(x)+(f(x))=r(x)+(f(x))$。从而$c,x,...,x^{deg\,f(x)-1}$线性表示出任意$g(x)+(f(x))\in  F[x]/(f(x))$。从而$E$是$F$的代数扩张。
+\end{proof}
+
+\begin{corollary}[Kronecker定理]
+	设$f(x)$是域上的次数不小于1的多项式，则必存在$F$的扩域$E$，使$f(x)$在$E$中至少有一个根。
+\end{corollary}
+\begin{hint}
+	域上的次数为一的多项式使不可约的。
+\end{hint}
+
+
+\begin{definition}
+	设$f(x)$是域$F$上的首一多项式，$E$是$F$的扩域，适合条件：
+	\begin{enumerate}
+		\item $f(x)$在$E[x]$中可以分解为一次因子的乘积，即存在$r_{i}\in E(i=1,2,\cdots,n)$，使得$f(x)=(x-r_{1})(x-r_{2})\cdots(x-r_{n})$；
+		\item $E=F(r_{1},r_{2},\cdots,r_{n})$
+	\end{enumerate}
+	则称$E$是多项式$f(x)$的分裂域。$E$可以看成是$F$添加了$f(x)$的根$r_{1},\cdots,r_{n}$的扩域。
+\end{definition}
+
+\begin{theorem}\label{YMSthe040401}
+	$F[x]$中任一非零首一多项式均有分裂域。
+\end{theorem}
+
+\begin{proposition}
+	任一多项式$f(x)$的分裂域$E/F$(即表示$f(x)$是$F$上的多项式)必是有限维的。
+\end{proposition}
+
+\original
+{
+	定理\ref{YMSthe040401}肯定了多项式分裂域的存在性，接下来一个很自然的问题是：它是否是唯一？我们将证明，在同构的意义下它是唯一的。
+}
+{P138}
+
+\begin{lemma}
+	设$\eta$是域$F$到域$\bar{F}$上的同构，则$\eta$可以唯一地扩张为$F[x]\rightarrow \bar{F}[x]$上的环同构$\tilde{\eta}$，使$\tilde{\eta}(a)=\eta(a)$对一切$a\in F$成立且$\tilde{\eta}(x)=x$，其中$F[x]$与$\tilde{F}[x]$分别是$F$，$\tilde{F}$的多项式环。
+\end{lemma}
+
+\begin{lemma}
+	$F$，$\tilde{F}$，$\eta$同上引理，设$g(x)$是$F[x]$中的不可约多项式，记$\tilde{\eta}(g(x))=\bar{g}(x)$，则存在$F[x]/(g(x))\rightarrow \bar{F}[x]/(\bar{g}(x))$的同构$\bar{\eta}$，且$\bar{\eta}$可看成是$F\rightarrow \bar{F}$的同构$\eta$的扩张。
+\end{lemma}
+
+
+\begin{lemma}
+	设$\eta$是域$F$到$\bar{F}$的同构，$E$与$\bar{E}$分别是$F$与$\bar{F}$的扩域，又设$u\in E$是$F$上代数元且其极小多项式为$g(x)$，则$\eta$可以扩张为$F(u)$到$\bar{E}$内的单同态的充要条件是$\bar{g}(x)$在$\bar{E}$中有一个根。这种扩张的个数等于$\bar{g}(x)$在$\bar{E}$中不同根的个数。
+\end{lemma}
+
+
+\begin{theorem}
+	设$\eta :a\rightarrow \bar{a}$是$F\rightarrow\bar{F}$的域同构，$f(x)$是$F[x]$中的首一多项式，$\bar{f}(x)$是$f(x)$在$\bar{F}[x]$中相应的多项式(意义同上)。$E$与$\bar{E}$分别是$f(x)$及$\bar{f}(x)$的分裂域，则$\eta$可以扩张为$E \rightarrow\bar{E}$的域同构，而且，这种扩张的数目不超过$[E:F]$，当$\bar{f}(x)$在$\bar{E}$中无重根时，正好等于$[E:F]$。
+\end{theorem}
+
+\original
+{
+	上面定理的特殊情况之一是当$\bar{F}=F$，$\eta$为恒等映射时多项式$f(x)$的$F$上分裂域$E$与$\bar{E}$必同构，这就证明了分裂域的唯一性。更为特殊的是若$\bar{E}=E$(同时有$F=\bar{F}$)，则$F$上的恒等同态可以扩张为$E$的自同态的数目至多等于$[E:F]$。
+}
+{P141}
+
+\begin{theorem}
+	$E$是$F$上多项式$f(x)$的多项式，则$E/F$的自同构(即保持$F$中元不动的$E$的自同构)数目$\leq [E:F]$，当$f(x)$无重根时恰为$[E:F]$。
+\end{theorem}
+
+
+
+
+
+
+
 
 
 
