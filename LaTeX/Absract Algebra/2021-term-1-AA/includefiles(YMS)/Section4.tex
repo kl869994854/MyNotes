@@ -188,6 +188,19 @@
 	由方程$x^{n}-2=0$找出无穷个线性无关的代数元。
 \end{proof}
 
+\begin{remark}
+	补充一个定理：Eisenstein判别法。
+	\par
+	给定整系数多项式$f(x)=a_{0}+a_{1}x+\cdots+a_{n}x^{n}$，如果$\exists p$，这里$p$为素数，使得
+	\begin{enumerate}
+		\item $p\nmid a_{n}$，但是$p\big| a_{i}(i=0,2,...,n-1)$；
+		\item $p^{2}\nmid a_{0}$；
+	\end{enumerate}
+	那么$f(x)$在有理数域上是不可约的。
+\end{remark}
+
+
+
 \begin{theorem}
 	设$E$是$F$的扩域，则下列命题等价：
 	\begin{enumerate}
@@ -368,10 +381,55 @@
 {P141}
 
 \begin{theorem}
-	$E$是$F$上多项式$f(x)$的多项式，则$E/F$的自同构(即保持$F$中元不动的$E$的自同构)数目$\leq [E:F]$，当$f(x)$无重根时恰为$[E:F]$。
+	$E$是$F$上多项式$f(x)$的分裂域，则$E/F$的自同构(即保持$F$中元不动的$E$的自同构)数目$\leq [E:F]$，当$f(x)$无重根时恰为$[E:F]$。
 \end{theorem}
 
 
+
+\begin{example}
+	$F=\mathbb{Q}$，$f(x)=x^{2}-2$。$\mathbb{Q}(\sqrt{2})$是$f(x)$的分裂域。
+\end{example}
+
+\begin{proof}
+	\begin{itemize}
+		\item $f(x)=x^{2}-2$可以在$\mathbb{Q}(\sqrt{2})$内分解为$f(x)=(x-\sqrt{2})(x+\sqrt{2})$。
+		\item 且$\mathbb{Q}(\sqrt{2})=\mathbb{Q}(\sqrt{2},-\sqrt{2})$。
+	\end{itemize}
+\end{proof}
+
+\begin{example}
+	$F=\mathbb{Q}$，$f(x)=(x^{2}+1)(x^{2}-2)$。
+\end{example}
+
+\begin{proof}
+	分裂域为$\mathbb{Q}(\sqrt{2},\imath)$。
+\end{proof}
+
+\begin{example}
+	$F=\mathbb{Q}$，$f(x)=x^{p}-2$，其中$p$是素数。
+\end{example}
+
+\begin{proof}
+	
+\end{proof}
+
+\begin{example}
+	设$F=\mathbb{Z}_{p}$，$f(x)=x^{p}-1$。
+\end{example}
+
+\begin{proof}
+	
+\end{proof}
+
+\begin{example}
+	设$F=\mathbb{Z}_{2}$，$f(x)=x^{3}+x+1$。
+\end{example}
+
+\begin{proof}
+	
+\end{proof}
+
+\subsection{可分扩域}
 
 
 
