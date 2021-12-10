@@ -370,7 +370,7 @@
 \end{lemma}
 
 
-\begin{theorem}
+\begin{theorem}\label{YMSthe040402}
 	设$\eta :a\rightarrow \bar{a}$是$F\rightarrow\bar{F}$的域同构，$f(x)$是$F[x]$中的首一多项式，$\bar{f}(x)$是$f(x)$在$\bar{F}[x]$中相应的多项式(意义同上)。$E$与$\bar{E}$分别是$f(x)$及$\bar{f}(x)$的分裂域，则$\eta$可以扩张为$E \rightarrow\bar{E}$的域同构，而且，这种扩张的数目不超过$[E:F]$，当$\bar{f}(x)$在$\bar{E}$中无重根时，正好等于$[E:F]$。
 \end{theorem}
 
@@ -431,11 +431,116 @@
 
 \subsection{可分扩域}
 
+\original
+{
+	\uline{我们在上一节中得到了一个重要结论：若 $E$ 是 $F$ 上多项式 $f(x)$ 的分裂域，则 $E/F$ 的自同构个数不超过 $[E:F]$ 。当 $f(x)$ 在 $E$ 中无重根时，恰为 $[E:F]$ 。}现在的问题是，若$f(x)$有重根，$E/F$的自同构个数是否仍有可能等于$[E:F]$？我们来详细地讨论这个问题。
+	\par
+	首先我们设$f(x)$有两个分裂域，分别记为$E$与$\bar{E}$。若$f(x)$在$E(x)$中分解为
+	\begin{equation*}
+		f(x)=(x-r_{1})^{k_{1}}(x-r_{2})^{k_{2}}\cdots(x-r_{m})^{k_{m}},
+	\end{equation*}
+	其中$r_{i}$是$E$中互不相同的元，这时称$r_{i}$为$f(x)$的$k_{i}$重根。由定理\ref{YMSthe040402}知，存在$E \rightarrow \bar{E}$的同构$\xi$，使$f(x)$在$\bar{E}[x]$中可分解为
+	\begin{equation*}
+		f(x)=(x-\xi(r_{1}))^{k_{1}}(x-\xi(r_{2}))^{k_{2}}\cdots(x-\xi(r_{m}))^{k_{m}},
+	\end{equation*}
+	这表明$f(x)$的重根性质，即诸$k_{i}$不随具体分裂域的不同而改变。因此，我们选择某一特定的分裂域来讨论问题。
+	\par
+	另外，若设$f(x)=f_{1}^{l_{1}}(x)f_{2}^{l_{2}}(x)\cdots f_{k}^{l_{k}}(x)$是$f(x)$在$F[x]$中的一个不可约分解，且当$i\neq j$时，$f_{i}(x)$与$f_{j}(x)$互素，令
+	\begin{equation*}
+		f_{0}(x)=f_{1}(x)f_{2}(x)\cdots f_{k}(x)
+	\end{equation*}
+	显然$f(x)$与$f_{0}(x)$有相同的分裂域，因此我们将求$f(x)$的分裂域归结为求$f_{0}(x)$的分裂域。
+	\par
+	再看$f_{0}(x)$的任意两个不相同的不可约因子$f_{1}(x)$，$f_{2}(x)$。由于$(f_{1}(x),f_{2}(x))=1$，故存在$s(x),t(x)\in F[x]$，使
+	\begin{equation*}
+		f_{1}(x)s(x)+f_{2}(x)t(x)=1.
+	\end{equation*}
+	显然$f_{1}(x)$与$f_{2}(x)$在$f(x)$的分裂域中不可能有公共根，否则将出现$0=1$的矛盾。\uline{这个事实说明 $f_{0}(x)$ 如有重根，当且仅当它的不可约因子有重根。}
+	\par
+	从上面的讨论我们可以看到，若$f(x)$的不可约因子无重根，则$f_{0}(x)$无重根。若设$f_{0}(x)$的分裂域即$f(x)$的分裂域为$E$，则$E/F$自同构的个数恰为$[E:F]$。
+}
+{P143}
 
 
 
 
+\begin{proposition}
+	\begin{itemize}
+		\item 验证：$f(x)$与$f_{0}(x)$有相同的分裂域。
+		\item 验证：$f_{0}(x)$ 如有重根，当且仅当它的不可约因子有重根。
+	\end{itemize}
+\end{proposition}
 
+
+\begin{definition}
+	设$f(x)$是$F[x]$的多项式，若$f(x)$的每个不可约因子在$f(x)$的分裂域中均无重根，则称$f(x)$是一个\textbf{可分多项式}。
+\end{definition}
+
+\begin{definition}
+	设$E$是$F$的扩域，$u\in E$，若$u$在$F$上的极小多项式是可分多项式，则称$u$是$F$上的\textbf{可分元}。
+\end{definition}
+
+\begin{definition}
+	设$E$是$F$的代数扩域，若$E$中的每个元都是$F$上的可分元，则称$E$是$F$上的\textbf{可分扩域或可分扩张}。
+\end{definition}
+
+
+\begin{theorem}
+	设$f(x)$是域$F$上的多项式，若$f(x)$可分，$E$是$f(x)$的分裂域，则$E/F$的自同构的自同构数等于$[E:F]$。
+\end{theorem}
+
+\original
+{
+	一般来说，不可分多项式的分裂域在$F$上的维数总比它的保持$F$中元不动的自同构要大。这方面可以参看O.Zariski,P.Samual的《Commutative Algebra》第一卷或N.Jacobson撰写的《Lectures in Abstract Algebra》。
+}
+{P144}
+\begin{proposition}
+	举例：一般来说，不可分多项式的分裂域在$F$上的维数总比它的保持$F$中元不动的自同构要大。
+\end{proposition}
+
+
+\begin{definition}
+	设$f(x)\in F[x]$，$f(x)=a_{0}+a_{1}x+\cdots +a_{n}x^{n}$，定义$f(x)$的导数为下面的多项式：
+	\begin{equation*}
+		f'(x)=a_{1}+a_{2}x+\cdots +na_{n}x^{n-1},
+	\end{equation*}
+	显然导数具有下列性质：
+	\begin{enumerate}
+		\item $(f+g)'=f'+g'$;
+		\item $(af)'=af'$其中$a\in F $;
+		\item $(fg)'=f'g+fg' $.
+	\end{enumerate}
+\end{definition}
+
+\original
+{
+	对特征为零的域，从$f'(x)=0$可推出$f(x)=a\in F$。但对特征为$p\neq 0$的域，从$f'(x)=0$不能推出$f(x)=a\in F$，这点需要特别注意。事实上，若$f(x)=x^{p}$，则$f'(x)=0$，但$f(x)\neq a\in F$。
+}
+{P145}
+
+\begin{proposition}
+	验证：对特征为零的域，从$f'(x)=0$可推出$f(x)=a\in F$。但对特征为$p\neq 0$的域，从$f'(x)=0$不能推出$f(x)=a\in F$。
+\end{proposition}
+
+\begin{theorem}
+	设$f(x)$是域$F$上的非零首一多项式，则$f(x)$在其分裂域$E$中无重根的充要条件是$(f(x),f'(x))=1$，即$f(x)$与$f'(x)$互素。
+\end{theorem}
+
+\begin{proof}
+	
+\end{proof}
+
+
+\begin{corollary}
+	设$F$是特征为零的域，则$F[x]$上的任一不可约多项式都是可分多项式。	
+\end{corollary}
+
+
+\begin{corollary}
+	设$F$是特征为$p\neq 0$的域，则$F$上的不可约多项式$g(x)$为不可分多项式的充要条件是$g'(x)=0$。	
+\end{corollary}
+
+	
 
 
 
