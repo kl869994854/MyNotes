@@ -581,12 +581,71 @@
 	设$F$是特征为$p$的域，$a\in F$，则多项式$x^{p}-a$或在$F$上不可约，或等于$(x-b)^{p},b\in F$。
 \end{lemma}
 
+\begin{example}
+	$F=\mathbb{Z}_{p}(t)$，即域$\mathbb{Z}_{p}$上以$t$为未定元的有理函数域，$f(x)=x^{p}-t$。
+\end{example}
+
+\begin{proof}
+	先证$f(x)$不可约，再证$f(x)$不可分。
+\end{proof}
+
+\begin{definition}
+	若一个域$F$上的任一多项式都是可分多项式，则称$F$是完全域。
+\end{definition}
+
+\begin{proposition}
+	\begin{itemize}
+		\item 验证：完全域的代数扩域必是可分扩域。
+		\item 验证：特征为零的域，如有理数域、实数域、复数域等都是完全域。
+	\end{itemize}
+\end{proposition}
+
+\begin{proof}
+	\begin{itemize}
+		\item 设$F$为完全域，$E$为$F$的代数扩域，$\forall x\in E$，$x$对应的极小多项式记为$f(x)$，由于$F$为完全域，所以$f(x)$为可分多项式，所以$x$为可分元，所以$E$为可分扩域。
+		
+		\item $X=\mathbb{Q},or\, \mathbb{R},or\, \mathbb{C}$，$\forall f(x)\in F[x]$，$f(x)$的不可约因子一定是可分的，所以$f(x)$也是可分的。所以$X$是完全域。(任何特征为零的域这个结论都成立。)
+	\end{itemize}
+\end{proof}
+
+\begin{theorem}
+	设$F$是特征为$p$的域，则$F$为完全域的充要条件是$F^{p}=F$。
+\end{theorem}
+
+\begin{corollary}
+	有限域$F$必是完全域。
+\end{corollary}
 
 
 
+\subsection{正规扩域}
+
+\begin{lemma}\label{YMSlem040601}
+	设$f(x)$是域$F$上的多项式，$E$是$f(x)$的分裂域，若$u\in E$，它在$F$上的极小多项式为$g(x)$，则$g(x)$在$E$中必分裂，即$g(x)$在$E[x]$中可分解为一次因子的乘积。
+\end{lemma}
 
 
+\begin{definition}
+	设$E$是$F$的代数扩域，若$F$上的任一不可约多项式在$E$中或者无根或者根都在$E$中，则称$E$是$F$的正规扩域或正规扩张。
+\end{definition}
 
+\original
+{
+	引理\ref{YMSlem040601}表明一个多项式的分裂域必是正规扩域。
+}
+{P148}
+
+\begin{proposition}
+	验证：一个多项式的分裂域必是正规扩域。
+\end{proposition}
+
+\begin{proof}
+	记$E$为$f(x)$在域$F$上的分裂域。
+	\begin{itemize}
+		\item 首先说明一个多项式的分裂域必是代数扩域。因为分裂域一定是有限扩域，所以一定是代数扩域。
+		\item 任取不可约多项$g(x)\in F[x]$，若$g(x)$在$E$中无根，结论成立。若$g(x)$在$E$中有根，记为$u$，即$g(u)=0$，则可验证$g(x)$为$u$在$F$上的极小多项式，则由引理\ref{YMSlem040601}可知，$g(x)$在$E[x]$中可分解为一次因子的乘积，即根都在$E$中。
+	\end{itemize}
+\end{proof}
 
 
 
