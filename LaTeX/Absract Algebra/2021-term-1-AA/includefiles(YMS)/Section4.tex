@@ -531,7 +531,7 @@
 \end{proof}
 
 
-\begin{corollary}
+\begin{corollary}\label{YMScor040501}
 	设$F$是特征为零的域，则$F[x]$上的任一不可约多项式都是可分多项式。	
 \end{corollary}
 
@@ -540,12 +540,46 @@
 	设$F$是特征为$p\neq 0$的域，则$F$上的不可约多项式$g(x)$为不可分多项式的充要条件是$g'(x)=0$。	
 \end{corollary}
 
+
+\begin{corollary}
+	设$F$是特征为$p\neq 0$的域，则不可约多项式$f(x)\in F[x] $为不可分多项式的充要条件是$f$具有形状：
+	\begin{equation*}
+		f(x)=a_{0}+a_{1}x^{p}+a_{2}x^{2p}+\cdots +a_{n}x^{np}.
+	\end{equation*}
+\end{corollary}
 	
+\original
+{
+	\textbf{\uline{下面我们要举一个不可分多项式的例子。} }由推论\ref{YMScor040501}知，只有特征为$p$的域上才可能有不可分多项式。
+}
+{P145}
 
+\begin{proposition}
+	验证：只有特征为$p\neq 0$的域上才可能有不可分多项式。
+\end{proposition}
 
+\begin{proof}
+	即验证：存在不可分多项式的域$\Rightarrow$其特征为$p\neq 0 $。
+	\par
+	由推论\ref{YMScor040501}结论显然成立。
+\end{proof}
 
+\original
+{
+	首先我们来看特征为$p$的域$F$上的映射$\phi:\phi(a)=a^{p}$。由于$\phi(a+b)=(a+b)^{p}=a^{p}+b^{p}=\phi(a)+\phi(b)$(由二项式展开，中间的那些项的系数都是$p$的倍数，故等于0)；$\phi(ab)=a^{p}b^{p}=\phi(a)\phi(b);\phi(a^{-1})=(a^{-1})^{p}=(a^{p})^{-1}=\phi(a)^{-1}$，故$\phi$是域$F$到自身内的自同构。\uline{因为 $F$ 是域，所以 $\phi$ 是单同态。}这个同态通常称为Frobenius同态，其同态像记为$F^{p}$，即$F^{p}=\{a^{p}\big| a\in F\}$。显然$F^{p}$是$F$的子域。
+}
+{P145}
 
+\begin{proposition}
+	验证：Frobenius同态$\phi$是单同态。
+\end{proposition}
+\begin{proof}
+	$\forall a,b\in F$，若$\phi(a)=a^{p}=\phi(b)=b^{p}$，则有$a^{p}-b^{p}=(a-b)^{p}=0$，由于$F$是域，所以$a=b$，所以$\phi$是单射。
+\end{proof}
 
+\begin{lemma}
+	设$F$是特征为$p$的域，$a\in F$，则多项式$x^{p}-a$或在$F$上不可约，或等于$(x-b)^{p},b\in F$。
+\end{lemma}
 
 
 
