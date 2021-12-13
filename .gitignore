@@ -1,23 +1,23 @@
 # 忽略所有文件
 *
 !*/
-# 二级目录
+# 不忽略目录
 !*/*.cls
 !*/*.tex
 !*/*.md
-
-#三级目录
 !*/*/*.cls
 !*/*/*.tex
 !*/*/*.md
-
-#四级目录
-!*/*/*/*.cls
-!*/*/*/*.tex
-!*/*/*/*.md
-
-# 一级目录，不忽略文件.gitignore和*.cls *.tex *.md *.markdown
+# 不忽略文件.gitignore和*.cls *.tex *.md *.markdown
 !.gitignore
 !*.cls
 !*.tex
 !*.md
+#忽略的文件
+*.pdf
+*.aux
+*.log
+*.out
+*.gz
+*.thm
+*.toc
