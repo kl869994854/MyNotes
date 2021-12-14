@@ -276,7 +276,7 @@ $Hahn-Banach$定理的几何形式通常也被称为凸集隔离定理。
 	推论\ref{XQHcor080203}意味着Hausdorff局部凸空间$E$的对偶空间$E^{*}$的元素足够多。
 \end{remark}
 
-\begin{corollary}[Mazur 定理]
+\begin{corollary}[Mazur 定理]\label{XQHcor070205}
 	设$E$是向量空间，$\tau_{1}$和$\tau_{2}$都是$E$上的Hausdorff拓扑，并使得$(E,\tau_{1})$和$(E,\tau_{2})$都成为局部凸空间。如果对任意线性泛函$f:E\rightarrow\mathbb{K}$，它的$\tau_{1}-$连续等价于$\tau_{2}-$连续，即
 	\begin{equation*}
 		(E,\tau_{1})^{*}=(E,\tau_{2})^{*},
@@ -296,6 +296,111 @@ $Hahn-Banach$定理的几何形式通常也被称为凸集隔离定理。
 
 
 \subsection{弱拓扑和弱$\!\!^{*}\!\!$拓扑}
+
+\original
+{
+	设$E$是数域$\mathbb{K}$上的向量空间，$F$是由$E$上的某些线性泛函构成的向量空间。在本节中，\uline{我们总是假设 $F$ 关于 $E$ 是可分点的}：对每个$x\neq 0$，总存在$f\in F$，使得$f(x)\neq 0$。
+	\par
+	自然地，$\{|f|:f\in F\}$是$E$上可分点的半范数族，$E$在此半范数族下称为半赋范空间。我们记由此半范数族诱导的拓扑为$\sigma(E,F)$，\uline{则 $(E,\sigma(E,F))$ 是一个Hausdorff局部凸空间}。当我们考虑$E$相应于拓扑$\sigma(E,F)$的某个性质时，约定在此性质上加前缀“$\sigma(E,F)-$”。比如集合$A$关于拓扑$\sigma (E,F)$是闭集时，则称$A$为“$\sigma(E,F)-$闭”。
+	\par
+	在第\ref{XQH0702}节中证明了，$\sigma(E,F)$是与向量空间$E$相容的并且使$f\in F$都连续的最弱的向量拓扑(见定理\ref{XQHthe070201})。\uline{实际上，反向的结论也成立，即 $(E,\sigma(E,F))$ 上的任一连续线性泛函一定属于 $F$ 。}
+}
+{P160}
+
+\begin{lemma}
+	设$E$是数域$\mathbb{K}$上的向量空间，$f,f_{1},f_{2},\cdots,f_{n}$是$E$上的有限个线性泛函。那么下面的命题等价：
+	\begin{enumerate}
+		\item $f$是$f_{1},\cdots,f_{n}$的线性组合：
+		\begin{equation*}
+			f=\sum_{k=1}^{n}\alpha_{k}f_{k},\quad \alpha_{1},\cdots,\alpha_{n}\in \mathbb{K}.
+		\end{equation*}
+	
+		\item 存在常数$C\geq 0$，使得
+		\begin{equation*}
+			|f(x)|\leq C\max_{1\leq k\leq n}|f_{k}(x)|,\quad \forall x\in E.
+		\end{equation*}
+		
+		\item $\bigcap_{1\leq k\leq n}\ker f_{k}\subset \ker f.$
+	\end{enumerate}
+\end{lemma}
+
+\begin{proof}
+	
+\end{proof}
+
+\begin{theorem}\label{XQHthe080301}
+	$(E,\sigma(E,F))^{*}=F$。也就是说，$E$上的线性泛函$f$是$\sigma(E,F)-$连续的充分必要条件为$f\in F$。
+\end{theorem}
+
+\begin{proof}
+	
+\end{proof}
+
+\subsubsection{弱拓扑}
+
+\original
+{
+	设$E$为Hausdorff局部凸空间，$E^{*}$是$E$的对偶空间。那么根据Hahn-Banach定理可知，$E^{*}$在$E$上是可分点的。定义$\sigma(E,E^{*})$为$E$上的\textbf{弱拓扑}。则$(E,\sigma(E,E^{*}))$是一个Hausdorff局部凸空间。当我们考虑$E$上相应于弱拓扑的某个性质时，约定在此性质上加上前缀“$w-$”。比如集合$A\subset E$是“$w-$闭”或“$w-$紧”等。
+	\par
+	弱拓扑$(E,\sigma(E,E^{*}))$由如下显而易见的性质：
+	\begin{enumerate}
+		\item 由定理\ref{XQHthe080301}，线性泛函$f:E\rightarrow\mathbb{K}$ $w-$连续等价于关于$E$上原来的拓扑连续，即
+		\begin{equation*}
+			(E,\sigma(E,E^{*}))^{*}=E^{*}.
+		\end{equation*}
+	
+		\item 假设$A$是$E$中的凸子集。根据定理\ref{XQHcor070205}以及上面的等式，可知$A$是闭的当且仅当$A$是$w-$闭的，即$\overline{A}=\overline{A}^{w}$。
+	\end{enumerate}
+}
+{P162}
+
+\subsubsection{弱$\!\!^{*}\!\!$拓扑}
+\original
+{设$E$为Hausdorff局部凸空间，$E^{*}$是$E$的对偶空间。对任意$x\in E$，定义泛函
+\begin{equation*}
+	\hat{x}:\,
+	\begin{aligned}
+	E^{*}&\rightarrow \mathbb{K}\\
+	f&\mapsto f(x).
+	\end{aligned}
+\end{equation*}
+显然$\hat{x}$是线性的。我们记$\hat{E}=\{\hat{x}:x\in E\}$，则$\hat{E}$是由$E^{*}$上的如上的线性泛函$\hat{x}$构成的向量空间。显然在$E^{*}$上是可分点的。定义$\sigma(E^{*},\hat{E})$为$E^{*}$上的弱$\!\!^{*}\!\!$拓扑，则$(E^{*},\sigma(E^{*},\hat{E}))$成为一个Hausdorff局部凸空间。当我们考虑$E^{*}$上相应于弱$\!\!^{*}\!\!$拓扑的某个性质时，约定在该性质上加前缀“$w^{*}-$”。
+\par
+特别注意， \uline{$x\mapsto\hat{x}$ 是 $E\rightarrow \hat{E}$ 的线性双射}，并由此可知$E$和$\hat{E}$线性同构。在此意义下，可记$\hat{E}=E$。进而也可记
+\begin{equation*}
+	\sigma(E^{*},\hat{E})=\sigma(E^{*},E).
+\end{equation*}
+\par
+由定理\ref{XQHthe080301}，$(E^{*},\sigma(E^{*},E))$有如下的基本性质：$\phi:\,E^{*}\rightarrow\mathbb{K}$是$(E^{*},\sigma(E^{*},E))$上的连续线性泛函等价于$\phi\in \hat{E}$，即$\phi$对应某一$x\in E$。即
+\begin{equation*}
+	(E^{*},\sigma(E^{*},E))^{*}=E.
+\end{equation*}
+\par
+设$E$为Hausdorff局部凸空间，以上定义赋予了$E^{*}$上的$w^{*}-$拓扑。若$E$还为赋范空间，\uline{我们知道 $E^{*}$ 本身是Banach空间}，因此$E^{*}$上自然地有一个范数拓扑$||\cdot||$；相对于$w^{*}-$拓扑，我们称该拓扑为$E^{*}$上的\textbf{强拓扑}。实际上，任取$\hat{x}\in (E^{*},\sigma(E^{*},\hat{E}))^{*}$，对任意$x^{*}\in E^{*}$，有$|\hat{x}(x^{*})|=|x^{*}(x)|\leq ||x^{*}||\,||x||$，故$\hat{x}\in (E^{*},||\cdot||)^{*}$。
+
+}
+{P162}
+
+\begin{proposition}
+	\begin{itemize}
+		\item 验证：$x\mapsto\hat{x}$ 是 $E\rightarrow \hat{E}$ 的线性双射。
+		\item 验证： $E^{*}$ 本身是Banach空间。
+	\end{itemize}
+\end{proposition}
+
+\begin{example}[缓增广义函数]
+	
+\end{example}
+
+\subsubsection{极性}
+
+
+
+
+
+
+
+
 
 
 
