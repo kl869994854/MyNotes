@@ -171,7 +171,7 @@
 
 \original
 {
-	应用推论\ref{XQHcor080108}时，我们往往去获得命题中条件的反面，也就是说，当我们想证明向量$x$属于闭子空间$F$时，只需证明：对任意$f\in E^{*} $，若$f\big|_{F}=0 $，必有$f(x)=0 $
+	应用推论\ref{XQHcor080108}时，我们往往去获得命题中条件的反面，也就是说，当我们想证明向量$x$属于闭子空间$F$时，只需证明：对任意$f\in E^{*} $，若$f\big|_{F}=0 $，必有$f(x)=0 $。
 }
 {P156}
 
@@ -244,13 +244,62 @@ $Hahn-Banach$定理的几何形式通常也被称为凸集隔离定理。
 	\begin{equation*}
 		\Re\,g(x_{0})\leq |g(x_{0})|=\lambda\,g(x_{0})\quad \lambda=sgn \, g(x_{0})
 	\end{equation*}
-	考虑$h=\lambda g$，则$h(x_{0})>1$。$\sup_{x\in B}|h|=\sup_{x\in B}|g|=\sup_{x\in B}\Re g$
+	考虑$h=\lambda g$，则$h(x_{0})>1$。$\sup_{x\in B}|h|=\sup_{x\in B}|g|=\sup_{x\in B}\Re g\leq 1$。
+	\par
 	最后一个等号证明如下：
 	\begin{itemize}
 		\item 显然成立$\sup_{x\in B}\Re g\leq \sup_{x\in B}|g|$。
 		\item $\forall x_{0}\in B$，记$g(x_{0})=t_{1}+t_{2} \imath $，考虑$|\mu|=\left|\frac{t_{1}-t_{2}\imath}{\sqrt{t_{1}^{2}+t_{2}^{2}}}\right|=1$，则有$|g(x_{0})|=|g(\mu x_{0})|$，这里$g(\mu x_{0})=\mu g(x_{0})\in \mathbb{R}$，且$\mu x_{0}\in B$所以$|g(x_{0})|\leq \sup_{x\in B} \Re g(x)$。所以$\sup_{x\in B}|g|\leq \sup_{x\in B}\Re g$。
 	\end{itemize}
 \end{proof}
+
+\begin{corollary}
+	设$E$是Hausdorff局部凸空间，$F$是$E$的向量子空间且$x_{0}\in E$。则$x_{0}\in \bar{F}$当且仅当对任意$f\in E^{*}$，若其满足$f\big|_{F}=0$，则必有$f(x_{0})=0$。
+\end{corollary}
+
+\original
+{
+	由此推论，我们立即得到一个利用连续线性泛函来刻画子空间稠密性的结论。
+}
+{P159}
+
+\begin{corollary}
+设$E$是Hausdorff局部凸空间，$F$是$E$的向量子空间。则$F$在$E$中稠密当且仅当对任意$f\in E^{*}$，若其满足$f\big|_{F}=0$，则必有$f=0$。
+\end{corollary}
+
+
+\begin{corollary}\label{XQHcor080203}
+	设$E$是Hausdorff局部凸空间，则其对偶空间$E^{*}$是可分点的，即任取$x,y\in E,x\neq y$，则存在$f\in E^{*}$，使得$f(x)\neq f(y)$。
+\end{corollary}
+
+\begin{remark}
+	推论\ref{XQHcor080203}意味着Hausdorff局部凸空间$E$的对偶空间$E^{*}$的元素足够多。
+\end{remark}
+
+\begin{corollary}[Mazur 定理]
+	设$E$是向量空间，$\tau_{1}$和$\tau_{2}$都是$E$上的Hausdorff拓扑，并使得$(E,\tau_{1})$和$(E,\tau_{2})$都成为局部凸空间。如果对任意线性泛函$f:E\rightarrow\mathbb{K}$，它的$\tau_{1}-$连续等价于$\tau_{2}-$连续，即
+	\begin{equation*}
+		(E,\tau_{1})^{*}=(E,\tau_{2})^{*},
+	\end{equation*}
+	那么$E$中任意凸集$A$是$\tau_{1}-$闭的当且仅当$A$是$\tau_{2}-$闭的。因此，若$A$为$E$中的凸集，则有$\overline{A}^{\tau_{1}}=\overline{A}^{\tau_{2}}$。
+\end{corollary}
+
+\begin{remark}
+	当$A$为$E$中的凸集时，$\overline{A}^{\tau_{1}}$也是$\tau_{2}-$闭的，所以$\overline{A}^{\tau_{2}}\subset \overline{A}^{\tau_{1}}$。同理，有$\overline{A}^{\tau_{2}}\subset\overline{A}^{\tau_{1}}$。所以有$\overline{A}^{\tau_{1}}=\overline{A}^{\tau_{2}}$。
+\end{remark}
+
+\begin{remark}
+	定理中集合$A$为凸集的条件是必要的。特别要注意的是，凸的$\tau_{1}-$开集不一定是$\tau_{2}-$开集。
+\end{remark}
+
+
+
+
+\subsection{弱拓扑和弱$\!\!^{*}\!\!$拓扑}
+
+
+
+
 
 
 
