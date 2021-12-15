@@ -115,7 +115,7 @@
 
 %%%%%%环境，命令%%%%%%%%%%%%%%%
 %\newcommand{\original}[2]{原文(#2)：\textcolor{magenta}{#1}}%%%%%原文
-\newcommand{\original}[2]{{\textbf{\textcolor{orange}{原文(#2):}}\color{brown}#1}\vspace{2ex}}%%%%%原文
+\newcommand{\original}[2]{{\textbf{\textcolor{orange}{原文(#2):}}\color{darkgray}#1}\vspace{2ex}}%%%%%原文
 \newcommand{\question}[1]{\noindent\textcolor{red}{\large\bfseries?\,Q:}\,\,#1 ?}
 \newcommand{\unfinished}[1]{\textbf{未完成的思路：}{\color{gray}#1}}
 \newcommand{\finished}[2]{\textbf{可行的思路(\textcolor{cyan}{来自：#2})：}#1\hfill $\square$\par }
