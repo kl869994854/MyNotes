@@ -1,10 +1,8 @@
 # TEST_4_Answer
 
+2021202010001 马明文
 
-
-## 一
-
-
+## 一.
 
 **Solution:**
 
@@ -24,15 +22,15 @@ $$
 
 ​		任取 $ x\in \overline{U} $ ，则有 $ x+U \, \cap \, U \neq\emptyset $ ，取 $ y\in x+U\, \cap \, U $ ，则有 $ x\in \phi(U\times U) \subset B^{c} $ ，即 $ \overline{U} \subset B^{c} $ ，也就是说 $ \overline{U}^{c} \supset B $ 。结论得证。
 
+
+
 **(b)**
-
-​		任取 $ x\in (A+B)^{c} $ ， $ \forall \, y\in A $ 有 $ x-y\not\in B $ ，否则产生矛盾。又因为 $B$ 为闭集，所以 $ \exist\, U_{y}\in \mathcal{N}(0) $ （ 这里 $U_{y}$ 为开邻域 )，使得 $ x-y+U_{y} \subset B^{c} $ ，考虑 $ \bigcup_{y\in A}y+ \dfrac{1}{2} U_{y} $ 为 $A$ 的一个开覆盖，由于 $A$ 为紧集，所以有 $ \bigcup_{y_{i}\in A}^{n}\, y_{i}+\dfrac{1}{2}U_{y_{i}} $ 为其子覆盖，再验证 $ U= x+\bigcap\dfrac{1}{2} U_{y_{i}} $ 满足 $ U \, \cap \, A+B=\empty$ 即可。
-
-​		  另用 (a) 中给出的 $U$ ，而不用 $ \dfrac{1}{2} U_{y} $ 。
 
 ​		任取 $ x\in (A+B)^{c} $ ， $ \forall \, y\in A $ 有 $ x-y\not\in B $ ，否则产生矛盾。又因为 $B$ 为闭集，所以 $ \exist\, U_{y}\in \mathcal{N}(0) $ （ 这里 $U_{y}$ 为开邻域 )，使得 $ x-y+U_{y} \subset B^{c} $ ，由 (a) 可知， $ \exists \, V_{y}\subset U_{y} $ 使得 $ V_{y}-V_{y} \subset U_{y} $ 。考虑 $ \bigcup_{y\in A}y+ V_{y} $ 为 $A$ 的一个开覆盖，由于 $A$ 为紧集，所以有 $ \bigcup_{y_{i}\in A}^{n}\, y_{i}+V_{y_{i}} $ 为其子覆盖，再验证 $ U= x+\bigcap V_{y_{i}} $ 满足 $ U \, \cap \, A+B=\empty$ 即可。
 
 ​		若 $ U \, \cap \, A+B \neq \empty $ ，则取 $ z\in U \, \cap \, A+B $ ，则 $ \exists \, y\in A $ 使得 $ z-y \in B $ 。由于 $ y \in A $ ，所以 $ \exists \, y_{n}+V_{n} $ ，使得 $ y\in y_{n}+V_{n} $ ，且有 $ z\in x+V_{n} $ ，所以 $ z-y \in x-y_{n}+U_{n} \subset B^{c} $ ，产生矛盾。 
+
+
 
 **(c)**
 
@@ -40,7 +38,7 @@ $$
 
 
 
-## 二
+## 二.
 
 **Solution:**
 
@@ -54,10 +52,6 @@ $$
 **(b)**
 
 ​		任取一 $f\in E^{*} $ ，以及 $\varepsilon_{0} >0 $ ， $\exists\, N>0 $ ，使得 $\forall \, n>N $ 均有 $|f(x_{n})-f(x)|<\varepsilon_{0}$ ，从而有 $|f(x_{n})|<|f(x)|+\varepsilon_{0}$ ，取 $M=\max\{|f(x_{1})|,|f(x_{2})|,\cdots,|f(x_{N})|,|f(x)|+\varepsilon_{0}\}$ ，所以 $ |f(x_{i})| \leq M \,\,\,\,(\forall i\in N) $ 从而 $\{f(x_{n})\}$ 有界。
-
-​		注意 $ \hat{x_{i}}(f)=f(x_{i}) \,\, (\, \forall \, i\in N\,) $ ，又因为 $ ||\hat{x_{i}}||_{E^{**}} = \sup_{||f||=1} |\hat{x_{i}}(f)| \leq M \,\,(\forall \, i\in N) $ ，且有 $ ||x||_{E}=||x||_{E^{**}}$ ，所以 $\{x_{n}\}$ 有界。( 错误❌，这里 $M$ 与 $f$ 有关 )。
-
-​		正确做法：应该应用 $ Banach-Steinhaus $ 定理( 共鸣定理 )。
 
 ​		因为 $ E^{*} $ 是Banach空间，考虑 $ \hat{x_{n}} \in B(E^{*},\mathbb{K})=E^{**} $ ，对每一点 $ f\in E^{*} $ 均有 $ |\hat{x_{n}}(f)|=|f(x_{n})|\leq M_{f} $ ，所以有 $ \sup||\hat{x_{n}}||=\sup||x_{n}||<\infty $ 。
 
@@ -77,7 +71,9 @@ $$
 
 ​		所以 $ x_{n}\rightarrow 0 (w) $ ， $ ||T(x_{n})-T(0)||=1 $ ，显然不依范数收敛。
 
-## 三
+
+
+## 三.
 
 **Solution:**
 
@@ -86,26 +82,15 @@ $$
 * " $\Rightarrow$ "， 由题二 (a) ，对于 $\forall \, \hat{x} \in \hat E$ 均有 $ \hat{x}(f_{n}) \rightarrow \hat{x}(f) $ ，由 $\hat{x} $ 的定义，有 $f_{n}(x) \rightarrow f(x)$ 。
 * " $\Leftarrow$ "，同理，由 $\hat{x}$ 的定义，若 $\forall \, x\in E $ ，均有 $ f_{n}(x) \rightarrow f(x) $ ，则由 $ \forall \hat{x} \in \hat E $ ，均有 $ \hat{x}(f_{n}) \rightarrow \hat{x}(f) $ ，所以 $f_{n} \rightarrow f \, (\sigma(E^{*},\hat E)) $ 。
 
+
+
 **(b)**
 
 ​		把 $ \{f_{n}\} $ 看作 $ \{f_{n}\} \subset B(E,\mathbb{K})=E^{*} $ ，由于 $ f_{n} \rightarrow f \,\,(\sigma(E^{*},\hat E)) $ ，所以 $ \forall \, \hat x\in \hat E $ 有 $ \hat x(f_{n}) \rightarrow \hat x (f) $ 即 $ f_{n}(x ) \rightarrow f(x ) $ ，所以 $ \{f_{n}(x)\} $ 有界，因为 $ E $ 是Banach空间，由共鸣定理，所以 $ \{f_{n}\} $ 有界。
 
+
+
 **(c)** 
-
-​		对 $ |f_{n}(x_{n}) - f(x) | $ 插项放缩
-$$
-\begin{aligned}
-|f_{n}(x_{n})-f(x)|=&|f_{n}(x_{n}) -f_{m}(x_{n})+f_{m}(x_{n})-f(x_{n})+f(x_{n})-f(x) |\\
-\leq&| f_{n}(x_{n})-f_{m}(x_{n}) | + | f_{m}(x_{n})-f(x_{n}) | + |f(x_{n}) - f(x) |
-\end{aligned}
-$$
-对右边第一项放缩 $ |f_{n}(x_{n})-f_{m}(x_{n}) |\leq ||f_{n} -f_{m} ||\,||x_{n} || $ ，
-
-​		由于 $ \{f_{n}\} $ 有界，所以 $ \exists \, \{f_{n_{k}}\} \subset \{f_{n}\} $ 收敛
-
-**(以上是错误思路)** 
-
-
 
 ​		考虑放缩 
 $$

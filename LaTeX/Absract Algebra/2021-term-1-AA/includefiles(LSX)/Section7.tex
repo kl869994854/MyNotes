@@ -29,12 +29,54 @@
 			&\mathbb{G}=\{G=Gal(K/F)\text{的一切子群}H\, :\, G\supseteq H\supseteq\{e\}\}.
 		\end{aligned}
 	\end{equation*}
+	\par
+	\textbf{\uline{先定义集 $\mathbb{K}$ 到集 $\mathbb{G}$ 的一个对应。}}
+	\par
+	任取$L\in \mathbb{K}$。
+	由$K=F(\theta)\subseteq L(\theta) \subseteq L(\theta_{1},\cdots,\theta_{n}) \subseteq K$得$K=L(\theta)=L(\theta_{1},\cdots,\theta_{n})$，因而$K$是多项式$p(x)\in F[x]\subseteq L[x]$在域$L$上的分裂域。今考虑扩域$L$上分裂域$K$的Galois群$Gal(K/L)$。若$\phi\in Gal(K/L) $，即$\phi $是域$K$的$L-$自同构。$\phi$保持$L$中元素不动，当然更保持$F$中元素不动，因而$\phi$是域$K$的$L-$自同构，即$\phi\in Gal(K/F) $。\uline{随之有 $Gal(K/L)\subseteq Gal(K/F)=G $ 。}这样就得对应
+	\begin{equation*}
+		Gal:\,\,
+		\begin{aligned}
+			\mathbb{K}&\rightarrow\mathbb{G}\\
+			L&\mapsto Gal(K/L).
+		\end{aligned}
+	\end{equation*}
+	\uline{显然 $F\mapsto Gal(K/F)=G,K\mapsto Gal(K/K)=\{e\}$ 。}
+	\par
+	\textbf{\uline{其次定义集 $\mathbb{G}$ 到集 $\mathbb{K}$ 的一个对应。}}
+	\par
+	任取$H\in \mathbb{G}$。把$\alpha\in K $在$F-$自同构$\phi $下的像记作$\alpha\phi $，规定
+	\begin{equation*}
+		Inv\, H=\{\alpha\in K|\forall\phi\in H,\alpha\phi=\alpha\}.
+	\end{equation*}
+	\uline{直接验证可知 $Inv\,H$  是 $K$ 的子域且 $F\subseteq Inv\,H$ }，即$Inv\, H$是中间域，因而$Inv\, H\in \mathbb{K}$。称$Inv \, H $为$H$的不变子域(也就是$H-$集$K$的不变元组成的子集)。这样就得对应
+	\begin{equation*}
+		Inv:\,\,
+		\begin{aligned}
+			\mathbb{G}&\rightarrow\mathbb{K}\\
+			H&\mapsto Inv\,H.
+		\end{aligned}
+	\end{equation*}
+	显然 $\{e\}\mapsto Inv\{e\}=K$ 。\uline{我们还将看到 $G\mapsto Inv\, G=F$。}
+	\par
+	下一步想证的该是：对应Gal和对应Inv是互逆的，即想证：$L\in \mathbb{K}$，$H\in \mathbb{G}$，
+	\begin{equation*}
+		\begin{aligned}
+			\text{Inv}(\text{Gal}(K/L))&=L,\\
+			\text{Gal}(K/\text{Inv}H)&=H.
+		\end{aligned}
+	\end{equation*}
+	这就是Galois对应。
 }
 {P175}
+
 \begin{proposition}
 	\begin{itemize}
 		\item 验证：$F$上分裂域$K=F(\theta)=F(\theta_{i})=F(\theta_{1},\theta_{2},\cdots,\theta_{n})$，其中$\{\theta=\theta_{1},\theta_{2},\cdots,\theta_{n}\}$是$\theta$的$F-$最小多项式$p(x)$的全部根。
-		
+		\item 验证： $Gal(K/L)\subseteq Gal(K/F)=G $ 且$Gal(K/L)\leq Gal(K/F)=G$。
+		\item 验证：$Inv\,H$  是 $K$ 的子域且 $F\subseteq Inv\,H$。
+		\item 验证：显然 $F\mapsto Gal(K/F)=G,K\mapsto Gal(K/K)=\{e\}$ 。
+		\item 验证：显然 $\{e\}\mapsto Inv\{e\}=K$ 。我们还将看到 $G\mapsto Inv\, G=F$(这一点不是显然的)。
 	\end{itemize}
 \end{proposition}
 
