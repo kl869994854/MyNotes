@@ -2,9 +2,7 @@
 
 
 
-## $\S 1$ 基本概念
-
-
+## 基本概念
 
 ### 2.1.5
 
@@ -56,3 +54,22 @@
 
 * 无
 * $|f|\neq0$ 。
+
+### 2.1.17
+
+**证明：**
+
+“ $\Rightarrow$ ” 若 $ 1-ab $ 可逆，记 $ (1-ab)c=c(1-ba)=1 $ 。
+
+考虑：
+$$
+\begin{aligned}
+c-abc=1 &\Rightarrow  bc-babc=b\\
+&\Rightarrow(1-ba)bc=b\\
+&\Rightarrow 1-(1-ba)bca=1-ba\\
+&\Rightarrow 1=(1-ba)(bca+1)
+\end{aligned}
+$$
+从而 $(1-ba)$ 可逆。
+
+“ $\Leftarrow$ ” 类似可证。
