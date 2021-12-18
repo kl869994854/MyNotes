@@ -21,3 +21,4 @@
 *.gz
 *.thm
 *.toc
+*.fdb_latexmk
