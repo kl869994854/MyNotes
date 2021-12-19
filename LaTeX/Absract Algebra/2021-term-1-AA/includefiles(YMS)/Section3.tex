@@ -52,10 +52,6 @@
 	即$Z(\sqrt{-5})$不是Gauss整区(UFD)。
 \end{proof}
 
-
-
-
-
 \subsection{PID与欧式整区}
 
 \begin{example}
@@ -159,6 +155,27 @@
 	设$R$是带1的交换环，$I$是$R$的真理想，则$I$是$R$的极大理想的充要条件为$R/I$是一个域。
 \end{lemma}
 
+\begin{proof}
+	考虑介于$I$和$R$之间的真理想集合$\Sigma=\{J\subset R\, \big| \, I\subsetneq J \subsetneq R ,and \, J \, is \, an \, ideal \}$
+	和$R/I$的真理想集合$\Sigma'=\{\{0\}\neq J' \subsetneq R/I \, \big| \, J' \, is \, an \, ideal \}$，可验证$\Sigma$与$\Sigma'$存在一一对应。
+	\begin{equation*}
+		\text{\large$\phi:$\,\, }
+		\begin{aligned}
+			\Sigma&\rightarrow\Sigma'\\
+			J&\mapsto J'=\{x+I \, \big| \, x\in J \}
+		\end{aligned}
+	\end{equation*}
+	容易验证$J'$是一个非零真理想(依次验证，$J'$是一个理想，且非零的，且为真)。即$\phi$是合理定义的。再验证$\phi$为双射。
+	\begin{enumerate}
+		\item 单射。反证法，若$J_{1}\neq J_{2}$，而$J'_{1}=J'_{2}$，那么$\exists \, x_{1}\in J_{1},x_{1}\not\in J_{2},and \, x_{2}\in J'_{2}$使得$x_{1}+I=x_{2}+I $，即$ x_{1}-x_{2}\in I\subset J_{2}$，从而$x_{1}\in J_{2}$，产生矛盾。
+		\item 满射。$\forall \, J'\in \Sigma' $，考虑$J=\{x\in R\,\big| \, x+I\in J'\}$，容易验证$J$为一个理想，且满足$I\subsetneq J\subsetneq R$。
+	\end{enumerate}
+	\par
+	“$\Rightarrow$”，$I$是极大理想说明，$\Sigma$是空集，所以$\Sigma'$也是空集。所以$R/I$只有平凡理想，所以$R/I$为域。
+	\par
+	“$\Leftarrow$”，$R/I$为域，说明$\Sigma'$为空集，所以$\Sigma$为空集，所以$I$为极大理想。
+\end{proof}
+
 \begin{corollary}
 	$F[x]$中多项式$f(x)$不可约的充要条件为$F[x]/(f(x))$是一个域。
 \end{corollary}
@@ -255,8 +272,32 @@
 	\end{enumerate}
 \end{proposition}
 
-
 \subsection{交换环上的多项式环}
 
+\subsection{素理想}
 
+本节涉及的环都假定为含恒等元的交换环。
 
+\begin{definition}
+	设$P$是环$R$的理想且$P\neq R$，若对$R$中元素$a,b$从$ab\in P$可推出$a\in P$或者$b\in P$，则称$P$是环$R$的素理想。(素理想在代数几何中有非常重要的应用。)
+\end{definition}
+
+\begin{theorem}
+	环$R$的理想$P$是素理想的充要条件是$R/P$是整区。	
+\end{theorem}
+\begin{proof}
+	“$\Rightarrow$”，$R/P$显然是含幺交换环，再利用$P$是素理想证明$R/P$是整环即可。
+	\par
+	“$\Leftarrow$”，根据$R/P$是整区，可验证$P$是素理想。
+\end{proof}
+
+\begin{corollary}
+	环$R$的极大理想必是素理想。
+\end{corollary}
+\begin{proof}
+	若$P$是$R$的极大理想，则$R/P$是域。
+\end{proof}
+
+\begin{theorem}
+	设$R$是含恒等元的交换环，$I$是它的一个理想且$I\neq R$，则$I$一定包含在$R$的某个极大理想之中。
+\end{theorem}
