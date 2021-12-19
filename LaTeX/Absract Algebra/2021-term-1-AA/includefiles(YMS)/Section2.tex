@@ -1,12 +1,16 @@
 %姚慕生，第二章，群论
 \section{群论}
+
 \subsection{群的概念}
+
 \subsection{子群及傍集}
+
 \subsection{同态与同构}
+
 \subsection{循环群}
 
 \begin{theorem}
-	设$G$是循环群，若$G$的阶为无限，则$G$同构于整数加法群$\mathbf{Z}$；若$G$是$n$阶群，则$G$同构于$\mathbf{Z}_{n}$
+	设$G$是循环群，若$G$的阶为无限，则$G$同构于整数加法群$\mathbf{Z}$；若$G$是$n$阶群，则$G$同构于$\mathbf{Z}_{n}$。
 \end{theorem}
 
 \begin{corollary}
@@ -29,5 +33,112 @@
 	设$G$是一个有限阶交换群，则$G$是循环群的充要条件是$|G|$是使$a^{n}=1$对一切$a\in G$成立的最小的正整数。
 \end{theorem}
 
-
 \subsection{置换群}
+
+\begin{theorem}[Calay定理]
+	任一群$G$必同构于某个集合上的变换群。
+\end{theorem}
+
+\begin{proof}
+	
+\end{proof}
+
+\begin{corollary}
+	任一有限群都同构于某个置换群。
+\end{corollary}
+
+\begin{proposition}
+	任一置换均可表示成若干个互不相交的循环之积且不同的循环因子可交换。这种表示方式在不记次序时是可唯一确定的。
+\end{proposition}
+
+\begin{proof}
+	
+\end{proof}
+
+\begin{example}
+	\begin{equation*}
+		\begin{pmatrix}
+			1&2  &3  &4  &5  &6  &7  &8  &9 \\
+			3&6  &4  &2  &5  &1  &7  &8  &9
+		  \end{pmatrix}
+		  =(1,3,4,2,6)(5)(7)(8)(9)
+	\end{equation*}
+	结果可简写为$(1,3,4,2,6)$。
+\end{example}
+
+循环有如下重要性质：
+\begin{enumerate}
+	\item 若$(i_{1},i_{2},\cdots,i_{k})$与$(j_{1},j_{2},\cdots,j_{m})$无相同元素，则它们乘法可交换。
+	\item $(i_{1},i_{2},\cdots,i_{k})=(i_{2},i_{3},\cdots,i_{k},i_{1})=(i_{3},\cdots,i_{k},i_{1},i_{2})=\cdots=(i_{k},i_{1},\cdots,i_{k-1})$。
+	\item $k-$循环的周期为$k$。
+	\item $(i_{1},i_{2},\cdots,i_{k})^{-1}=(i_{k},i_{k-1},\cdots,1)$。
+	\item[$\textbf{5}^{*}$.] 设$\sigma$是一个置换，则
+	\begin{equation*}
+		\sigma^{-1}(i_{1},i_{2},\cdots,i-{k})\sigma=(i_{1}\sigma,i_{2}\sigma,\cdots,i_{k}\sigma).
+	\end{equation*}
+	\item[$\textbf{6}^{*}$.] 任一循环均可表示为若干个对换之积(不一定是不相交的对换)，虽然这种表示方式不唯一，但是在诸表示中所含对换个数的奇偶性不变。
+\end{enumerate}
+
+\begin{proof}
+	
+\end{proof}
+
+\begin{corollary}
+	任一置换也可以表示成若干个对换的乘积且对换个数的奇偶性保持不变。
+\end{corollary}
+
+\begin{definition}
+	如果一个置换能表示成奇数个对换的乘积则称之为奇置换，否则为偶置换。
+\end{definition}
+
+\original
+{
+	奇置换与偶置换之积是奇置换，奇置换与奇置换之积是偶置换，偶置换与偶置换之积是偶置换。\uline{又若 $\sigma$是一个 $k$循环，则 $\sigma$是奇置换当且仅当 $k$是偶数， $\sigma$是偶置换当且仅当 $k$是奇数。}
+}
+{P40}
+
+\begin{proposition}
+	验证：若 $\sigma$是一个 $k$循环，则 $\sigma$是奇置换当且仅当 $k$是偶数， $\sigma$是偶置换当且仅当 $k$是奇数。
+\end{proposition}
+
+\begin{proof}
+	
+\end{proof}
+
+\begin{proposition}
+	记$A_{n}$为$n$次对称群$S_{n}$中所有偶置换全体，则$A_{n}$是$S_{n}$的指数为2的正规子群。
+\end{proposition}
+
+\begin{proof}
+	这里说明一下：指数为2的子群都是正规子群。记$H$为$G$的指数为2的子群。
+	\par
+	$\forall g\in G$，若$g\in H$，则$gH=H$，所以$gHg^{-1}=H$。若$g\not\in H$，则$gH\neq H$，即$gH=H^{c}$，而又$H^{c}=Hg$，所以$gHg^{-1}=H $。
+\end{proof}
+
+\begin{corollary}
+	$A_{n}$的阶为$\frac{1}{2}n!$。
+\end{corollary}
+
+\question{怎样求$A_{n}$?}
+
+\original
+{
+	$A_{2}$只含一个元$\{e\}$。$A_{3}$只含三个元，因此$A_{3}$是三阶循环群。$A_{4}=\{(1),(1,2,3),(1,2,4),(1,3,4),\}$
+}
+{P40}
+
+\begin{example}
+	Klein四元群。
+\end{example}
+
+\begin{proposition}
+	\begin{enumerate}
+		\item $S_{n}=<(1,2),(1,3),\cdots,(1,n)>\,\,(n\geq 2)$;
+		\item $A_{n}=<(1,2,3),(1,2,4),\cdots,(1,2,n)>\,\,(n\geq 3)$;
+		\item $S_{n}=<(1,2),(1,2,3,\cdots,n)>$.
+	\end{enumerate}
+\end{proposition}
+
+\begin{theorem}
+	若$n\geq 5$，则$A_{n}$是单群。
+\end{theorem}
