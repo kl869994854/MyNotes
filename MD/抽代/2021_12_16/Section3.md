@@ -64,3 +64,17 @@ $$
 
 由 2.3.6 (2) 得 $ R\cong eR\times (1-e)R $ 。
 
+### 2.3.9
+
+**Solution:**
+
+### 2.3.10
+
+**Solution:**
+
+​	 考虑 $R/I$ ，由于 $I$ 是素理想，所以 $R/I$ 是整环( 带恒等元的交换无零因子环 )，且 $|R/I|$ 有限。任取 $0\neq \bar a\in R/I$ ，考虑 $ \bar a R/I $，显然 $ \bar a R/I \subset R/I $ ，又因为 $|\bar a R/I|=|R/I| $ ，所以 $\bar a R/I =R/I $ 。所以 $ \exists \, \bar b\in R/I $ 使得 $ \bar a \bar b =\bar 1 $ 。所以 $R/I $ 为域。从而 $I$ 为极大理想。
+
+### 2.3.11
+
+**Solution:**
+

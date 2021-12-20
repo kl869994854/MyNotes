@@ -301,3 +301,83 @@
 \begin{theorem}
 	设$R$是含恒等元的交换环，$I$是它的一个理想且$I\neq R$，则$I$一定包含在$R$的某个极大理想之中。
 \end{theorem}
+
+\begin{corollary}
+	任意一个含恒等元的环都有极大理想。
+\end{corollary}
+
+\begin{corollary}
+	$R$中的任一不可逆元素均含在某个极大理想之中。
+\end{corollary}
+
+\begin{definition}
+	交换环$R$所有素理想的交是$R$的理想，称为$R$的小根。
+\end{definition}
+
+\begin{theorem}
+	交换环$R$的小根等于$R$的所有幂零元素和零元素组成的理想即$R$的诣零根。
+\end{theorem}
+
+\begin{definition}
+	交换环$R$的所有极大理想的交$J$是一个理想，称为$R$的大根或Jacobson根。
+\end{definition}
+
+\begin{theorem}
+	环$R$中元素$a$属于大根$J$的充要条件是对任意的$r\in R$，元素$1-ar$是可逆元。
+\end{theorem}
+
+\begin{example}
+	设$\mathbb{Z}$是整数环，$\mathbb{Z}$是PID，$\mathbb{Z}$中理想$(m)$是素理想的充要条件是$m$是素数。这时$(m)$也是极大理想。
+\end{example}
+\begin{proof}
+	先证$\mathbb{Z}$是PID。
+	\par
+	“$\Rightarrow$”，任取$a,b\in \mathbb{Z}$，若$m\big| ab$，则$ab\in (m)$，由于$(m)$是素理想，所以有$a\in (m),or\, b\in (m)$，即$m\big| a,or\, m\big| b$，所以$m$为素数。
+	\par
+	“$\Leftarrow$”，任取$a,b\in \mathbb{Z}$，若满足$ab\in (m)$，则$m\big| ab$，因为$m$是素数，所以$m\big| a,or\, m\big| b$，即$a\in (m),\, or\, b\in (m)$，所以$(m)$为素理想。
+\end{proof}
+
+\begin{example}
+	设$F[x]$是域$F$上的多项式环，$F[x]$中理想$I=(f(x))$是素理想当且仅当$f(x)$是不可约多项式。事实上，这时$F[x]/(f(x))$是域，因此$I$是极大理想。
+\end{example}
+
+\begin{example}
+	设$R$是PID，则$R$中理想$(a)$是素理想的充要条件是$a$是素元。这时$(a)$也是$R$的极大理想。事实上，$R/(a)$是一个域。
+\end{example}
+
+\begin{example}
+	设$R=\mathbb{Z}[x]$是整数多项式环。则理想$(2,x)$是极大理想。因而也是素理想。理想$(x)$是素理想而不是极大理想。
+\end{example}
+
+\begin{proof}
+	(\textbf{法一(from 刘绍学P90):})取$I\supsetneq (2,x)$，由于$(2,x)=2h(x)+xg(x),h(x)\in F[x],g(x)\in F[x]$，所以$\exists \, m(x)\in I,and\, x\not\in (2,x)$，即$m(x)$的常数项为奇数，从而$1\in I$，所以$I=R$。
+	\par
+	任取$f(x)g(x)\in (x)$，则$x\big| f(x)g(x)$，所以$x\big| f(x),or\, x\big| g(x)$。从而$(x)$是素理想。又$(x)\subsetneq (2,x)$，所以$(x)$不是极大理想。
+	\par
+	(\textbf{法二(from 姚慕生P117):})
+	可验证$R/(x)\cong\mathbb{Z}$，$\mathbb{Z}$是整区不是域，所以$(x)$为素理想。再验证$R/(2,x)\cong \mathbb{Z}_{2}$，$\mathbb{Z}_{2}$为一个域，所以$(2,x)$为极大理想。
+\end{proof}
+
+\begin{proposition}
+	\begin{enumerate}
+		\item 设$P_{1},\cdots,P_{n}$是环$R$的$n$个素理想，$I$是$R$的理想。已知$I\subseteq\bigcup_{i=1}^{n}P_{i}$，则必存在某个$1\leq i\leq n$适合$I\subseteq P_{i}$。
+		\item 设$I_{1},\cdots,I_{n}$是$R$的$n$个理想，$P$是包含$\bigcap_{i=1}^{n}I_{i}$的素理想，则存在某个$i$，$I_{i}\subseteq P$。又若$P=\bigcap_{i=1}^{n}I_{i}$，则存在某个$i$，$P=I_{i}$。
+	\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+	\begin{enumerate}
+		\item 即证$ \forall \, 1\leq i\leq n $，$I\subsetneq P_{i}$，则有$I\subsetneq\bigcup_{i=1}^{n}P_{i}$。
+		\par
+		当$n=1$时，结论成立。
+		\par
+		现假设$n-1$的情形成立，证$n$的情形成立。对于$P_{1},\cdots,P_{i-1},P_{i+1},\cdots,P_{n}$这$n-1$个素理想，由归纳假设，$\exists \, a_{i}\in I,and \, a_{i}\not\in P_{1},P_{2},\cdots,P_{i-1},P_{i+1},\cdots,P_{n}$，若$a_{i}\not\in P_{i}$，则$I\subsetneq \bigcup_{i=1}^{n}P_{i}$，结论成立。若$a_{i}\in P_{i}$，考虑
+		\begin{equation*}
+			b=a_{2}a_{3}\cdots a_{n}+a_{1}a_{3}\cdots a_{n}+\cdots +a_{1}a_{2}\cdots a_{n-1}
+		\end{equation*}
+		则$b\in I,and \, b\not\in \bigcup_{i=1}^{n}P_{i}$。
+		\par
+		所以结论成立。
+		\item 若$\forall \, i,I_{i}\subsetneq P$，则$\exists \, a_{i}$，满足$a_{i}\in I_{i},and \, a_{i}\not\in P$，考虑$b=a_{1}a_{2}\cdots a_{n}\in \bigcap_{i=1}^{n}I_{i}$，由$P$是素理想，所以$\exists a_{i},a_{i}\in P$，产生矛盾。
+	\end{enumerate}
+\end{proof}
