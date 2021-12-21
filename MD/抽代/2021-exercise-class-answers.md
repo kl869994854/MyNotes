@@ -34,7 +34,7 @@ $\phi$为一个满同态。
 (中国剩余定理)
 
 ### 7.
-**解：** $U_{6}$。
+**解：** $U_{6}=\{\bar1,\bar5\}$ 。
 
 ### 8.
 **证明：** 设$S=\{\overline{\frac{q_{1}}{p_{1}}}\, ,\, \overline{\frac{q_{2}}{p_{2}}} \, , \, ... \, \overline{\frac{q_{n}}{p_{n}}}\}\subset Q/Z$，考虑$<\overline{\frac{1}{p_{1}p_{2}...p_{n}}}>$，则显然，$<S>\, \leq \, \, <\overline{\frac{1}{p_{1}p_{2}...p_{n}}}>$，循环群的子群是循环群，从而$<S>$是循环群。
@@ -79,7 +79,15 @@ $\phi$为满同态，且$Ker\phi=K$，由同态基本定理即得到$G/K\cong H$
 
 ### 4.
 
+**Solution:**
+
+​	 记整环 $I$ 只有有限多个理想， $\forall \, 0\neq x \in I $ ，考虑 $xI,x^{2}I,x^{3}I,\cdots$ ，可验证 $\forall \, i\in N$ ，$x^{i}I$ 均为理想，由于 $I$ 只有有限个理想，所以 $\exist \, i,j(i>j)$ ，使得 $x^{i}I=x^{j}I$ ，则 $x^{i-j}I=I$ ，所以 $\exist\, b\in I$ ，使得 $xx^{i-j-1}b=1$ ，所以 $I$ 为域。 
+
 ### 5.
+
+**Solution:**
+
+​	 x,y?
 
 ### 6.
 
@@ -123,6 +131,22 @@ $$
 
 ### 9.
 
+**Solution:**
+
+​	 考虑映射：
+$$
+\text{\large$\phi:$\,\,}
+\begin{aligned}
+\mathbb{Z}&\rightarrow \mathbb{Z}[x]/(4,x)\\
+a&\mapsto \bar a
+\end{aligned}
+$$
+验证 $\phi$ 是满同态，且 $\ker \phi=4\mathbb{Z}$ 。
+
+* 同态容易验证。
+* 任取 $f(x)=a_{n}x^{n}+a_{n-1}x^{n-1}+\cdots+a_{1}x+a_{0}\in \mathbb{Z}[x]$ ，可验证 $f(x)-(a_{0}-4)\in (4,x)$ ，所以 $\overline{f(x)}=\overline{a_{0}-4}$ 。
+* 显然 $4\mathbb{Z}\subset \ker \phi$ 。$\forall \, b\in \ker \phi$ ，有 $\bar b\in (4,x)$ 所以 $4\big| b$ ，即 $\ker\phi \subset 4\mathbb{Z}$ ，所以 $\mathbb{Z}_{4}\cong \mathbb Z[x]/(4,x)$ 。
+
 ### 10.
 
 **证明：** 取$\overline{a_{1}},\overline{a_{2}} \in G_{m}$，由互素得$\exists \, k_{1},k_{2},s_{1},s_{2}\in N $，使得$k_{1}a_{1}+s_{1}m=1\, , \, k_{2}a_{2}+s_{2}m=1$，从而有$k_{1}k_{2}a_{1}a_{2}+Cm=1$，即$(a_{1}a_{2},m)=1$。所以$\overline{a_{1}a_{2}}\in G_{m}$。
@@ -131,8 +155,9 @@ $$
 
 $\forall \, \bar x\in G_{m}$，$\bar x^{-1}=\bar k$。
 
-
 ## 期中答案
+
+
 
 ## 域习题课
 
@@ -170,7 +195,24 @@ $\forall \alpha\in E-F$，有$K\supset F(\alpha)\supset F$，且有$F(\alpha)\ne
 
 **证明：**
 
+因为 $\alpha^{2}\in F(\alpha)$ ，所以 $F(\alpha^{2})\subset F(\alpha)$ 。
+因为 $deg\,(\alpha,F)$ 为奇数，不妨设 $a_{2n+1}\alpha^{2n+1}+a_{2n}\alpha^{2n}+\cdots+a_{1}\alpha+a_{0}=0,a_{i}\in F$ ，则 $a_{2n+1}(\alpha^{2})^{n}\alpha+a_{n}(\alpha^{2})^{n}+\cdots+a_{1}\alpha+a_{0}=0$ ，所以 $[F(\alpha):F(\alpha^{2})]=1$ ，所以 $F(\alpha^{2})=F(\alpha)$ 。
 
+### 6
+
+### 7
+
+**Solution:**
+
+​	 $\mathbb{Q}(\sqrt a+\sqrt b)\subset \mathbb{Q}(\sqrt a,\sqrt b) $ 。
+
+### 8
+
+### 9(补充题1)
+
+**Solution:**
+
+ 
 
 
 
