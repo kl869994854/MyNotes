@@ -78,3 +78,44 @@ $$
 
 **Solution:**
 
+​	 先证如果 $P\supset \bigcap_{i=1}^{n} A_{i} $ ，则必存在某个 $i$ ，使得 $A_{i} \subset P $ 。
+
+​	 反证法，如果 $\forall \, i,A_{i} \subsetneq P $ ，则 $ \exists \, a_{i} \in A_{i}\, ,and \, a_{i}\not\in P $ ，考虑 $ b=a_{1}a_{2}\cdots a_{n}$ ，则 $ b\in \bigcap_{i=1}^{n} A_{i} \, ,\, b\not\in P $ 。从而产生矛盾。
+
+​	 从而结论成立。
+
+### 2.3.12
+
+**Solution:**
+
+(1) 容易按照素理想的定义验证 $f(P)$ 是 $S$ 的素理想。(减法封闭，乘法封闭，吸收性，素性)。
+
+(2) 
+
+
+
+### 2.3.14
+
+### 2.3.15
+
+**Solution**
+
+​	 没有素理想：假设存在 $I\subsetneq R$ 为 $R$ 的素理想，那么 $ \exists \, a\in R/I $ ，而 $a\,a=0\in I$ ，产生矛盾。
+
+​	 没有极大理想：由于
+
+### 2.3.16
+
+**Solution:**
+
+(1) 取 $I\subsetneq R$ 为极大理想，因为 $R$ 是含幺元，所以 $R/I$ 是域，从而也是整环， $I$  为素理想。
+
+(2) 
+
+(3) 
+
+### 2.3.17
+
+**Solution:**
+
+​	 (Zorn引理)取 $I\subsetneq R$ 为真理想，考虑 $\Sigma=\{K\supset I \big| K \, is \, an \, ideal ,K\subseteq R \}$ ，因为 $I\in \Sigma$ ，所以 $\Sigma\neq\empty$ 。利用Zorn引理证明 $\Sigma$ 有极大元，且为极大理想，即 $I$ 包含于该极大理想中。
