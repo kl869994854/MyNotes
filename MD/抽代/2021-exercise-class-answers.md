@@ -123,7 +123,7 @@ $$
 
 **证明：** 
 
-* $a-b \in N$？
+* $a-b \in N$ ，假设 $a-b$ 可逆，那么 $\exists \, c$ ，使得 $(a-b)c=1$ ，则 $ac=1+bc$ ，由于 $b$ 不可逆，那么 $-bc$ 也不可逆，即 $ac=1-(-bc)$ 可逆，所以 $a$ 可逆，产生矛盾。
 * $ab\in N$。若$ab$可逆，则$\exists \, c\in R$，满足$abc=1$，则$a,b$可逆。
 * $\forall \, a\in N ,\forall \, r\in R$，$ar\in N$。若$ar$可逆，则$\exists \, c\in R$，满足$arc=1$，则$a$可逆。
 
@@ -207,6 +207,10 @@ $\forall \alpha\in E-F$，有$K\supset F(\alpha)\supset F$，且有$F(\alpha)\ne
 ​	 $\mathbb{Q}(\sqrt a+\sqrt b)\subset \mathbb{Q}(\sqrt a,\sqrt b) $ 。
 
 ### 8
+
+**Solution:**
+
+​	 考虑多项式 $f(x)=x^{n}-2$ ，$f(x)$ 在 $\mathbb{Q}$ 上是不可约的，记 $w_{i}$ 为 $f(x)$ 在 $\mathbb{C}$ 上的一个根，那么 $[\mathbb{Z}(\omega_{i}):\mathbb{Z}]=n$ 。
 
 ### 9(补充题1)
 
