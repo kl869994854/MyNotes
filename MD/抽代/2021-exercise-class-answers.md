@@ -205,6 +205,7 @@ $\forall \alpha\in E-F$，有$K\supset F(\alpha)\supset F$，且有$F(\alpha)\ne
 **Solution:**
 
 ​	 $\mathbb{Q}(\sqrt a+\sqrt b)\subset \mathbb{Q}(\sqrt a,\sqrt b) $ 。
+​	 再证 $\mathbb{Q}(\sqrt a,\sqrt b)\subset \mathbb{Q}(\sqrt a+\sqrt b)$ ，由 $(\sqrt a+\sqrt b)^{2}=a+b+2\sqrt{ab}$ 得 $\sqrt{ab}\in \mathbb{Q}(\sqrt a+\sqrt b)$ ，则 $a\sqrt b+\sqrt a b \in \mathbb{Q}(\sqrt a+\sqrt b)$ ，那么 $a\sqrt b+\sqrt a b-a(\sqrt a+\sqrt b)=(b-a)\sqrt a \in \mathbb{Q}(\sqrt a+\sqrt b)$ ，所以 $\sqrt a \in \mathbb{Q}(\sqrt a+\sqrt b)$ ，同理 $\sqrt b\in \mathbb{Q}(\sqrt a+\sqrt b)$ 。所以 $\mathbb{Q}(\sqrt a+\sqrt b)\subset \mathbb{Q}(\sqrt a+\sqrt b)$ 。
 
 ### 8
 
@@ -216,7 +217,25 @@ $\forall \alpha\in E-F$，有$K\supset F(\alpha)\supset F$，且有$F(\alpha)\ne
 
 **Solution:**
 
- 
+​	 若 $K$ 的特征为 $p$ ，则 $K$ 包含一个同构于 $\mathbb{Z}_{p}$ 的素子域，设 $[K:\mathbb{Z}_{p}]=n$ ，那么 $K$ 作为 $\mathbb{Z}_{p}$ 上的向量空间维数为 $n$ ，又 $|\mathbb{Z}_{p}|=p$ ，则 $|K|=p^{n}$ 。
+
+### 10(补充题2)
+
+**Solution:**
+
+​	 设 $K$ 是 $F$ 的有限扩张，则 $K$ 作为 $F$ 上的线性空间有有限个基，记为 $u_{1},u_{2},\cdots,u_{r}$ ，则 取 $F_{1}=F(u_{1}),F_{2}=F(u_{1},u_{2}),\cdots,F_{r}=F(u_{1},u_{2},\cdots,u_{r})=K$ 。
+
+### 11(补充题3)
+
+**Solution:**
+
+​	 已知 $[E:F]=m,[F(\alpha):F]=n$ ，考虑 $[E(\alpha):F]=[E(\alpha):F(\alpha)]\,[F(\alpha):F]$ $[E(\alpha):F]=[E(\alpha):E]\,[E:F]$ ，结合这两式，可得 $n\big| [E(\alpha):E]$ ，而 $[E(\alpha):E]\leq n$ ，所以 $[E(\alpha):E]=n$ 。
+
+### 12(补充题4)
+
+**Solution:**
+
+​	 $ \mathbb{Q}(\sqrt[3]{2} ,\sqrt[3]{6},\sqrt[3]{24} ) = \mathbb{Q}(\sqrt[3]{2},\sqrt[3]{3}) $ ，所以 $[\mathbb{Q}(\sqrt[3]{2},\sqrt[3]{3}:\mathbb{Q}]=9$ ，一组基为 $1,\sqrt[3]{2},\sqrt[3]{3},\sqrt[3]{4},\sqrt[3]{6},\sqrt[3]{9}, \sqrt[3]{12},\sqrt[3]{18}, \sqrt[3]{36} $ 。
 
 
 
