@@ -16,6 +16,18 @@
 
 **Solution:**
 
+由 $1=\frac{s\theta}{p}+\frac{s(1-\theta)}{q}$ ，利用 $H\ddot older$考虑放缩：
+$$
+\begin{aligned}
+||T(f)||_{s}&=(\int|T(f)|^{s})^{\frac{1}{s}}\\
+&=(\int |T(f)|^{s\theta} |T(f)|^{s(1-\theta)} )^{\frac{1}{s}}\\
+&\leq (\int|T(f)|^{p})^{\frac{\theta}{p}}(\int|T(f)|^{q})^{\frac{1-\theta}{q}}\\
+&\leq ||T(f)||_{p}^{\theta}||T(f)||_{q}^{1-\theta}\\
+&\leq C||f||_p^\theta||f||_q^{1-\theta}
+\end{aligned}
+$$
+
+
 ### 三
 
 **Solution:**

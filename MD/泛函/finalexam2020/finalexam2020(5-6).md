@@ -45,4 +45,4 @@ $$
 所以有 $ 4|<Tx,y>|^{2}-4<Tx,x><Ty,y>\leq 0 $ 。
 
 (c) 由 (a) ，因为 $<Tx,x>\leq \frac{<Tx,x>}{||x||\,||x||}\leq ||T||$ ，所以 $\sup\{\cdot\}\leq ||T||$ 。
-	 再由线性性得 $||T||=\sup{|<Tx,y>|},||x||\leq1,||y||\leq1$ ，再利用(b)的结论放缩 $||T||\leq \sup{|<Tx,x>|^{\frac{1}{2}}}\cdot\sup{|<Ty,y>|^{\frac{1}{2}}}\leq\sup\{\c\}$ 
+	 再由线性性得 $||T||=\sup{|<Tx,y>|},||x||\leq1,||y||\leq1$ ，再利用(b)的结论放缩 $||T||\leq \sup{|<Tx,x>|^{\frac{1}{2}}}\cdot\sup{|<Ty,y>|^{\frac{1}{2}}}\leq\sup\{\cdot\}$ 
