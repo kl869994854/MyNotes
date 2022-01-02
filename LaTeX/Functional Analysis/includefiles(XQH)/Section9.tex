@@ -74,3 +74,33 @@
         \end{equation*}
     \end{enumerate}
 \end{proof}
+
+\subsection{自反性}
+
+\begin{example}
+    一些自反空间的例子。
+    \begin{enumerate}
+        \item 若$dim E<+\infty$，则$E$是自反的。
+        \item 所有的Hilbert空间是自反的。分别考虑实和复的情形。
+    \end{enumerate}
+\end{example}
+
+\begin{proof}
+    \begin{enumerate}
+        \item 
+        \item 先证明实情形，由Riesz表示定理，可以找到$H$和$H^{*}$之间的线性等距同构，
+        \begin{equation*}
+            \text{\large$\Phi:$\,\,}
+            \begin{aligned}
+              H&\rightarrow H^{*},\\
+              y&\mapsto \Phi(y)=\phi_{y}(x)  
+            \end{aligned}
+        \end{equation*}
+        这里$\phi_{y}(x)=<x,y>$，考虑$\Phi$的共轭算子：
+        \begin{equation*}
+            \text{\large$\Phi^{*}:$\,\,}
+              H^{**}\rightarrow H^{*},
+        \end{equation*}
+        再考虑$(\Phi^{*})^{-1}\Phi$，其为$H\rightarrow H^{**}$的等距同构映射，且可验证$(\Phi^{*})^{-1}\Phi=\tau_{x}$，从而证明了$H$自反。
+    \end{enumerate}
+\end{proof}
