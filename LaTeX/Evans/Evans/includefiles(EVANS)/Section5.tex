@@ -1,0 +1,83 @@
+\section{Sobolev Spaces}
+
+\original
+{
+    The following material is often subtle, and will seem largely unmotivated, but ultimately will prove extremely useful.
+}
+{P239}
+
+\subsection{H$\ddot{O}$LDER SPACES}
+
+Assume $U\subset \mathbb{R}^n$ is open and $0<\gamma\leq1$.
+
+\begin{equation}
+    |u(x)-u(y)|\leq C|x-y |\quad
+    (x,y\in U)
+\end{equation}
+
+\begin{equation}
+    |u(x)-u(y) |\leq C|x-y |^{\gamma}\quad(x,y\in U)
+\end{equation}
+
+\begin{definition}
+    \begin{enumerate}
+        \item If $u:U\rightarrow \mathbb{R}$ is bounded and continuous, we write
+        \begin{equation*}
+            ||u||_{C(\bar{U})}:=\sup_{x\in U}|u(x)|.
+        \end{equation*}
+        \item The $\gamma^{th}$-H$\ddot{o}$lder seminorm of $u:\, U\rightarrow \mathbb{R}$ is
+        \begin{equation*}
+            [u]_{C^{0,\gamma}(\bar{U})}:=\sup_{\substack{x,y\in U\\x\neq y}}\left\{\frac{|u(x)-u(y)|}{|x-y|^{\gamma}}\right\},
+        \end{equation*}
+        and the $\gamma^{th}$-H$\ddot{o}$lder norm is
+        \begin{equation*}
+            ||u||_{C^{0,\gamma}(\bar{U})}:=||u||_{C(\bar{U})}+[u]_{C^{0,\gamma}(\bar{U})}.
+        \end{equation*}
+    \end{enumerate}
+\end{definition}
+
+\begin{definition}
+    The H$\ddot{o}$lder space
+    \begin{equation*}
+        C^{k,\gamma}(\bar{U})
+    \end{equation*}
+    consists of all functions $u\in C^{k}(\bar{U})$ for which the norm
+    \begin{equation}
+        ||u||_{C^{k,\gamma}(\bar{U})}:=\sum_{|\alpha|\leq k}||D^{\alpha}u||_{C(\bar{U})}+\sum_{|\alpha|=k}[D^{\alpha}u]_{C^{o,\gamma}(\bar{U})}
+    \end{equation}
+\end{definition}
+
+\original
+{
+    So the space $C^{k,\gamma}(\bar{U})$ consists of those functions $u$ that are $k$-times continuously differentiable and whose $k^{th}$-partial derivatives are H$\ddot{o}$lder continuous with exponent $\gamma$.
+}
+{P241}
+\begin{proposition}
+    Proof above statments.
+\end{proposition}
+
+\begin{proof}
+    By definition, $u$ is $k$-times continuously differentiable.
+    \par
+    And $\forall \, \alpha $, if $|\alpha|=k$, then
+    \begin{equation*}
+        [D^{\alpha}u]_{C^{0,\gamma}(\bar{U})}\leq ||u||_{C^{k,\gamma}(\bar{U})}<\infty
+    \end{equation*}
+    so $D^{\alpha}u$ is H$\ddot{o}$lder continuous with exponent $\gamma$.
+\end{proof}
+
+\begin{theorem}[H\"{o}lder spaces as function spaces]
+    The space of functions $C^{k,\gamma}(\bar{U})$ is a Banach space.
+\end{theorem}
+
+
+
+\subsection{SOBOLEV SPACES}
+
+\subsubsection{Weak derivatives.}
+
+We start off by substantially weakending the notion of partial derivatives.
+
+\begin{equation}
+    \int_U u\phi_{x_i}\dd x=-\int_U u_{x_i}\phi \dd x\quad (i=1,...,n).
+\end{equation}
