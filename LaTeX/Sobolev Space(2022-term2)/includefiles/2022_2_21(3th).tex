@@ -1,0 +1,76 @@
+\section{2022/2/21}
+
+\subsection{$L^p$ and $L^{\infty}$}
+
+$L^p(\Omega)=\{f\,\big|\, \int_{\Omega}|f|^p\dd x\}\,\,(1\leq p<+\infty)$.且其范数取为$\norm*{f}_{p}=\left(\int_{\Omega}|f|^p\dd x\right)^{\frac{1}{p}}$.下验证$L^p,L^{\infty}$为Banach空间：
+\begin{proof}
+    
+\end{proof}
+
+\subsection{强收敛，弱收敛，泛函}
+
+强收敛：依范数收敛。\par
+弱收敛：\par
+连续线性泛函\par
+有界线性泛函\par
+有界线性泛函$\Leftrightarrow$连续线性泛函\par
+弱收敛$\leq $强收敛$\leq $一致收敛
+\par
+强收敛$\Rightarrow $弱收敛：
+\begin{proof}
+    
+\end{proof}
+
+\subsection{examples}
+
+\begin{example}[弱收敛但是不强收敛的例子]
+    考虑$L^2[0,1]$，和$x_n=\sin(n\pi t)$。有：$\norm*{x_n}_2^2=\int_0^1[\sin n\pi t]^2\dd t=\frac{1}{2}$，由此得，$x_n$不是强收敛到0。\par
+    又有$E=L^2[0,1],E'=L^2[0,1]$，对于$\forall f\in E'=L^2[0,1]$，根据Riemann引理，我们有：
+    \begin{equation*}
+        \left(\int_0^1|f\sin n\pi t|^2\right)^{\frac{1}{2}}\rightarrow 0(n\rightarrow\infty )
+    \end{equation*}
+\end{example}
+
+
+\begin{example}
+    考虑$x\in l^2$，$x=(x_1,x_2,\cdots,x_n,\cdots)$，且$\sum_{n=1}^{\infty}x_n^2<+\infty$。
+    \par
+    考虑左移算子：
+    \begin{equation*}
+        T:x=(x_1,x_2,\cdots)\rightarrow (x_2,x_3,\cdots)
+    \end{equation*}
+    且记$T_n=T^n$，表示
+    \begin{equation*}
+        T_n:(x_1,x_2,\cdots,x_n,\cdots)\rightarrow (x_{n+1},x_{n+2},\cdots)
+    \end{equation*}
+    这里$\norm*{T_n}\rightarrow 0$在强收敛的意义下，但是不一致收敛(这里可能是关于$n$而言)。
+    \par
+    考虑右移算子：
+    \begin{equation*}
+        S:(x_1,x_2,\cdots,x_n,\cdots)\rightarrow (0,x_1,x_2,\cdots)
+    \end{equation*}
+    有$S_n=S^n$，其为：
+    \begin{equation*}
+        S_n:(x_1,x_2,\cdots)\rightarrow (\underbrace{0,0,\cdots,0}_{n\text{个}},x_1,x_2,\cdots)
+    \end{equation*}
+    $S_n$弱收敛到0，但是不强收敛到0(显然$\norm*{S_n}=1,\forall n$)。
+\end{example}
+
+\subsection{H{\"o}lder空间}
+$\Omega\subset R^N$为开集，$m$是非负整数，$\alpha$为$N$重指标。
+\par
+$C^m(\Omega)=\{\cdots\}$(可能无界)。
+\par
+$C^m(\bar{Omega})=\{\cdots\}$。
+\par
+$C^0(\Omega),C^0(\bar{\Omega})$
+\par
+$C_B(\Omega)=\{f\text{在$\Omega$上连续，有界}\}\xrightarrow{\text{可延拓}}C(\bar{\Omega})$
+\par
+$\norm*{f}_{C^m(\bar{\Omega})}=\max_{\abs*{\alpha}\leq m}\sup_{x\in\bar{\Omega}}\abs*{D^{\alpha}f(x)}<+\infty\sim \sum_{\abs*{\alpha}\leq m}\sup_{x\in \bar{\Omega}}\abs*{D^2f(x)}$.(这里的等价性需要验证一下)
+\par
+这里，$\left(C^m(\bar{\Omega}),\norm*{\cdot}_{C^m(\bar{\Omega})}\right)$为Banach空间。
+
+\par
+
+记$C^{m,\lambda}(\Omega)(0<\lambda\leq 1)$为H{\"o}lder空间。

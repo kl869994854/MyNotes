@@ -1,0 +1,303 @@
+\chapter{\texorpdfstring{$L^p$}. Spaces and Interpolation}
+
+\section{\texorpdfstring{$L^p$}. and Weak \texorpdfstring{$L^p$}.}
+
+\subsection{The Distribution Function}
+
+\begin{proposition*}[1.1.3]
+obvious.
+\end{proposition*}
+
+\begin{proposition*}[1.1.4]
+\begin{equation*}
+\norm{f}_{L^p}^p
+=
+p
+\int_{0}^{\infty}
+\alpha^{p-1}
+\dd _f (\alpha)
+\dd \alpha       
+\end{equation*} 
+\end{proposition*}
+
+\begin{proof}
+    P5
+\end{proof}
+
+\noindent Define $L^{\infty,\infty}=L^{\infty}$.
+\\
+\noindent $L^{p,\infty}$ is a {\it quasi-normed} linear space.
+\\
+\noindent $L^p\subset L^{p,\infty}$ is strict.
+
+\begin{example*}
+    Consider $h(x)=|x|^{-\frac{n}{p}}$ .It is obvious that $h(x)\not\in L^p$.
+    \par
+    But 
+    \begin{equation*}
+        \alpha \dd_h^{
+            \frac{1}{p}
+        }(\alpha)
+        =\alpha\mu
+        \{
+        |x|^{-\frac{n}{p}}>\alpha
+        \}^{\frac{1}{p}}
+        =
+        \alpha\mu\{
+            |x|<\alpha^{-\frac{p}{n}}
+        \}^{\frac{1}{p}}
+        =\nu_n^{\frac{1}{p}}
+    \end{equation*}
+    $\mu$ is lebesgue measure and $\nu_n$ is the lebesgue measure of $B_1$ . The last equality is by the fact that $\mu\{B_n(R)\} \propto R^n$ . 
+\end{example*}
+
+\subsection{Convergence in Measure}
+
+\begin{proposition*}[1.1.9]
+    $f_n\xrightarrow{\norm{\cdot}_{L^p}}f\,\,\Rightarrow \,\, f_n\xrightarrow{\norm{\cdot}_{L^{p,\infty}}}f\,\,
+    \Rightarrow \,\,
+    f_n\xrightarrow{\mu} f
+    $
+\end{proposition*}
+There is no general converse of statement of {\it Proposition 1.1.9}.
+\begin{example*}
+    Consider $f_{k,j}=k^{\frac{1}{p}}\chi_{[\frac{j}{k},\frac{j-1}{k}]}$ where $p>0$ , $k\leq 1$ , $1\leq j \leq k$ . Then show that $\{f_n\}=\{f_{1,1},f_{2,1},f_{2,2},f_{3,1},\cdots \}$ is converge to $0$ in measure , but not converge to $0$ in $\norm{\cdot}_{L^{p,\infty}}$ .
+    \begin{itemize}
+    \item {}
+    $\{
+    |f_{k,j}|>0    
+    \}<\frac{1}{k}$ , so $\{f_n\}\xrightarrow{\mu} 0$.
+
+    \item {}
+    $
+    \norm{f_{k,j}}_{L^{p,\infty}}
+    =
+    \sup_{\alpha>0}
+    \alpha
+    \dd _{f_{k,j}}^{\frac{1}{p}}(\alpha)
+    \geq
+    \frac{(k-\frac{1}{k})^{\frac{1}{p}}}
+    {k^{\frac{1}{p}}}
+    $ is valid for $\forall k\geq 1$ . In fact , the right of the ineuqality is just the case $\alpha=\left(k-\frac{1}{k}\right)^{\frac{1}{p}}< k^{\frac{1}{p}}$ . While 
+    $$
+    \lim_{k\rightarrow \infty}\left(
+        k-\frac{1}{k}
+    \right)^{\frac{1}{p}}
+    =1
+    $$
+    \myend
+    \end{itemize} 
+\end{example*}
+
+\begin{theorem*}[1.1.11]
+$$
+f_n\xrightarrow{\mu}f
+\,\,
+\Rightarrow
+\,\,
+f_n\xrightarrow{\mu-a.e.}f
+$$
+\end{theorem*}
+\begin{proof}
+    P8
+\end{proof}
+\begin{remark*}
+    Show that the null set 
+    $$
+    \bigcap_{m=1}^{\infty}
+    \bigcup_{k=m}^{\infty}
+    A_k
+    $$
+    contains the set of all $x\in X$ for which $f_{n_k}(x)$ does not converge to $f(x)$.
+\end{remark*}
+\begin{proof}
+    By definition of $f_{n_k}(x)\not\rightarrow f(x) $ in $x$ : $\exists\, \epsilon_0>0$ (assume $2^{-(k_0-1)}\geq \epsilon_0\geq 2^{-k_0}$) , $\forall \, N>0$ , $\exists \,k>N$ , have :
+    $$
+    |f_{n_k}(x)-f(x)|\geq \epsilon_0\geq 2^{-(k_0-1)}
+    $$
+    then for $\forall \, m\geq 1$ , let $N=\max\{m,k_0-1\}$ , then $\exists \, k>N$
+    $$
+    |f_{n_k}-f(x)|
+    \geq
+    2^{-k_0-1}
+    >2^{-k}
+    $$
+    so $x\in A_k$ ($k>N>m$).
+     So $x\in \bigcap_{m=1}^{\infty}
+     \bigcup_{k=m}^{\infty}
+     A_k$ .
+\end{proof}
+
+\subsection{A First Glimpse at Interpolation}
+
+\question
+
+\begin{enumerate}
+    \item (P9) Show that $f\in L^r(X,\mu)$ , $\forall \, p<r<q$ , if $f\in L^p(X,\mu)\cap L^q(X,\mu)$.
+    \item (P11) Show that $f(x)=|x|^{-n-\alpha}\chi_{|x|\leq 1}$  is not integrable over any open set in $\mathbb{R}^n$ containing the origin.
+\end{enumerate}
+
+\solution
+
+\begin{enumerate}
+    \item H{\'o}lder Ineuqality : decompose $|f|=|f|^{1-\theta}|f|^{\theta}$.
+    \item tranform the coordinate in ball's coordinates.
+\end{enumerate}
+
+\section{Convolution and Approximate Identities}
+
+\subsection{Examples of Topological Groups}
+
+\subsection{Convolutiln}
+
+\question
+
+Why $\int_G\,
+f(tx) 
+\,\dd \lambda(x)
+=
+\int_G\,
+f(x)
+\,\dd \lambda(x)
+$
+?
+\par
+This pushes me to review the definition of Lebesgue integration.
+\begin{example*}
+\begin{equation*}
+\int_{0}^1\,
+x+t
+\,\dd x
+=
+\int_{0+t}^{1+t}\,
+y
+\, \dd y
+\end{equation*}
+\end{example*}
+
+\solution
+Note that $G$ is a locally compact group! $G=tG$!
+
+\begin{definition*}[1.2.6 Convolution]
+    Let $f,g$ be in $L^1(G)$ . Define the convoluiton:
+    \begin{equation*}
+        f\star g(x)
+        =
+        \int_G\,
+        f(y)
+        g(y^{-1}x)
+        \,\dd \lambda (y)
+    \end{equation*} 
+\end{definition*}
+
+Show that the definition is well-defined . In fact , $|f\star g| \in L^1(G)$ ,then implies that $f\star g(x)$ is finite a.e. (otherwise , if $\left|\{f\star g(x)=\infty\}\right|>0$ , contracdiciton!).
+\begin{proof}
+\begin{align*}
+\norm{|f\star g|}_{L^1(G)}
+&=
+\int_G\,
+\left|
+f\star g(x)
+\right|
+\,\dd x  \\
+&=
+\int_G\,
+\left|
+\int_G\,
+f(y) g(y^{-1}x)
+\,\dd y
+\right|
+\,\dd x  \\
+&\leq
+\int_G\,
+\int_G\,
+|f(y)|
+|g(y^{-1}x)|
+\,\dd y
+\,\dd x \quad (\text{Fubini Theroem})\\
+&=\norm{f}_{L^1(G)}\, \norm{g}_{L^1(G)}
+<\infty
+\end{align*}
+\end{proof}
+
+
+\begin{example*}[1.2.8]
+    $f(x)=1$ when $-1\leq x\leq 1$ , calculate $f\star f$ , $f\star f\star f$ ,and observe that it gets smoother with more $\star$ .
+\end{example*}
+\begin{remark*}
+    And let $g=\chi_{B_1(0)}$ and calculate $g\star g$ .
+\end{remark*}
+
+\begin{proof}
+    
+
+\end{proof}
+
+Finally , show that $L^1(G)$ is a Banach algebra under the convolution product.
+
+\begin{proof}
+    
+\end{proof}
+
+\subsection*{Lebesgue Integration}
+\noindent (From Stein <real analysis> chapter2 section1)
+\\
+Every step can be roughly divided into 4 parts.
+\begin{itemize}
+    \item definition of integral and integrable .
+    \item show the definition is well-defined.
+    \item property of lebesgue integration.
+    \item convergence theorem.
+\end{itemize}
+Especially in {\bfseries Step2} , connection between lebesgue integration and Reimann integration has been shown.
+\subsubsection*{Step1 simple funtions}
+If $f$ is a simple function. And $f(x)=\sum\limits_{k=1}^{n}\alpha_k \chi_{E_k}(x)$ .
+Then
+\begin{equation*}
+    \int\, f(x) \,\dd  x=\sum\limits_{k=1}^{n}\alpha_k |E_k|
+\end{equation*}
+
+\subsubsection*{Step2 Bounded funcitons supported by bounded sets}
+
+\begin{equation*}
+    \int \, f(x) \, \dd x
+    =
+    \lim_{n\rightarrow\infty}
+    \int \,
+    \phi_n(x)
+    \,\dd x 
+\end{equation*}
+
+\subsubsection*{Step3 positive functions}
+\subsubsection*{Step4 general functions}
+
+\begin{theorem*}[1.13 lebesgue dominated convergence theorem]
+
+\end{theorem*}
+
+
+\subsubsection*{Complex-valued functions}
+Given a complex-valued function $f(x)=u(x)+\imath v(x)$ , where $u(x)$ , $v(x)$ are real-valued function. Then $f$ is {\bfseries Lebesgue integrable} $\Leftrightarrow$ $|f(x)|=(|u(x)|^2+|v(x)|^2)^{\frac{1}{2}}$ is {\bfseries Lebesgue integrable} . And $\int f= \int u +\imath \int v$ .
+\par
+An observation is that $f(x)$ is lebesgue integrable $\Leftrightarrow$ $u(x)$ , $v(x)$ is lebesgue integrable .
+\begin{proof}
+
+\end{proof}
+
+Definition of Banach algebra:
+
+\subsection{Basic Convolution Inequalities}
+
+Three Inequalities in this section:
+\begin{itemize}
+    \item Minkowski's ineuqality
+    \item Young's ineuqality
+    \item Young's inequality for weak type spaces(condition is weaker and conclution is weaker than Young's inequality)
+\end{itemize}
+
+\subsubsection{Approximate Identities}
+
+
+\section{Interpolation}
+
+\section{Lorentz Spaces}

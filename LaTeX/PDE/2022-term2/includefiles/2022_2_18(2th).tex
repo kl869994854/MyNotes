@@ -1,0 +1,162 @@
+\section{2022/2/18}
+
+\subsection{次调和函数的性质}
+\begin{equation*}
+    \Delta u\geq 0 \Rightarrow \dashint_{\partial B_r (x)} u\dd S \, is \, monotone \, function \, with \, respect \, to \,r .\Rightarrow \dashint_{\partial B_r (x)} i\geq u(x)/ 
+\end{equation*}
+
+some priori estimate to harmonic function.
+
+\subsubsection{$L^{\infty }$ estimate}
+
+\begin{equation*}
+    \sup_{B_{\frac{r}{2}}(x)}|u|\leq \frac{C(n)}{r}(\dashint_{B_r}|u|^2 \dd y)^{\frac{1}{2}}
+\end{equation*}
+
+\begin{proof}
+    Consider $u^2$,we have:
+    \begin{equation*}
+        \Delta u^2=2u\Delta +2|\triangledown u|^2\geq 0
+    \end{equation*}
+    So according to the property of harmnonic function and average Integration ,we have:
+    $\forall \, x\in B_{\frac{r}{2}}$
+    \begin{equation*}
+        u(x)^2\leq \dashint_{\partial B_{\frac{r}{2}}(x)}u^2 \dd S=\frac{r}{2n} 
+        \dashint_{B_{\frac{r}{2}}(x)}u^2 \dd y \leq \frac{2^{n-1}r}{n}\dashint_{B_r}u^2 \dd y  
+    \end{equation*}
+then we have:
+\begin{equation*}
+    \sup_{B_{\frac{r}{2}}}|u(x)|\leq \frac{2^{\frac{n-1}{2}}r^{\frac{1}{2}}}{n^{\frac{1}{2}}}\left(\dashint_{B_r}u^2\dd y\right)^{\frac{1}{2}}
+\end{equation*}
+
+???????? maybe take wrong notes .(check!!!)
+\end{proof}
+
+\subsection{Interior gradient estimate}
+
+Interiror gradient estimate:
+\begin{equation*}
+    \sup_{B_{\frac{r}{2}}}|\triangledown u|(\leq \frac{C(n)}{r}\sup_{B_{\frac{2r}{3}}}|u|)\leq \frac{C(n)}{r}\left(\dashint_{B_r}|u|\,\dd y \right)
+\end{equation*}
+
+\begin{proof}
+    First,we have:
+    \begin{equation*}
+        \Delta |\triangledown u|^2=2|\triangledown^2 u|^2+2\triangledown u\cdot \triangledown \,\Delta u\geq 0
+    \end{equation*}
+    then we have :
+    \begin{equation*}
+        |\triangledown u(x)|^2\leq \int_{B_{\frac{r}{2}}(x)}|\triangledown u|^2\leq \frac{c}{r^2}\int_{B_r(x)}u^2\quad \forall x\in B_{\frac{r}{2}}\,\,\,\,\text{(from Lemma(Caccioppoli))}
+    \end{equation*}
+\end{proof}
+
+\noindent{\bfseries\large Higher order gradient estimate:}
+\begin{equation*}
+    \sup_{B_{\frac{r}{2}}}|\triangledown^k u|\leq \frac{C(n,k)}{r^k} \sup_{B_r}|u| \quad \forall k\geq 1.
+\end{equation*}
+
+\begin{proof}
+    Induction on k.
+    \par
+    when k=1 , we are going to prove:
+    \begin{equation*}
+        \sup_{B_{\frac{r}{2}}}|\triangledown u|\leq \frac{C(n,k)}{r}\sup_{B_r}|u|
+    \end{equation*}
+    $\forall i$ , we have $\Delta u_{x_i}=0$ , so according to mean-value property , $\forall x \in B_{\frac{r}{2}}$ , we have:
+    \begin{equation*}
+        \begin{aligned}
+        u_{x_i}(x)&=\dashint_{B_\frac{r}{m}(x)} u_{x_i}(y)\dd y\\
+        &=\frac{\int_{B_{\frac{r}{m}}(x)}u_{x_i}(y)\dd y}
+        {\alpha(n)\left(\frac{r}{m}\right)^n}\\
+        &=\frac{\int_{\partial B_{\frac{r}{m}}(x)}u(y) \overrightarrow {n}_i \dd S(y)}
+        {\alpha(n)\left(\frac{r}{m}\right)^n}\\
+        &\leq \frac{\sup_{\partial B_{\frac{r}{m}}(x)}|u|n\alpha(n)\left(\frac{r}{m}\right)^{n-1}}
+        {\alpha(n)\left(\frac{r}{m}\right)^n} =\frac{mn}{r}\sup_{\partial B_{\frac{r}{m}}(x)}|u| \\
+        &\leq \frac{mn}{r} \sup_{B_{\frac{r}{2}+\frac{r}{\frac{m}{2}}}}|u| \quad(\forall x\in B_{\frac{r}{2}})
+        \end{aligned}
+    \end{equation*}
+    Then we have :
+    \begin{equation*}
+        \sup_{B_{\frac{r}{2}}}|\triangledown u|\leq \frac{mn^{\frac{3}{2}}}{r}\sup_{B_{\frac{r}{2}+\frac{r}{\frac{m}{2}}}}|u| 
+    \end{equation*}
+    And we can deduce similiarily that:
+    \begin{equation*}
+        \sup_{B_{\frac{r}{2}}}|\triangledown^k u|\leq \frac{mn^{\frac{3}{2}}}{r}\sup_{B_{\frac{r}{2}+\frac{r}{\frac{m}{2}}}}|\triangledown^{k-1}u| 
+    \end{equation*}
+    let m=4k , then we can conclude the conclusion:
+    \begin{equation*}
+        \sup_{B_{\frac{r}{2}}}|\triangledown^k u|\leq \frac{mn^{\frac{3}{2}}}{r}\sup_{B_{\frac{r}{2}+\frac{r}{\frac{m}{2}}}}|\triangledown^{k-1}u| \leq \frac{mn^{\frac{3}{2}}}{r}\frac{mn^{\frac{3}{2}}}{r} \sup_{B_{\frac{r}{2}+\frac{2r}{\frac{m}{2}}}}|\triangledown^{k-2}u|\leq \cdots \leq \frac{C(n,k)}{r^k}\sup_{B_r}|u|
+    \end{equation*}
+\end{proof}
+
+
+\noindent{\bfseries\large corollary: Harmonic$\Rightarrow $ Analytic}
+
+
+\noindent{\bfseries\large Lemma(Caccioppoli):}
+\begin{equation*}
+    \int_{B_{\frac{r}{2}}}|\triangledown u|^2\leq \frac{C}{r^2}\int_{B_r}u^2
+\end{equation*}
+
+\begin{proof}
+    Consider $0=\int_{B_r}\Delta u \, u \eta^2\dd x$,here
+    \begin{equation*}
+        \eta \,\,\text{is cut-off function}:
+        \begin{cases}
+            =1\quad \in B_{\frac{r}{2}}\\
+            C_0^{\infty}(B_r)\\
+            |\Delta \eta |\leq \frac{C}{r}
+        \end{cases}
+    \end{equation*}
+    and $0=\eta^2u\Delta u=\div (\eta^2 u\triangledown u)-\triangledown(\eta^2 u)\triangledown u$,using divergence theorem:
+    \begin{equation*}
+        \int_{B_r}\div (\eta^2u\triangledown u)=\int_{\partial B_r}\frac{\partial \eta^2 u\triangledown u}{\partial v}\dd S
+    \end{equation*}
+    while $\eta =0 (x\in \partial B_r)$,this is because:for all open-covers , there exists finite covers , so we can deduce that $d(supp\, \eta,\partial B_r)>c>0 $.\par
+    We have:
+    \begin{equation*}
+        \int_{B_r}\div (\eta^2 u\triangledown u)=\int_{B_r} \triangledown (\eta^2u)\triangledown u=0
+    \end{equation*}
+    and we know this:
+    \begin{equation*}
+        \int_{B_r} \triangledown (\eta^2u)\triangledown u=\int_{B_r}\eta^2|\triangledown u|^2+2\eta u\triangledown \eta\cdot \triangledown u\dd x
+    \end{equation*}
+    then
+    \begin{equation*}
+        \begin{aligned}
+            \int_{B_r}|\triangledown u|^2 \eta^2&\leq 2\int_{B_r}|\eta \triangledown u\cdot u\triangledown |\\
+            &\leq \int_{B_r}\frac{1}{2}\eta^2|\triangledown|^2+2u^2|\triangledown \eta|^2\,\dd x(\text{this $\leq $ is from Cauchy's inequality with $\varepsilon$ })
+        \end{aligned}
+    \end{equation*}
+    Cauchy's inequality with $\varepsilon$:
+    \begin{equation*}
+        ab\leq \varepsilon |a|^2+\frac{1}{4\varepsilon}|b|^2
+    \end{equation*}
+    and let $\varepsilon=\frac{1}{2}$ , we get above inequality.\par
+    finally , we have:
+    \begin{equation*}
+        \int_{B_{\frac{r}{2}}}|\triangledown u|^2\eta^2=\int_{B_{\frac{r}{2}}}|\triangledown u|^2\leq \int_{B_r}|\triangledown u|^2 \eta^2\leq 4\int_{B_r}u^2|\triangledown \eta|^2\leq \frac{4c}{r^2}\int_{B_r}u^2
+    \end{equation*} 
+\end{proof}
+
+\begin{remark}
+    Here we can change $B_{\frac{r}{2}}$ to an arbitrary area $A\subset B_r$ , if we change the domain of the cut-off function.
+\end{remark}
+
+\subsection{Liouville theorem}
+
+$\Delta u =0 \quad in\, \mathbb{R}^n$,and $\norm*{u}_{L^{\infty}}(\mathbb{R}^n)<\infty$$\Rightarrow u = const $.
+
+Generalization:$u$ is harmnonic,$\exists C,d$,s.t.
+\begin{equation*}
+    |u(x)|\leq C(1+|x|)^d\Rightarrow \text{u is a polynomial}
+\end{equation*}
+
+\subsection{examples}
+
+\begin{itemize}
+    \item $e^z=e^x\cos(y)+\imath e^x\sin(y)$
+    \item exponential growth.
+    \item harmonic poly:\\
+    $P(x)=P_0+P_1+\cdots P_d$ , $P_k$ is homogeneous.
+\end{itemize}

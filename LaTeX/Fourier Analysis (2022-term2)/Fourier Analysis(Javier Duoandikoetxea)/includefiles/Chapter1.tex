@@ -1,0 +1,117 @@
+\chapter{Fourier Series and Integrals}
+\section{Fourier coefficients and series}
+
+\question
+\begin{enumerate}
+\item {}(Page 1)
+How to use Euler's indentity
+\begin{equation*}
+    e^{ikx}
+    =
+    \cos(kx)+
+    \imath \sin(kx)
+\end{equation*}
+transform 
+\begin{equation}
+    f(x)
+    =
+    \sum_{k=o}^{\infty}
+    a_k\cos (kx)
+    +
+    b_k \sin(kx)
+\end{equation}
+to 
+\begin{equation}
+    f(x)=
+    \sum_{k=-\infty}^{\infty}
+    c_k e^{2\pi \imath kx}
+\end{equation}
+?
+
+\item {}(Page3)
+Prove
+\begin{equation*}
+    D_N(t)
+    =
+    \sum_{k=-N}^{N}
+    e^{2\pi\imath kt}
+    =
+    \frac{
+        \sin(\pi(2N+1)t)
+    }
+    {
+        \sin(\pi t)
+    }.
+\end{equation*}
+
+\end{enumerate}
+
+
+\solution
+\begin{enumerate}
+\item {}
+Roughly note that 
+\begin{equation*}
+\begin{cases}
+    c_k+c_{-k}&=a_k\\
+    \imath c_k-\imath c_{-k}&=b_k
+\end{cases}
+\end{equation*}
+Of couse , I should transform $f(x)$ to $f(\frac{x}{2\pi})$ to make period of $f$ 1.
+
+\item {}
+\begin{proof}
+\begin{equation*}
+\begin{aligned}
+    D_N (t)=\sum_{k=-N}^{N}
+    e^{2\pi\imath kt}
+    =
+    1+
+    2\sum_{k=1}^{N}
+    \cos(2\pi\imath kt)
+\end{aligned}        
+\end{equation*}
+then use Euler's equation get:
+\begin{align*}
+    \cos(\theta)+\cos(2\theta)
+    +\cdots
+    +\cos(n\theta)
+    &=
+    \text{Re}(e^{\imath \theta}+e^{2\imath\theta}+\cdots +e^{n\imath\theta})\\
+    &=
+    \text{Re}
+    \frac{
+        e^{\imath\theta}
+        (1-e^{n\imath \theta})
+    }
+    {1-e^{\imath\theta}}\tag{-}
+\label{-}
+\end{align*}
+and 
+\begin{align*}
+    \frac{e^{\imath\theta}(1-e^{n\imath\theta})}
+    {1-e^{\imath\theta}}
+    &=
+    \frac{
+        e^{(\frac{n}{2}+1)\imath \theta}
+        (
+        e^{(-\frac{n}{2})\imath \theta}
+        -
+        e^{(\frac{n}{2})\imath \theta}
+        )
+    }
+    {e^{\frac{1}{2}\imath\theta}(e^{-\frac{1}{2}\imath\theta}-e^{\frac{1}{2}\imath\theta})}
+    \\
+    &=
+    e^{(\frac{n}{2}+\frac{1}{2})\imath\theta}
+    \frac{-2\imath\sin(\frac{n}{2}\theta)}
+    {-2\imath\sin(\frac{1}{2}\theta)}\tag{*}\label{*}
+\end{align*}
+then 
+$$
+\text{Re}\ref{*}
+=\frac{\cos((\frac{n}{2}+\frac{1}{2})\imath \theta)\sin(\frac{n}{2}\theta)}{\sin(\frac{1}{2}\theta)}
+$$
+and take $n=N$ , $\theta=2\pi\imath t$ to \ref{-} , the conclusion is obvious.
+\end{proof}
+\end{enumerate}
