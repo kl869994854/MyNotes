@@ -118,4 +118,4 @@ $$
 
 **Solution:**
 
-​	 (Zorn引理)取 $I\subsetneq R$ 为真理想，考虑 $\Sigma=\{K\supset I \big| K \, is \, an \, ideal ,K\subseteq R \}$ ，因为 $I\in \Sigma$ ，所以 $\Sigma\neq\empty$ 。利用Zorn引理证明 $\Sigma$ 有极大元，且为极大理想，即 $I$ 包含于该极大理想中。
+​	 (Zorn引理)取 $I\subsetneq R$ 为真理想，考虑 $\Sigma=\{K\supset I \big| K \,\text {is} \,\text {an }\,\text {ideal} ,K\subseteq R \}$ ，因为 $I\in \Sigma$ ，所以 $\Sigma\neq\empty$ 。利用Zorn引理证明 $\Sigma$ 有极大元，且为极大理想，即 $I$ 包含于该极大理想中。
