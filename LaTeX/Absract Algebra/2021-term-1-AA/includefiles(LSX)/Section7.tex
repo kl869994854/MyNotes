@@ -1,0 +1,103 @@
+\section{域论*}
+\subsection{Galois基本理论}
+\original
+{
+	本节中我们介绍著名的Galois理论的基本定理。这是对整个数学发展起重要推动作用的理论之一。
+	\par
+	我们仍局限于讨论特征为0的域的情形。可以完全设想我们就是在复数域$\mathbb{C}$中进行的。
+	\par
+	设$K/F$是$F$上分裂域。这里把下面将用到的域论中或群论中的一些结果重温一下：
+	\begin{enumerate}
+		\item $F$上分裂域和$F$上正规扩域是一回事；
+		\item $F$上分裂域$K=F(\theta)=F(\theta_{i})=F(\theta_{1},\theta_{2},\cdots,\theta_{n})$，其中$\{\theta=\theta_{1},\theta_{2},\cdots,\theta_{n}\}$是$\theta$的$F-$最小多项式$p(x)$的全部根；
+		\item $F$上分裂域$K=f(\theta)$，而$\theta$的$F-$最小多项式$p(x)$的次数为$n$，则有
+		\begin{equation*}
+			n=[K:F]=|Gal(K/F)|;
+		\end{equation*}
+		\item $F\subseteq L \subseteq K,F,L,K$是域，则有$[K:F]=[K:L][L:F]$；
+		\item $\{e\}\subseteq H\subseteq G$，$\{e\}$(单位元组成的群)、H、G是有限群，则有
+		\begin{equation*}
+			|G|=[G:\{e\}]=[G:H][H:\{e\}]=[G:H]\cdot|G|;
+		\end{equation*}
+	
+		\item 若G是有限群，则对任意$g\in G$有$gG=Gg=G$。
+	\end{enumerate}
+	取定F上分裂域$K=F(\theta)$，设$\theta$的一个$F-$极小多项式为$p(x)$，$G=Gal(K/F)$。令
+	\begin{equation*}
+		\begin{aligned}
+			&\mathbb{K}=\{K/F\text{的中间域}\,:\, F\subseteq L\subseteq K \} ,\\
+			&\mathbb{G}=\{G=Gal(K/F)\text{的一切子群}H\, :\, G\supseteq H\supseteq\{e\}\}.
+		\end{aligned}
+	\end{equation*}
+	\par
+	\textbf{\uline{先定义集 $\mathbb{K}$ 到集 $\mathbb{G}$ 的一个对应。}}
+	\par
+	任取$L\in \mathbb{K}$。
+	由$K=F(\theta)\subseteq L(\theta) \subseteq L(\theta_{1},\cdots,\theta_{n}) \subseteq K$得$K=L(\theta)=L(\theta_{1},\cdots,\theta_{n})$，因而$K$是多项式$p(x)\in F[x]\subseteq L[x]$在域$L$上的分裂域。今考虑扩域$L$上分裂域$K$的Galois群$Gal(K/L)$。若$\phi\in Gal(K/L) $，即$\phi $是域$K$的$L-$自同构。$\phi$保持$L$中元素不动，当然更保持$F$中元素不动，因而$\phi$是域$K$的$L-$自同构，即$\phi\in Gal(K/F) $。\uline{随之有 $Gal(K/L)\subseteq Gal(K/F)=G $ 。}这样就得对应
+	\begin{equation*}
+		Gal:\,\,
+		\begin{aligned}
+			\mathbb{K}&\rightarrow\mathbb{G}\\
+			L&\mapsto Gal(K/L).
+		\end{aligned}
+	\end{equation*}
+	\uline{显然 $F\mapsto Gal(K/F)=G,K\mapsto Gal(K/K)=\{e\}$ 。}
+	\par
+	\textbf{\uline{其次定义集 $\mathbb{G}$ 到集 $\mathbb{K}$ 的一个对应。}}
+	\par
+	任取$H\in \mathbb{G}$。把$\alpha\in K $在$F-$自同构$\phi $下的像记作$\alpha\phi $，规定
+	\begin{equation*}
+		Inv\, H=\{\alpha\in K|\forall\phi\in H,\alpha\phi=\alpha\}.
+	\end{equation*}
+	\uline{直接验证可知 $Inv\,H$  是 $K$ 的子域且 $F\subseteq Inv\,H$ }，即$Inv\, H$是中间域，因而$Inv\, H\in \mathbb{K}$。称$Inv \, H $为$H$的不变子域(也就是$H-$集$K$的不变元组成的子集)。这样就得对应
+	\begin{equation*}
+		Inv:\,\,
+		\begin{aligned}
+			\mathbb{G}&\rightarrow\mathbb{K}\\
+			H&\mapsto Inv\,H.
+		\end{aligned}
+	\end{equation*}
+	显然 $\{e\}\mapsto Inv\{e\}=K$ 。\uline{我们还将看到 $G\mapsto Inv\, G=F$。}
+	\par
+	下一步想证的该是：对应Gal和对应Inv是互逆的，即想证：$L\in \mathbb{K}$，$H\in \mathbb{G}$，
+	\begin{equation*}
+		\begin{aligned}
+			\text{Inv}(\text{Gal}(K/L))&=L,\\
+			\text{Gal}(K/\text{Inv}H)&=H.
+		\end{aligned}
+	\end{equation*}
+	这就是Galois对应。
+}
+{P175}
+
+\begin{proposition}
+	\begin{itemize}
+		\item 验证：$F$上分裂域$K=F(\theta)=F(\theta_{i})=F(\theta_{1},\theta_{2},\cdots,\theta_{n})$，其中$\{\theta=\theta_{1},\theta_{2},\cdots,\theta_{n}\}$是$\theta$的$F-$最小多项式$p(x)$的全部根。
+		\item 验证： $Gal(K/L)\subseteq Gal(K/F)=G $ 且$Gal(K/L)\leq Gal(K/F)=G$。
+		\item 验证：$Inv\,H$  是 $K$ 的子域且 $F\subseteq Inv\,H$。
+		\item 验证：显然 $F\mapsto Gal(K/F)=G,K\mapsto Gal(K/K)=\{e\}$ 。
+		\item 验证：显然 $\{e\}\mapsto Inv\{e\}=K$ 。我们还将看到 $G\mapsto Inv\, G=F$(这一点不是显然的)。
+	\end{itemize}
+\end{proposition}
+
+\begin{proof}
+	\begin{itemize}
+		\item \unfinished{(反例，$f(x)=x^{3}-2$，$F=\mathbb{Q}$)已知$\theta$是$F$上的代数元，$f(x)\in F[x]$是$\theta$的极小多项式，若$K$是$f(x)$的分裂域，那么有$K=F(\theta)=F(\theta_{i})=F(\theta_{1},\cdots,\theta_{n})$。}
+		\par
+		若任给一多项式$f(x)\in F[x]$的分裂域$K$，那么$K$是单扩域吗？
+	\end{itemize}
+\end{proof}
+
+
+
+
+
+
+
+
+
+\subsection{一个例子}
+
+\begin{example}
+	设K是多项式$f(x)=(x^{2}+x+1)(x^{3}-2)$在有理数域$\mathbb{Q}$上的分裂域。按基础篇的定理4.4.9的证明思路来找出Galois群$Gal(K/\mathbb{Q})$。
+\end{example}

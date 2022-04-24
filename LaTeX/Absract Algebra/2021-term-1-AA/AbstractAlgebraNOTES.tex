@@ -1,0 +1,44 @@
+\documentclass{mynotes}
+
+\includeonly{includefiles(YMS)/Section1,includefiles(YMS)/Section2,includefiles(YMS)/Section3,includefiles(YMS)/Section4,
+includefiles(ZQH)/Section1,includefiles(ZQH)/Section2,includefiles(ZQH)/Section3,
+includefiles(LSX)/Section1,includefiles(LSX)/Section2,includefiles(LSX)/Section3,includefiles(LSX)/Section4,includefiles(LSX)/Section5,includefiles(LSX)/Section6,includefiles(LSX)/Section7,includefiles(LSX)/Section8}
+
+\input{inputfiles/笔记说明}
+\usepackage{amsmath,physics}
+\begin{document}
+	\pdfbookmark[0]{封面}{title}         % 封面页加到 pdf 书签
+	\maketitle
+	
+	\pdfbookmark[0]{目录}{toc}
+	\tableofcontents
+
+	\newpage
+	
+		
+	\part{姚慕生}
+	\include{includefiles(YMS)/Section1}
+	\include{includefiles(YMS)/Section2}
+	\include{includefiles(YMS)/Section3}
+	\include{includefiles(YMS)/Section4}
+	
+
+	\part{张勤海}
+	\setcounter{section}{0}	
+%	\include{includefiles(ZQH)/Section1}
+%	\include{includefiles(ZQH)/Section2}
+%	\include{includefiles(ZQH)/Section3}
+	
+	\part{刘绍学}
+	\setcounter{section}{0}
+%	\include{includefiles(LSX)/Section1}
+%	\include{includefiles(LSX)/Section2}
+%	\include{includefiles(LSX)/Section3}
+	\include{includefiles(LSX)/Section4}
+%	\include{includefiles(LSX)/Section5}
+%	\include{includefiles(LSX)/Section6}
+	\include{includefiles(LSX)/Section7}
+%	\include{includefiles(LSX)/Section8}
+	
+	
+\end{document}

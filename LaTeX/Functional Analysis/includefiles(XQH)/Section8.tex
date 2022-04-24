@@ -1,0 +1,443 @@
+\section{Hahn-Banach定理，弱拓扑和弱*拓扑}
+\subsection{Hahn-Banach定理：分析形式}
+
+\begin{definition}[次线性泛函]
+	设$E$是数域$\mathbb{R}$上的向量空间，若泛函$p:\, E\rightarrow \, \mathbb{R}$满足：
+	\begin{enumerate}
+		\item 正齐性：
+		\item 次可加性：
+	\end{enumerate}
+	则称该泛函$p$为$E$上的次线性泛函。
+\end{definition}
+
+\begin{lemma}
+	设$E$是实向量空间，$F$是$E$的余维为1的向量子空间，并设$p:E\, \rightarrow \, \mathbf{R}$是次线性泛函，$f:F\, \rightarrow \, \mathbb{R} $是线性泛函。若在$F$上有$f \leq p $，则存在线性泛函$\tilde{f}:E\rightarrow \mathbb{R} $，使得
+	\begin{equation*}
+		\tilde{f}\big|_{F}=f\quad \text{且} \quad \tilde{f}(x)\leq p(x),\forall \, x\in E.
+	\end{equation*}
+\end{lemma}
+
+\begin{theorem}[Hahn-Banach延拓定理：实情形]
+	设$E$是实向量空间，$F\subset E $是向量子空间，并设$p\, \rightarrow \, \mathbb{R} $是次线性泛函，$f:\, F\, \rightarrow \, \mathbb{R} $是线性泛函且在$F$上满足$f\leq p$。那么总存在$f$的线性延拓$\tilde{f}: E\, \rightarrow \, \mathbb{R} $，使得
+	\begin{equation*}
+		\tilde{f}\big|_{F}=f\quad \text{且} \quad \tilde{f}(x)\leq p(x),\forall \, x\in E.
+	\end{equation*}
+\end{theorem}
+
+\begin{theorem}[Hahn-Banach延拓定理]
+	设$E$是数域$\mathbb{R}$($\mathbb{K}$为$\mathbb{R}$或$\mathbb{C}$)上的向量空间，$F\subset E $是向量子空间，并设$p$是$E$上的半范数，$f:\, F\, \rightarrow \, \mathbb{K} $是线性映射且在$F$上满足$|f|\leq p$。那么总存在线性泛函$\tilde{f}:E\,\rightarrow \, \mathbb{K} $，使得
+	\begin{equation*}
+		\tilde{f}\big|_{F}=f\quad \text{且} \quad \tilde{f}(x)\leq p(x),\forall \, x\in E.
+	\end{equation*}
+\end{theorem}
+
+\original
+{
+	设$E$是复向量空间，对任意复线性泛函$f:\, E\,\rightarrow\, \mathbb{C} $，定义$\phi(f)=Re\, f $。\underline{由于线性泛函$f$的虚部可由其实部确定}，则映射$\phi$建立了$E$上所有复线性泛函构成的集合到$E$上所有实线性泛函构成的集合上的双射，并且
+	\begin{equation*}\tag{+}
+		f(x)=\phi (f)(x)-\mathrm{i} \, \phi (f)(\mathrm{i} x),\quad \forall x\in E.
+	\end{equation*}
+}{P153}
+
+\begin{proposition}
+	说明：线性泛函$f$的虚部如何由其实部确定。
+\end{proposition}
+\begin{proof}
+	参考式子(+)。记$f(x)=\Phi(f)\,(x)+\mathrm{i}\Psi(f)\,(x) $，这里$\Phi(f),\Psi(f)$均为实函数，由线性性$f(\mathrm{i}x)=if(x)=\mathrm{i}\Phi(f)\, (x) -\Psi(f) \, (x)= \Phi(f)\, (\mathrm{i}x) +\mathrm{i}\Psi(f)\, (\mathrm{i}x) $，对照得$\Psi(f)\,(\mathrm{i}x)=\Phi(f)\,(x) $，即得$\Psi(f)\, (x)=-i\Phi(f)\, (\mathrm{i}x) $。
+\end{proof}
+
+\begin{corollary}
+	设$E$是拓扑向量空间，$F$是$E$的向量子空间。并设$p:\,E \, \rightarrow \, \mathbb{K} $是连续的半范数，$f:F\, \rightarrow \, \mathbb{K} $是线性泛函且在$F$上满足$|f|\leq p $。那么存在$f$的连续线性延拓$\tilde{f}: E\, \rightarrow \, \mathbb{K} $，使得$\tilde{f\big| }_{F} =f $且在$E$上$|\tilde{f}|\leq p $。
+\end{corollary}
+
+\original
+{
+	在上一结论的证明中，我们注意到如下事实：如果$p,q$都是拓扑向量空间$E$上的半范数且满足$q\leq p$，那么当$p$连续时，$q$也是连续的。特别地，若$p$是$E$上的连续半范数，$f$是$E$上的线性泛函且满足$|f|\leq p$，则$f$连续。
+}{P153}
+
+\begin{proposition}
+	\begin{enumerate}
+		\item 验证：如果$p,q$都是拓扑向量空间$E$上的半范数且满足$q\leq p$，那么当$p$连续时，$q$也是连续的。
+		\item 验证：若$p$是$E$上的连续半范数，$f$是$E$上的线性泛函且满足$|f|\leq p$，则$f$连续。
+	\end{enumerate}
+\end{proposition}
+\begin{proof}
+	\begin{enumerate}
+		\item 显然$q$在原点处连续，再证$q$连续。$\forall \varepsilon>0$，有$Vq^{-1}(-\varepsilon,\varepsilon)\in \mathcal{N}(0)$，则$\forall x_{0}\in E $，考虑$\forall x\in x_{0}+V$，有
+		\begin{equation*}
+			|p(x_{0})-p(x)|\leq |p(x_{0}-x)|\subset (-\varepsilon,\varepsilon)
+		\end{equation*}
+		从而$q$连续。
+		\item 由线性性，$f$连续等价于$f$在$0$点连续，从而结论成立。
+	\end{enumerate}
+\end{proof}
+
+\begin{corollary}
+	设$E$是局部凸空间，$F\,\subset \, E $是向量子空间而$f\,: \,F\, \rightarrow \, \mathbb{K} $是连续线性泛函。那么存在$f$的连续线性延拓$\tilde{f}:\,E\,\rightarrow \, \mathbb{K} $。
+\end{corollary}
+
+\begin{corollary}
+	设$E$是拓扑向量空间，$p$是$E$上的连续半范数，并设$x_{0}\in E$。那么存在$f\in E^{*} $，使得$f(x_{0})=p(x_{0}) $且在$E$上有$|f|\leq p $。
+\end{corollary}
+
+\begin{corollary}\label{XQHcor080104}
+	设$E$是Hausdorff局部凸空间，则$E^{*}$是可分点的，即对于任一非零向量$x_{0} \in E$，存在$f\in E^{*} $，使得$f(x_{0})\neq 0 $。
+\end{corollary}
+
+\original
+{
+	推论\ref{XQHcor080104}告诉我们，Hausdorff局部凸空间上的非平凡线性泛函不仅存在，而且足够多，甚至是可分点的。
+}
+{P154}
+
+\begin{proposition}
+	关于可分点的定义：能把$x\neq 0$与$0$，是否等价于，能把$x_{1}\neq x_{2} $两点分开。
+\end{proposition}
+
+\begin{corollary}\label{XQHcor080105}
+	设$E$是数域$\mathbb{K}$上的赋范空间，$F\subset E $是向量子空间且$f:F\, \rightarrow \, \mathbb{K} $是连续线性泛函。那么存在连续的线性延拓$\tilde{f} : E\, \rightarrow \, \mathbb{K} $，使得$\tilde{f}\big|_{F}=f  $且$||\tilde{f}||=||f|| $。这样的$\tilde{f} $称为$f $的保范延拓。
+\end{corollary}
+
+\begin{corollary}\label
+	设$E$是赋范空间，$x_{0}\in E $，$x_{0}\neq 0 $，则存在$f\in E^{*} $，使得$f(x_{0}) =||x_{0}|| $且$||f||\leq 1 $。
+\end{corollary}
+
+\begin{proof}
+	考虑$E$的线性子空间$F=\{k\, x_{0}\big| k\in \mathbb{K} \} $，与连续线性泛函
+	\begin{equation*}
+		{\large\text{$f:$}}\,\,\,\,
+		\begin{aligned}
+			F& \rightarrow \, \mathbb{K}\\
+			kx_{0}& \rightarrow \, k\, ||x_{0}||
+		\end{aligned}
+	\end{equation*}
+	这里$f(x_{0})=||x_{0}||$且$||f||\leq 1$。由推论\ref{XQHcor080105}，则$f$可以延拓到$E$上的连续线性泛函$\tilde{f} $且满足$||f||=||\tilde{f}|| $，
+
+\end{proof}
+
+\question{为什么不直接写$||f||=1$}
+
+\begin{corollary}\label{XQHcor080107}
+	设$E$是赋范空间，则任取$x\in E $，有
+	\begin{equation*}
+		||x||=\sup \{|f(x)|:\, f\in E^{*},||f||\leq 1 \}.
+	\end{equation*}
+	并且上确界是可以达到的。
+\end{corollary}
+
+\original
+{
+	推论\ref{XQHcor080107}直接意味着任一赋范空间上向量的范数可以通过其对偶空间上的元素来表达，因而赋范空间和它的对偶空间之间存在着密切的联系，\uline{并且在对偶空间上我们可以再考虑它的对偶，即二次对偶空间}，它又联系于原来的赋范空间，这将是泛函分析中关于对偶理论的重要内容。
+	\par
+	设$E$是赋范空间，$E^{*}$其对偶空间。对任意$f\in E^{*} $，根据定义
+	\begin{equation*}
+		||f||=\sup_{x\in E,x\neq 0}\frac{|f(x)|}{||x||}
+	\end{equation*}
+	我们考虑双线性泛函
+	\begin{equation*}
+		\text{\large $B:$}
+		\begin{aligned}
+			E\times E^{*}\, &\rightarrow \, \mathbb{K}\\
+			(x,f) \, &\mapsto \, f(x)
+		\end{aligned}
+	\end{equation*}
+	对任意$(x,f)\in E\times E^{*} $，有$|B(x,f)|\leq ||x||\, ||f|| $，这意味着$B$是连续的。从而对任意给定的$x\in E $，$B(x,\cdot):E^{*}\rightarrow \mathbb{K} $也是连续的，这意味着
+	\begin{equation*}
+		B(x,\cdot)\in (E^{*})^{*}=E^{**}\text{(称$E^{**}$为$E$的二次对偶)}
+	\end{equation*}
+	结合推论\ref{XQHcor080107}，有
+	\begin{equation*}
+		||B(x,\cdot)||_{E^{**}}=||x||_{E}.
+	\end{equation*}
+	\underline{由此可知，线性映射$x\mapsto B(x,\cdot) $是$E$到$E^{**} $的等距同构映射。}在此意义下，我们可以将$E$等距嵌入到$E^{**}$，记作$E\,\hookrightarrow E^{**} $。
+}
+{P154-155}
+
+\begin{proposition}
+	验证：线性映射$x\mapsto B(x,\cdot) $是$E$到$E^{**}$的等距同构映射。
+\end{proposition}
+
+\begin{proof}
+	\begin{enumerate}
+		\item 等距已证。
+		\item 单射。由推论\ref{XQHcor080104}，可知$B(x,\cdot)$是单射。
+		\item 满射。?
+	\end{enumerate}
+\end{proof}
+
+\begin{corollary}\label{XQHcor080108}
+	设$E$是赋范空间，而$F$是$E$的闭向量子空间，并设$x\in E \backslash F $。那么$\exists f\in E^{*} $，使得$||f||=1$，$f\big|_{F} = 0 $且有$f(x) =d(x,F) $
+\end{corollary}
+
+\original
+{
+	应用推论\ref{XQHcor080108}时，我们往往去获得命题中条件的反面，也就是说，当我们想证明向量$x$属于闭子空间$F$时，只需证明：对任意$f\in E^{*} $，若$f\big|_{F}=0 $，必有$f(x)=0 $。
+}
+{P156}
+
+\begin{proposition}
+	验证：对$\forall f\in E^{*} $，若$f\big|_{F}=0 $，必有$f(x)=0 $，则有$x\in F $。
+\end{proposition}
+
+\begin{proof}
+	应用推论\ref{XQHcor080108}。
+\end{proof}
+
+\subsection{Hahn-Banach定理-几何形式}\label{XQHthe080201}
+$Hahn-Banach$定理的几何形式通常也被称为凸集隔离定理。
+\begin{theorem}[Hahn-Banach隔离定理]
+	设$E$是拓扑向量空间，$A,B$都是$E$中的非空凸子集且$A\cap B=\emptyset$。若$A$是开集，则存在$f\in E*$及常数$\alpha \in \mathbb{R}$，使得
+	\begin{equation*}
+		A\subset\{Re f<\alpha\} \, and \, B\subset\{Re f\geq a\}.
+	\end{equation*}
+	或等价地表述为
+	\begin{equation*}
+		Re\, f(a)<\alpha\leq Re\,f(b),\,\,\forall a\in A,b\in B.
+	\end{equation*}
+\end{theorem}
+
+\original
+{
+	在定理\ref{XQHthe080201}的证明中蕴含着一个事实：设$E$是一个拓扑向量空间，$f$是其上非零的线性泛函，则$f$一定是开映射。
+}
+{P157}
+
+\begin{proposition}
+	验证：设$E$是一个拓扑向量空间，$f$是其上非零的线性泛函，则$f$一定是开映射。
+\end{proposition}
+
+\begin{proof}
+	
+\end{proof}
+
+\begin{theorem}[Hahn-Banch严格隔离定理]\label{XQHthe080202}
+	设$E$是Hausdorff局部凸空间，$A$和$B$是$E$中不相交的凸子集。若$A$是紧集而$B$是闭集，则存在$f\in E^*$及常数$\alpha,\beta\in\mathbb{R}$，使得
+	\begin{equation*}
+		\sup\,Ref(A)<\alpha<\beta<\inf\,Re f(B).
+	\end{equation*}
+\end{theorem}
+
+\begin{proof}
+	
+\end{proof}
+
+\original
+{
+	上述两个定理的几何解释如下(设$\mathbb{K}=\mathbb{R}$)：线性泛函$f$和实数$\alpha$决定$E$中的超平面$\{f=\alpha\}$，即$\{x\in E,f(x)=\alpha\}$。该超平面将空间$E$分成两个半空间。上述定理的结论表明不相交凸集$A$和$B$分别属于着两个半空间，换句话说，$A$和$B$可被超平面隔离。在定理\ref{XQHthe080202}的假设下，$A$和$B$可被严格隔离。
+}
+{P158定理1,2的几何解释}
+
+\begin{corollary}
+	设$E$是Hausdorff局部凸空间，$B$是一个平衡的闭凸集，而$x_{0}\in E\backslash B$。那么存在$f\in E^*$，使得$f(x_{0})>1$且$\sup_{x\in B}|f(x)|\leq 1$。
+\end{corollary}
+
+\begin{proof}
+	集合$A=\{x_{0}\}$为紧集。由定理\ref{XQHthe080202}得，$\exists f\in E^{*}$与常数$\alpha ,\beta\in E^{*}$，使得
+	\begin{equation*}
+	 \Re f(x_{0})<\alpha<\beta<\inf\,\Re f(B)
+	\end{equation*}
+	因为$0\in B$，所以$\alpha <0$，考虑$g=\frac{1}{\alpha}f$。由上式可得
+	\begin{equation*}
+		\Re\, g(x_{0})>1>\sup \, \Re f(B)
+	\end{equation*}
+	还有
+	\begin{equation*}
+		\Re\,g(x_{0})\leq |g(x_{0})|=\lambda\,g(x_{0})\quad \lambda=sgn \, g(x_{0})
+	\end{equation*}
+	考虑$h=\lambda g$，则$h(x_{0})>1$。$\sup_{x\in B}|h|=\sup_{x\in B}|g|=\sup_{x\in B}\Re g\leq 1$。
+	\par
+	最后一个等号证明如下：
+	\begin{itemize}
+		\item 显然成立$\sup_{x\in B}\Re g\leq \sup_{x\in B}|g|$。
+		\item $\forall x_{0}\in B$，记$g(x_{0})=t_{1}+t_{2} \imath $，考虑$|\mu|=\left|\frac{t_{1}-t_{2}\imath}{\sqrt{t_{1}^{2}+t_{2}^{2}}}\right|=1$，则有$|g(x_{0})|=|g(\mu x_{0})|$，这里$g(\mu x_{0})=\mu g(x_{0})\in \mathbb{R}$，且$\mu x_{0}\in B$所以$|g(x_{0})|\leq \sup_{x\in B} \Re g(x)$。所以$\sup_{x\in B}|g|\leq \sup_{x\in B}\Re g$。
+	\end{itemize}
+\end{proof}
+
+\begin{corollary}
+	设$E$是Hausdorff局部凸空间，$F$是$E$的向量子空间且$x_{0}\in E$。则$x_{0}\in \bar{F}$当且仅当对任意$f\in E^{*}$，若其满足$f\big|_{F}=0$，则必有$f(x_{0})=0$。
+\end{corollary}
+
+\original
+{
+	由此推论，我们立即得到一个利用连续线性泛函来刻画子空间稠密性的结论。
+}
+{P159}
+
+\begin{corollary}
+设$E$是Hausdorff局部凸空间，$F$是$E$的向量子空间。则$F$在$E$中稠密当且仅当对任意$f\in E^{*}$，若其满足$f\big|_{F}=0$，则必有$f=0$。
+\end{corollary}
+
+
+\begin{corollary}\label{XQHcor080203}
+	设$E$是Hausdorff局部凸空间，则其对偶空间$E^{*}$是可分点的，即任取$x,y\in E,x\neq y$，则存在$f\in E^{*}$，使得$f(x)\neq f(y)$。
+\end{corollary}
+
+\begin{remark}
+	推论\ref{XQHcor080203}意味着Hausdorff局部凸空间$E$的对偶空间$E^{*}$的元素足够多。
+\end{remark}
+
+\begin{corollary}[Mazur 定理]\label{XQHcor070205}
+	设$E$是向量空间，$\tau_{1}$和$\tau_{2}$都是$E$上的Hausdorff拓扑，并使得$(E,\tau_{1})$和$(E,\tau_{2})$都成为局部凸空间。如果对任意线性泛函$f:E\rightarrow\mathbb{K}$，它的$\tau_{1}-$连续等价于$\tau_{2}-$连续，即
+	\begin{equation*}
+		(E,\tau_{1})^{*}=(E,\tau_{2})^{*},
+	\end{equation*}
+	那么$E$中任意凸集$A$是$\tau_{1}-$闭的当且仅当$A$是$\tau_{2}-$闭的。因此，若$A$为$E$中的凸集，则有$\overline{A}^{\tau_{1}}=\overline{A}^{\tau_{2}}$。
+\end{corollary}
+
+\begin{remark}
+	当$A$为$E$中的凸集时，$\overline{A}^{\tau_{1}}$也是$\tau_{2}-$闭的，所以$\overline{A}^{\tau_{2}}\subset \overline{A}^{\tau_{1}}$。同理，有$\overline{A}^{\tau_{2}}\subset\overline{A}^{\tau_{1}}$。所以有$\overline{A}^{\tau_{1}}=\overline{A}^{\tau_{2}}$。
+\end{remark}
+
+\begin{remark}
+	定理中集合$A$为凸集的条件是必要的。特别要注意的是，凸的$\tau_{1}-$开集不一定是$\tau_{2}-$开集。
+\end{remark}
+
+
+
+
+\subsection{弱拓扑和弱$\!\!^{*}\!\!$拓扑}
+
+\original
+{
+	设$E$是数域$\mathbb{K}$上的向量空间，$F$是由$E$上的某些线性泛函构成的向量空间。在本节中，\uline{我们总是假设 $F$ 关于 $E$ 是可分点的}：对每个$x\neq 0$，总存在$f\in F$，使得$f(x)\neq 0$。
+	\par
+	自然地，$\{|f|:f\in F\}$是$E$上可分点的半范数族，$E$在此半范数族下称为半赋范空间。我们记由此半范数族诱导的拓扑为$\sigma(E,F)$，\uline{则 $(E,\sigma(E,F))$ 是一个Hausdorff局部凸空间}。当我们考虑$E$相应于拓扑$\sigma(E,F)$的某个性质时，约定在此性质上加前缀“$\sigma(E,F)-$”。比如集合$A$关于拓扑$\sigma (E,F)$是闭集时，则称$A$为“$\sigma(E,F)-$闭”。
+	\par
+	在第\ref{XQH0702}节中证明了，$\sigma(E,F)$是与向量空间$E$相容的并且使$f\in F$都连续的最弱的向量拓扑(见定理\ref{XQHthe070201})。\uline{实际上，反向的结论也成立，即 $(E,\sigma(E,F))$ 上的任一连续线性泛函一定属于 $F$ 。}
+}
+{P160}
+
+\begin{lemma}
+	设$E$是数域$\mathbb{K}$上的向量空间，$f,f_{1},f_{2},\cdots,f_{n}$是$E$上的有限个线性泛函。那么下面的命题等价：
+	\begin{enumerate}
+		\item $f$是$f_{1},\cdots,f_{n}$的线性组合：
+		\begin{equation*}
+			f=\sum_{k=1}^{n}\alpha_{k}f_{k},\quad \alpha_{1},\cdots,\alpha_{n}\in \mathbb{K}.
+		\end{equation*}
+	
+		\item 存在常数$C\geq 0$，使得
+		\begin{equation*}
+			|f(x)|\leq C\max_{1\leq k\leq n}|f_{k}(x)|,\quad \forall x\in E.
+		\end{equation*}
+		
+		\item $\bigcap_{1\leq k\leq n}\ker f_{k}\subset \ker f.$
+	\end{enumerate}
+\end{lemma}
+
+\begin{proof}
+	
+\end{proof}
+
+\begin{theorem}\label{XQHthe080301}
+	$(E,\sigma(E,F))^{*}=F$。也就是说，$E$上的线性泛函$f$是$\sigma(E,F)-$连续的充分必要条件为$f\in F$。
+\end{theorem}
+
+\begin{proof}
+	
+\end{proof}
+
+\subsubsection{弱拓扑}
+
+\original
+{
+	设$E$为Hausdorff局部凸空间，$E^{*}$是$E$的对偶空间。那么根据Hahn-Banach定理可知，$E^{*}$在$E$上是可分点的。定义$\sigma(E,E^{*})$为$E$上的\textbf{弱拓扑}。则$(E,\sigma(E,E^{*}))$是一个Hausdorff局部凸空间。当我们考虑$E$上相应于弱拓扑的某个性质时，约定在此性质上加上前缀“$w-$”。比如集合$A\subset E$是“$w-$闭”或“$w-$紧”等。
+	\par
+	弱拓扑$(E,\sigma(E,E^{*}))$由如下显而易见的性质：
+	\begin{enumerate}
+		\item 由定理\ref{XQHthe080301}，线性泛函$f:E\rightarrow\mathbb{K}$ $w-$连续等价于关于$E$上原来的拓扑连续，即
+		\begin{equation*}
+			(E,\sigma(E,E^{*}))^{*}=E^{*}.
+		\end{equation*}
+	
+		\item 假设$A$是$E$中的凸子集。根据定理\ref{XQHcor070205}以及上面的等式，可知$A$是闭的当且仅当$A$是$w-$闭的，即$\overline{A}=\overline{A}^{w}$。
+	\end{enumerate}
+}
+{P162}
+
+\subsubsection{弱$\!\!^{*}\!\!$拓扑}
+\original
+{设$E$为Hausdorff局部凸空间，$E^{*}$是$E$的对偶空间。对任意$x\in E$，定义泛函
+\begin{equation*}
+	\hat{x}:\,
+	\begin{aligned}
+	E^{*}&\rightarrow \mathbb{K}\\
+	f&\mapsto f(x).
+	\end{aligned}
+\end{equation*}
+显然$\hat{x}$是线性的。我们记$\hat{E}=\{\hat{x}:x\in E\}$，则$\hat{E}$是由$E^{*}$上的如上的线性泛函$\hat{x}$构成的向量空间。显然在$E^{*}$上是可分点的。定义$\sigma(E^{*},\hat{E})$为$E^{*}$上的弱$\!\!^{*}\!\!$拓扑，则$(E^{*},\sigma(E^{*},\hat{E}))$成为一个Hausdorff局部凸空间。当我们考虑$E^{*}$上相应于弱$\!\!^{*}\!\!$拓扑的某个性质时，约定在该性质上加前缀“$w^{*}-$”。
+\par
+特别注意， \uline{$x\mapsto\hat{x}$ 是 $E\rightarrow \hat{E}$ 的线性双射}，并由此可知$E$和$\hat{E}$线性同构。在此意义下，可记$\hat{E}=E$。进而也可记
+\begin{equation*}
+	\sigma(E^{*},\hat{E})=\sigma(E^{*},E).
+\end{equation*}
+\par
+由定理\ref{XQHthe080301}，$(E^{*},\sigma(E^{*},E))$有如下的基本性质：$\phi:\,E^{*}\rightarrow\mathbb{K}$是$(E^{*},\sigma(E^{*},E))$上的连续线性泛函等价于$\phi\in \hat{E}$，即$\phi$对应某一$x\in E$。即
+\begin{equation*}
+	(E^{*},\sigma(E^{*},E))^{*}=E.
+\end{equation*}
+\par
+设$E$为Hausdorff局部凸空间，以上定义赋予了$E^{*}$上的$w^{*}-$拓扑。若$E$还为赋范空间，\uline{我们知道 $E^{*}$ 本身是Banach空间}，因此$E^{*}$上自然地有一个范数拓扑$||\cdot||$；相对于$w^{*}-$拓扑，我们称该拓扑为$E^{*}$上的\textbf{强拓扑}。实际上，任取$\hat{x}\in (E^{*},\sigma(E^{*},\hat{E}))^{*}$，对任意$x^{*}\in E^{*}$，有$|\hat{x}(x^{*})|=|x^{*}(x)|\leq ||x^{*}||\,||x||$，故$\hat{x}\in (E^{*},||\cdot||)^{*}$。
+
+}
+{P162}
+
+\begin{proposition}
+	\begin{itemize}
+		\item 验证：$x\mapsto\hat{x}$ 是 $E\rightarrow \hat{E}$ 的线性双射。
+		\item 验证： $E^{*}$ 本身是Banach空间。
+	\end{itemize}
+\end{proposition}
+
+\begin{example}[缓增广义函数]
+	
+\end{example}
+
+\subsubsection{极性}
+
+\begin{definition}
+	设$E$是Hausdorff局部凸空间，$E^{*}$为$E$的对偶空间。对于$A\subset E$，称$E^{*}$中子集
+	\begin{equation*}
+		A^{o}=\{ x^{*} \in E^{*} : |x^{*}(x) |\leq 1, \forall \, x\in A \}
+	\end{equation*}
+	为$A$的极(或极集)。
+\end{definition}
+
+\original
+{	\par
+	极集有如下性质：
+	\begin{enumerate}
+		\item $A^{*}$是凸的、平衡的并且是$w^{*}-$闭的。
+	\end{enumerate}
+}
+{P163-164}
+
+\begin{definition}
+	设$E$是一个Hausdorff局部凸空间，$E^{*}$为$E$的对偶空间，$B\subset E^{*}$。则称
+	\begin{equation*}
+		B^{o}=\{x\in E\big| |<x^{*},x>|\leq 1,\forall \, x^{*}\in B\}
+	\end{equation*}
+	为$B$的极(或极集)。
+\end{definition}
+
+\begin{theorem}[双极定理]\label{XQHthe080302}
+	假设 $E$是一个Hausdorff局部凸空间。设$A\subset E $，$B \subset E^{*} $。
+	\begin{enumerate}
+		\item $ A^{oo} = A $当且仅当$ A $是凸的、平衡的和闭的(等价于$w-$闭的)。
+		\\一般地，$A^{oo}$与$A$的凸平衡闭包相同。
+		\item $B^{oo} = B $当且仅当$B$是凸的、平衡的和$w^{*}-$闭的。\\
+		一般地，$B^{oo}$与$B$的凸平衡$w^{*}-$闭包相同。
+	\end{enumerate}
+\end{theorem}
+
+
+
+
+
+
+
+
+
+
+
+
+

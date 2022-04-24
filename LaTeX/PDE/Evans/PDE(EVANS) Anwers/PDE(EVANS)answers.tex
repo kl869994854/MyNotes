@@ -1,0 +1,90 @@
+%--------------------------------------------------导言区------------------------------------------------
+
+%\documentclass{book}%book,report,letter
+
+\documentclass[leqno]{article}%leqno可选项让行间公式编号在左边
+
+\usepackage{titlesec} %修改标题格式 %\titleformat{command}[shape]{format}{label}{sep}{before-code}[after-code]
+
+\usepackage{ctex}%中文
+
+\usepackage{xltxtra}    %标志符
+
+\usepackage{texnames}   %标志符
+
+\usepackage{mflogo}     %标志符
+
+\usepackage{graphicx}   %插图
+%语法： \includegraphics[<选项>]{<文件名>}
+%格式：EPS,PDF,PNG,JPEG,BMP
+%图片在当前目录下的figures目录  \graphicspath{{figures/}}
+\graphicspath{{figures/}}
+
+\title{PDE(EVANS)题解}
+\author{马明文}
+\date{\today}
+%以上三行内容要在正文中用/maketitle引用
+
+\usepackage{amsmath}%数学包
+
+\usepackage{mathbbol}%数学符号
+
+\usepackage{amssymb}
+
+\usepackage{amsthm}
+
+\usepackage{appendix} %附录包
+
+\usepackage{wasysym}
+
+\usepackage{hyperref}
+
+\usepackage{enumitem}
+
+\usepackage{sectsty}
+\sectionfont{\centering}
+
+
+%\usepackage[russian]{babel}
+
+%\usepackage[T2C]{fontenc}
+
+%\usepackage[OT2,OT1]{fontenc}
+%{\fontencoding{OT2}}\selectfont}
+
+\def\Xint#1{\mathchoice
+	{\XXint\displaystyle\textstyle{#1}}%
+	{\XXint\textstyle\scriptstyle{#1}}%
+	{\XXint\scriptstyle\scriptscriptstyle{#1}}%
+	{\XXint\scriptscriptstyle\scriptscriptstyle{#1}}%
+	\!\int}
+\def\XXint#1#2#3{{\setbox0=\hbox{$#1{#2#3}{\int}$ }
+		\vcenter{\hbox{$#2#3$ }}\kern-.6\wd0}}
+\def\ddashint{\Xint=}
+\def\dashint{\Xint-}
+
+
+
+
+%%-------------------------------正文--------------------------%%
+\begin{document}
+	\section{INTRODUCTION}
+	\subsection{pde}
+	Laplace's equation
+	
+	
+	
+	
+	
+	
+	
+	
+	
+\end{document}
+
+
+
+
+
+
+

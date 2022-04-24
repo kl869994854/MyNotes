@@ -1,0 +1,106 @@
+\section{Banach空间的对偶理论}
+\subsection{共轭算子}
+
+\begin{theorem}
+    设$E$和$F$是赋范空间，$u\in B(E,F)$。则存在唯一的$u^{*}\in B(E^{*},F^{*})$，使得对任意$x\in E$和$f^{*}\in F^{*}$，有$<u^{*}(f^{*}),x>=<f^{*},u(x)>$。并且$||u^{*}||=||u||$。我们称$u^{*}$是$u$的共轭算子。
+\end{theorem}
+
+\original
+{
+    \begin{enumerate}
+        \item 上面定理意味着映射$u\mapsto u^{*}$是$B(E,F)$到$B(F^{*},E^{*})$的线性等距映射，但可能不是满射。例如假设$F$不完备，这种情形下$u\mapsto u^{*}$不是满射。
+        \item 设$E,F,G$都是赋范空间且$u\in B(E,F)$，$v\in B(F,G)$，则$(vu)^{*}=u^{*}v^{*}$。
+        \item 若$E,F$都是数域$\mathbb{K}$上的Hilbert空间，\uline{我们要注意第四章在Hilbert空间意义下定义的共轭和这里Banach空间定义的共轭存在细微的差别。}当数域$\mathbb{K}=\mathbb{R}$时，两者定义的共轭是一致的；但当$\mathbb{K}=\mathbb{C}$时，映射$u\mapsto u^{*}$在Hilbert空间下定义时共轭线性的，而在Banach空间定义下是线性的。
+    \end{enumerate}
+}
+{P174}
+\begin{proposition}
+    
+\end{proposition}
+
+
+\begin{theorem}
+    设$E$和$F$是赋范空间，$u\in B(E,F)$。
+    \begin{enumerate}
+        \item 当$u$时同构映射时，$u^{*}$也是同构映射，且有$(u^{*})^{-1}=(u^{-1})^{*}$。
+        \item 若还假设$E$是完备的，则当$u^{*}$是同构映射时，$u$也是同构映射。
+    \end{enumerate}
+\end{theorem}
+
+\subsection{子空间和商空间的对偶}
+
+\begin{theorem}[可能的考点]
+    设$E$和$F$都是赋范空间，并有$u\in \mathcal{B}(E,F)$。则
+    \begin{enumerate}
+        \item $\ker u^{*}=u(E)^{\perp}$.
+        \item $\ker u=u^{*}(F^{*})_{\perp}$.
+        \item $(\ker u^{*})_{\perp}=\overline{u(E)}^{w}=\overline{u(E)}^{||\cdot||}$.
+        \item $(\ker u)^{\perp}=\overline{u^{*}(F^{*})}^{w^{*}}$.
+    \end{enumerate}
+\end{theorem}
+
+\begin{proof}
+    \begin{enumerate}
+        \item 由赋范空间中共轭算子的定义，$\forall \, x\in E,f^{*}\in F^{*}$，均有
+        \begin{equation*}
+            <f^{*},u(x)>=<u^{*}(f^{*}),x>
+        \end{equation*}
+        则有
+        \begin{equation*}
+            \begin{aligned}
+                f^{*}\in \ker u^{*}&\Leftrightarrow u^{*}(f^{*})(x)=0,\,\forall \,x\in E\\
+                &\Leftrightarrow <u^{*}(f^{*}),x>=0\\
+                &\Leftrightarrow <f^{*},u(x)>=0\\
+                &\Leftrightarrow f^{*}\in u(E)^{\perp}
+            \end{aligned}
+        \end{equation*}
+        所以$\ker u^{*}=u(E)^{\perp }$。
+        \item 类似可得：
+        \begin{equation*}
+            \begin{aligned}
+            x\in \ker u&\Leftrightarrow <f^{*},u(x)>=0,\forall f^{*}\in F^{*}\\
+            &\Leftrightarrow <u^{*}(f^{*}),x>=0,\forall f^{*}\in F^{*}\\
+            &\Leftrightarrow x\in u^{*}(F^{*})_{\perp}     
+            \end{aligned}
+        \end{equation*}
+        所以$\ker u=u^{*}(F^{*})_{\perp}$。
+        \item 由双极定理\ref{XQHthe080302}可得
+        \begin{equation*}
+            (\ker u^{*})_{\perp}=(u(E)^{\perp})_{\perp}=\overline{u(E)}^{w}=\overline{u(E)}^{||\cdot||}
+        \end{equation*}
+        \item 同样由双极定理\ref{XQHthe080302}得
+        \begin{equation*}
+            (\ker u)^{\perp}=(u^{*}(F^{*})_{\perp})^{\perp}=\overline{u^{*}(F^{*})}^{w^{*}}
+        \end{equation*}
+    \end{enumerate}
+\end{proof}
+
+\subsection{自反性}
+
+\begin{example}
+    一些自反空间的例子。
+    \begin{enumerate}
+        \item 若$dim E<+\infty$，则$E$是自反的。
+        \item 所有的Hilbert空间是自反的。分别考虑实和复的情形。
+    \end{enumerate}
+\end{example}
+
+\begin{proof}
+    \begin{enumerate}
+        \item 
+        \item 先证明实情形，由Riesz表示定理，可以找到$H$和$H^{*}$之间的线性等距同构，
+        \begin{equation*}
+            \text{\large$\Phi:$\,\,}
+            \begin{aligned}
+              H&\rightarrow H^{*},\\
+              y&\mapsto \Phi(y)=\phi_{y}(x)  
+            \end{aligned}
+        \end{equation*}
+        这里$\phi_{y}(x)=<x,y>$，考虑$\Phi$的共轭算子：
+        \begin{equation*}
+            \text{\large$\Phi^{*}:$\,\,}
+              H^{**}\rightarrow H^{*},
+        \end{equation*}
+        再考虑$(\Phi^{*})^{-1}\Phi$，其为$H\rightarrow H^{**}$的等距同构映射，且可验证$(\Phi^{*})^{-1}\Phi=\tau_{x}$，从而证明了$H$自反。
+    \end{enumerate}
+\end{proof}

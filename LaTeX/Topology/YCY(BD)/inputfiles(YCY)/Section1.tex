@@ -1,0 +1,276 @@
+\section{拓扑空间与连续映射}
+
+\subsection{拓扑空间}
+
+\subsubsection{拓扑空间的定义}
+
+\begin{definition}[拓扑]
+    设$X$是一个非空集合。$X$的一个子集族$\tau$称为$X$的一个拓扑，若其满足
+    \begin{itemize}
+        \item $\tau$包含$\emptyset$和全集。
+        \item 任意并。
+        \item 有限交。
+    \end{itemize}
+\end{definition}
+
+设$X$是一个非空集合，$2^X$构成$X$上的拓扑，称为$X$上的离散拓扑；$\{X,\emptyset\}$为$X$上的拓扑，称为$X$上的平凡拓扑。
+\par
+离散拓扑是最大的拓扑，平凡拓扑是最小的拓扑。
+\begin{example}
+    余有限拓扑。设$X$是无穷集合，$\tau_f=\{A^c \big| |A| \, is \, finite. \}\cup\{\emptyset\}$。
+\end{example}
+
+\begin{example}
+    余可数拓扑。设$X$是不可数集合，$\tau_c=\{A^c\big| |A|\, is \, countable.\}\cup \{\emptyset\}$。
+\end{example}
+
+\begin{remark}
+    若$X$为可数集合，则余可数拓扑为离散拓扑。
+\end{remark}
+
+\begin{example}
+    $\mathbb{R}$上的欧式拓扑。$X=\mathbb{R}$，$\tau_e=\{U\big| U\text{是若干开区间的并集}\}$。
+\end{example}
+
+\subsubsection{度量拓扑}
+\begin{definition}[度量]
+    
+\end{definition}
+
+\begin{example}
+    设$\mathbb{R}^n=\{(x_1,x_2,\cdots,x_n)\big| x_i\in \mathbb{R},i=1,\cdots,n\}$.规定$\mathbb{R}^n$上的度量$d$为：
+    \begin{equation*}
+        d((x_1,\cdots,x_n),(y_1,\cdots,y_n))=\sqrt{\sum_{i=1}^{n}(x_i-y_i)^2},
+    \end{equation*}
+    不难验证$d$满足距离的定义。记$\mathbb{E}^{n}=(\mathbb{R}^{n},d)$，称为n维欧氏空间。
+\end{example}
+
+\begin{proposition}
+    $\tau_d$是$X$上的拓扑。称为度量拓扑。
+\end{proposition}
+
+\subsubsection{拓扑空间中的几个基本概念}
+
+\begin{definition}
+    闭集。开集的补集。
+\end{definition}
+
+\begin{definition}
+    内点。邻域。内部。
+\end{definition}
+
+\begin{proposition}
+    \begin{enumerate}
+        \item 若$A\subset B$，则$\mathring{A}\subset \mathring{B}$。
+        \item $\mathring{A}$是包含于$A$的所有开集之并，因此是包含在$A$中最大开集。
+        \item $\mathring{A}=A$$\Leftrightarrow$$A$是开集。
+        \item $(A\cap B)^{o}=\mathring{A}\cap \mathring{B}$。
+        \item $(A\cup B)^{o}\supset\mathring{A}\cup \mathring{B}$。
+    \end{enumerate}
+\end{proposition}
+
+\begin{definition}
+    聚点。导集。闭包。
+\end{definition}
+
+\begin{proposition}
+    若拓扑空间$X$的子集$A$与$B$互为余集，则$\bar{A}$与$\mathring{B}$互为余集。
+\end{proposition}
+
+\begin{proposition}
+    \begin{enumerate}
+        \item 若$A\subset B$，则$\bar{A}\subset \bar{B}$。
+        \item $\bar{A}$是所有包含$A$的闭集的交集，所以是包含$A$的最小的闭集。
+        \item $\bar{A}=A$$\Leftrightarrow$$A$是闭集。
+        \item $\overline{A\cup B}=\bar{A}\cup \bar{B}$。
+        \item $\overline{A\cap B}\subset \bar{A}\cap \bar{B}$。
+    \end{enumerate}
+\end{proposition}
+
+\original
+{
+    拓扑空间$X$的子集$A$称为稠密的，如果$\bar{A}=X$。如果$X$有可数稠密子集，则称$X$是可分拓扑空间。
+    \par
+    例如，$(\mathbb{R},\tau_f)$是可分的，$(\mathbb{R},\tau_c)$是不可分的。
+}
+{P17}
+
+\begin{proposition}
+    验证：$(\mathbb{R},\tau_f)$是可分的，$(\mathbb{R},\tau_c)$是不可分的。
+\end{proposition}
+
+\begin{proof}
+    \begin{itemize}
+        \item 在$(\mathbb{R},\tau_f)$中考虑子集$\mathbb{Q}$，任取点$x\in \mathbb{R}$，任取$x$的邻域$U$，则由余有限拓扑的定义，$U\cap \mathbb{Q}\neq \emptyset$。
+        \item 任取可数集，均为闭集，故而不可能稠密。
+    \end{itemize}
+\end{proof}
+
+\subsubsection{子空间}
+
+\begin{definition}
+    子空间。
+\end{definition}
+
+\original
+{
+    对于子空间$A$的子集$U$，笼统地说$U$是不是开集意义就不明确了，必须说明在$A$中看还是在全空间中看，这两者是不同的。例如，$\mathbb{E}^1$是$\mathbb{E}^2$的子空间，开区间$(0,1)$在$\mathbb{E}^1$中是开集，而在$\mathbb{E}^2$这种不是开集。因此开集概念是相对概念。同样，闭集、邻域、内点、内部、聚点和闭包等等也都是相对概念。
+}
+{P19}
+
+\begin{proposition}
+    此处，举了一个在子空间中为开集，而在原空间中不为开集的例子。验证之。
+\end{proposition}
+
+\begin{proof}
+    显然任取$x\in (0,1)$，其在$\mathbb{E}^2$中的开邻域均不能包含于$(0,1)$。
+\end{proof}
+
+\begin{proposition}
+    设$X$是拓扑空间，$C\subset A\subset X$，则$C$是$A$的闭集$\Leftrightarrow$$C$是$A$与$X$的一个闭集之交集。
+\end{proposition}
+
+\begin{proposition}
+    设$X$是拓扑空间，$B\subset A\subset X$，则
+    \begin{enumerate}
+        \item 若$B$是$X$的开(闭)集，则$B$也是$A$的开(闭)集；
+        \item 若$A$是$X$的开(闭)集，$B$是$A$的开(闭)集，则$B$也是$X$的开(闭)集。
+    \end{enumerate}
+\end{proposition}
+
+\subsection{连续映射与同胚映射}
+
+\subsubsection{连续映射的定义}
+
+\begin{definition}[局部连续的定义]
+    设$X$和$Y$都是拓扑空间，$f:X\rightarrow Y$是一个映射，$x\in X$。如果对于$Y$中$f(x)$的任意邻域$V$，$f^{-1}(V)$总是$x$的邻域，则说$f$在$x$处连续。
+\end{definition}
+
+\begin{remark}
+    可把定义中的任意邻域$V$等价替换为任意开邻域$V$。
+\end{remark}
+
+\begin{proposition}
+    设$f:X\rightarrow Y$是一映射，$A$是$X$的子集，$x\in A$。记$f_A=f\big| A:A\rightarrow Y$是$f$在$A$上的限制，则
+    \begin{enumerate}
+        \item 如果$f$在$x$连续，则$f_A$在$x$也连续；
+        \item 若$A$是$x$的邻域，则当$f_A$在$x$连续时，$f$在$x$也连续。
+    \end{enumerate}
+\end{proposition}
+
+\begin{definition}
+    如果映射$f:X\rightarrow Y$是映射，下列各条件互相等价：
+    \begin{enumerate}
+        \item $f$是连续映射；
+        \item $Y$的任意开集在$f$下的原像是开集。
+        \item $Y$的任意闭集在$f$下的原像是闭集。
+    \end{enumerate}
+\end{definition}
+
+\original
+{
+    虽然拓扑空间中也有序列收敛的概念，但不能用它来刻画连续性。事实上，如果$f:X\rightarrow Y$在$x\in X$处连续，则当$x_n\rightarrow x$时，必有$f(x_n)\rightarrow f(x)$。但逆命题不成立。例如设$f:X\rightarrow Y$是单映射，其中$X$是具有余可数拓扑的不可数空间，$Y$是离散拓扑空间。于是，当$X$中序列$x_n\rightarrow x$时，对充分大的$n$，有$x_n=x$，从而$f(x_n)\rightarrow f(x)$。但$f$在$x$中并不连续，$\{f(x)\}$是$f(x)$的邻域，但其原像为$\{x\}$(因为$f$是单的)，并不是$x$的邻域。
+}
+{P23}
+
+\begin{proposition}
+    验证：当$X$中序列$x_n\rightarrow x$时，对充分大的$n$，有$x_n=x$。
+\end{proposition}
+
+\begin{proof}
+    若对于$\forall \, N>0$，总是$\exists \, n>N$，使得$x\neq x_n$，则这些$x_n$的全体的补集构成$x$的一个开邻域，对此开邻域，不存在$N$使得，当$n>N$时，$x_n$都在其中，从而与$x_n\rightarrow x$矛盾。故而总是有$N>0$，使得当$n>N$时，$x_n=x$。
+\end{proof}
+
+\subsubsection{连续映射的性质}
+
+\begin{theorem}[粘接引理]
+    给$X$的一个有限闭覆盖$\{A_1,A_2,\cdots,A_n\}$，若$f:X\rightarrow Y$在每个$A_i$上都连续，则$f$连续。
+\end{theorem}
+
+\begin{proof}
+    证明闭集的原像是闭集即可。
+\end{proof}
+
+\subsubsection{同胚映射}
+
+\begin{definition}[同胚映射]
+    如果$f:X\rightarrow Y$是一一对应，并且$f$及其逆$f^{-1}:Y\rightarrow X$都是连续的，则称$f$是一个同胚映射，或称拓扑变换，或简称同胚。当存在$X$到$Y$的同胚映射，就称$X$与$Y$同胚，记作$X\cong Y$。
+\end{definition}
+
+\original
+{
+    同胚映射中条件$f^{-1}$连续不可忽视，它不能从一一对应和$f$连续推出。
+}
+{P24}
+
+\begin{example}[反例]
+    $S^{1}$为复平面上的单位圆周，规定$f:[0,1)\rightarrow S^1$为$f(t)=e^{\imath 2\pi t}$。则$f$是一一对应，并且连续，但$f^{-1}$不连续。
+\end{example}
+
+下举几个同胚映射的例子。
+
+\begin{example}
+    开区间(作为$E^1$的子空间)同胚于$E^1$。
+\end{example}
+
+\begin{proof}
+    $f=\tan (ax+b)$。
+\end{proof}
+
+\begin{example}
+    $E^n$中的单位球体$D^n:=\{x\in E^m\big| \norm*{x}\leq 1\}$的内部$\mathring{D}^n$同胚于$E^n$。同胚映射$f:\mathring{D}^n\rightarrow E^n$可规定为：$f(x)=\frac{x}{1-\norm*{x}}$，$\forall x\in \mathring{D}^n$。
+\end{example}
+
+\begin{example}
+    $E^n\backslash \{O\}\cong E^n\backslash D^n$($O$为原点)。
+\end{example}
+
+\begin{proof}
+    规定$f:E^n\backslash \{O\}\rightarrow E^n\backslash D^n$为$f(x)=x+\frac{x}{\norm*{x}}$。其几何意义为每一点背向原点$O$移动单位长，则$f$是一一对应的，并且连续。$f^{-1}$是每一点朝$O$移动单位长，也是连续的。
+    \par
+    \begin{itemize}
+        \item 一一对应容易证。
+        \item 连续。要利用度量空间的性质，将证明转化为序列收敛，否则直接按开集的原像为开集证明似乎不那么容易。
+    \end{itemize}
+\end{proof}
+
+\begin{example}
+    任何凸多边形(包含内部)都互相同胚。
+\end{example}
+\begin{proof}
+    粘接引理。
+\end{proof}
+
+\begin{example}
+    凸多边形与$D^2$同胚。
+\end{example}
+
+\begin{definition}
+    如果$f:X\rightarrow Y$是单的连续映射，并且$f:X\rightarrow f(X)$是同胚映射，就称$f:X\rightarrow Y$是嵌入映射。
+\end{definition}
+
+\begin{definition}
+    拓扑空间在同胚映射下保持不变的概念称为拓扑概念，在同胚映射下保持不变的性质叫做拓扑性质。
+\end{definition}
+
+\original
+{
+    当$f:X\rightarrow Y$是同胚映射时，$X$的每个开集$U$的$f$像$f(U)$是$Y$的开集，而$Y$的开集$V$的$f$原像是$X$的开集，因此开集概念在同胚映射下是保持不变的，它是拓扑概念，由它规定的闭集、闭包、邻域、内点等等概念都是拓扑概念。
+    \par
+    特别的可分性也是拓扑性质。
+}
+{P28}
+
+\begin{proposition}
+    验证：可分性也是拓扑性质。
+\end{proposition}
+
+\begin{proof}
+    \begin{itemize}
+        \item 可数：一一对应。
+        \item 保稠密：由$f$与$f^{-1}$连续可得$f(\bar{A})=\bar{f(A)}$。
+    \end{itemize}
+\end{proof}
+
+\subsection{乘积空间与拓扑基}
+

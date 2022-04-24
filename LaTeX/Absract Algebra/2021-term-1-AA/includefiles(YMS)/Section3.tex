@@ -1,0 +1,383 @@
+%姚慕生，第三章，环论
+\section{环论}
+\subsection{基本概念}
+\subsection{子环、理想与商环}
+\subsection{环的同态}
+\subsection{整环，分式域}
+\subsection{唯一分解环}
+
+
+
+\begin{example}
+	Z是Gauss整区。	
+\end{example}
+
+\begin{example}
+	数域上的多项式环是Gauss整区。
+\end{example}
+
+\begin{example}
+	验证$Z(-\sqrt{5})=\{m+n\sqrt{5}\, \big| m,n\in Z\}$不是Gauss整区。
+\end{example}
+
+\begin{proof}
+	首先验证$Z(\sqrt{-5})=\{m+n\sqrt{-5}\, \Big| m,n\in Z\}$是一个整区。\par
+	假设$Z(\sqrt{-5})$两个数满足$(m_{1}+n_{1}\sqrt{-5})\, \cdot \, (m_{2}+n_{2}\sqrt{-5})=0$，则有：
+\begin{equation*}
+	\begin{aligned}
+			m_{1}\cdot m_{2}-5n_{1} \cdot n_{2}&=0\\
+			m_{1}\cdot n_{2}+m_{2}\cdot n_{1}&=0.
+	\end{aligned}\tag{-}
+\end{equation*}
+	\begin{enumerate}
+		\item $m_{1}=0$的情形：
+		\begin{itemize}
+			\item 若$m_{2}=0$，则必有$n_{1}=0$或者$n_{2}=0$。此时两数中必有一个为零。
+			\item 若$m_{2}\neq 0$，则必有$n_{1}=0$。此时两数中必有一个为零。
+		\end{itemize}
+		\item $m_{1}\neq 0$的情形：
+		\begin{itemize}
+			\item 若$m_{2}\neq 0$，则$m_{1},n_{1},m_{2},n_{2}$均不为零，且有：
+			\begin{equation*}
+				\frac{m_{1}}{m_{2}}=-\frac{n_{1}}{n_{2}}=k\tag{+}
+			\end{equation*}
+			将(+)代入(-)可得$m_{1}=n_{1}=0$，产生矛盾。
+			\item 由上一点得$m_{2}=0$，由(-)可得$n_{2}=0$。
+			
+		\end{itemize}
+	\end{enumerate}
+	则$Z(\sqrt{-5})$为整区，再说明$Z(\sqrt{-5})$不是Gauss整区。\par
+	首先指出$Z(\sqrt{-5})$的单位。若$ab=1\, , a,b\in Z(\sqrt{-5})$，则有$|ab|=|a|\cdot|b|=1$。即$Z(\sqrt{-5})$的单位为1或者-1。\par
+	考虑$9=3\cdot 3=(2+\sqrt{-5})\cdot(2-\sqrt{-5})$，则$3,2\pm \sqrt{-5}$为不可约元，且互不相伴。\par
+	即$Z(\sqrt{-5})$不是Gauss整区(UFD)。
+\end{proof}
+
+\subsection{PID与欧式整区}
+
+\begin{example}
+	证明：$Z[-1]=\{m+n\sqrt{-1}\ \big| n\in \mathbf{Z}\}$是Gauss整区和欧式整区。
+\end{example}
+
+\begin{proof}
+	显然，$Z[-1]$为一个整区。
+	\begin{enumerate}
+		\item 验证$Z[-1]$为一个Gauss整区。
+		\begin{itemize}
+			\item 
+		\end{itemize}
+		\item 验证$Z[-1]$为一个欧式整区。考虑映射:
+		\begin{equation*}
+		\text{\large $\delta:$}\quad
+		\begin{aligned}
+			Z[-1]^{*} &\rightarrow N^{*}\\
+			x(=a+b\sqrt{-1}) &\rightarrow |x|=a^{2}+b^{2} 
+		\end{aligned}
+		\end{equation*}
+		\begin{itemize}
+			\item 
+		\end{itemize}
+	\end{enumerate}
+	
+		
+\end{proof}
+
+\subsection{域上的一元多项式环}
+\begin{lemma}\label{Ylm030701}
+	设$f(x),g(x)\in F[x]$，则
+	\begin{equation*}
+		deg(f(x)g(x))=deg \, f(x) +deg \, g(x).
+	\end{equation*}
+\end{lemma}
+
+\begin{proof}
+	
+\end{proof}
+
+\begin{corollary}
+	$F[x]$是一个整区。
+\end{corollary}
+
+\begin{proof}
+	由引理\ref{Ylm030701}，显然。
+\end{proof}
+
+\begin{lemma}\label{Ylm030702}
+	给定$F[x]$中两个多项式$f(x),g(x)$，其中$g(x)\neq 0$，则在$F[x]$中存在$q(x)$及$r(x)$，使
+	\begin{equation*}
+			f(x)=q(x)g(x)+r(x),
+	\end{equation*}
+	且\hspace{\fill}$deg \, r(x)< deg \, g(x).$\hspace{\fill}{}
+\end{lemma}
+
+\begin{theorem}
+	$F[x]$是欧式整区。
+\end{theorem}
+
+\begin{corollary}
+	$F[x]$是PID。
+\end{corollary}
+
+\begin{corollary}
+	$F[x]$是UFD。
+\end{corollary}
+
+\begin{corollary}
+	$F[x]$中任意两个多项式$f(x),g(x)$都有最大公因子$d(x)$，且存在$s(x),t(x)$，使
+	\begin{equation*}
+		d(x)=s(x)f(x)+t(x)g(x).
+	\end{equation*}
+\end{corollary}
+\par
+\original{$F[x]$中的不可约元就是不可约多项式，即不再能分解为两个次数低于原多项式之积的多项式，$F[x]$的不可约元就是素元。}{P107}
+\begin{proposition}
+	\begin{enumerate}
+		\item $F[x]$中的不可约元等价于不可约多项式。
+		\item $F[x]$中的不可约元等价于素元。
+	\end{enumerate}
+\end{proposition}
+\begin{proof}
+	\begin{enumerate}
+		\item $''\Rightarrow''$ 若$p(x)\in F[x]$为不可约元，且设$p(x)=p_{1}(x)\, p_{2}(x)$，则$p_{i}(x)\, (i=1,2)$要么为$c$要么为$cp(x)$。则$p(x)$为不可约多项式。\\
+		$''\Leftarrow''$ 若$p(x)\in F[x]$为不可约多项式，则若$q(x)\Big| p(x)$，则$q(x)=c$或者$q(x)=cp(x)$，故而$p(x)$为不可约元。
+		\item $''\Rightarrow''$ 由于$F[x]$为UFD，所以满足素性条件，即不可约元都为素元。\\
+		$''\Leftarrow''$ 任取素元$p(x)\in F[x]$，若$p_{1}(x)\Big| p(x)$，则$\exists \, p_{2}(x)$，满足$p(x)=p_{1}(x)p_{2}(x)$。则有$p(x)\Big| p_{1}(x)p_{2}(x)$，若$p(x)\Big | p_{1}(x)$，则$p_{1}(x)$不是真因子，若$p(x)\Big | p_{2}(x)$，则$p_{1}(x)$为单位，也不是真因子，所以$p(x)$为不可约元。
+	\end{enumerate}
+\end{proof}
+\begin{corollary}
+	$F[x]$中任一多项式都可唯一地分解成为有限个不可约多项式的乘积。
+\end{corollary}
+
+\begin{lemma}
+	$F[x]$中多项式$f(x)$不可约的充要条件是$(f(x))$是$F[x]$的极大理想。即不存在$F[x]$的真理想$I$真包含$(f(x))$。
+\end{lemma}
+
+\begin{lemma}
+	设$R$是带1的交换环，$I$是$R$的真理想，则$I$是$R$的极大理想的充要条件为$R/I$是一个域。
+\end{lemma}
+
+\begin{proof}
+	考虑介于$I$和$R$之间的真理想集合$\Sigma=\{J\subset R\, \big| \, I\subsetneq J \subsetneq R ,and \, J \, is \, an \, ideal \}$
+	和$R/I$的真理想集合$\Sigma'=\{\{0\}\neq J' \subsetneq R/I \, \big| \, J' \, is \, an \, ideal \}$，可验证$\Sigma$与$\Sigma'$存在一一对应。
+	\begin{equation*}
+		\text{\large$\phi:$\,\, }
+		\begin{aligned}
+			\Sigma&\rightarrow\Sigma'\\
+			J&\mapsto J'=\{x+I \, \big| \, x\in J \}
+		\end{aligned}
+	\end{equation*}
+	容易验证$J'$是一个非零真理想(依次验证，$J'$是一个理想，且非零的，且为真)。即$\phi$是合理定义的。再验证$\phi$为双射。
+	\begin{enumerate}
+		\item 单射。反证法，若$J_{1}\neq J_{2}$，而$J'_{1}=J'_{2}$，那么$\exists \, x_{1}\in J_{1},x_{1}\not\in J_{2},and \, x_{2}\in J'_{2}$使得$x_{1}+I=x_{2}+I $，即$ x_{1}-x_{2}\in I\subset J_{2}$，从而$x_{1}\in J_{2}$，产生矛盾。
+		\item 满射。$\forall \, J'\in \Sigma' $，考虑$J=\{x\in R\,\big| \, x+I\in J'\}$，容易验证$J$为一个理想，且满足$I\subsetneq J\subsetneq R$。
+	\end{enumerate}
+	\par
+	“$\Rightarrow$”，$I$是极大理想说明，$\Sigma$是空集，所以$\Sigma'$也是空集。所以$R/I$只有平凡理想，所以$R/I$为域。
+	\par
+	“$\Leftarrow$”，$R/I$为域，说明$\Sigma'$为空集，所以$\Sigma$为空集，所以$I$为极大理想。
+\end{proof}
+
+\begin{corollary}
+	$F[x]$中多项式$f(x)$不可约的充要条件为$F[x]/(f(x))$是一个域。
+\end{corollary}
+
+\begin{example}
+	设$F$是有理数域，$p(x)=x^{3}-2$。
+\end{example}
+
+\begin{example}
+	设$F$是最简单的域$F=Z_{2}=\{0,1\}$，$p(x)=x^{2}+x+1$是$F$上的不可约多项式(它在$F$中没有根)，求$F[x]/(p(x))$的全部元素。
+\end{example}
+\begin{proof}
+	
+\end{proof}
+
+\original
+{
+	现在假定$S$是域$F$的扩张，即$F$是$S$的子环($F$本身是一个域)且$F$的恒等元1就是$S$的恒等元，设$S$也是一个交换环，$u$是$S$中的一个元素，令$F[u]=\{a_{0}+a_{1}u+a_{2}u^{2}+a_{3}u^{3}+...+a_{n}u^{n}\,\big| \, a_{i}\in F,n\in N\}$，考虑映射
+	\begin{equation*}
+		\text{\Large $\eta:$}\,\,
+		\begin{aligned}
+			F[x]&\rightarrow F[u]\\
+			a_{0}+a_{1}x+...+a_{n}x^{n}&\rightarrow a_{0}+a_{1}u+...+a_{n}u^{n}
+		\end{aligned}
+	\end{equation*}
+不难验证$F[u]$是$S$的子环且$\eta$是$F[x]$到$F[u]$的映上同态。如果$\eta$是一个同构，则称$u$是$F$上的一个超越元。若$Ker \, \eta \neq 0$，则称$u$是$F$上的代数元。当$u$是超越元时，$a_{0}+a_{1}u+...+a_{n}u^{n}=0$当且仅当所有的$a_{i}=0$。当$u$是代数元时，$Ker \, \eta$可由一个多项式$f(x)$生成，这时$F[u]\,\cong\, F[x]/(f(x))$，且$f(u)=0$，即$u$适合$F$上的一个一元多项式。如$f(x)$是一个不可约多项式，则$F[u]$是一个域。代数元，超越元这种定义方式是经典定义的自然推广。
+}{P108}
+\begin{proposition}
+	\begin{enumerate}
+		\item 验证$F[u]$是$S$的子环且$\eta$是$F[x]$到$F[u]$的映上同态。
+		\item 说明当$u$是代数元的时候，$Ker\, \eta$可由一个多项式$f(x)$生成，这时$F[u]\cong \, F[x]/(f(x))$。
+	\end{enumerate}
+\end{proposition}
+\begin{proof}
+	
+\end{proof}
+
+\original
+{
+	还可以定义多项式根的概念。设$f(x)\in F[x]$，$S$中的元$u$如果适合$f(u)=0$，就称它为$f(x)$的根。若$u$是$F$上的代数元，则必有一个次数最小的首一多项式$f(x)$，使$u$是它的根，这个多项式称为代数元$u$的最小多项式。最小多项式是唯一确定的。
+}
+{P108}
+
+\begin{proposition}
+	\begin{enumerate}
+		\item 说明最小多项式的存在性，唯一性。
+		\item 为什么不定义超越元的最小多项式？
+	\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+	
+\end{proof}
+
+\begin{lemma}[余数定理]
+	若$f(x)\in F[x]$，$a\in F$，则存在唯一的$q(x)$，使
+	\begin{equation*}
+		f(x)=(x-a)q(x)+f(a).
+	\end{equation*}
+\end{lemma}
+\begin{proof}
+	由引理\ref{Ylm030702}显然。
+\end{proof}
+
+\begin{corollary}
+	$(x-a)\big| f(x) $的充要条件是$a$为$f(x)$的根。
+\end{corollary}
+
+\begin{theorem}
+	$F[x]$上的$n$次多项式$f(x)(n>0)$在域$F$中最多只有$n$个不同的根。
+\end{theorem}
+
+\begin{theorem}
+	任意一个域的乘法群的有限子群是循环群。
+\end{theorem}
+\begin{proof}
+	利用定理\ref{Yth020403}。设$G$是某个域$F$的乘法群的有限子群，$m$是使$\forall a\in G$，满足$a^{m}=1$的最小的正整数。\par
+	首先有，$a^{|G|}=1$，则得$m\leq |G|$。\par
+	再考虑多项式$f(x)=x^{m}-1$，$f(x)$在$F$中最多有$m$个不同的根，所以$|G|\leq m$。\par
+	所以$|G|=m$。
+\end{proof}
+\begin{corollary}
+	任一有限域的乘法群是一个循环群。
+\end{corollary}
+
+\original
+{
+	比如$Z_{p}$(p是素数)的乘法群是阶为$p-1$的循环群。
+}{109}
+\begin{proposition}
+	\begin{enumerate}
+		\item $Z_{p}$为域$\Leftrightarrow$ $p$为素数。
+		\item 此循环群的生成元是什么？
+	\end{enumerate}
+\end{proposition}
+
+\subsection{交换环上的多项式环}
+
+\subsection{素理想}
+
+本节涉及的环都假定为含恒等元的交换环。
+
+\begin{definition}
+	设$P$是环$R$的理想且$P\neq R$，若对$R$中元素$a,b$从$ab\in P$可推出$a\in P$或者$b\in P$，则称$P$是环$R$的素理想。(素理想在代数几何中有非常重要的应用。)
+\end{definition}
+
+\begin{theorem}
+	环$R$的理想$P$是素理想的充要条件是$R/P$是整区。	
+\end{theorem}
+\begin{proof}
+	“$\Rightarrow$”，$R/P$显然是含幺交换环，再利用$P$是素理想证明$R/P$是整环即可。
+	\par
+	“$\Leftarrow$”，根据$R/P$是整区，可验证$P$是素理想。
+\end{proof}
+
+\begin{corollary}
+	环$R$的极大理想必是素理想。
+\end{corollary}
+\begin{proof}
+	若$P$是$R$的极大理想，则$R/P$是域。
+\end{proof}
+
+\begin{theorem}
+	设$R$是含恒等元的交换环，$I$是它的一个理想且$I\neq R$，则$I$一定包含在$R$的某个极大理想之中。
+\end{theorem}
+
+\begin{corollary}
+	任意一个含恒等元的环都有极大理想。
+\end{corollary}
+
+\begin{corollary}
+	$R$中的任一不可逆元素均含在某个极大理想之中。
+\end{corollary}
+
+\begin{definition}
+	交换环$R$所有素理想的交是$R$的理想，称为$R$的小根。
+\end{definition}
+
+\begin{theorem}
+	交换环$R$的小根等于$R$的所有幂零元素和零元素组成的理想即$R$的诣零根。
+\end{theorem}
+
+\begin{definition}
+	交换环$R$的所有极大理想的交$J$是一个理想，称为$R$的大根或Jacobson根。
+\end{definition}
+
+\begin{theorem}
+	环$R$中元素$a$属于大根$J$的充要条件是对任意的$r\in R$，元素$1-ar$是可逆元。
+\end{theorem}
+
+\begin{example}
+	设$\mathbb{Z}$是整数环，$\mathbb{Z}$是PID，$\mathbb{Z}$中理想$(m)$是素理想的充要条件是$m$是素数。这时$(m)$也是极大理想。
+\end{example}
+\begin{proof}
+	先证$\mathbb{Z}$是PID。
+	\par
+	“$\Rightarrow$”，任取$a,b\in \mathbb{Z}$，若$m\big| ab$，则$ab\in (m)$，由于$(m)$是素理想，所以有$a\in (m),or\, b\in (m)$，即$m\big| a,or\, m\big| b$，所以$m$为素数。
+	\par
+	“$\Leftarrow$”，任取$a,b\in \mathbb{Z}$，若满足$ab\in (m)$，则$m\big| ab$，因为$m$是素数，所以$m\big| a,or\, m\big| b$，即$a\in (m),\, or\, b\in (m)$，所以$(m)$为素理想。
+\end{proof}
+
+\begin{example}
+	设$F[x]$是域$F$上的多项式环，$F[x]$中理想$I=(f(x))$是素理想当且仅当$f(x)$是不可约多项式。事实上，这时$F[x]/(f(x))$是域，因此$I$是极大理想。
+\end{example}
+
+\begin{example}
+	设$R$是PID，则$R$中理想$(a)$是素理想的充要条件是$a$是素元。这时$(a)$也是$R$的极大理想。事实上，$R/(a)$是一个域。
+\end{example}
+
+\begin{example}
+	设$R=\mathbb{Z}[x]$是整数多项式环。则理想$(2,x)$是极大理想。因而也是素理想。理想$(x)$是素理想而不是极大理想。
+\end{example}
+
+\begin{proof}
+	(\textbf{法一(from 刘绍学P90):})取$I\supsetneq (2,x)$，由于$(2,x)=2h(x)+xg(x),h(x)\in F[x],g(x)\in F[x]$，所以$\exists \, m(x)\in I,and\, x\not\in (2,x)$，即$m(x)$的常数项为奇数，从而$1\in I$，所以$I=R$。
+	\par
+	任取$f(x)g(x)\in (x)$，则$x\big| f(x)g(x)$，所以$x\big| f(x),or\, x\big| g(x)$。从而$(x)$是素理想。又$(x)\subsetneq (2,x)$，所以$(x)$不是极大理想。
+	\par
+	(\textbf{法二(from 姚慕生P117):})
+	可验证$R/(x)\cong\mathbb{Z}$，$\mathbb{Z}$是整区不是域，所以$(x)$为素理想。再验证$R/(2,x)\cong \mathbb{Z}_{2}$，$\mathbb{Z}_{2}$为一个域，所以$(2,x)$为极大理想。
+\end{proof}
+
+\begin{proposition}
+	\begin{enumerate}
+		\item 设$P_{1},\cdots,P_{n}$是环$R$的$n$个素理想，$I$是$R$的理想。已知$I\subseteq\bigcup_{i=1}^{n}P_{i}$，则必存在某个$1\leq i\leq n$适合$I\subseteq P_{i}$。
+		\item 设$I_{1},\cdots,I_{n}$是$R$的$n$个理想，$P$是包含$\bigcap_{i=1}^{n}I_{i}$的素理想，则存在某个$i$，$I_{i}\subseteq P$。又若$P=\bigcap_{i=1}^{n}I_{i}$，则存在某个$i$，$P=I_{i}$。
+	\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+	\begin{enumerate}
+		\item 即证$ \forall \, 1\leq i\leq n $，$I\subsetneq P_{i}$，则有$I\subsetneq\bigcup_{i=1}^{n}P_{i}$。
+		\par
+		当$n=1$时，结论成立。
+		\par
+		现假设$n-1$的情形成立，证$n$的情形成立。对于$P_{1},\cdots,P_{i-1},P_{i+1},\cdots,P_{n}$这$n-1$个素理想，由归纳假设，$\exists \, a_{i}\in I,and \, a_{i}\not\in P_{1},P_{2},\cdots,P_{i-1},P_{i+1},\cdots,P_{n}$，若$a_{i}\not\in P_{i}$，则$I\subsetneq \bigcup_{i=1}^{n}P_{i}$，结论成立。若$a_{i}\in P_{i}$，考虑
+		\begin{equation*}
+			b=a_{2}a_{3}\cdots a_{n}+a_{1}a_{3}\cdots a_{n}+\cdots +a_{1}a_{2}\cdots a_{n-1}
+		\end{equation*}
+		则$b\in I,and \, b\not\in \bigcup_{i=1}^{n}P_{i}$。
+		\par
+		所以结论成立。
+		\item 若$\forall \, i,I_{i}\subsetneq P$，则$\exists \, a_{i}$，满足$a_{i}\in I_{i},and \, a_{i}\not\in P$，考虑$b=a_{1}a_{2}\cdots a_{n}\in \bigcap_{i=1}^{n}I_{i}$，由$P$是素理想，所以$\exists a_{i},a_{i}\in P$，产生矛盾。
+	\end{enumerate}
+\end{proof}

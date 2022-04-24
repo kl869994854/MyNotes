@@ -1,0 +1,56 @@
+\section{2022/2/14}
+
+\subsection{notations}
+
+\begin{itemize}
+    \item $\Omega \subset \mathbb{R}^N $ 开，有界(有限)。
+    \item $\Omega^c=\mathbb{R}^N\backslash \Omega$
+    \item $\Gamma=\partial \Omega$
+    \item $\Omega+\partial \Omega=\bar{\Omega}$
+    \item $x\in \Omega,y\in \Omega$，记为$x=(x_1,\cdots,x_N),y=(y_1,\cdots,y_N)$。
+    \item $d(x,y)=\sqrt{\sum_{1\leq i\leq n}(x_i-y_i)^2}$。
+    \item $d(x,G)=\inf_{y\in G}d(x,y)$
+    \item 重指标 $\alpha=(\alpha_1,\alpha_2,\cdots,\alpha_N)$。
+    \item $D^\alpha f=\dfrac{\partial^m f}{\partial x_1^{\alpha_1}\cdots \partial x_N^{\alpha_N} }$
+    \item 一种排列顺序(不是大小关系)$\beta\leq \alpha$。
+    \item $C_\alpha^\beta=(_\beta^\alpha)=C_{\alpha_1}^{\beta_1}\cdots C_{\alpha_N}^{\beta_N}$
+    \item $\alpha !=\alpha_1 !\cdots \alpha_N !$
+    \item $G\subset \subset \Omega$:$\bar{G}\subset \Omega$
+    \item $supp\, u(x)=\overline{\{x\big| u(x)\neq 0\}}$
+    \item $C_0^\infty(\Omega)$
+    \item $L^p(\Omega)=\{f\, measurable\big| \int_{\Omega}|f|^p\,\dd x<+\infty\}(0<p<+\infty)$
+    \item $L^{\infty}(\Omega)=\{f\, measurable\big| ess \, sup |f|<\infty\}$
+\end{itemize}
+
+\subsection{H{\"o}lder Inequality}
+
+\begin{enumerate}
+    \item H{\"o}lder不等式
+    \begin{equation*}
+        \begin{aligned}
+        f\in L^p(\Omega),g\in L^{p'}(\Omega),p>1,\dfrac{1}{p}+\dfrac{1}{p'}=1\\
+        \int_{\Omega}|fg|\,\dd x\leq (\int_{\Omega}|f|^p\,\dd x)^{\frac{1}{p}} (\int_{\Omega}|g|^{p'}\,\dd x)^{\frac{1}{p'}}
+        \end{aligned}
+    \end{equation*}
+    \item 带权的H{\"o}lder 不等式
+    \begin{equation*}
+        \begin{aligned}
+        p(x)\geq 0,fp^{\frac{1}{p}}\in L^p(\Omega),gp'^{\frac{1}{p'}}\in L^{p'}(\Omega),p>1,\dfrac{1}{p}+\dfrac{1}{p'}=1\\
+        \int_{\Omega}|fg|p(x)\,\dd x\leq (\int_{\Omega}|f|^p p(x)\,\dd x)^{\frac{1}{p}} (\int_{\Omega}|g|^{p'} p(x)\,\dd x)^{\frac{1}{p'}}
+        \end{aligned}
+    \end{equation*}
+    \item 推广到有限次的H{\"o}lder不等式：
+    \begin{equation*}
+        \begin{aligned}
+            f_1\in L^{p_1}(\Omega),f_2\in L^{p_2}(\Omega),...,f_n\in L^{p_n}(\Omega),\dfrac{1}{p_1}+\dfrac{1}{p_2}+\cdots+\dfrac{1}{p_n}=1,p_i>1\\
+            \int_{\Omega}|f_1 f_2\cdots f_n|\, \dd x\leq (\int_{\Omega}|f_1|^{p_1})^{\frac{1}{p_1}}\cdots (\int_{\Omega}|f_n|^{p_n})^{\frac{1}{p_n}}
+        \end{aligned}
+    \end{equation*}
+    \item 逆H{\"o}lder不等式：
+    \begin{equation*}
+        \begin{aligned}
+        f\in L^p(\Omega),g\in L^{p'}(\Omega),0<p<1,\dfrac{1}{p}+\dfrac{1}{p'}=1\\
+        \int_{\Omega}|fg|\,\dd x\geq (\int_{\Omega}|f|^p\,\dd x)^{\frac{1}{p}} (\int_{\Omega}|g|^{p'}\,\dd x)^{\frac{1}{p'}}
+        \end{aligned}
+    \end{equation*}
+\end{enumerate}

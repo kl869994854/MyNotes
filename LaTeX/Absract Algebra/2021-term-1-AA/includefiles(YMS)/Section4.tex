@@ -1,0 +1,786 @@
+%姚慕生，第四章，域与Galois理论
+\section{域与Galois理论}
+
+\subsection{域的扩张}
+
+\original
+{
+	我们已经知道，任何一个域都包含一个“最小子域”。在域的特征为零时，这个子域同构于有理数域；在域的特征为$p$时，这个子域同构于模$p$的剩余类域$Z_{p}$，这样的最小子域称为\textbf{素域}。因此，任何一个域都是其素域的扩张。研究域的一个方法便是从一个较“小”的域出发来构造“大”的域，即它的扩域。
+}
+{P125}
+\begin{proposition}
+	\begin{itemize}
+		\item 任何一个域都包含一个“最小子域”。
+		\item 在域的特征为零时，这个子域同构于有理数域；在域的特征为$p$时，这个子域同构于模$p$的剩余类域$Z_{p}$。
+	\end{itemize}
+\end{proposition}
+
+\begin{hint}
+	考虑乘法单位元生成的子域。
+\end{hint}
+
+\original
+{
+	假定$E$是$F$的扩域，$S$是$E$的子集，记$F(S)$为$E$的由$F$及$S$生成的子域，即$E$的所有包含$F$同时也包含$S$的子域之交。若$T$是$E$的又一个子集，则$F(S)(T)=F(S\cup T)$。原因很简单，因为等式两边都表示$E$的所有包含$F,S,T$的子域之交。特别，当$S$是有限集时，比如$S=\{u_{1},u_{2},\cdots,u_{n}\}$，有
+	\begin{equation*}
+		F(u_{1},\cdots,u_{k})=F(u_{1},\cdots,u_{k-1})(u_{k}),\,\, k=2,3,\cdots ,n,
+	\end{equation*}
+	如果$S=\{u\}$，即$S$是单点集，则称$F(u)$为$F$的单扩张，元素$u$称为本原元。单扩张是最简单的扩张。
+}
+{P125}
+
+\begin{proposition}
+	\begin{itemize}
+		\item $F(S)$长什么样子？
+		\item 验证：$F(S)(T)=F(S\cup T)$。
+	\end{itemize}
+\end{proposition}
+
+\begin{proof}
+	\begin{enumerate}
+		\item\begin{itemize}
+			\item $S=\{a\}$
+			\item $S=\{a_{1},\cdots,a_{n}\}$
+			\item 任意$S\in E$		      \end{itemize}
+		\item 显然。
+	\end{enumerate}
+\end{proof}
+
+\original
+{
+	设$x$是未定元，$F[x]$是$F$上的多项式环，记$F[u]$为$E$中$u$的多项式全体，即形如$a_{0}+a_{1}u+\cdots+a_{n}u^{n}(a_{i}\in F)$的元素全体组成的子集，则不难看出，$F[u]$是$E$的子环。现作$F[x]\rightarrow F[u]$的同态映射$\phi$:
+	\begin{equation*}
+		\phi(f(x))=f(u),
+	\end{equation*}
+	则$\phi$是映上的环同态。由第三章多项式环的理论知道，当$u$是$F$上的代数元时，$Ker\,\phi=(g(x))=(g(x))$，$g(x)$是$F$上的某个不可约多项式，且$F[x]/(g(x))\cong F[u]$，这时$F[x]/(g(x))$是域，因此$F[u]$是$E$的子域，于是$F[u]=F(u)$。$F(u)$中的元素可以写成为次数低于$deg\, g(x)$的$u$的多项式。当$u$是$F$上的超越元时，$F[x]\cong F[u]$，这时$F[u]$不是$E$的子域，显然$F(u)$是$F[u]$的分式域，即$F(u)=\{\frac{f(u)}{g(u)}\big| f,g\in F[u],g\neq 0\}$。
+}
+{P125}
+
+\begin{proposition}
+	\begin{itemize}
+		\item 当$u$是代数元时，$F[u]=F(u)$。
+		\item $F(u)$中的元素可以写成为次数低于$deg\, g(x)$的$u$的多项式。
+		\item 当$u$是超越元时，$F(u)$是$F[u]$的分式域。
+	\end{itemize}
+\end{proposition}
+
+\begin{proof}
+	\begin{enumerate}
+		\item 
+		\item 因为$F(u)=F[u]\cong F[x]/(g(x))$，$\forall f(x)\in F[x]$，有
+		\begin{equation*}
+			f(x)=q(x)g(x)+r(x),\,\,(deg\,r(x)< deg\, g(x)),
+		\end{equation*}
+		即$f(x)+(g(x))=r(x)+(g(x))$，$r(u)$即为符合条件的多项式。
+		\item 
+	\end{enumerate}
+\end{proof}
+
+\original
+{
+	通过以上分析我们可以看出：第一，给定$F$及$u$，$F(u)$完全可以构造出来；第二，单扩张可以分为两种不同的类型。对一般的域扩张，我们也有两种类型，即代数扩张与超越扩张。
+}
+{P126}
+\begin{definition}
+	设$E$是$F$的扩域，若$E$中每个元都是$F$上的代数元，则称$E$是$F$的代数扩域或代数扩张。不然，就称$E$是$F$的超越扩张或超越扩域。
+\end{definition}
+
+\begin{example}
+	$F=\mathbb{Q}$，即有理数域，$u=\sqrt[3]{2},E=\mathbb{R}$，为实数域，则$F(u)=Q(\sqrt[3]{2})=\{a+b\sqrt[3]{2}+c\sqrt[3]{4}\big| a,b,c\in \mathbb{Q}\}$。
+\end{example}
+
+\begin{proof}
+	$u=\sqrt[3]{2}$为$F$上的代数元，所以$F(u)=F[u]$。
+\end{proof}
+
+\begin{example}
+	$F=\mathbb{Q},E=\mathbb{C}$，即复数域，$u=\sqrt{-1}$，则
+	\begin{equation*}
+		\mathbb{Q}(\sqrt{-1})=\{a+b\sqrt{-1}\big| a,b\in F\}
+	\end{equation*}
+\end{example}
+
+\begin{proof}
+	$\sqrt{-1}$是$F$上的代数元，所以$F(\sqrt{-1})=F[u]$。
+\end{proof}
+
+\begin{example}
+	$F=\mathbb{Q},E=\mathbb{R},u=\pi$，由于$\pi$是超越数，因此$\mathbb{Q}(\pi)=\{\frac{f(\pi)}{g(\pi)}\big| f,g\in Q[x]\,and\,g\neq 0\}$
+\end{example}
+
+\original
+{
+	我们再从另外一个角度来考察域的扩张问题。设$E$是$F$的扩域，则$E$可以看成是$F$上的线性空间，$E$中元素作为向量。向量加法即是$E$作为域的加法，$F$中元素对$E$中向量的纯量乘法即等于$E$中元素的乘法(注意$F$是$E$的子集)。通常记$[E:F]$为$E$作为$F$上线性空间的维数。如果$[E:F]<\infty$，则称$E$是$F$的有限维扩张或简称为有限扩张；若$[E:F]=\infty$，则称$E$是$F$的无限维扩张或称无限扩张。
+}
+{P126}
+\par 若$E$是$F$的扩域，$K$是$E$的扩域，则有下列重要的维数公式。
+\begin{theorem}\label{YMSthe040101}
+	$[K:F]$有限的充要条件是$[K:E]$与$[E:F]$皆有限，这时
+	\begin{equation*}
+		[K:F]=[K:E]\,[E:F]
+	\end{equation*}
+\end{theorem}
+
+\begin{proof}
+	
+\end{proof}
+
+
+\begin{corollary}
+	若$F\subset E\subset K$，且$[K:F]<\infty$，则$[E:F]$及$[K:E]$都是$[K:F]$的因子。特别，若$[K:F]$为素数时，则在$K$与$F$之前没有其他的子域。
+\end{corollary}
+
+\original
+{
+	单代数扩域与有限扩域有着密切的关系。设$E$是$F$的扩域，$u$是$F$上的代数元，则$u$必适合一个$F$上的首一多项式$g(x)$。若$g(x)$是这类多项式中次数最低者，\uline{则称之为 $u$ 的最小多项式或 $u$ 的极小多项式}。$u$的极小多项式实际上就是我们前面谈到的同构式$F[x]/(g(x))\cong F[u]$中的$g(x)$(只要除以一个$F$中元素，即可使$g(x)$变成为首项系数为1的多项式)。事实上，由$\phi(g(x))=0$即知$g(u)=0$。又若$h(x)$是$u$的极小多项式，则由多项式除法，将$g(x)=h(x)q(x)+r(x)$代入$u$得$r(u)=0$。而$r(x)$的次数比$h(x)$更低，因此必有$r(x)=0$，否则将与$h(x)$的极小性相矛盾。这表明$g(x)=h(x)q(x)$。但$g(x)$是不可约多项式，因此$g(x)=c\,h(x),c\in F$。现在由于$g,h$都是首一多项式，故$g(x)=h(x)$。从这里我们得出一个结论：\uline{代数元\text{$u$}的极小多项式必是不可约的。}有了极小多项式的概念，我们可以证明如下结果：
+}
+{P127}
+\begin{remark}
+	这里实际上也证明了极小多项式是唯一的。
+\end{remark}
+\begin{proposition}
+	验证：代数元$u$的极小多项式必是不可约的。
+\end{proposition}
+
+\begin{proof}
+	若$g(x)=g_{1}(x)g_{2}(x)$，$g_{1}(x),g_{2}(x)$都是$g(x)$的真因子。由于$g(u)=g_{1}(u)g_{2}(u)=0$，则必有$g_{1}(u)=0\, or\, g_{2}(u)=0$，与$g(x)$为极小多项式矛盾。
+\end{proof}
+
+
+\begin{theorem}
+	设$E$是$F$的扩域，若$u$是$E$中的元素且是$F$上的代数元，其极小多项式为$g(x)$，则$[F(u):F]$有限且等于$deg \, g(x)$。反之，若$[F(u):F]<\infty$，则$u$必是$F$上的代数元。
+\end{theorem}
+\begin{proof}
+	
+\end{proof}
+
+\begin{corollary}
+	有限扩张必是代数扩张。
+\end{corollary}
+
+\begin{theorem}[Steinitz定理]
+	设$E$是$F$的扩域且$[E:F]<\infty$，则$E=F(u)$的充要条件是$E$与$F$之间只有有限个中间域。
+\end{theorem}
+
+
+\subsection{代数扩域}
+
+\begin{theorem}\label{YMSthe040201}
+	设$E$是$F$的扩域，$K$是$E$中所有$F$上代数元的全体组成的集，则$K$是$E$的子域。
+\end{theorem}
+
+\begin{proof}
+	$\forall u,v\in E$，若$u,v$为代数元，则$[F(u,v):F]=[F(u,v):F(u)]\,[F(u):F]<\infty$，所以$[F(u-v):F],[F(u\,v):F],[F(u^{-1}):F]<\infty$。
+\end{proof}
+
+\begin{corollary}
+	两个代数数的和、差、积、商仍是代数数。
+\end{corollary}
+
+\original
+{
+	虽然单代数扩域必然是有限扩张，但一般来说，代数扩域不必是有限扩张。比如有理数域上的代数元全体即代数数全体是有理数域的代数扩张，但不是有限扩张。事实上对任意的$n$，由$Eisenstenin$判别法知，有理数域上的$n$次多项式$x^{n}-2$是不可约的，\uline{因此代数数域在有理数域上的维数不可能是有限维的}。
+}
+{P129}
+
+\begin{proposition}
+	验证：代数数域在有理数域上的维数不可能是有限维的。
+\end{proposition}
+
+\begin{proof}
+	由方程$x^{n}-2=0$找出无穷个线性无关的代数元。
+\end{proof}
+
+\begin{remark}
+	补充一个定理：Eisenstein判别法。
+	\par
+	给定整系数多项式$f(x)=a_{0}+a_{1}x+\cdots+a_{n}x^{n}$，如果$\exists p$，这里$p$为素数，使得
+	\begin{enumerate}
+		\item $p\nmid a_{n}$，但是$p\big| a_{i}(i=0,1,2,...,n-1)$；
+		\item $p^{2}\nmid a_{0}$；
+	\end{enumerate}
+	那么$f(x)$在有理数域上是不可约的。
+\end{remark}
+
+
+
+\begin{theorem}\label{YMSthe040202}
+	设$E$是$F$的扩域，则下列命题等价：
+	\begin{enumerate}
+		\item[(1)] [E:F]$<\infty$;
+		\item[(2)] 存在$E$中有限个代数元$u_{1},u_{2},\cdots u_{n}$，使$E=F(u_{1},u_{2},\cdots,u_{n})$，此时，$E$必是$F$的代数扩域。
+	\end{enumerate}
+\end{theorem}
+
+
+代数扩域有传递性，即下述定理成立。
+\begin{theorem}\label{YMSthe040203}
+	若$E$是$F$的代数扩域，$K$是$E$的代数扩域，则$K$是$F$的代数扩域。
+\end{theorem}
+
+\begin{proof}
+	$\forall u\in K$，考虑$u$在$E$上的极小多项式：
+	\begin{equation*}
+		a_{0}+a_{1}x+\cdots+a_{n-1}x^{n-1}+x^{n},(\quad a_{i}\in E).
+	\end{equation*}
+	再考虑$K'=F(a_{0},a_{1},\cdots,a_{n-1})$，则$u$为$K'$上的代数元，且$a_{i}(i=0,\cdots,n-1)$为$F$上的代数元。由定理\ref{YMSthe040202}可知，$[K'(u):K']<\infty,[K':F]<\infty$，从而有$[F(u):F]\leq [K'(u):F]=[K'(u):K']\,[K':F]<\infty$。从而$u$是$F$上的代数元。
+\end{proof}
+
+\begin{corollary}
+	设$E$是$F$的扩域，$K$是$E$中$F$上代数元全体组成的子域，则任何$E$中$K$上的代数元仍数域$K$。
+\end{corollary}
+
+\begin{proof}
+	$E$中$K$上的代数元全体为$K$的代数扩域，同时也为$F$的代数扩域，所以$E$中$K$上的代数元全体包含于$K$。
+\end{proof}
+
+\begin{definition}\label{YMSdef040201}
+	设$E$是$F$的扩域，$K$是$E$的子域又是$F$的扩域，若$K$是$F$的代数扩域且任何$K$在$E$中的代数扩域均与$K$重合(即$K$在$E$中无真代数扩张)，则称$K$是$F$在$E$中的\textbf{代数闭包}。$K$也称为在$E$中是\textbf{代数封闭的}。
+\end{definition}
+
+\original
+{
+	由定理\ref{YMSthe040201}和定理\ref{YMSthe040203}可知，域$F$上代数元全体构成的$E$的子域就是$F$在$E$中的代数闭包。应当注意，上面的代数封闭概念是一个相对的概念，通常我们所说的代数闭域和代数闭包的定义如下所述。
+}
+{P130}
+
+\begin{proposition}
+	域$F$上代数元全体构成的$E$的子域就是$F$在$E$中的代数闭包。
+\end{proposition}
+
+\begin{proof}
+	按照代数闭包的定义验证，显然成立。
+\end{proof}
+
+\begin{definition}\label{YMSdef040202}
+	设$K$是一个域，如果$K$无真代数扩张，则称$K$是一个代数闭域。
+\end{definition}
+
+\begin{definition}\label{YMSdef040203}
+	设$K$是$F$的扩域，如果$K$是$F$的代数扩域且$K$是一个代数闭域，则称$K$是$F$的代数闭包。
+\end{definition}
+
+\begin{proposition}
+	定义\ref{YMSdef040201}与定义\ref{YMSdef040203}两种定义的代数闭包有什么联系？
+\end{proposition}
+
+
+
+\begin{theorem}
+	设$K$是一个域，下列命题等价：
+	\begin{enumerate}
+		\item $K$是代数闭域；
+		\item $K[x]$中任一不可约多项式的次数等于1；
+		\item $K[x]$中任一次数大于零的多项式可分解为一次因子的乘积；
+		\item $K[x]$中任一次数大于零的多项式都在$K$中至少有一个根。
+	\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+	2，3，4容易验证是等价的。
+	\par
+	(2,3,4)$\Rightarrow$(1)，任取$K$的代数扩域记为$K_{1}$，$\forall \alpha\in K_{1}$，$\exists f(x)\in K[x]$，使得$f(\alpha)=0$，由于$f(x)$可分解为一次因子的乘积，所以$\alpha\in K$。
+	\par
+	(1)$\Rightarrow$(2,3,4)，\uline{设 $g(x)\in K[x]$ 是一个不可约多项式，则 $g(x)$ 决定了一个 $K$ 的代数扩域 $E$ 且 $[E:K]=deg\, g(x)$ 。  }
+\end{proof}
+
+\original
+{
+	由代数基本定理知，复数域$\mathbb{C}$是一个代数闭域。
+}
+{P131}
+
+\begin{proposition}
+	验证：复数域$\mathbb{C}$是一个代数闭域。
+\end{proposition}
+
+
+\begin{theorem}
+	设$K$是代数闭域，$F$是其子域，则$F$在$K$中的代数闭包$\overline{F}$一定是代数闭域，$\overline{F}$也是定义\ref{YMSdef040203}意义下$F$的代数闭包。
+\end{theorem}
+
+\begin{proof}
+	$\overline{F}$的代数元一定是$K$的代数元。所以$\overline{F}$的任意代数扩张$H$一定满足$H\subset K$，又由$\overline{F}$的定义，$H\subset \overline{F}$，所以$\overline{F}$为代数闭域。
+\end{proof}
+
+\original
+{
+	由此可知，代数数全体是一个代数闭域，它也可以看成是有理数域的代数闭包。
+}
+{P131}
+
+\begin{theorem}
+	任何一个域都有一个代数闭域作为它的扩域，从而任何一个域都有代数闭包。
+\end{theorem}
+
+
+\begin{theorem}
+	域$F$的两个代数闭包设为$E_{1}$及$E_{2}$，则必存在同构映射$\phi:E_{1}\rightarrow E_{2}$，使得$\phi(a)=a$对一切$a\in F$成立。
+\end{theorem}
+
+\subsection{尺规作图问题}
+
+
+
+\subsection{分裂域}
+
+\original
+{
+	在这一节中，我们要研究由某个多项式$f(x)\in F[x]$所决定的扩域。在这一扩域中，$f(x)$可分解为一次因子的乘积。也就是说，多项式$f(x)$的根全落在这个扩域之中。为此，首先要回答这样一个问题：给定多项式$f(x)$，能否找到一个扩域使$f(x)$在这个扩域中至少由一个根？
+}
+{P137}
+
+\begin{lemma}
+	设$f(x)$是域$F$上的不可约多项式，则必存在$F$的一个扩域$E$，使$f(x)$在$E$中至少有一个根。
+\end{lemma}
+
+\begin{proof}
+	考虑$E=F[x]/(f(x))$，可以证明$E$是$F$的代数扩域。这里$F$是可以同构映射到$E$的某个子集。思路是证明$E$在$F$的基的数目小于等于$deg\, f(x)$。这因为多项式环上的性质决定的，$\forall g(x)\in F[x]$，有
+	\begin{equation*}
+		g(x)=q(x)f(x)+r(x)
+	\end{equation*}
+	这里$deg\,r(x)< deg\,f(x) $，且有$g(x)+(f(x))=r(x)+(f(x))$。从而$c,x,...,x^{deg\,f(x)-1}$线性表示出任意$g(x)+(f(x))\in  F[x]/(f(x))$。从而$E$是$F$的代数扩张。
+\end{proof}
+
+\begin{corollary}[Kronecker定理]
+	设$f(x)$是域上的次数不小于1的多项式，则必存在$F$的扩域$E$，使$f(x)$在$E$中至少有一个根。
+\end{corollary}
+\begin{hint}
+	域上的次数为一的多项式是不可约的。
+\end{hint}
+
+
+\begin{definition}
+	设$f(x)$是域$F$上的首一多项式，$E$是$F$的扩域，适合条件：
+	\begin{enumerate}
+		\item $f(x)$在$E[x]$中可以分解为一次因子的乘积，即存在$r_{i}\in E(i=1,2,\cdots,n)$，使得$f(x)=(x-r_{1})(x-r_{2})\cdots(x-r_{n})$；
+		\item $E=F(r_{1},r_{2},\cdots,r_{n})$
+	\end{enumerate}
+	则称$E$是多项式$f(x)$的分裂域。$E$可以看成是$F$添加了$f(x)$的根$r_{1},\cdots,r_{n}$的扩域。
+\end{definition}
+
+\begin{theorem}\label{YMSthe040401}
+	$F[x]$中任一非零首一多项式均有分裂域。
+\end{theorem}
+
+\begin{proposition}
+	任一多项式$f(x)$的分裂域$E/F$(即表示$f(x)$是$F$上的多项式)必是有限维的。
+\end{proposition}
+
+\original
+{
+	定理\ref{YMSthe040401}肯定了多项式分裂域的存在性，接下来一个很自然的问题是：它是否是唯一？我们将证明，在同构的意义下它是唯一的。
+}
+{P138}
+
+\begin{lemma}
+	设$\eta$是域$F$到域$\bar{F}$上的同构，则$\eta$可以唯一地扩张为$F[x]\rightarrow \bar{F}[x]$上的环同构$\tilde{\eta}$，使$\tilde{\eta}(a)=\eta(a)$对一切$a\in F$成立且$\tilde{\eta}(x)=x$，其中$F[x]$与$\tilde{F}[x]$分别是$F$，$\tilde{F}$的多项式环。
+\end{lemma}
+
+\begin{lemma}
+	$F$，$\tilde{F}$，$\eta$同上引理，设$g(x)$是$F[x]$中的不可约多项式，记$\tilde{\eta}(g(x))=\bar{g}(x)$，则存在$F[x]/(g(x))\rightarrow \bar{F}[x]/(\bar{g}(x))$的同构$\bar{\eta}$，且$\bar{\eta}$可看成是$F\rightarrow \bar{F}$的同构$\eta$的扩张。
+\end{lemma}
+
+
+\begin{lemma}
+	设$\eta$是域$F$到$\bar{F}$的同构，$E$与$\bar{E}$分别是$F$与$\bar{F}$的扩域，又设$u\in E$是$F$上代数元且其极小多项式为$g(x)$，则$\eta$可以扩张为$F(u)$到$\bar{E}$内的单同态的充要条件是$\bar{g}(x)$在$\bar{E}$中有一个根。这种扩张的个数等于$\bar{g}(x)$在$\bar{E}$中不同根的个数。
+\end{lemma}
+
+
+\begin{theorem}\label{YMSthe040402}
+	设$\eta :a\rightarrow \bar{a}$是$F\rightarrow\bar{F}$的域同构，$f(x)$是$F[x]$中的首一多项式，$\bar{f}(x)$是$f(x)$在$\bar{F}[x]$中相应的多项式(意义同上)。$E$与$\bar{E}$分别是$f(x)$及$\bar{f}(x)$的分裂域，则$\eta$可以扩张为$E \rightarrow\bar{E}$的域同构，而且，这种扩张的数目不超过$[E:F]$，当$\bar{f}(x)$在$\bar{E}$中无重根时，正好等于$[E:F]$。
+\end{theorem}
+
+\original
+{
+	上面定理的特殊情况之一是当$\bar{F}=F$，$\eta$为恒等映射时多项式$f(x)$的$F$上分裂域$E$与$\bar{E}$必同构，这就证明了分裂域的唯一性。更为特殊的是若$\bar{E}=E$(同时有$F=\bar{F}$)，则$F$上的恒等同态可以扩张为$E$的自同态的数目至多等于$[E:F]$。
+}
+{P141}
+
+\begin{theorem}
+	$E$是$F$上多项式$f(x)$的分裂域，则$E/F$的自同构(即保持$F$中元不动的$E$的自同构)数目$\leq [E:F]$，当$f(x)$无重根时恰为$[E:F]$。
+\end{theorem}
+
+
+
+\begin{example}
+	$F=\mathbb{Q}$，$f(x)=x^{2}-2$。$\mathbb{Q}(\sqrt{2})$是$f(x)$的分裂域。
+\end{example}
+
+\begin{proof}
+	\begin{itemize}
+		\item $f(x)=x^{2}-2$可以在$\mathbb{Q}(\sqrt{2})$内分解为$f(x)=(x-\sqrt{2})(x+\sqrt{2})$。
+		\item 且$\mathbb{Q}(\sqrt{2})=\mathbb{Q}(\sqrt{2},-\sqrt{2})$。
+	\end{itemize}
+\end{proof}
+
+\begin{example}
+	$F=\mathbb{Q}$，$f(x)=(x^{2}+1)(x^{2}-2)$。
+\end{example}
+
+\begin{proof}
+	分裂域为$\mathbb{Q}(\sqrt{2},\imath)$。
+\end{proof}
+
+\begin{example}
+	$F=\mathbb{Q}$，$f(x)=x^{p}-2$，其中$p$是素数。
+\end{example}
+
+\begin{proof}
+	
+\end{proof}
+
+\begin{example}
+	设$F=\mathbb{Z}_{p}$，$f(x)=x^{p}-1$。
+\end{example}
+
+\begin{proof}
+	
+\end{proof}
+
+\begin{example}
+	设$F=\mathbb{Z}_{2}$，$f(x)=x^{3}+x+1$。
+\end{example}
+
+\begin{proof}
+	
+\end{proof}
+
+\subsection{可分扩域}
+
+\original
+{
+	\uline{我们在上一节中得到了一个重要结论：若 $E$ 是 $F$ 上多项式 $f(x)$ 的分裂域，则 $E/F$ 的自同构个数不超过 $[E:F]$ 。当 $f(x)$ 在 $E$ 中无重根时，恰为 $[E:F]$ 。}现在的问题是，若$f(x)$有重根，$E/F$的自同构个数是否仍有可能等于$[E:F]$？我们来详细地讨论这个问题。
+	\par
+	首先我们设$f(x)$有两个分裂域，分别记为$E$与$\bar{E}$。若$f(x)$在$E(x)$中分解为
+	\begin{equation*}
+		f(x)=(x-r_{1})^{k_{1}}(x-r_{2})^{k_{2}}\cdots(x-r_{m})^{k_{m}},
+	\end{equation*}
+	其中$r_{i}$是$E$中互不相同的元，这时称$r_{i}$为$f(x)$的$k_{i}$重根。由定理\ref{YMSthe040402}知，存在$E \rightarrow \bar{E}$的同构$\xi$，使$f(x)$在$\bar{E}[x]$中可分解为
+	\begin{equation*}
+		f(x)=(x-\xi(r_{1}))^{k_{1}}(x-\xi(r_{2}))^{k_{2}}\cdots(x-\xi(r_{m}))^{k_{m}},
+	\end{equation*}
+	这表明$f(x)$的重根性质，即诸$k_{i}$不随具体分裂域的不同而改变。因此，我们选择某一特定的分裂域来讨论问题。
+	\par
+	另外，若设$f(x)=f_{1}^{l_{1}}(x)f_{2}^{l_{2}}(x)\cdots f_{k}^{l_{k}}(x)$是$f(x)$在$F[x]$中的一个不可约分解，且当$i\neq j$时，$f_{i}(x)$与$f_{j}(x)$互素，令
+	\begin{equation*}
+		f_{0}(x)=f_{1}(x)f_{2}(x)\cdots f_{k}(x)
+	\end{equation*}
+	显然$f(x)$与$f_{0}(x)$有相同的分裂域，因此我们将求$f(x)$的分裂域归结为求$f_{0}(x)$的分裂域。
+	\par
+	再看$f_{0}(x)$的任意两个不相同的不可约因子$f_{1}(x)$，$f_{2}(x)$。由于$(f_{1}(x),f_{2}(x))=1$，故存在$s(x),t(x)\in F[x]$，使
+	\begin{equation*}
+		f_{1}(x)s(x)+f_{2}(x)t(x)=1.
+	\end{equation*}
+	显然$f_{1}(x)$与$f_{2}(x)$在$f(x)$的分裂域中不可能有公共根，否则将出现$0=1$的矛盾。\uline{这个事实说明 $f_{0}(x)$ 如有重根，当且仅当它的不可约因子有重根。}
+	\par
+	从上面的讨论我们可以看到，若$f(x)$的不可约因子无重根，则$f_{0}(x)$无重根。若设$f_{0}(x)$的分裂域即$f(x)$的分裂域为$E$，则$E/F$自同构的个数恰为$[E:F]$。
+}
+{P143}
+
+
+
+
+\begin{proposition}
+	\begin{itemize}
+		\item 若$f(x)$有重根，$E/F$的自同构个数是否仍有可能等于$[E:F]$？
+		\item 验证：$f(x)$与$f_{0}(x)$有相同的分裂域。
+		\item 验证：$f_{0}(x)$ 如有重根，当且仅当它的不可约因子有重根。
+	\end{itemize}
+\end{proposition}
+
+\begin{proof}
+	\begin{itemize}
+		\item 有可能，从上讨论可知，只要$f(x)$的不可约因子无重根，就有$E/F$的自同构个数等于$[E:F]$。(定理\ref{YMSthe040501}。)
+		\item
+		\item
+	\end{itemize}
+\end{proof}
+
+\begin{definition}
+	设$f(x)$是$F[x]$的多项式，若$f(x)$的每个不可约因子在$f(x)$的分裂域中均无重根，则称$f(x)$是一个\textbf{可分多项式}。
+\end{definition}
+
+\begin{definition}
+	设$E$是$F$的扩域，$u\in E$，若$u$在$F$上的极小多项式是可分多项式，则称$u$是$F$上的\textbf{可分元}。
+\end{definition}
+
+\begin{definition}
+	设$E$是$F$的代数扩域，若$E$中的每个元都是$F$上的可分元，则称$E$是$F$上的\textbf{可分扩域或可分扩张}。
+\end{definition}
+
+
+\begin{theorem}\label{YMSthe040501}
+	设$f(x)$是域$F$上的多项式，若$f(x)$可分，$E$是$f(x)$的分裂域，则$E/F$的自同构的自同构数等于$[E:F]$。
+\end{theorem}
+
+\original
+{
+	一般来说，不可分多项式的分裂域在$F$上的维数总比它的保持$F$中元不动的自同构要大。这方面可以参看O.Zariski,P.Samual的《Commutative Algebra》第一卷或N.Jacobson撰写的《Lectures in Abstract Algebra》。
+}
+{P144}
+\begin{proposition}
+	举例：一般来说，不可分多项式的分裂域在$F$上的维数总比它的保持$F$中元不动的自同构要大。
+\end{proposition}
+
+
+\begin{definition}
+	设$f(x)\in F[x]$，$f(x)=a_{0}+a_{1}x+\cdots +a_{n}x^{n}$，定义$f(x)$的导数为下面的多项式：
+	\begin{equation*}
+		f'(x)=a_{1}+a_{2}x+\cdots +na_{n}x^{n-1},
+	\end{equation*}
+	显然导数具有下列性质：
+	\begin{enumerate}
+		\item $(f+g)'=f'+g'$;
+		\item $(af)'=af'$其中$a\in F $;
+		\item $(fg)'=f'g+fg' $.
+	\end{enumerate}
+\end{definition}
+
+\original
+{
+	对特征为零的域，从$f'(x)=0$可推出$f(x)=a\in F$。但对特征为$p\neq 0$的域，从$f'(x)=0$不能推出$f(x)=a\in F$，这点需要特别注意。事实上，若$f(x)=x^{p}$，则$f'(x)=0$，但$f(x)\neq a\in F$。
+}
+{P145}
+
+\begin{proposition}
+	验证：对特征为零的域，从$f'(x)=0$可推出$f(x)=a\in F$。但对特征为$p\neq 0$的域，从$f'(x)=0$不能推出$f(x)=a\in F$。
+\end{proposition}
+
+\begin{theorem}
+	设$f(x)$是域$F$上的非零首一多项式，则$f(x)$在其分裂域$E$中无重根的充要条件是$(f(x),f'(x))=1$，即$f(x)$与$f'(x)$互素。
+\end{theorem}
+
+\begin{proof}
+	
+\end{proof}
+
+
+\begin{corollary}\label{YMScor040501}
+	设$F$是特征为零的域，则$F[x]$上的任一不可约多项式都是可分多项式。	
+\end{corollary}
+
+
+\begin{corollary}
+	设$F$是特征为$p\neq 0$的域，则$F$上的不可约多项式$g(x)$为不可分多项式的充要条件是$g'(x)=0$。	
+\end{corollary}
+
+
+\begin{corollary}
+	设$F$是特征为$p\neq 0$的域，则不可约多项式$f(x)\in F[x] $为不可分多项式的充要条件是$f$具有形状：
+	\begin{equation*}
+		f(x)=a_{0}+a_{1}x^{p}+a_{2}x^{2p}+\cdots +a_{n}x^{np}.
+	\end{equation*}
+\end{corollary}
+	
+\original
+{
+	\textbf{\uline{下面我们要举一个不可分多项式的例子。} }由推论\ref{YMScor040501}知，只有特征为$p$的域上才可能有不可分多项式。
+}
+{P145}
+
+\begin{proposition}
+	验证：只有特征为$p\neq 0$的域上才可能有不可分多项式。
+\end{proposition}
+
+\begin{proof}
+	即验证：存在不可分多项式的域$\Rightarrow$其特征为$p\neq 0 $。
+	\par
+	由推论\ref{YMScor040501}结论显然成立。
+\end{proof}
+
+\original
+{
+	首先我们来看特征为$p$的域$F$上的映射$\phi:\phi(a)=a^{p}$。由于$\phi(a+b)=(a+b)^{p}=a^{p}+b^{p}=\phi(a)+\phi(b)$(由二项式展开，中间的那些项的系数都是$p$的倍数，故等于0)；$\phi(ab)=a^{p}b^{p}=\phi(a)\phi(b);\phi(a^{-1})=(a^{-1})^{p}=(a^{p})^{-1}=\phi(a)^{-1}$，故$\phi$是域$F$到自身内的自同构。\uline{因为 $F$ 是域，所以 $\phi$ 是单同态。}这个同态通常称为Frobenius同态，其同态像记为$F^{p}$，即$F^{p}=\{a^{p}\big| a\in F\}$。显然$F^{p}$是$F$的子域。
+}
+{P145}
+
+\begin{proposition}
+	验证：Frobenius同态$\phi$是单同态。
+\end{proposition}
+\begin{proof}
+	$\forall a,b\in F$，若$\phi(a)=a^{p}=\phi(b)=b^{p}$，则有$a^{p}-b^{p}=(a-b)^{p}=0$，由于$F$是域，所以$a=b$，所以$\phi$是单射。
+\end{proof}
+
+\begin{lemma}
+	设$F$是特征为$p$的域，$a\in F$，则多项式$x^{p}-a$或在$F$上不可约，或等于$(x-b)^{p},b\in F$。
+\end{lemma}
+
+\begin{example}
+	$F=\mathbb{Z}_{p}(t)$，即域$\mathbb{Z}_{p}$上以$t$为未定元的有理函数域，$f(x)=x^{p}-t$。
+\end{example}
+
+\begin{proof}
+	先证$f(x)$不可约，再证$f(x)$不可分。
+\end{proof}
+
+\begin{definition}
+	若一个域$F$上的任一多项式都是可分多项式，则称$F$是完全域。
+\end{definition}
+
+\begin{proposition}
+	\begin{itemize}
+		\item 验证：完全域的代数扩域必是可分扩域。
+		\item 验证：特征为零的域，如有理数域、实数域、复数域等都是完全域。
+	\end{itemize}
+\end{proposition}
+
+\begin{proof}
+	\begin{itemize}
+		\item 设$F$为完全域，$E$为$F$的代数扩域，$\forall x\in E$，$x$对应的极小多项式记为$f(x)$，由于$F$为完全域，所以$f(x)$为可分多项式，所以$x$为可分元，所以$E$为可分扩域。
+		
+		\item $X=\mathbb{Q},or\, \mathbb{R},or\, \mathbb{C}$，$\forall f(x)\in F[x]$，$f(x)$的不可约因子一定是可分的，所以$f(x)$也是可分的。所以$X$是完全域。(任何特征为零的域这个结论都成立。)
+	\end{itemize}
+\end{proof}
+
+\begin{theorem}
+	设$F$是特征为$p$的域，则$F$为完全域的充要条件是$F^{p}=F$。
+\end{theorem}
+
+\begin{corollary}
+	有限域$F$必是完全域。
+\end{corollary}
+
+
+
+\subsection{正规扩域}
+
+\begin{lemma}\label{YMSlem040601}
+	设$f(x)$是域$F$上的多项式，$E$是$f(x)$的分裂域，若$u\in E$，它在$F$上的极小多项式为$g(x)$，则$g(x)$在$E$中必分裂，即$g(x)$在$E[x]$中可分解为一次因子的乘积。
+\end{lemma}
+
+
+\begin{definition}
+	设$E$是$F$的代数扩域，若$F$上的任一不可约多项式在$E$中或者无根或者根都在$E$中，则称$E$是$F$的正规扩域或正规扩张。
+\end{definition}
+
+\original
+{
+	引理\ref{YMSlem040601}表明一个多项式的分裂域必是正规扩域。\uline{这个命题之逆也成立。这里只对有限扩张来证明它。}
+}
+{P148}
+
+\begin{proposition}
+	验证：一个多项式的分裂域必是正规扩域。
+\end{proposition}
+
+\begin{proof}
+	记$E$为$f(x)$在域$F$上的分裂域。
+	\begin{itemize}
+		\item 首先说明一个多项式的分裂域必是代数扩域。因为分裂域一定是有限扩域，所以一定是代数扩域。
+		\item 任取不可约多项$g(x)\in F[x]$，若$g(x)$在$E$中无根，结论成立。若$g(x)$在$E$中有根，记为$u$，即$g(u)=0$，则可验证$g(x)$为$u$在$F$上的极小多项式，则由引理\ref{YMSlem040601}可知，$g(x)$在$E[x]$中可分解为一次因子的乘积，即根都在$E$中。
+	\end{itemize}
+\end{proof}
+
+\begin{theorem}\label{YMSthe040601}
+	设$E$是$F$的有限扩张，则$E$是$F$的正规扩域当且仅当$E$是$F$上某个多项式的分裂域。
+\end{theorem}
+
+\begin{proof}
+	\begin{itemize}
+		\item 充分性：由于$E$是$F$上某个多项式的分裂域，所以$E$是$F$的代数扩域。任取不可约多项式$f(x)\in F[x]$，若其在$E$无根，结论成立。若$\exists u\in E$，使得$f(u)=0 $，则$f(x)$为$u$在$F$上的极小多项式，由引理\ref{YMSlem040601}可知，$f(x)$的所有根在$E$中。
+		\item 必要性：
+	\end{itemize}
+\end{proof}
+
+\begin{corollary}\label{YMScor040601}
+	域$F$的任一有限扩张必含于$F$的某个正规扩张之中。
+\end{corollary}
+
+\begin{definition}
+	设$E$是$F$的代数扩域，若$K$是$F$的正规扩域且包含$E$，又若$K\supset M\supset E $，$M$是$F$的正规扩域，则必有$K=M$，则称$K$是$E/F$的正规闭包。
+\end{definition}
+
+\original
+{
+	正规闭包即是包含$E$的最小的$F$的正规扩域。
+	\par
+	由推论\ref{YMScor040601}可知，对$F$的任一有限扩张$E$，$E/F$的正规闭包必存在。事实上就是推论中的$K$。这一结论对一般的(不一定是有限扩张)代数扩张也对，但这里不再予以证明。
+	\par
+	从定理\ref{YMSthe040601}的证明还可以看出，$F$的有限扩张$E/F$的正规闭包在同构的意义下唯一(这对一般的代数扩张$E/F$也对)。事实上，$E/F$的正规闭包必是定理证明中多项式$f(x)$的分裂域，由分裂域在同构意义下唯一即得结论。
+}
+{P149}
+\begin{proposition}
+	\begin{itemize}
+		\item 验证：正规闭包一定存在，推论\ref{YMScor040601}中$K$就是$E/F$的正规闭包。
+		\item 验证：正规闭包在同构意义下唯一。
+	\end{itemize}
+\end{proposition}
+
+\begin{proof}
+	\begin{itemize}
+		\item 任取$K'$为$E/F$的正规闭包，$\forall g_{i}$，由于$u_{i}\in E\subset  K'$，所以$g_{i}$所有的根都在$K'$中，所以$K'\supset K$。
+		\item 正规闭包必是定理\ref{YMSthe040601}证明中的$f(x)$的分裂域，由分裂域在同构意义下唯一即可。
+	\end{itemize}
+\end{proof}
+
+
+\begin{example}
+	有理数域$\mathbb{Q}$上的扩域$\mathbb{Q}(\sqrt{2})$是正规扩域。
+\end{example}
+\begin{proof}
+	因为$[\mathbb{Q}(\sqrt{2}):\mathbb{Q}]=2$，且$\mathbb{Q}(\sqrt{2})$是$x^{2}-2$的分裂域，由定理\ref{YMSthe040601}得，结论成立。
+\end{proof}
+
+\begin{example}
+	$\mathbb{Q}$上的扩域$\mathbb{Q}(\sqrt[3]{2},\omega)$，这里$\omega=-\frac{1}{2}+\frac{\sqrt{3}}{2}$，因此它是多项式$f(x)=x^{3}-2$的分裂域。但$\mathbb{Q}(\sqrt[3]{2})$不是$\mathbb{Q}$的正规扩域，因为$f(x)$的根不全在其中。
+\end{example}
+
+\begin{example}\label{YMSexa040603}
+	$F=\mathbb{Q}(\sqrt{2})$，$E=\mathbb{Q}(\sqrt[4]{2})$，显然$F$是$\mathbb{Q}$的正规扩域，$E$也是$F$的正规扩域，但是$E$不是$\mathbb{Q}$的正规扩域。
+\end{example}
+
+\begin{proof}
+	\begin{itemize}
+		\item $F$是$\mathbb{Q}$的正规扩域：$F$是$x^{2}-2$的分裂域。
+		\item $E$是$F$的正规扩域：$E$是$x^{2}-\sqrt{2}$的分裂域。
+		\item $E$不是$\mathbb{Q}$的正规扩域：$x^{4}-2=0$有根在$E$中，但是两个复根不在$E$中。
+	\end{itemize}
+\end{proof}
+
+\original
+{
+	例\ref{YMSexa040603}说明正规扩域没有传递性，这一点正如群论中正规子群没有传递性一样。我们很快就会看到上面两个事实之间的内在连续。作为比较，有限扩张、代数扩张以及可分扩张都有传递性。
+}
+{P149}
+
+\begin{proposition}
+	\begin{itemize}
+		\item 举例：正规子群没有传递性。
+		\item 验证：有限扩张、代数扩张以及可分扩张都有传递性。
+	\end{itemize}
+\end{proposition}
+
+\begin{proof}
+	\begin{itemize}
+		\item 
+		\item 
+		\begin{itemize}
+			\item 有限扩张的传递性：维数公式，定理\ref{YMSthe040101}。
+			\item 代数扩张的传递性：定理\ref{YMSthe040203}。
+			\item 可分扩张的传递性：
+		\end{itemize}
+	\end{itemize}
+\end{proof}
+
+\begin{theorem}
+	设$E$是$F$的有限维正规扩张，$K$是$E$与$F$的中间域，则下列三个命题等价：
+	\begin{enumerate}
+		\item $K$是$F$的正规扩域；
+		\item 若$\sigma$是$E/F$的自同构，即为$E$的保持$F$中元不动的自同构，则$\sigma(K)\subseteq K$；
+		\item 若$\sigma$是$E/F$的自同构，则$\sigma(K)=K$。
+	\end{enumerate}
+\end{theorem}
+
+
+\begin{theorem}
+	设$E$是$F$上可分多项式$f(x)$的分裂域，则$E$必是$F$的可分扩张。
+\end{theorem}
+
+
+
+
+
+
+
+

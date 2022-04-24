@@ -1,0 +1,266 @@
+\section{The Direct Methos in the Calculus of Variations}
+
+\subsection{Lower Semi-continuity}
+
+\begin{theorem*}[1.1]\label{C1S1_1.1}
+    
+\end{theorem*}
+\begin{remark*}
+    In the proof of the case of sequentially compact, how to get the existence of u $\in \bigcap_{\alpha>\alpha_0}K_\alpha$:
+    $\forall \, n\in N$, beacause $E(u_m)\rightarrow \alpha_0$, so $\exists \, M$, when $m>M$, $u_m\in K_{\alpha+\frac{1}{n}}$, and for $K_{\alpha_0+\frac{1}{n}}$ is sequentially compact, there is a subsequence of \{$u_m$\} denoted by $\{u_m^{(n)}\}$ that converge to $u^{(n)}\in K_{\alpha_{0}+\frac{1}{n}}$. Similarily, there is a subsequence of $(u_m^{(n+1)})$ that converge to $u^{(n+1)}\in K_{\alpha_0+\frac{1}{n+1}}$. And M is Huausdorff space, so $u_m^{(n+1)}=u_m^{(n)}$. So take $u_m^{(n)}$ as $u$. Then we can prove that $u\in \bigcap_{\alpha>\alpha_0}K_{\alpha}$.
+\end{remark*}
+
+\subsection{}
+
+\subsection{}
+
+\subsection{The Concentration-Compactness Principle}
+
+
+\begin{lemma*}[4.3 Concentration-Compactness Lemma 1]\label{C1S4_4.3}
+    
+\end{lemma*}
+
+\begin{lemma*}[4.8 Concentration-Compactness Lemma 2]\label{C1S4_4.8}
+    
+\end{lemma*}
+
+\begin{theorem*}[4.9]\label{C1S4_4.9}
+    
+\end{theorem*}
+
+\begin{remark*}
+I divide the proof into three parts (naturally):
+\begin{enumerate}
+    \item {}
+    Using the conditions that $\{u_m\}$ is the mininizing sequence of $S$ , $\norm{u_m}_{L^q}=1$ and the definiton of $Q(r)$, author constructs $\{vm\}$:
+    \begin{equation*}
+      v_m=
+      \tilde{R}_m^{-n/q}
+      u_m
+      \left(
+          \dfrac{x-\tilde{x}_m}
+          {\tilde{R}_m}
+      \right)      
+    \end{equation*}
+    and $\{v_m\}$ satisfy:
+    \begin{enumerate}
+    \item 
+    $\{v_m\}$ is mininizing sequence of $S$.
+    
+    \item {}
+    $\norm{v_m}_{L^q}=1$.
+
+    \item {}
+    $Q(1)=\sup_{x\in\mathbb{R}^n}
+    \int_{B_1(x)}\,|v_m|^q\, \dd x
+    =
+    \int_{B_1(0)}\,|v_m|^q\,\dd x
+    =
+    \dfrac{1}{2}$
+    \end{enumerate}
+and constructs :
+\begin{equation*}
+    \mu_m=|\nabla^k v_m|^p\dd x\, , \, \nu_m=|v_m|^q\dd x
+\end{equation*}
+
+\item {}
+Using \hyperlink{C1S4_4.3}{lemma 4.3} to $\{v_m\}$ , and discuss to show that only case (1.Compactness) is valid.
+
+\item {}
+Then use \hyperlink{C1S4_4.9}{lemma 4.8} to $\mu_m,\nu_m$.
+
+\end{enumerate}
+\end{remark*}
+
+\question
+
+\begin{enumerate}
+\item {\bfseries done}%1
+existence of $\tilde{R}_m$ , $\tilde{x}_m$ ?
+\item {}%2
+How to prove $v_m\rightharpoondown v$ in $D^{k,p}(\mathbb{R}^n)$ ?
+\item {}%3
+How to prove 
+\begin{equation*}
+    \norm{(\nabla^k v_m)\phi_m}_{L^p(\mathbb{R}^n)}
+    \geq
+    \norm{\nabla^k(v_m\phi_m)}_{L^p(\mathbb{R}^n)}
+    -
+    C\sum_{l<k}
+    \norm{\nabla^l v_m\nabla{k-l}\phi_m}_{L^p(\mathbb{R}^n)}
+\end{equation*}
+by Minkowski's inequality ? And what it means by $\norm{\nabla^k(v_m\phi_m)}_{L^p(\mathbb{R}^n)}$ ?
+
+\item {}%4
+Young's inequality.
+
+\item {}%5
+interpolation.
+\end{enumerate}
+
+\solution
+
+\begin{enumerate}
+    \item {}
+    If $Q(1)=\sup_{x\in\mathbb{R}^n}
+    \int_{B_1(x)}\,
+    |v_m|^q
+    \,\dd x
+    =\frac{1}{2}$
+    has been proved , using the condition that $v_m\in C_0^{\infty}(\mathbb{R}^n)$ and doing translation to $x$ can get the conclution.
+    \\
+    See that :
+    \begin{equation*}
+    \begin{aligned}
+    Q(1)
+    &=
+    \sup_{x\in\mathbb{R}^n}
+    \int_{B_1(x)}\,
+    |v_m(y)|^q
+    \,\dd y
+    \\
+    &=
+    \sup_{x\in\mathbb{R}^n}
+    \int_{B_1(x)}\,
+    |
+    \tilde{R}_m^{-n/q}
+    u_m
+    \left(
+        \dfrac{y-\tilde{x}_m}
+        {\tilde{R}_m}
+    \right)
+    |^q
+    \,\dd y
+    \\
+    &=
+    \sup_{x\in\mathbb{R}^n}
+    \int_{
+        B_{\frac{1}{\tilde{R}_m}}
+        (\frac{x_-\tilde{x}_m}{\tilde{R}_m})
+    }\,
+        |u_m(t)|^q
+    \,\dd t
+    {}
+    \end{aligned}
+    \end{equation*}
+    Although centre of $B_{
+        \frac{1}{\tilde{R}_m}
+    }
+    \left(
+        \frac{x-\tilde{x}}{\tilde{R}_m}
+    \right)
+    $ is changed with $\tilde{R}_m$ , $x\in \mathbb{R}^n$ still make the centre go over whole $R^n$ .
+    \\
+    Next , show that $\sup_{y\in \mathbb{R}^n}
+    \int_{B_{\frac{1}{\tilde{R}_m}}(y)}\,
+    |u_m(t)|^q
+    \,\dd t
+    $ is continious in $\tilde{R}_m$ .
+    \\
+    Show that $\forall \, y\in R^n$ ,
+    \begin{equation*}
+        \left|
+        \int_{B_{
+        r+\Delta r
+        }(y)
+        }\,
+        |u_m(t)|^q
+        \,\dd t
+        -
+        \int_{
+            B_{r}(y)
+        }\,
+        |u_m(t)|^q
+        \,\dd t
+        \right|
+        \leq C\Delta r
+    \end{equation*}
+    $C$ is independent of $y$ . This can implies $\sup\cdots$ is continious in $\tilde{R}_m$.
+    \begin{equation*}
+    \begin{aligned}
+    &    \left|
+    \int_{B_{
+    r+\Delta r
+    }(y)
+    }\,
+    |u_m(t)|^q
+    \,\dd t
+    -
+    \int_{
+        B_{r}(y)
+    }\,
+    |u_m(t)|^q
+    \,\dd t
+    \right|
+    (\text{let $t=\frac{r+\Delta r}{r} (x-y)+y$})
+    \\
+    &\leq
+    \left|
+    \int_{
+        B_r(y)
+    }\,
+    |
+    u_m
+    (\frac{r+\Delta r}{r} (x-y)+y)
+    |^q
+    |
+    \frac{r+\Delta r}{r}
+    |^n
+    \,\dd x
+    -
+    \int_{B_r(y)}\,
+    |u_m(x)|^q
+    \,\dd x
+    \right|
+    \\
+    &\leq
+    C \Delta r
+    \end{aligned}
+    \end{equation*}
+    and claim that $\exists [a,b]$ , so that 
+    $$
+        \sup_{y\in\mathbb{R}^n}
+        \int_{
+        B_{
+            \frac{1}{a}
+            }(y)
+            }\,
+        |u_m(t)|^q
+        \,\dd t
+        <\frac{1}{2}
+    $$
+    and 
+    $$
+    \sup_{y\in\mathbb{R}^n}\int_{
+        B_{
+            \frac{1}{b}
+        }(y)}
+        |u_m(t)|^q\dd t
+        >\frac{1}{2}
+    $$
+    beacause $u\in C_0^{\infty}$ , so have  $supp\,u_m(x)=\Omega$ and $|u_m|^q\leq D$ .
+    \\
+    Then let:
+    \begin{align*}
+        b&=\frac{1}{diag{\Omega}}\\
+        a&=4D
+    \end{align*}
+    \item {}%2
+    Show that $D^{k,p}$ is seperable.
+    \item {}%3
+    $
+    |\nabla^k (v_m \phi_m)|
+    =
+    \sum\limits_{l\leq k}
+     |\nabla ^l v_m| 
+     \,
+     |\nabla ^{k-l} \phi_m|
+     $?(maybe wrong!)
+    
+    \item {}%4 
+    When estimate $\beta_m$ , take $p=2$ for example . Then apply Young's inequality to the crossing terms.
+    \item {}%5 
+    Adams <Sobolev Spaces> Second edition Theorem 5.12.
+\end{enumerate}
+

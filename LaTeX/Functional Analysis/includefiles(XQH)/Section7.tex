@@ -1,0 +1,612 @@
+
+\section{拓扑向量空间}
+\subsection{定义和基本性质}
+
+\begin{definition}[拓扑向量空间]
+	
+\end{definition}
+
+\begin{example}
+	验证：$L_{p}(\Omega),\, 0<\, p\,\leq\, \infty$为拓扑向量空间。
+\end{example}
+
+\begin{proof}
+	\begin{itemize}
+		\item 首先验证$0\, < \, p\, < \, 1$的情形，此时$L_{p}(\Omega)$上的拓扑由距离$||f-g||^{p}=\int |f-g|^{p}\, \dd x$所诱导：
+		\begin{enumerate}
+			\item 先验证加法连续。$\forall \, f_{0},g_{0}\in \, L_{p}(\Omega) \quad and \forall \, V_{0}\in \mathcal{N}_{f_{0}+g_{0}}$，不妨记$V_{0}=B(f_{0}+g_{0},r)$，此时，考虑$f_{0}\in B_{1}=B(f_{0},\frac{r}{2})\in \mathcal{N}(f_{0})\, ,\, g_{0}\in B_{2}=B(g_{0},\frac{r}{2})\in\mathcal{N}(g_{0})$，则有$\forall \, f\in \, B_{1}\, ,\, g \, \in \, B_{2}\, ,\, f+g\in V_{0}$，所以加法连续。
+			\item 再验证数乘成立。$\forall \, k\in\mathbb{K}\, ,f_{0}\in L_{p}(\Omega)$以及$\forall \, B=B(kf_{0},r)$，要找到开球$k\in B_{1}=B(k,r_{1})\in \mathcal{N}(k),f_{0}\in  B_{2}=B(f_{0},r_{2})\in \mathcal{N}(f_{0})$，使得$\forall \lambda\, \in \, B_{1}\, , \, g\in B_{2}$，满足：
+			\begin{equation*}
+				\int |\lambda g-kf_{0}|^{p}\, \dd x\, < \, r
+			\end{equation*}
+		利用插值技巧：
+			\begin{equation*}
+				\begin{aligned}
+				\int |\lambda g-kf_{0}|^{p}\,\dd
+				 x \, &=\int |\lambda g-\lambda f_{0} + \lambda f_{0}-kf_{0}|^{p}\,\dd x\\
+				 &\leq \int |\lambda g-\lambda f_{0}|^{p}\,\dd x +\int |\lambda f_{0}-kf_{0}|^{p}\, \dd x\\
+				 &\leq |\lambda|^{p}\, \int |g-f_{0}|^{p}\,\dd x \,+\, |\lambda -k|^{p} \int |f_{0}|^{p}\,\dd x \, < \,r 			 
+				\end{aligned}
+			\end{equation*}
+		可取$r_{1}=\frac{r^{\frac{1}{p}}}{2^{\frac{1}{p}}|f_{0}|}\, ,\, r_{2}=\frac{r}{2|\lambda|^{p}_{max}}$，所以数乘也连续。
+		\end{enumerate}
+	\item 再验证$1\, \leq \, p \, \leq \, \infty $的情形，此时$L_{p}(\Omega)$上的拓扑是由范数$||f||=\Big(\int |f|^{p}\,\dd x\Big)^{\frac{1}{p}}$诱导。
+	\begin{enumerate}
+		\item 先验证加法连续，对于$\forall \, f_{0},g_{0}\in L_{p}(\Omega)$，以及$\forall \, B(f_{0}+g_{0},r)\in \, \mathcal{N}(f_{0}+g_{0})$，考虑$B(f_{0},\frac{r}{2})\, , \, B(g_{0},\frac{r}{2})$即可，所以加法连续。
+		\item 再验证数乘连续，对于$\forall k\, \in \mathbb{K}\, , \, f_{0}\in \, L_{p}(\Omega)$，以及$\forall \, B=B(kf_{0},r)\, \in \, \mathcal{N}(kf_{0})$,要找$B_{1}=B(k,r_{1})\, ,\, B_{2}=B(f_{0},r_{2})$，使得$\forall \, \lambda\in B_{1}\, ,\, g\in B_{2}$，满足：
+		\begin{equation*}
+			(\int \, |\lambda g-kf_{0}|^{p})^{\frac{1}{p}}\, \dd x \, <\, r
+		\end{equation*}
+	可先考虑：
+	\begin{equation*}
+		\begin{aligned}
+				(\int \, |\lambda g-kf_{0}|^{p})^{\frac{1}{p}}&=(\int \, |\lambda g-\lambda f_{0}+\lambda f_{0}-kf_{0}|^{p}\dd x)^{\frac{1}{p}}\\
+				&\leq |\lambda|(\int |g-f_{0}|^{p}\dd x)^{\frac{1}{p}}+|\lambda-k|\cdot||f_{0}||_{p}\, <\, r
+		\end{aligned}
+	\end{equation*}
+	由上式可取$r_{1}=\frac{r}{2||f_{0}||_{p}}\,,\, r_{2}=\frac{r}{2\lambda_{max}}$，所以数乘连续。
+	\end{enumerate}
+	\end{itemize}
+\end{proof}
+
+\begin{remark}
+	\begin{itemize}
+		\item 当$0\, <\, p\, <\, 1$时，$L_{p}(\Omega)$不是赋范空间。
+		\item 当$1\, \leq p \leq \infty$，$L_{p}(\Omega)$是赋范空间。
+	\end{itemize}
+\end{remark}
+
+\begin{theorem}\label{XQHthe070101}
+	设$E$是拓扑向量空间，则“伸缩平移”是$E$上的同胚。
+\end{theorem}
+
+\begin{hint}
+	连续映射的复合仍是连续映射。
+\end{hint}
+
+\begin{remark}
+	注意这里的伸缩指的是$\lambda \neq 0 $的情形。
+\end{remark}
+
+\begin{definition}
+	\begin{enumerate}
+		\item 平衡的：若任取$|\lambda|\leq 1(\lambda\in \mathbb{K}) $，对$\forall x\in A$，有$\lambda x\in A $，那么称$A$是平衡的。
+		\item 吸收的：对$\forall x\in E $，$\exists a>0 (constant)$，当取$|\lambda|\leq a(\lambda \in \mathbb{K})$时，有$\lambda \, x\in A$，那么称$A$是吸收的。
+	\end{enumerate}
+\end{definition}
+
+\begin{remark}
+	若$A$是平衡的，则$A$是对称的，即$-A=A$，且$0\in A$。
+\end{remark}
+
+\begin{theorem}
+	若$E$是拓扑向量空间，$A\subset E$。则
+	\begin{enumerate}
+		\item 若$A$是向量子空间(凸集或平衡集)，则$\bar{A}$也是向量子空间(凸集或者平衡集)。
+		\item 若$A$是凸集，则$\mathring{A}$也是凸集。
+		\item 若$A$是平衡集且$0\in \mathring{A} $，则$\mathring{A}$也是平衡集。
+	\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+	\begin{enumerate}
+		\item 
+			\unfinished
+			{\begin{itemize}
+			\item $\forall x,y\in \bar{A} $，证明$x+y \in \bar{A}$
+			\item $\forall x\in \bar{A} ,k\in \mathbb{K}  $，证明$k\, x\in \bar{A} $。\\
+				$\forall V_{k\, x}\in \mathcal{N}(k\, x) $，考虑$\frac{1}{k} V_{k\, x } $。由定理\ref{XQHthe070101}可知$\frac{1}{k}V_{k\,x } \in \mathcal{N}( x ) $，由于$x\in \bar{A} $，所以$\exists \{x_{n}\} \subset A $ ，满足$x_{n} \rightarrow x \,\,(n\rightarrow\infty) $。则$\exists N>0$，使得$n > N$时，满足$x_{n} \in \frac{1}{k}V_{k\, x}$ 。则可证$k\, x_{n} \rightarrow kx (n\rightarrow\infty) $，所以$k\, x\in \bar{A} $。
+			\end{itemize}
+			}
+		\finished
+		{
+			$\forall \lambda ,\beta \in \mathbb{K} $，考虑映射:
+			\begin{equation*}
+				{\large\text{$f_{\lambda,\beta}:\,\,\,\,$}}
+				\begin{aligned}
+					\bar{A}\times\bar{A}&\rightarrow E\\
+					(x,y)&\rightarrow \lambda \, x+\beta \, y
+				\end{aligned}
+			\end{equation*}
+		这里，$f_{\lambda,\beta}$是连续映射。要证$\bar{A}$是线性子空间，就是要证$f_{\lambda,\beta}(\bar{A}\times \bar{A})\subset \bar{A} $。这是因为$f_{\lambda,\beta}(\bar{A}\times\bar{A} ) = f_{\lambda,\beta }( \overline{A\times A} ) \subset \overline{ f_{\lambda,\beta}(A\times A) } \subset \bar{A}  $。\par
+		这里补充证明一下：$f(\bar{B}) \subset \overline{f(B)} $(要求$f$连续)。$\forall f(x)\in f(\bar{B})  $(这里取$x\in \bar{B} $)，$\forall V_{f_{x}}\in \mathcal{N}(f(x)) $,由$f$连续，则$f^{-1}(V_{f_{x}}) \in \mathcal{N}(x) $，又$x\in \bar{B} $，所以$f^{-1}(V_{f_{x}})\cap B\neq \emptyset $，所以$V_{f_{x}}\cap f(B) \neq \emptyset $，所以$f(x)\in \overline{f(B)} $。因此$f(\bar{B}) \subset \overline{f(B)} $。
+		}
+	  {课本}
+	   对于凸集和平衡集的情况，也可以类似证明。
+		\item $\forall 0<t<1 $，$t \mathring{A} + (1-t) \mathring{A} \subset A $，又$t \mathring{A} + (1-t) \mathring{A} $为开集，所以$t \mathring{A} + (1-t) \mathring{A}\subset \mathring{A} $。所以$\mathring{A} $为凸集。
+		\item 要证$\forall |\lambda|\leq 1 $，$\lambda \mathring{A} \subset \mathring{A} $。对于$\lambda \neq 0 $，有$\lambda \mathring{A} \subset A $，且由定理\ref{XQHthe070101}，$\lambda \mathring{A} $为开集，所以$\lambda \mathring{A} \subset \mathring{A} $。当$\lambda =0 $时，$\lambda \mathring{A}=0\in \mathring{A} $。所以$\mathring{A} $为平衡集。
+	\end{enumerate}
+\end{proof}
+
+接下来用$\mathcal{N}(x)$表示$x$点的邻域系。
+\begin{theorem}
+	设$E$是拓扑向量空间。则
+	\begin{enumerate}
+		\item 任取$x\in E $，则$\mathcal{N}(x)=\mathcal{N}(0)+x $(即$V\in \mathcal{N}(x)\Leftrightarrow V-x\in \mathcal{N}(0) $)。
+		\item 任取$V\in \mathcal{N}(0) $，存在$U\subset \mathcal{N}(0) $，使得$U+U\subset V $。
+		\item 设$\lambda\in \mathbb{K} $且$\lambda\neq 0 $。则$V\in \mathcal{N}(0)\Leftrightarrow \lambda V\in \mathcal{N}(0) $。
+		\item 任意$V\in \mathcal{N}(0) $是吸收的。
+		\item 原点0有平衡的开(或闭)邻域基。
+	\end{enumerate}
+\end{theorem}
+\begin{proof}
+	\begin{enumerate}
+		\item 任取$x\in E $，
+		\begin{itemize}
+			\item $"\Rightarrow"$，$\forall V \in \mathcal{N}(x) $，有$0\in V-x $，又由定理\ref{XQHthe070101}，$V-x\in \mathcal{N}(0) $。
+			\item $"\Leftarrow"$，$\forall U\in \mathcal{N}(0) $，有$U+x\in \mathcal{N}(x) $，取$U=V-x $，即得结论。
+		\end{itemize}
+	\item 考虑映射：
+	\begin{equation*}
+		\text{\large $f:$}
+		\begin{aligned}
+			E\, \times\, E\,&\rightarrow E\\
+			(x,y)\,&\rightarrow x+y
+		\end{aligned}
+	\end{equation*}
+	又拓扑向量空间的定义，这是连续映射，不妨设$V\in \mathcal{N}(0) $为开集。则$(0,0)\in f^{-1}(V) \subset E\, \times \, E $也为开集，所以$\exists U_{1},U_{2} \in \tau(E) $，且满足$U_{1},U_{2}\in \mathcal{N}(0) $，考虑$U= U_{1}\cap U_{2} $，即可验证满足定理结论。
+	\item 由定理\ref{XQHthe070101}可得。
+	\item $\forall V\in \mathcal{N}(0) $，$\forall x\in V $ ，考虑映射：
+	\begin{equation*}
+		\text{\large$\phi_{x}:$}\,\,
+		\begin{aligned}
+			\mathbb{K}\, & \rightarrow \, E\\
+			k\, & \rightarrow kx.
+		\end{aligned}
+	\end{equation*}
+	由拓扑向量空间的定义可得$\phi_{x} $为连续映射。$\phi_{x}^{-1}(V)$为$\mathbb{K}$的开集，且$0\in \phi_{x}^{-1}(V) $，所以$\exists \alpha >0 $，使得$B_{\mathbb{K}}(0,\alpha) \subset \phi_{x}^{-1}(V) $。从而结论成立。
+	\item 
+	\end{enumerate}
+\end{proof}
+
+
+\begin{theorem}\label{XQHthe070104}
+	设$E$和$F$是两个拓扑向量空间，$u:\, E\, \rightarrow \, F $是线性映射。则以下命题等价：
+	\begin{enumerate}
+		\item $u$是连续映射。
+		\item $u$在原点连续。
+	\end{enumerate}
+	若$F$还是赋范空间，则以上命题与如下命题等价：
+	\begin{enumerate}
+		\item[3.] $u$在原点的某邻域内有界。 
+	\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+	
+\end{proof}
+
+\original
+{定理\ref{XQHthe070104}意味着连续线性映射$u:E\, \rightarrow \, F $是一致连续的，即对$F$中原点的每个邻域$V$，存在$E$中原点的邻域$W$，使得当$x-y\in W $时，$u(x)-u(y) \in V $。
+}
+{P133}
+\begin{remark}
+	类比函数的一致连续理解。
+\end{remark}
+
+\begin{corollary}
+	设$E$是数域$\mathcal{K}$上的拓扑向量空间，$u:E\, \rightarrow \, \mathbb{K} $是线性泛函。则定理\ref{XQHthe070104}的结论成立。
+\end{corollary}
+
+
+\subsection{半赋范空间}\label{XQH0702}
+
+\begin{definition}
+	设$E$是数域$\mathbb{K}$上的向量空间，若$E$上的泛函$p: E\, \rightarrow \mathbb{R} $满足：
+	\begin{itemize}
+		\item 非负性
+		\item 正齐性
+		\item 三角不等式
+	\end{itemize}
+	则称$p$为$E$上的半范数。
+\end{definition}
+
+设$p$是$E$上的半范数。我们可定义相应的“半距离”为:
+\begin{equation*}
+	d_{p}(x,y)=p(x-y), \, \forall x,y\in E.
+\end{equation*}
+它显然满足距离的定义：
+\begin{enumerate}
+	\item $d_{p}(x,y)\geq 0  $，且$d_{p}(x,x)=0 $。
+	\item $d_{p}(x,y)=d_{p}(y,x)$。
+	\item $d_{p}(x,y) \leq d_{p}(x,z) +d_{p}(z,y) $。
+\end{enumerate}
+定义相应于半范数$p$的开球：
+\begin{equation*}
+	B_{p}(a,r)=\{x\in E: p(x-a)<r\},\, a\in E,r>0
+\end{equation*}
+称$B_{p}(a,r) $为一个开$p-$球，其中心为$a$，半径为$r$。\par
+有了开球的概念，我们定义$E$上由半范数$p$诱导的拓扑$\tau_{p}$：若子集$A\subset E $可以表示成$E$中开$p-$球的并，则$A$为$E$中的开集。\original{容易验证所有这样的开集构成的集族的确是$E$上的拓扑}{P34}，我们称该拓扑为$E$上的半范数$p$诱导的拓扑或$p-$拓扑。
+\begin{proposition}
+	验证，这样的开集构成的集族的确是$E$上的拓扑。
+\end{proposition}
+\begin{proof}
+	\begin{itemize}
+		\item $\emptyset ,E$可以写成开$p-$球的并。
+		\item 任意并封闭。
+		\item 有限交封闭。设$B_{1}=B_{p}(a_{1},r_{1}),B_{2}=B_{p}(a_{2},r_{2}) $。若$B_{1}\cap B_{2}=\emptyset$，则可以写成$p-$球的并。若$B_{1}\cap B_{2}\neq \emptyset$，则$\forall x\in B_{1}\cap B_{2} $，考虑$B_{x}=B_{p}(x,min\{r_{1}-p(a_{1},x),r_{2}-p(a_{2},x)\} ) $，可验证$B_{x}\subset B_{1}\cap B_{2} $。
+	\end{itemize}
+\end{proof}
+
+\original{注意，$p-$拓扑是Hausdorff拓扑当且仅当$p$是一个范数。}{P134}正是因为单个半范数诱导的拓扑不一定是Hausdorff拓扑，我们往往从一族半范数出发，希望诱导出的拓扑是Hausdorff拓扑。
+\begin{proposition}
+	验证：$p-$拓扑是Hausdorff拓扑当且仅当$p$是一个范数。
+\end{proposition}
+
+\begin{proof}
+	“$\Rightarrow$”，$\forall x\neq y$，因为$x-y\neq 0$，由$p-$拓扑是Hausdorff拓扑，所以$p(x-y)>0$，所以$p(x)=0$，则 $x=0$，$p$是范数。\par
+	“$\Leftarrow$”，$\forall x\neq y $，因为$p$为范数，所以$p(x-y)\neq 0 $，考虑$B_{1}=B_{p}(x,\frac{p(x-y)}{2}),B_{2}=B_{p}(y,\frac{p(x-y)}{2})$，则可把$x,y$分开。
+\end{proof}
+
+设$(p_{i})_{i\in I} $是$E$上的一族半范数，$I$是指标集。
+\original
+{
+	对任意有限子集$J\subset I $，令
+	\begin{equation*}
+		q_{J}=\max_{i\in J}\,p_{i}.
+	\end{equation*}
+	容易验证$q_{J}$也是$E$上的半范数。由此，我们定义如下半范数族诱导的拓扑。
+}
+{P134}
+
+\begin{proposition}
+	验证：$q_{J}$是$E$上的半范数。
+\end{proposition}
+
+\begin{proof}
+	显然。
+\end{proof}
+
+\begin{definition}
+	设$(p_{i})_{i\in I} $是$E$上的一族半范数。令$\tau$是由如下的子集组成的子集族:$O\in \tau $当且仅当
+	\begin{equation*}
+		O=\bigcup_{\alpha\in \Lambda}B_{q_{J_{\alpha}}}(x_{\alpha},r_{\alpha}),
+	\end{equation*}
+	其中$\Lambda $为某个指标集，每个$J_{\alpha} \subset I $是有限集，并且$x_{\alpha} \in E ,r_{\alpha}>0$。
+\end{definition}
+
+\begin{proposition}
+	验证：$\tau$是$E$上的拓扑。
+\end{proposition}
+
+\begin{proof}
+	\begin{enumerate}
+		\item $\emptyset, E \in \tau $
+		\item 任意并封闭。
+		\item 有限交封闭。取$B_{1}=B_{J_{\alpha}}(x_{\alpha},r_{\alpha}), B_{2}=B_{J_{\beta}}(x_{\beta},r_{\beta}) $，若$B_{1}\cap B_{2}=\emptyset $，则结论成立。若$B_{1}\cap B_{2}\neq \emptyset $，$\forall x \in B_{1}\cap B_{2} $。考虑$B_{x}=B_{q'}(x,r_{x})$，这里$q'=\max\{q_{J_{\alpha}},q_{J_{\beta}}\} ,r_{x}=\min\{r_{\alpha}-p_{J_{\alpha}}(x,x_{\alpha}),r_{\beta}-p_{J_{\beta}}(x,x_{\beta}) \}$。
+	\end{enumerate}
+\end{proof}
+
+\original
+{
+	如果$(p_{i})_{i\in I } $本身满足性质：任取$i,j\in I $，存在$k\in I $，使得
+	\begin{equation*}
+		p_{k}\geq \max\{p_{i},p_{j}\},
+	\end{equation*}
+	则我们不必定义新的$(q_{J})_{J\subset I} $。此时，我们称半范数族$(p_{i})_{i\in I} $是定向的。实际上，我们之所以由半范数族$(p_{i})_{i\in I} $来构造新的半范数族$(q_{J})_{J\subset I} $($J$为有限集)，正是为了使新的半范数族称为一个定向集。\uline{若\text{$(p_{i})_{i\in I} $}是定向的，则用\text{$p_{i}-$}球定义的拓扑和用\text{$q_{J}-$}定义的拓扑是一致的。}
+}
+{P135}
+
+\begin{proposition}
+		验证：$若(p_{i})_{i}$是定向的，则用$p_{i}- $球定义的拓扑和用$q_{J}- $定义的拓扑是一致的。 
+\end{proposition}
+
+\begin{proof}
+	用定义验证即可。
+\end{proof}
+
+\original
+{
+	由半范数族$(p_{i})_{i\in I} $诱导的拓扑是Hausdorff拓扑当且仅当$(p_{i})_{i\in I} $在$E $上是可分点的，即对$\forall x\in E $且$x\neq 0 $，$\exists i \in I $，使得$p_{i}(x)\neq 0 $。(等价地，若$\sup_{i\in I} p_{i}(x)=0$，则$x=0$)。
+}
+{P136}
+\begin{proposition}
+	\begin{itemize}
+		\item 验证：半范数族诱导的拓扑是Hausdorff拓扑当且仅当$(p_{i})_{i\in I} $在$E$上是可分点的。
+		\item 验证：此处可分点的定义是否等价于$\forall x,y\in E$，若$x\neq y $，则$\exists i\in I $，使得$p_{i}(x)\neq 0 $。
+		\item 验证：此处可分点的定义等价于若$\sup_{i \in I} p_{i}(x) =0 $，则$x=0 $。
+	\end{itemize}
+\end{proposition}
+
+\begin{proof}
+	\begin{enumerate}
+		\item “$\Rightarrow$”若$\exists x\neq  0$，使得$\sup_{i \in I}p_{i}(x)=0 $，则根据半范数族诱导的拓扑不能把$x,0$分开。\\
+		“$\Leftarrow $”$\forall x,y\in E $，若$ x-y \neq 0$，因为$(p_{i})_{i\in I} $可分，所以$\exists i\in I $，满足$p_{i}(x,y)\neq 0 $，考虑$B_{1}=B_{p_{i}}(x,\frac{p_{i}(x,y)}{2}) ,B_{2}=B_{p_{i}}(y,\frac{p_{i}(x,y)}{2})$，可验证$B_{1}\cap B_{2} $。
+	\end{enumerate}
+\end{proof}
+
+\begin{theorem}\label{XQHthe070201}
+	设$(p_{i})_{i\in I} $是向量空间$E$上的半赋范族。那么由$(p_{i})_{i\in I} $诱导的拓扑$\tau $与$E$的线性结构相容。因此，$E$成为一个拓扑向量空间，并且该拓扑是使每个$p_{i}(i\in I)$都连续并与线性结构相容的拓扑中最弱的拓扑。
+\end{theorem}
+\begin{proof}
+	
+\end{proof}
+
+\begin{definition}
+	\begin{itemize}
+		\item 设$E$是向量空间，$(p_{i})_{i\in I} $是$E$上的一族半范数，则称$E$为半赋范空间，记为$(E,(p_{i})_{i\in I}) $。半赋范空间是拓扑向量空间。
+		\item 若拓扑向量空间$E$的拓扑可由一族半范数诱导，则称$E$为可半赋范的。
+	\end{itemize}
+\end{definition}
+
+\begin{theorem}\label{XQHthe070202}
+	半赋范空间$E$的原点有一组由凸集组成的邻域基。
+\end{theorem}
+
+\begin{theorem}
+	设$(E,(p_{i})_{i\in I}) $和$(F,(q_{j})_{j\in J}) $是两个半赋范空间，$ u: E\, \rightarrow \, F$是线性映射。那么$u$是连续的当且仅当对$J$的任意有限子集$J' $，存在$I$的有限子集$I'$及常数$C>0$，使得
+	\begin{equation*}
+		\max_{j\in J'} q_{j}(u(x))\leq C\max_{i\in I'} p_{i}(x),\quad \forall x\in E.
+	\end{equation*}
+	特别地，如果$F$是赋范空间，则$u$是连续线性映射当且仅当存在$I$的有限子集$I' $及常数$C>0 $，使得
+	\begin{equation*}
+		||u(x)||\leq C\max_{i\in I'}p_{i}(x),\quad \forall x\in E.
+	\end{equation*}
+\end{theorem}
+
+\original
+{
+	设$(E,(p_{i})_{i\in I}) $和$(F,(q_{j})_{j\in J}) $是两个半赋范空间。令$K=I\times J $，并且对任意$k=(i,j) \in K $，定义
+	\begin{equation*}
+		r_{k}(x,y)=\max\{p_{i}(x),q_{j}(y)\},\quad \forall (x,y)\in E\times F.
+	\end{equation*}
+	那么$(r_{k})_{k\in K}$是$E\times F $上的一族半范数。可以证明，$(r_{k})_{k\in K} $是可分点的当且仅当$(p_{i})_{i\in I} $和$(q_{j})_{j\in J} $是可分点的。并且$E\times F$上由半范数族$(r_{k})_{k\in K} $诱导的拓扑与其上的乘积拓扑一致。
+}
+{P137半赋范空间的乘积空间}
+\begin{proposition}
+	\begin{itemize}
+		\item $(r_{k})_{k\in K} $是可分点的当且仅当$(p_{i})_{i\in I} $和$(q_{j})_{j\in J} $都是可分点的。
+		\item $E\times F$上由半范数族$(r_{k})_{k\in K} $诱导的拓扑与其上的乘积拓扑一致。
+	\end{itemize}
+\end{proposition}
+
+\begin{proof}
+	\begin{itemize}
+		\item 按照可分点的定义验证即可。
+		\item 记$\tau_{1}=\tau_{(r_{k})_{k\in K}} $，$\tau_{2}=\tau_{E\times F} $。\par
+		先证$\tau_{1}\subset \tau_{2} $，任取$V\in \tau_{1} $，任取$(x,y)\in V $，$\exists B_{J_{k}}((x,y),r_{k})\subset V $。$J_{k} $对应指标集$J_{i},J_{j} $，考虑$B_{1}=B_{J_{i}}(x,r_{k}),B_{2}=B_{J_{j}}(y,r_{k})$，容易验证$B_{1}\times B_{2}\subset B_{J_{k}}((x,y),r_{k}) $，所以$V\in \tau_{2}$。\par
+		再证$\tau_{2}\subset \tau_{1} $，$\forall U\in \tau_{2} $，以及$\forall (x,y)\in \tau_{2}$，$\exists B_{1}=B_{J_{i}}(x,r_{x}),B_{2}=B_{J_{j}}(y,r_{y}) $，满足$B_{1}\times B_{2}\subset V $，考虑指标集$J_{k}=J_{i}\times J_{j} $，以及$B_{0}=B_{J_{k}}((x,y),\min\{r_{x},r_{y}\}) $，容易验证$B_{0}\subset B_{1}\times B_{2} $，所以$U\in \tau_{1} $。所以$\tau_{2}\subset \tau_{1} $。
+	\end{itemize}
+\end{proof}	
+
+\subsection{局部凸空间}
+\hspace{2em}我们在上节看到可半赋范的拓扑向量空间的原点具有凸邻域基(定理\ref{XQHthe070202})。这一节证明其逆命题也成立。
+
+\begin{proposition}
+	一个拓扑向量空间$E$称为局部凸空间，若它的原点有一组由凸集组成的邻域基。
+\end{proposition}
+
+\begin{theorem}
+	设$E$是一个局部凸空间，则其在原点有凸的平衡开(或闭)邻域基。
+\end{theorem}
+
+\original
+{
+	设$E$是拓扑向量空间，$\Omega$是$E$中原点处的凸平衡开邻域。我们称泛函$p_{\Omega}:E\, \rightarrow \mathbb{R} $，
+	\begin{equation*}
+		P_{\Omega}(x)=\inf\{\lambda >0:\frac{x}{\lambda}\in \Omega\}
+	\end{equation*}
+	为相应于$\Omega $的$Minkowski$泛函。
+}
+{P139 Minkowski泛函}
+\begin{remark}
+	由平衡的定义，若$\lambda \geq 1 $，则$\frac{x}{\lambda} \in \Omega $，所以$ p_{\Omega}(x)\leq 1$。
+\end{remark}
+
+\original
+{
+	我们给出几个$Minkowski$泛函的性质：
+	\begin{enumerate}
+		\item 设
+		\begin{equation*}
+			I(x)=\{\lambda>0:\frac{x}{\lambda}\in \Omega\}.
+		\end{equation*}
+	若$\lambda\in I(x) $且$\mu >\lambda $，则$\mu \in I(x) $。因为$\Omega $是平衡的，所以有
+	\begin{equation*}
+		\frac{x}{\mu}=\frac{\lambda}{\mu}\, \frac{x}{\lambda}\in \Omega.
+	\end{equation*}
+	故$I(x) $是以$p_{\Omega}(x) $为左端点的半直线。
+	
+	\item $\forall \lambda_{0}\in I(x) $，$\exists \varepsilon>0 $，使得
+	\begin{equation*}
+		(\lambda_{0}-\varepsilon,\lambda_{0}+\varepsilon)\subset I(x).
+	\end{equation*}
+	因为\text{$\lambda\,\rightarrow \,\frac{x}{\lambda} $}为连续映射，且$\Omega $为开集，所以$\exists \varepsilon>0 $，满足$(\lambda_{0}-\varepsilon,\lambda_{0}+\varepsilon ) \subset I(x)$，这说明$I(x) $为开集，可表示为$I(x)=(P_{\Omega}(x),\infty) $。因此$p_{\Omega}<1 $等价于$1\in I(x) $，即$x\in \Omega $。
+	\end{enumerate}
+}
+{P139}
+
+\begin{theorem}\label{XQHthe070302}
+	设$E$是一个拓扑向量空间，设$\Omega,\Omega_{1},\Omega_{2} $都是$E $中原点的凸平衡开邻域。则有
+	\begin{enumerate}
+		\item Minkowski泛函$p_{\Omega}:E\, \rightarrow \mathbb{R} $是$E$上的半范数，并有
+		\begin{equation*}
+			\Omega=\{x\in E:p_{\Omega}(x)<1\}.
+		\end{equation*}
+		
+		\item 若$\Omega_{1}\subset \Omega_{2} $，则$I_{\Omega_{1}}(x)\subset I_{\Omega_{2}}(x) $，从而$p_{\Omega_{2}}\leq p_{\Omega_{1}} $。
+		
+		\item 存在$\Omega_{3}=\Omega_{1}\cap\Omega_{2} $，使得$p_{\Omega_{3}}\geq \max \{p_{\Omega_{1}},p_{\Omega_{2}}\} $。
+	\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+	\begin{enumerate}
+		\item \begin{itemize}
+			\item 非负性，显然。
+			\item 正齐性。\par
+			要证$p_{\Omega}(\mu x) =\inf_{\lambda}\{\lambda>0:\frac{\mu x}{\lambda}\in \Omega \}=|\mu|p_{\Omega}(x)(=|\mu|\inf_{\lambda}\{\lambda>0:\frac{x}{\lambda}\in \Omega\})$。$\forall \lambda \in \{\lambda>0: \frac{\mu x}{\lambda}\in \Omega\} $,则由于$\Omega $是平衡的，所以$\frac{x}{\frac{\lambda}{|\mu|}} \in \Omega$，所以$\frac{\lambda}{|\mu|} \geq p_{\Omega}(x)$，所以$p_{\Omega}(\mu x)\geq |\mu|p_{\Omega}(x) $。\par
+			$\forall \lambda\in \{\lambda>0:\frac{x}{\lambda}\in \Omega\} $，由于$\Omega $是平衡的，所以$\frac{\mu x}{|\mu|\lambda}\in \Omega $，所以$|\mu|\lambda\geq p_{\Omega}(\mu x) $，所以$|\mu|p_{\Omega}(x)\geq p_{\Omega}(\mu x) $。
+			\item 三角不等式。$\forall x,y\in E $，若$\lambda_{x}>0,\lambda_{y}>0$，使得$\frac{x}{\lambda_{x}}\in \Omega,\frac{y}{\lambda_{y}}\in \Omega $，考虑
+			\begin{equation*}
+				\frac{x+y}{\lambda_{x}+\lambda_{y}}=\frac{\lambda_{x}}{\lambda_{x}+\lambda_{y}}\frac{x}{\lambda_{x}}+\frac{\lambda_{y}}{\lambda_{x}+\lambda_{y}}\frac{y}{\lambda_{y}}\in \Omega
+			\end{equation*}
+		所以$p_{\Omega}(x+y)\leq p_{\Omega}(x)+p_{\Omega}(y) $。
+		\end{itemize}
+	\item 显然。
+	\item 可以验证$\Omega_{1}\cap\Omega_{2} $为平衡开凸集。$p_{\Omega_{3}}\geq\max\{p_{\Omega_{1}},p_{\Omega_{2}}\} $容易验证。
+	\end{enumerate}
+\end{proof}
+
+\original
+{
+	设$E$是拓扑向量空间。根据定理\ref{XQHthe070302}，当$\Omega $取遍原点的所有凸平衡开邻域，可得一定向的半范数族$\{p_{\Omega}\}_{\Omega} $，可得
+	\begin{equation*}
+		p_{\Omega}^{-1}((-\varepsilon,\varepsilon))=\varepsilon p_{\Omega}^{-1}((-1,1))=\varepsilon\Omega,
+	\end{equation*}
+	这表明$p_{\Omega} $在原点连续。那么对任意一点$ x_{0}\in E $，当$x\in x_{0}+\varepsilon \Omega $时，有
+	\begin{equation*}
+		|p_{\Omega}(x)-p_{\Omega}(x_{0})|\leq p_{\Omega}(x-x_{0})<\varepsilon.
+	\end{equation*}
+	因此$p_{\Omega}$连续。
+}
+{P140}
+
+\begin{theorem}
+	设$E$是一个局部凸空间，$(p_{\Omega})_{\Omega} $是半范数族，这里$\Omega$取遍$E$中原点的凸平衡开邻域基中所有的元素。那么由半范数族$(p_{\Omega})_{\Omega} $诱导的拓扑与$E$上原拓扑一致。\par
+	因此，拓扑向量空间$E$是局部凸空间的充要条件是$E$为可半赋范的空间。
+\end{theorem}
+
+\begin{proof}
+	记$\tau$为$E$上的原拓扑，$\tau_{1}$为半范数族$(p_{\Omega})_{\Omega}$诱导的拓扑。\par
+	由定理\ref{XQHthe070201}得，$\tau_{1}\subset\tau $。\par
+	再证$\tau \subset \tau_{1}$，即证$\mathcal{N}_{\tau}(0)\subset\mathcal{N}_{\tau_{1}}(0) $，$\forall V\in \mathcal{N}_{\tau}(0) $，$\exists \Omega$，这里$\Omega$是凸的平衡开邻域，使得$\Omega\subset V$，且满足$\Omega=\{x\in E:p_{\Omega}(x)<1\} $，而$\Omega=B_{p_{\Omega}}(0,1)$，所以$V\in \mathcal{N}_{\tau_{1}}(0)$。综上$\tau=\tau_{1}$。
+\end{proof}
+
+\begin{remark}
+	证明拓扑向量空间$E$上两个拓扑$\tau,\tau_{1}$的包含关系，可以等价于证明零点的邻域系的包含关系。
+\end{remark}
+
+
+
+\subsection{局部凸空间的例子}
+
+\begin{example}
+	设$C^{\infty}([0,1]) $表示由$[0,1]$上所有无穷次可微(实值或复值)函数构成的空间，定义其上的半范数为
+	\begin{equation*}
+		p_{i}(f)=\sup_{0\leq t\leq 1}|f^{(i)}(t)|,\quad i=1,2,...
+	\end{equation*}
+	则此半范数族是可分点的，且由其诱导的拓扑可度量化(相应的距离可以是完备的)。此拓扑也由一组递增的半范数$(q_{k})_{k\geq 1} $来定义：
+	\begin{equation*}
+		q_{k}=\sup_{1\leq i\leq k,0\leq t\leq 1}|f^{(i)}(t)|.
+	\end{equation*}
+	在该拓扑下，函数列$(f_{n})$收敛到$f$当且仅当对每个$i\geq 1$，$f_{n}^{(i)} $在$[0,1]$上一致收敛到$f^{i}$。但是，这个拓扑并不能只由$C^{\infty}([0,1]) $上的一个半范数来定义。
+	\par
+	类似地，$C^{\infty}([0,1]^{d})$表示方体$[0,1]^{d}$上所有无穷次可微函数构成的空间。在$C^{\infty}([0,1]^{d}) $上约定如下形式的半范数：设$\alpha=(\alpha_{1},\alpha_{2},...,\alpha_{d})$表示由非负整数构成的多重指标，令
+	\begin{equation*}
+		p_{\alpha}(f)=\sup_{t\in [0,1]^{d}}|D^{\alpha}f(t)|,\quad f\in C^{\infty}([0,1]^{d}),
+	\end{equation*}
+	其中$D^{\alpha}$表示$\alpha$阶的微分单项式
+	\begin{equation*}
+		D^{\alpha}=\frac{\partial^{\alpha_{1}} \cdots\partial^{\alpha_{d}}}{\partial x_{1}^{\alpha_{1}}\cdots\partial x_{d}^{\alpha_{d}}}
+	\end{equation*}
+	从而，$C^{\infty}([0,1]^{d})$也称为一个半赋范空间。
+\end{example}
+
+\begin{proposition}
+	\begin{enumerate}
+		\item 验证：$p_{i}$和$q_{k}$为半范数。
+		\item 验证：半范数族$(p_{i})_{i=1,2...}$是可分点的。
+		\item 验证：$(p_{i})_{i=1,2...}$诱导的拓扑是可度量化的。且相应的距离可以是完备的。
+		\item 验证：在该拓扑下，函数列$(f_{n})$收敛到$f$当且仅当对每个$i\geq 1$，$f_{n}^{(i)} $在$[0,1]$上一致收敛到$f^{i}$。
+		\item 验证：这个拓扑不能只有$C^{\infty}([0,1])$上的一个半范数来定义。
+		\item 验证：$p_{\alpha}$为半范数。
+	\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+	
+\end{proof}
+
+
+\begin{example}
+	设$X$是一个局部紧的Hausdorff空间(例如，$X=\Omega$是$\mathbb{R}^{n}$ 中的开子集)，并令$C(X)=C(X,\mathbb{K})(\mathbb{K}=\mathbb{R}or\mathbb{C})$。设$K\subset X $是紧集，定义
+	\begin{equation*}
+		p_{K}(f)=\sup_{x\in K}|f(x)|.
+	\end{equation*}
+	由此得到的$(p_{K})_{K\subset X}$定义了$C(X) $上的一族可分点的半范数，相应的拓扑意味着在$X$的任一紧子集上一致收敛。若有$X$上递增的紧子集序列$(K_{i})_{i\geq 1} $，使得每一个紧子集$K\subset X $总是包含于某个$K_{i}$($X=\Omega\subset \mathbb{R}^{n} $为开集即满足这种条件)，则该拓扑也可由半范数序列$(p_{K_{i}})_{i\geq 1}$来定义，此时诱导的拓扑可度量化(相应的距离可以是完备的)，但通常不可赋范。
+\end{example}
+
+\begin{proposition}
+	\begin{enumerate}
+
+	\item 验证：$p_{K}$为半范数。
+	\item 验证：相应的拓扑意味着在$X$的任一紧子集上一致收敛。
+	\item 验证：若有$X$上递增的紧子集序列$(K_{i})_{i\geq 1} $，使得每一个紧子集$K\subset X $总是包含于某个$K_{i}$($X=\Omega\subset \mathbb{R}^{n} $为开集即满足这种条件)。
+	...
+	\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+	
+\end{proof}
+
+\begin{example}
+	设$\Omega$为复数域$\mathbb{C}$中的开子集，且$H(\Omega)$表示$\Omega$上所有全纯函数构成的空间。若我们也在$H(\Omega)$上定义上例中一样的拓扑，则它称为一个局部凸空间。该拓扑能由完备的距离诱导。
+\end{example}
+
+\begin{example}
+	设$S(\mathbb{R}^{n})$表示Schwartz函数类，即$\mathbb{R}^{n}$上快速衰减函数构成的集合
+	\begin{equation*}
+		S(\mathbb{R}^{n})=\{f\in C^{\infty}(\mathbb{R}^{n}):||f||_{\alpha,\beta}<\infty,\forall \alpha,\beta\},
+	\end{equation*}
+	其中$\alpha,\beta$是非负整数构成的多重指标。且
+	\begin{equation*}
+		||f||_{\alpha,\beta}=\sup_{x\in \mathbb{R}^{n}}\left|x^{\alpha}D^{\beta}f(x)\right|.
+	\end{equation*}
+	其中$x^{\alpha}=x_{1}^{\alpha_{1}}\cdots x_{n}^{\alpha_{n}} $，$\alpha=(\alpha_{1},\cdots,\alpha_{n}) $。则$(||\cdot||_{\alpha,\beta})_{\alpha,\beta} $是$S(\mathbb{R}^{n})$上的半范数族。$S(\mathbb{R}^{n})$在此半范数族诱导的拓扑下称为一局部凸空间，且此拓扑可度量化，但不可赋范。$S(\mathbb{R}^{n})$是分析中一类重要的空间。
+\end{example}
+
+\begin{example}
+	设$\Omega$是$\mathbb{R}^{n}$中的开子集，$m$为非负整数或$m=\infty$。令$C^{m}(\Omega)$表示由$\Omega$上所有$m$次连续可微函数构成的空间。对任一紧集$K\subset\Omega$和次数$|\alpha|=\alpha_{1}+\cdots+\alpha_{d}\leq m$的多重指标$\alpha=(\alpha_{1},\cdots,\alpha_{d})$，定义
+	\begin{equation*}
+		p_{K,\alpha}(f)=\sup_{t\in K}|D^{\alpha}f(t)|.
+	\end{equation*}
+	当我们让$K$取遍$\Omega$中所有紧子集并让$\alpha$取遍所有次数不大于$m$的多重指标，$(p_{K,\alpha})$成为$C^{m}(\Omega)$上的一族可分的半范数，从而$C^{m}(\Omega)$成为一个半赋范空间，该空间也可完备度量化。
+\end{example}
+
+\begin{example}
+	接上例，$\mathcal{D}^{m}(\Omega)$表示$C^{m}(\Omega)$中有紧支撑的函数构成的子空间。任取$\phi\in C(\Omega)$。定义
+	\begin{equation*}
+		p_{\phi,\alpha}(f)=\sup_{t\in \Omega}|\phi(t)f^{(\alpha)}(t)|,\quad |\alpha|\leq ,\quad f\in \mathcal{D}^{m}(\Omega).
+	\end{equation*}
+	这些泛函$p_{\phi,a}$形成了$\mathcal{D}^{m}(\Omega)$上的可分点的半范数族，并使$\mathcal{D}^{m}(\Omega)$成为一个局部凸空间。然而，和前面的例子不同，这里的拓扑无法度量化。
+\end{example}
+
+\begin{example}
+	设$\Omega$是$\mathbb{R}^{n}$中的开子集，$0< p<\infty$。称$\Omega$上的可测函数$f$局部$p-$方可积，若对任意紧集$K\subset \Omega$，有
+	\begin{equation*}
+		N_{p,K}(f)=\left(\int_{K}|f(t)|^{p}\,\dd t \right)^{\frac{1}{p}}<\infty.
+	\end{equation*}
+	令$L_{loc}^{p}(\Omega)$表示由$\Omega$上所有局部$p-$方可积函数构成的空间。则当$p\geq 1$时，$\{N_{p,K}:K\subset\Omega\}$是$L_{loc}^{p}(\Omega)$上的半范数族，这里$K$为紧集，并使$L_{loc}^{p}(\Omega)$成为一个局部凸空间。另一方面，当$p<1$时，$N_{p,K}$诱导一族平移不变的“半距离”$d_{p,K}(f,g)=N_{p,K}(f-g)$，并使$L_{loc}^{p}$成为一个拓扑向量空间，但该空间不是局部凸的。
+\end{example}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

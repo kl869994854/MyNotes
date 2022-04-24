@@ -1,0 +1,857 @@
+%--------------------------------------------------导言区------------------------------------------------
+
+%\documentclass{book}%book,report,letter
+
+\documentclass[leqno]{article}%leqno可选项让行间公式编号在左边
+
+\usepackage{titlesec} %修改标题格式 %\titleformat{command}[shape]{format}{label}{sep}{before-code}[after-code]
+
+\usepackage{ctex}%中文
+
+\usepackage{xltxtra}    %标志符
+
+\usepackage{texnames}   %标志符
+
+\usepackage{mflogo}     %标志符
+
+\usepackage{graphicx}   %插图
+%语法： \includegraphics[<选项>]{<文件名>}
+%格式：EPS,PDF,PNG,JPEG,BMP
+%图片在当前目录下的figures目录  \graphicspath{{figures/}}
+\graphicspath{{figures/}}
+
+\title{PDE（Evans）附录A,B,C,E Latex尝试版}
+\author{马明文}
+\date{\today}
+%以上三行内容要在正文中用/maketitle引用
+
+\usepackage{amsmath}%数学包
+
+\usepackage{mathbbol}%数学符号
+
+\usepackage{amssymb}
+
+\usepackage{amsthm}
+
+\usepackage{appendix} %附录包
+
+\usepackage{wasysym}
+
+\usepackage{hyperref}
+
+\usepackage{enumitem}
+
+\usepackage{sectsty}
+\sectionfont{\centering}
+
+
+%\usepackage[russian]{babel}
+
+%\usepackage[T2C]{fontenc}
+
+%\usepackage[OT2,OT1]{fontenc}
+%{\fontencoding{OT2}}\selectfont}
+
+\def\Xint#1{\mathchoice
+	{\XXint\displaystyle\textstyle{#1}}%
+	{\XXint\textstyle\scriptstyle{#1}}%
+	{\XXint\scriptstyle\scriptscriptstyle{#1}}%
+	{\XXint\scriptscriptstyle\scriptscriptstyle{#1}}%
+	\!\int}
+\def\XXint#1#2#3{{\setbox0=\hbox{$#1{#2#3}{\int}$ }
+		\vcenter{\hbox{$#2#3$ }}\kern-.6\wd0}}
+\def\ddashint{\Xint=}
+\def\dashint{\Xint-}
+
+
+%------------------------------------------常用命令----------------------------
+% 换行 \\：换行。
+% \\[offset]：换行，并且与下一行的行间距为原来行间距+offset。
+% \newline：与\\相同。
+% \linebreak：强制换行，与\newline的区别为\linebreak的当前行分散对齐。
+
+% \par：分段。
+
+% \newpage：分页命令。
+% \clearpage：和 \newpage 类似。我们在使用 CJK 环境时会加入 \clearpage 在环境末尾。
+
+%---------------------------------------------------------------正文区（文稿区）--------------------------------------------------------------
+\begin{document}
+\maketitle
+\newpage
+main body %正文内容
+
+%\begin{appendices}
+%	\section{aa  }
+%	some text in Appendix A
+%	\section{B  }
+%	some text in Appendix B
+%\end{appendices}
+
+\appendix
+
+%\titleformat{\section}[display]{\huge\centering\bfseries}{APPENDIX~\thesection:}{1em}{}
+\renewcommand{\thesection}{APPENDIX~\Alph{section}:}
+\renewcommand{\thesubsection}{\Alph{section}.\arabic{subsection}.}
+\section{NOTATION}
+\section{INEQUALITIES}
+
+\subsection{凸函数}
+\noindent \textbf{定义.}一个函数$f:\mathbb{R}^{n}\rightarrow\mathbb{R}$被称为凸的如果
+\begin{equation}
+f(\tau x+(1-\tau)y) \leq \tau f(x)+(1-\tau)f(y)\label{ConvexFunction}
+\end{equation}
+对于所有$x,y\in \mathbb{R}^{n}$和每一个$0\leq \tau \leq 1$均成立。(证明见Convex Optimization，先跳过)\\
+\textbf{定理1.}(支撑超平面). 假设$f:\mathbb{R}^{n}\rightarrow\mathbb{R}$是凸的。于是对于每一个$x\in \mathbb{R}^{n}$存在$r\in \mathbb{R}^{n}$以至于不等式
+\begin{equation}
+f(y)\geq f(x)+r\cdot (y-x)\label{SupportingHyperplanes}
+\end{equation}
+对所有$y\in\mathbb{R}^{n}$恒成立。\\
+\textbf{标注.}(i)映射$y\longmapsto f(x)+r\cdot (y-x)$决定$f$在$x$处的支撑超平面。不等式\eqref{SupportingHyperplanes}表明$f$的图像位于每个支撑超平面之上。如果$f$在$x$点处是可微的，$r=Df(x)$。\par
+(ii)如果$f$是$C^{2}$，于是$f$是凸的当且仅当$D^{2}f\geq 0$.这个$C^{2}$函数$f$是一致凸的如果$D^{2}\geq\theta I$对于某个常数成立$\theta \geq 0$:这意味着
+\begin{equation*}
+\sum_{i,j=1}^{n}{f_{x_{i}x_{j}}(x)\xi_{i}\xi_{j}\geq\theta{\left| \xi\right|}^{2} (x,\xi\in\mathbb{R}^{n}). }
+\end{equation*}
+ $\hfill\qedsymbol$
+\\ \textbf{定理 2.}
+假设$f:matbb{R}\rightarrow\mathbb{R}$是凸的，并且$U\subset\mathbb{R}^{n}$是开的，有界的。让$u:U\rightarrow\mathbb{R}$是可积(和)的。于是
+\begin{equation}
+f(\dashint\!_{U}udx)\leq\!\dashint\!_{U}f(u)dx.
+\end{equation}
+\indent 记住来自\S A.3的记号$\dashint\!_{U}udx=\dfrac{1}{|U|}\int_{U}udx$为$u$在$U$上的平均积分。
+\\ \textbf{证明.}既然$f$是凸的，对于每一个$p\in \mathbb{R}$存在$r\in\mathbb{R}$使得
+\begin{equation*}
+f(q)\geq f(p)+r(q-p)\qquad \mbox{对所有的}q\in\mathbb{R}均成立。
+\end{equation*}
+\noindent 令$p=\dashint_{U}udx,q=u(x)$:
+\begin{equation*}
+f(u(x))\geq f(\dashint_{U}udx)+r(u(x)-\dashint_{U}udx).
+\end{equation*}
+再把$x$在$U$上进行积分。\par
+ $\hfill\qedsymbol$\\
+\hspace{2em}凸函数将会在$\S3.3.2\mbox{和}\S9.6.1$更加完全地讨论。
+
+
+\subsection{基本不等式}
+接下来是一个基本的，但是至关重要的不等式的集合。这些估计不停地在整个文本中被运用且应该被记住。
+\begin{enumerate}[fullwidth,itemindent=0em]
+ \item[\textbf{a.柯西不等式}]
+  \begin{equation}
+  ab\leq \dfrac{a^2}{2}+\dfrac{b^2}{2}\quad(a,b\in\mathbb{R}).
+  \end{equation}
+	\raggedright \textbf{证明.}$0\leq(a-b)^2=a^2-2ab+b^2.\hfill\qedsymbol$
+ \item[\textbf{b.带有$\mathbf{\epsilon}$的柯西不等式.}]
+  \begin{equation}
+  ab\leq \epsilon a^{2}+\dfrac{b^{2}}{4\epsilon}\quad(a,b>0,\epsilon>0).
+  \end{equation}
+ 	\textbf{证明.}写出
+ 	\begin{equation*}
+ 	ab=((2\epsilon)^{1/2}a)\left(\dfrac{b}{(2\epsilon)^{1/2}}\right)
+ 	\end{equation*}
+ 	并且应用柯西不等式。$\hfill\qedsymbol$
+ \item[\textbf{c.杨不等式.}]
+ 令$1<p,q<\infty,\dfrac{1}{p}+\dfrac{1}{q}=1.$于是有
+ \begin{equation}
+ ab\leq\dfrac{a^p}{p}+\dfrac{b^q}{q}\quad (a,b>0).
+ \end{equation}
+ \textbf{证明.}映射$x\mapsto e^x$是凸的，因此
+ \begin{equation*}
+ ab=e^{\small{log\,a+log\,b}}=e^{\frac{1}{p}log\,a^p+\frac{1}{q}log\,b^q}\leq\frac{1}{p}e^{log\,a^p}+\dfrac{1}{q}e^{log\,b^q}=\dfrac{a^p}{p}+\dfrac{b^q}{q}.
+ \end{equation*}
+ $\hfill\qedsymbol$
+\item[\textbf{d.带有$\mathbf{\epsilon}$的杨不等式.}]
+\begin{equation}
+ab\leq\epsilon a^p+C(\epsilon)b^q\quad (a,b>0,\epsilon>0)
+\end{equation}
+其中$C(\epsilon)=(\epsilon p)^{-q/p}q^{-1}$。\\
+\textbf{证明.}写出$ab=((\epsilon p)^{1/p}a)\left(\frac{b}{(\epsilon p)^{1/p}}\right)$并且应用杨不等式。$\hfill\qedsymbol$
+\item[\textbf{e. 霍尔德不等式.}]假设$1\leq p,q\leq\infty,\dfrac{1}{p}+\dfrac{1}{q}=1.$则如果$u\in L^{p}(U),v\in L^{q}(U)$，我们有
+\begin{equation}
+\int_{U}|uv|dx\leq\| u\|_{L^{p}(U)}\| v\|_{L^{q}(U)}.
+\end{equation}
+ $\hfill\qedsymbol$\\
+\textbf{证明.}通过homogeneity，我们假设$\|u\|_{L^{p}}=\|v\|_{L^{q}}=1.$于是杨不等式表明对于$1<p,q<\infty$
+\begin{equation*}
+\int_{U}|uv|dx\leq\dfrac{1}{p}\int_{U}|u|^{p}dx+\dfrac{1}{q}\int_{U}|v|^{q}dx=1=\|u\|_{L^{p}}\|v\|_{L^{q}}.
+\end{equation*}
+$\hfill\qedsymbol$
+\item[\textbf{f.闵科沃斯基不等式.}]假设$1\leq p\leq\infty$且$u,v\in L^{p}(U)$。于是
+\begin{equation}
+\|u+v\|_{L^{p}(U)}\leq \|u\|_{L^{p}(U)}+\|v\|_{L^{p}(U)}.
+\end{equation}
+\textbf{证明.}
+\begin{align*}
+\|u+v\|_{L^{p}(U)}^{p}&=\int_{U}|u+v|^{p}dx\leq\int_{U}|u+v|^{p-1}(|u|+|v|)dx\\
+                      &=\int_{U}|u+v|^{p-1}|u|dx+\int_{U}|u+v|^{p-1}|v|dx\\
+                      &\leq\left(\int_{U}|u+v|^{q(p-1)}dx\right)^{1/q}\left(\int_{U}|u|^{p}dx\right)^{1/p}\\
+                      &+\left(\int_{U}|u+v|^{q(p-1)}dx\right)^{1/q}\left(\int_{U}|v|^{p}dx\right)^{1/p}\quad (\dfrac{1}{p}+\dfrac{1}{q}=1)\\
+                      &=\left(\int_{U}|u+v|^{p}dx\right)^{\frac{p-1}{p}}\left(\left(\int|u|^{p}dx\right)^{1/p}+\left( \int_{U}|v|^{p}dx\right)^{1/p}\right)\\
+                      &=\|u+v\|_{L^{p}(U)}^{p-1}(\|u\|_{L^{p}(U)}+\|v\|_{L^{p}(U)}).
+\end{align*}
+ $\hfill\qedsymbol$\\
+\textbf{标注.}相似的证明建立了分离形式的霍尔德和闵可沃夫斯基不等式：
+\begin{equation}
+\begin{aligned}
+\begin{cases}
+|\sum_{k=1}^{n}a_{k}b_{k}|\leq\left(\sum_{k=1}^{n}|a_{k}|^{p}\right)^{\frac{1}{p}}\left(\sum_{k=1}^{n}|b_{k}|^{q}\right)^{\frac{1}{q}},\\
+\left(\sum_{k=1}^{n}|a_{k}b_{k}|^{p}\right)^{\frac{1}{p}}\leq\left(\sum_{k=1}^{n}|a_{k}|^{p}\right)^{\frac{1}{p}}+\left(\sum_{k=1}^{n}|b_{k}|^{p}\right)^{\frac{1}{p}},
+\end{cases}
+\end{aligned}
+\end{equation}
+对于$a=(a_{1},...,a_{n}),b=(b_{1},...,b{n})\in\mathbb{R}^{n}$以及$1\leq p <\infty,\frac{1}{p}+\frac{1}{q}=1$均成立。$\hfill\qedsymbol$
+\item[\textbf{g.广义霍尔德不等式.}]令$1\leq p_{1},...,p_{m}\leq \infty$，以及$\frac{1}{p_{1}}+frac{2}{p_{2}}+...+frac{m}{p_{m}}=1$，并且对每个$k=1,...,m$假设$u_{k}\in L^{p_{k}}(U)$，则有
+\begin{equation}
+\int_{U}|u_{1}\cdots u_{m}|dx\leq \prod_{k=1}^{m}\|u_{i}\|_{L^{p_{k}}}(U).
+\end{equation}
+\textbf{证明.}归纳，用霍尔德不等式。$\hfill\qedsymbol$
+\item[\textbf{h.$L^{p}$范数的插值不等.}]假设$1\leq s\leq r\leq t\leq \infty$并且
+\begin{equation*}
+\frac{1}{r}=\frac{\theta}{s}+\frac{1-\theta}{t}.
+\end{equation*}
+同时假设$u\in L^{s}(U)\cap L^{t}(U)$。于是$u\in L^{r}(U)$，并且
+\begin{equation}
+\|u\|_{L^{r}(U)}\leq \|u\|_{L^{s}(U)}^{\theta}\|u\|_{L^{t}(U)}^{1-\theta}.
+\end{equation}
+\textbf{证明.}我们计算
+\begin{align*}
+\int_{U}|u|^{r}dx&=\int_{U}|u|^{\theta r}|u|^{(1-\theta)r}dx\\
+				 &\leq\left(\int_{U}|u|^{\theta r\frac{s}{\theta r}}dx\right)^{\frac{\theta r}{s}}\left(\int_{U}|u|^{(1-\theta)r\frac{t}{(1-\theta)r}}dx\right)^{\frac{(1-\theta)r}{t}}.
+\end{align*}
+我们求助了霍尔德不等式，因为$\frac{\theta r}{s}+\frac{(1-\theta)r}{t}=1$该不等式被应用了。$\hfill\qedsymbol$
+\item[\textbf{i.柯西-史瓦兹不等式.}]
+\begin{equation}
+|x\cdot y|\leq|x||y|\quad (x,y\in\mathbb{R}^{n}).
+\end{equation}
+\textbf{证明.}令$\epsilon>0$并且注意到
+\begin{equation*}
+0\leq |x\pm\epsilon y|^{2}=|x|^{2}\pm2\epsilon x\cdot y+\epsilon^{2}|y|^{2}.
+\end{equation*}
+因此
+\begin{equation*}
+\pm x\cdot y\leq\frac{1}{2\epsilon}|x|^{2}+\frac{\epsilon}{2}|y|^{2}.
+\end{equation*}
+取$\epsilon=\frac{|x|}{|y|}$使得右手边的项最小，假设$y\neq0$。$\hfill\qedsymbol$
+\textbf{标注.}同样地，如果$A$是一个对称的，非负的$n\times n$矩阵，
+\begin{equation}
+|\sum_{i,j=1}^{n}a_{ij}x_{i}y_{j}|\leq\left(\sum_{i,j=1}^{n}a_{ij}x_{i}x_{j}\right)^{1/2}\left(\sum_{i,j=1}^{n}a_{ij}y_{i}y_{j}\right)^{1/2}\quad (x,y\in\mathbb{R}^{n}).
+\end{equation}
+ $\hfill\qedsymbol$
+\item[\textbf{j.}] \textbf{格朗沃尔不等式(微分形式).}
+\begin{enumerate}[fullwidth,itemindent=2em]
+  \item[(i)]记 $\eta(\cdot)$是$[0,T]$上的一个非负的，绝对连续的函数，它对几乎处处的$t$的满足微分不等式
+\begin{equation}
+\eta'(t)\leq\phi(t)\eta(t)+\psi(t),
+\end{equation}
+这里$\phi(t)$和$\psi(t)$是$[0,T]$的非负的，可积的函数。于是
+\begin{equation}
+\eta(t)\leq e^{\int_{0}^{t}\phi(s)ds}\left[\eta(0)+\int_{0}^{t}\psi(s)ds\right]
+\end{equation}
+对所有的$0\leq t\leq T$。\par
+\item[(ii)]特别地，如果
+\begin{equation*}
+\eta'\leq \phi\eta\quad \text{在}[0,T]\text{上，并且}\eta(0)=0,
+\end{equation*}
+并且
+\begin{equation*}
+\eta\equiv0\quad \text{在}[0,T]\text{上}.
+\end{equation*}
+\textbf{证明.}从(15)我们看到
+\begin{equation*}
+\frac{d}{ds}(\eta (s)e^{-\int_{0}^{s}\phi(r)dr})=e^{-\int_{0}^{s}\phi(r)dr}(\eta'(s)-\phi(s)\eta(s))\leq e^{-\int_{0}^{s}\phi(r)dr}\psi(s)
+\end{equation*}
+对于几乎处处$0\leq s\leq T.$因此对于每一个$0\leq t\leq T$，我们有
+\begin{equation*}
+\eta(t)e^{-\int_{0}^{t}\phi(r)dr}\leq\eta(0)+\int_{0}^{t}e^{-\int_{0}^{s}\phi(r)dr}\psi(s)ds\leq\eta(0)+\int_{0}^{t}\psi(s)ds.
+\end{equation*}
+这推出了不等式(16)。$\hfill\qedsymbol$
+
+
+\end{enumerate}
+
+
+\item[\textbf{k.}]\textbf{格朗沃尔不等式(积分形式)。}
+\begin{enumerate}[fullwidth,itemindent=2em]
+	\item[(i)]令$\xi$为$[0,T]$上的一个非负的，可积函数，对几乎处处$t$满足积分不等式
+	\begin{equation}
+	\xi(t)\leq C_{1}\int_{0}^{t}\xi(s)ds+C_{2}
+	\end{equation}
+	对常数$C_{1},C_{2}\leq0$成立。于是
+	\begin{equation}
+	\xi(t)\leq C_{2}(1+C_{1}te^{C_{1}t})
+	\end{equation}
+	对几乎处处$0\leq t\leq T$成立。
+	\item[(ii)]特别地，如果
+	\begin{equation*}
+	\xi(t)\leq C_{1}\int_{0}^{t}\xi(s)ds
+	\end{equation*}
+	对几乎处处$0\leq t\leq T$，于是
+	\begin{equation*}
+	\xi(t)=0\quad\text{a}.e.
+	\end{equation*}
+	\textbf{证明.}令$\eta(t):=\int_{0}^{t}\xi(s)ds;$于是$\eta'\leq C_{1}\eta+C_{2}$在$[0,T]$内几乎处处成立。根据上面的格朗沃尔不等式的微分形式：
+	\begin{equation*}
+	\eta(t)\leq e^{C_{1}t}\left(\eta(0)+C_{2}t\right)=C_{2}te^{C_{1}t}.
+	\end{equation*}
+	于是(17)推出
+	\begin{equation*}
+	\xi(t)\leq C_{1}\eta(t)+C_{2}\leq C_{2}(1+C_{1}te^{C_{1}t}).
+	\end{equation*}
+	 $\hfill\qedsymbol$
+
+
+\end{enumerate}
+
+
+
+
+\end{enumerate}
+
+
+
+
+\section{微积分事实}
+\subsection{边界.}
+令$U\subset \mathbb{R}^{n}$是开的且有界的，$k\in{1,2,...}$。\\
+\textbf{定义.}我们称$\partial U$是$C^{k}$如果对于每一个点$x^{0}\in\partial U$存在$r>0$和一个$C^{k}$函数$\gamma:\mathbb{R}^{n-1}\rightarrow\mathbb{R}$(如果有必要可以基于重新标明和调整过的坐标轴)使得我们有
+\begin{equation*}
+U\cap B(x^{0},r)={x\in B(x^{0},r)|x_{n}>\gamma(x_{1},...,x_{n-1})}.
+\end{equation*}
+同样地，$\partial U$是$C^{\infty}$如果$\partial U$是$C^{k}$对每一个$k=1,2,...,$并且$\partial U$是解析的如果映射$\gamma$是解析的。\\
+\includegraphics[scale=0.67]{附录C插图1}
+\begin{center}
+	\textbf{$U$的分界线}
+\end{center} 
+\textbf{定义.}(i)如果$\partial U$是$C^{1}$,于是沿着$\partial U$定义了the outward pointing 单位法向量场
+\begin{equation*}
+v=(v^{1},...,v^{n}).
+\end{equation*}
+在任一个点$x^{0}\in\partial U$的单位法向量是$v(x^{0})=v=(v_{1},...,v_{n})$。\par
+(ii)令$u\in C^{1}\left(\overline{U}\right)$。我们称
+\begin{equation*}
+\frac{\partial u}{\partial v}:=v\cdot Du
+\end{equation*}
+\includegraphics[scale=0.37]{附录C插图2}
+u的outward normal导数。\par
+我们将经常需要去改变$\partial U$的点的附近的坐标系，为了去“平坦化”边界。更加确切一点，固定$x^{0}\in\partial U$，并且选择上述的$r,\gamma,$等等。然后定义
+\begin{equation*}
+\begin{cases}
+\begin{aligned}
+y_{i}&\!=x_{i}=:\Phi^{i}(x)\qquad \qquad (i=1,...,n-1)\\
+y_{n}&\!=x_{n}-\gamma(x_{1},...,x_{n-1})=:\Phi^{n}(x),
+\end{aligned}
+\end{cases}
+\end{equation*}
+并且写
+\begin{equation*}
+y=\Phi(x).
+\end{equation*}
+相似地，我们令
+\begin{equation*}
+\begin{aligned}
+\begin{cases}
+x_{i}&=y_{i}=:\Psi^{i}(y)\qquad \qquad (i=1,...,n-1)\\
+x_{n}&=y_{n}+\gamma(y_{1},...,y_{n})=:\Psi^{n}(y),
+\end{cases}
+\end{aligned}
+\end{equation*}
+并且写作
+\begin{equation*}
+x=\Psi(y).
+\end{equation*}
+于是$\Phi=\Psi^{-1}$，并且映射$x\mapsto\Phi(x)=y$"拉直$\partial U$"在$x^{0}$附近。同时也注意到$det\Phi=det\Psi=1$。
+\subsection{高斯-格林定理}
+在这一节我们假设$U$是一个$R^{n}$中的有界的，开集，并且$\partial U$是$C^{1}$。
+\textbf{定理1}(高斯-格林定理)。假设$u\in C^{1}\left(\overline{U}\right)$:于是
+\begin{equation}
+\int_{U}u_{x_{i}}dx=\int_{\partial U}uv^{i}dS\qquad (i=1,...,n).\tag{1}
+\end{equation}
+\textbf{定理2}(分部积分公式).令$u,v\in C^{1}\left(\overline{U}\right)$。于是
+\begin{equation}
+\int_{U}u_{x_{i}}vdx=-\int_{U}uv_{x_{i}}dx+\int_{\partial U}uv\nu^{i}dS\qquad (i=1,...,n).\tag{2}
+\end{equation}
+\textbf{证明.}应用定理1到$uv$上。$\hfill\qedsymbol$\\
+\textbf{定理3}(格林公式).令$u,v\in C^{2}\left(\overline{U}\right)$。于是
+\begin{enumerate}[itemindent=1em]
+	\item[(i)]$\int_{U}\Delta udx=\int_{\partial U}\frac{\partial u}{\partial\nu}dS$,
+	\item[(ii)]$\int_{U}Dv\cdot Dudx=-\int_{U}u\Delta vdx+\int_{\partial U}\frac{\partial u}{\partial\nu}udS$, 
+	\item[(iii)]$\int_{U}u\Delta v-v\Delta udx=\int_{\partial U}u\frac{\partial u}{\partial\nu}-v\frac{\partial u}{\partial\nu}dS$.
+\end{enumerate}
+\textbf{证明.}利用公式(2)，用$u_{x_{i}}$代替$u$并且$v\equiv1$，我们看到
+\begin{equation*}
+\int_{U}u_{x_{i}x_{i}}dx=\int_{\partial U}u_{x_{i}}v^{i}dS.
+\end{equation*}
+累加$i=1,...,n$去建立公式(i)。\par
+为了得到(ii)，我们应用公式(2)，令$v=u_{x_{i}}$。交换$u$和$v$的位置，写出公式(ii)，并且然后相减，去得到(iii)。$\hfill\qedsymbol$
+
+\subsection{极坐标，coarea 公式.}
+接下来我们把n维积分转换维球面上的积分。\\
+\textbf{定理 4}(极坐标)。
+\begin{enumerate}[fullwidth,itemindent=2em]
+	\item[(i)]令$f:\mathbb{R}^{n}\rightarrow\mathbb{R}$为连续的且可积的。于是
+	\begin{equation*}
+	\int_{\mathbb{R}^{n}}fdx=\int_{0}^{\infty}\left(\int_{\partial B\left(x_{0},r\right)}fdS\right)dr
+	\end{equation*} 
+	对每一个点$x_{0}\in\mathbb{R}^{n}$均成立。
+	\item[(ii)]特别地
+	\begin{equation}
+	\frac{d}{dr}\left(\int_{B\left(x_{0},r\right)}fdx\right)=\int_{\partial B\left(x_{0},r\right)}fdS\tag{ii}
+	\end{equation}
+	对每个$r>0$均成立。
+	
+\end{enumerate}
+定理4是一种特殊情形属于\\
+\textbf{定理5}(Coarea 公式)。令$u:\mathbb{R}^{n}\rightarrow\mathbb{R}$为李普希茨连续的并且假设对于几乎处处$r\in\mathbb{R}$水平集
+\begin{equation*}
+\{x\in\mathbb{R}^{n}|u(x)=r\}
+\end{equation*}
+是一个光滑的，$\mathbb{R}^{n}$中的(n-1)维超平面。同样假设$f:\mathbb{R}^{n}\rightarrow\mathbb{R}$是连续的并且可积的。于是
+\begin{equation*}
+\int_{\mathbb{R}^{n}}f|Du|dx=\int_{-\infty}^{\infty}\left(\int_{\{u=r\}}fdS\right)dr.
+\end{equation*}
+定理4由定理5产生通过取$u(x)=|x-x_{0}|$。见[E-G,第三章]获取更多的关于coarea公式(的信息)。单词"coarea"是明显的，并且有时候拼写为"co-area"。
+
+
+\subsection{卷积和光滑.}
+我们接下来介绍允许我们建造给定函数的光滑逼近的工具。\\
+\textbf{标记.}如果$U\subset\mathbb{R}^{n}$是开的，$\epsilon>0$，写作$U_{\epsilon}:=\{x\in U|\text{dist}(x,\partial U)>\epsilon\}$.\par
+ $\hfill\qedsymbol$
+\\ \textbf{定义.}(i)定义$\eta\in C^{\infty}\left(\mathbb{R}^{n}\right)$通过
+\begin{equation*}
+\eta(x):=
+\begin{aligned}
+\begin{cases}
+C\text{exp}\left(\frac{1}{|x|^{2}-1}\right)\quad &\text{如果}|x|<1\\
+0\quad&\text{如果}|x|\geq 1,
+\end{cases}
+\end{aligned}
+\end{equation*}
+常数$C>0$选定为了满足$\int_{\mathbb{R}^{n}}\eta dx=1$。\par
+(ii)对于每一个$\epsilon>0$，设置
+\begin{equation*}
+\eta_{\epsilon}(x):=\frac{1}{\epsilon^{n}}\eta\left(\frac{x}{\epsilon}\right).
+\end{equation*}
+	我们称$\eta$为标准柔化函数。函数$\eta_{\epsilon}$是$C^{\infty}$并且满足
+	\begin{equation*}
+	\int_{\mathbb{R}^{n}}\eta_{\epsilon}dx=1,\text{spt}\left(\eta_{\epsilon}\right)\subset B(0,\epsilon).
+	\end{equation*}
+\textbf{定义.}如果$f:U\rightarrow\mathbb{R}$是局部可积的，定义它的磨光为
+\begin{equation*}
+f^{\epsilon}:=\eta_{\epsilon}*f\qquad\text{在}U_{\epsilon}\text{中}.
+\end{equation*}
+即，
+\begin{equation*}
+f^{\epsilon}(x)=\int_{U}\eta_{\epsilon}(x-y)f(y)dy=\int_{B(0,\epsilon)}\eta_{\epsilon}(y)f(x-y)dy
+\end{equation*}
+对于$x\in U_{\epsilon}$成立。\\
+\textbf{定理6}(柔化函数的性质)。
+\begin{enumerate}[fullwidth,itemindent=1em]
+	\item[(i)]$f^{\epsilon}\in C^{\infty}\left(U_{\epsilon}\right)$。
+	\item[(ii)]$f^{\epsilon}\rightarrow f\quad a.e. \text{当}\epsilon\rightarrow0$。 
+	\item[(iii)]如果$f\in C(U)$，于是$f^{\epsilon}\rightarrow f$在$U$的紧子集上一致成立。
+	\item[(iv)]如果$1\leq p<\infty$并且$f\in L_{loc}^{p}(U)$，则在$L_{loc}^{p}(U)$上$f^{\epsilon}\rightarrow f$。
+\end{enumerate}
+\textbf{证明.}1.固定$x\in U_{\epsilon},i\in\{1,...,n\}$，并且$h$如此小以至于$x+he_{i}\in U_{\epsilon}$。于是
+\begin{equation*}
+\begin{aligned}
+\frac{f^{\epsilon}(x+he_{i})-f^{\epsilon}(x)}
+{h}
+&=\frac{1}{\epsilon^{n}}
+\int_{U}
+\frac{1}{h}
+\left[\eta\left(\frac{x+he_{i}-y}{\epsilon}\right)-\eta\left(\frac{x-y}{\epsilon}\right)\right]
+f(y)dy
+\\
+&=\frac{1}{\epsilon^{n}}\int_{V}\frac{1}{h}\left[\eta\left(\frac{x+he_{i}-y}{\epsilon}\right)-\eta\left(\frac{x-y}{\epsilon}\right)\right]f(y)dy
+\end{aligned}
+\end{equation*}
+对于某个开集$V\subset\subset U$。当
+\begin{equation*}
+\frac{1}{h}\left[\eta\left(\frac{x+he_{i}-y}{\epsilon}\right)-\eta\left(\frac{x-y}{\epsilon}\right)\right]\rightarrow \frac{1}{\epsilon}\frac{\partial\eta}{\partial x_{i}}\left(\frac{x-y}{\epsilon}\right)
+\end{equation*}
+在$V$上一致连续，$\frac{\partial f^{\epsilon}}{\partial x_{i}}(x)$存在并且等于
+\begin{equation*}
+\int_{U}\frac{\partial\eta_{\epsilon}}{\partial x_{i}}(x-y)dy.
+\end{equation*}
+一个相似的讨论表明$D^{\alpha}f^{\epsilon}(x)$存在，并且
+\begin{equation*}
+D^{\alpha}f^{\epsilon}(x)=\int_{U}D^{\alpha}\eta_{\epsilon}(x-y)f(y)dy\quad\left(x\in U_{\epsilon}\right),
+\end{equation*}
+对于每一个复指标$\alpha$。这证明了(i)。
+\par
+2.根据勒贝格微分定理(\S E.4),
+\begin{equation*}
+\lim_{r\rightarrow 0}\dashint_{B(x,r)}\left|f(y)-f(x)\right|dy=0\tag{3}
+\end{equation*}
+对于几乎处处$x\in U$。固定这样一个点$x$。于是
+\begin{equation*}
+\begin{aligned}
+\left|f^{\epsilon}(x)-f(x)\right|&=\left|\int_{B(x,\epsilon)}\eta^{\epsilon}(x-y)\left[f(y)-f(x)\right]dy\right|\\
+&\leq\frac{1}{\epsilon^{n}}\int_{B(x,\epsilon)}\eta\left(\frac{x-y}{\epsilon}\right)\left|f(y)-f(x)\right|dy\\
+&\leq C\dashint_{B(x,\epsilon)}\left|f(y)-f(x)\right|dy\rightarrow 0\quad\text{当}\epsilon\rightarrow 0,
+\end{aligned}
+\end{equation*}
+根据(3)。断言(ii)成立。
+\par
+3.现在假设$f\in C(U)$。给定$V\subset\subset U$我们选择$V\subset\subset W\subset\subset U$并且注意到$f$是在$W$上一致连续的。因此极限(3)一致成立对于$x\in V$。因此上诉计算可以推出在$V$上$f^{\epsilon}\text{一致}\rightarrow f$。
+\par
+4.接下来，假设$1\leq p<\infty$并且$f\in L_{loc}^{p}(U)$。选择一个开集$V\subset\subset U$并且，如上，另一个开集$W$有$V\subset\subset W\subset\subset U$。我们称对于充分小的$\epsilon>0$
+\begin{equation*}
+\|f^{\epsilon}\|_{L^{p}(V)}\leq\|f\|_{L^{p}(W)}.\tag{4}
+\end{equation*}
+为了弄清这一点，我们注意到如果$1<p<\infty$并且$x\in V$，
+\begin{equation*}
+\begin{aligned}
+|f^{\epsilon}|&=\left|\int_{B(x,\epsilon)}\eta_{\epsilon}(x-y)f(y)dy\right|\\
+&\leq\int_{B(x,\epsilon)}\eta_{\epsilon}^{1-1/p}(x-y)\eta_{\epsilon}^{1/p}(x-y)|f(y)|dy\\
+&\leq\left(\int_{B(x,\epsilon)}\eta_{\epsilon}(x-y)dy\right)^{1-1/p}\left(\int_{B(x,\epsilon)}\eta_{\epsilon}(x-y)|f(y)|^{p}dy\right)^{1/p}.
+\end{aligned}
+\end{equation*}
+因为$\int_{B(x,\epsilon)}\eta_{\epsilon}(x-y)dy=1$，这个不等式表明
+\begin{equation*}
+\begin{aligned}
+\int_{V}|f^{\epsilon}(x)|^{p}dx&\leq\int_{V}\left(\int_{B(x,\epsilon)}\eta_{\epsilon}(x-y)|f(y)|^{p}dy\right)dx\\
+&\leq\int_{W}|f(y)|^{p}\left(\int_{B(y,\epsilon)}\eta_{\epsilon}(x-y)dx\right)dy=\int_{W}|f(y)|^{p}dy,
+\end{aligned}
+\end{equation*}
+假设$\epsilon>0$是足够小的。这是不等式(4)。\par
+5.现在固定$V\subset\subset W\subset\subset U,\delta>0$，并且选择$g\in C(W)$因此有
+\begin{equation*}
+\|f-g\|_{L^{p}(W)}<\delta.
+\end{equation*}
+于是
+\begin{equation*}
+\begin{aligned}
+\|f^{\epsilon}-f\|_{L^{p}(V)}&\leq\|f^{\epsilon}-g^{\epsilon}\|_{L^{p}(V)}+\|g^{\epsilon}-g\|_{L^{p}(V)}+\|g-f\|_{L^{p}(V)}\\
+&\leq 2\|f-g\|_{L^{p}(W)}+\|g^{\epsilon}-g\|_{L^{p}(V)}\quad\text{通过}(4)\\
+&\leq
+2\delta+\|g^{\epsilon}-g\|_{L^{p}(V)}.
+\end{aligned}
+\end{equation*}
+因为$g^{\epsilon}\rightarrow g$在$V$上一致成立，我们有$\limsup_{\epsilon\rightarrow 0}\|f^{\epsilon}-f\|_{L^{p}(V)}\leq 2\delta$。$\hfill\qedsymbol$
+
+
+
+\subsection{反函数定理}
+令$U\subset\mathbb{R}^{n}$为一个开集并且假设$f:U\rightarrow\mathbb{R}^{n}$是$C^{1}$，$f=(f^{1},...,f^{n})$。假设$x_{0}\in U,z_{0}=f(z_{0})$。\\
+\textbf{记号.}记住来自$\S A.4$我们写
+\begin{equation*}
+D\mathbf{f}=
+\begin{pmatrix}
+f_{x_{1}}^{1} & \ldots & f_{x_{n}}^{1}\\
+\vdots         & \ddots & \vdots\\
+f_{x_{1}}^{n} & \ldots & f_{x_{n}}^{n}\\
+\end{pmatrix}
+=\text{gradient matrix of }\mathbf{f}.
+\end{equation*}
+$\hfill\qedsymbol$\par
+\noindent\textbf{定理.}
+\begin{equation*}
+J\mathbf{f}=Jacobian\; of \; \mathbf{f}=|\det D\mathbf{f}|=\left|\frac{\partial(f^{1},\ldots,f^{n})}{\partial(x_{1},\ldots,x_{n})}\right|.
+\end{equation*}
+\includegraphics[scale=0.82]{附录C插图3}
+\textbf{定理7}(反函数定理)假设$f\in C^{1}(U;\mathbb{R}^{n})$并且
+\begin{equation*}
+J\mathbf{f}(x_{0})\neq 0.
+\end{equation*}
+于是存在一个开集$V\subset U$，满足$x_{0}\in V$，以及一个开集$W\subset\mathbb{R}^{n}$，满足$z_{0}\in W$，因此有
+\begin{enumerate}[fullwidth,itemindent=2em]
+	\item[(i)]映射
+	\begin{equation*}
+	\mathbf{f}:V\rightarrow W
+	\end{equation*}
+	是一一到上的，并且
+	
+	\item[(ii)]反函数
+	\begin{equation*}
+	\mathbf{f}^{-1}:W\rightarrow V
+	\end{equation*}
+	是$C^{1}$.
+	\item[(iii)]如果$\mathbf{f}\in C^{k}$，于是$\mathbf{f}^{-1}\in C^{k}(k=2,...)$。
+	 
+\end{enumerate}
+\includegraphics[scale=0.8]{附录C插图4}
+
+
+
+\subsection{隐函数定理.}
+令$n,,$为正整数。\par
+\noindent\textbf{记号.}我们把$\mathbb{R}^{n+m}$中的一个典型的点写作
+\begin{equation*}
+(x,y)=(x_{1},...,x_{n},y_{1},...,y_{m})
+\end{equation*}
+对于$x\in\mathbb{R}^{n},y\in\mathbb{R}^{m}$。$\hfill\qedsymbol$
+\par
+令$U\subset\mathbb{R}^{n+m}$为一个开集并且假设$\mathbf{f}:U\rightarrow\mathbb{R}^{m}$是$C^{1}$，$\mathbf{f}=(f^{1},...,f^{m})$。假设$(x_{0},y_{0})\in U,z_{0}=\mathbf{f}(x_{0},y_{0})$。假设$(x_{0},y_{0})\in U,z_{0}=\mathbf{f}(x_{0},y_{0})$。\par
+\noindent\textbf{记号.}
+\begin{equation*}
+\begin{aligned}
+D\mathbf{f}
+&=
+\begin{pmatrix}
+f_{x_{1}}^{1} & \ldots & f_{x_{n}}^{1} & f_{y_{1}}^{1} & \ldots & f_{u_{m}}^{1}\\
+ & \ddots & & & \ddots &\\
+f_{x_{1}}^{m} & \ldots & f_{x_{n}}^{m} & f_{y_{1}}^{m} & \ldots f_{y_{m}}^{m}
+\end{pmatrix}_{m\times (n+m)}
+\\
+&=(D_{x}\mathbf{f},D_{f}\mathbf{f})=gradient\;matrix\;of\;\mathbf{f}.
+\end{aligned}
+\end{equation*}
+$\hfill\qedsymbol$
+\par
+\noindent\textbf{定义.}
+\begin{equation*}
+J_{y}\mathbf{f}=|\det D_{y}\mathbf{f}|=\left|\frac{\partial (f^{1},\ldots,f^{m})}{\partial(y_{1},\ldots,y_{m})}\right|.
+\end{equation*}
+\includegraphics[scale=0.83]{附录C插图5}
+\textbf{定理8}(隐函数定理)。假设$\mathbf{f}\in C^{1}(U;\mathbb{R}^{m})$并且
+\begin{equation*}
+J_{y}\mathbf{f}(x_{0},y_{0})\neq 0
+\end{equation*}
+于是存在一个开集$C\subset U$，$x_{0},y_{0}\in V$，一个开集$W\subset \mathbb{R}^{n}$，$x_{0}\in W$，并且一个$C^{1}$映射$\mathbf{g}:W\rightarrow \mathbf{R}^{m}$有
+\begin{enumerate}[fullwidth,itemindent=2em]
+	\item[(i)]$\mathbf{g}(x_{0})=y_{0}$，
+	\item[(ii)]$\mathbf{f}(x,\mathbf{g}(x))=z_{0}\quad(x\in W)$, \\
+	以及\vspace{-2ex}
+	\item[(iii)]如果$(x,y)\in V$并且$\mathbf{f}(x,y)=z_{0}$，则$y=\mathbf{g}(x)$。
+	\item[(iii)]如果$(x,y)\in V$并且$\mathbf(f)(x,y)=z_{0}$，于是$y=\mathbf{g}(x)$。
+	\item[(iv)]如果$\mathbf{f}\in C^{k}$，则是$\mathbf{g}\in C^{k}(k=2,...)$。
+\end{enumerate}
+\par
+
+函数$\mathbf{g}$在$x_{0}$附近被隐性地通过方程$\mathbf{f}(x,y)=z_{0}$定义。
+\vspace{1ex}
+\\
+\includegraphics[scale=0.84]{附录C插图6}
+
+
+
+
+\subsection{一致收敛.}
+我们在这里记$Arzela-Ascoli$紧性判定准则为一致收敛：\par
+假设$\{f_{k}\}_{k=1}^{\infty}$是一列定义在$\mathbb{R}^{n}$上的实值函数，因此有
+\begin{equation*}
+|f_{k}(x)|\leq M\quad (k=1,...,x\in\mathbb{R}^{n})
+\end{equation*}
+对于某个常数$M$，并且函数列$\{f_{k}\}_{k=1}^{\infty}$是一致连续的。于是存在一个子列$\{f_{k_{j}}\}_{j=1}^{\infty}\subseteq\{f_{k}\}_{k=1}^{\infty}$以及一个连续函数$f$，因此有
+\begin{equation*}
+f_{k_{j}}\rightarrow f\text{在}\mathbb{R}^{n}\text{的紧子集上一致成立}.
+\end{equation*}
+说$\{f_{k}\}_{k=1}^{\infty}$是一致连续的意思是对于每个$\epsilon>0$，存在$\delta>0$，因此有$|x-y|<\delta$推出$|f_{k}(x)-f_{k}(y)|<\epsilon$，对于$x,y\in\mathbb{R}^{n},k=1,\ldots$成立。
+
+
+
+
+
+
+
+
+
+	
+\section{线性函数分析}
+\section{测度理论}
+	这个附录提供了一个测度理论的某些原理的快速的大纲。
+\subsection{勒贝格测度.}
+勒贝格测度提供了一种描述$\mathbb{R}^{n}$的某些子集的“尺寸”或者“体积”的方法。\\
+\textbf{定义.}$\mathbb{R}^{n}$的子集的一个聚合$M$被称为一个$\sigma$代数，如果
+\begin{enumerate}[fullwidth,itemindent=2em]
+	\item[(i)]$\emptyset,\mathbb{R}^{n}\in M$,
+	\item[(ii)]$A\in M$推出$\mathbb{R}^{n}-A\in M$,\\
+	并且
+	\item[(iii)]如果$\{A_{k}\}_{k=1}^{\infty}\subset M$，则$\bigcup_{k=1}^{\infty}A_{k},\bigcap_{k=1}^{\infty}A_{k}\in M$。
+\end{enumerate}
+\textbf{定理1}$\left(\text{勒贝格测度和勒贝格可测集的存在性}\right)$。存在一个$\mathbb{R}^{n}$的子集的$\sigma-\text{代数}M$和一个映射
+\begin{equation*}
+|\,|:M\rightarrow[0,+\infty]
+\end{equation*}
+有着下列的性质：
+\begin{enumerate}[fullwidth,itemindent=2em]
+	\item[(i)]$\mathbb{R}^{n}$的每一个开集，以及因而导致的$\mathbb{R}^{n}$每一个闭集，属于M。
+	\item[(ii)]如果$B$是$\mathbb{R}^{n}$中的任一个球，于是$|B|$等于$B$的n维体积。 
+	\item[(iii)]如果${A_{k}}_{k=1}^{\infty}\subset M$并且集族$\{A\}_{k=1}^{\infty}$为两两不相交，于是
+	\begin{equation*}
+	\left|\bigcup_{k=1}^{\infty}A_{k}\right|=\sum_{k=1}^{\infty}|A_{k}|\qquad \left(\text{“可列可加性”}\right)\tag{1}
+	\end{equation*}
+	\item[(iv)]如果$A\subseteq B$，其中$B\in M$并且$|B|=0$，于是$A\in M$并且$|A|=0$。
+\end{enumerate}
+\textbf{记号.}$M$中的集合被称为勒贝格可测集并且$|\cdot|$是一个n维勒贝格测度。$\hfill\qedsymbol$\\
+\textbf{注记.}$\left(i\right)$从(ii)和(iii)，我们看到$|A|$等于任意带有分段光滑边界的集合A的体积。\par
+(ii)我们从(1)推断得到
+\begin{equation}
+|\emptyset|=0,\tag{2}
+\end{equation}
+并且
+\begin{equation}
+\left|\bigcup_{k=1}^{\infty}\right|\leq\sum_{k=1}^{\infty}|A_{k}|\qquad("\text{可列次可加性}")\tag{3}
+\end{equation}
+对可测集族${A_{k}}_{k=1}^{\infty}$的任一个可数集合均成立。\\
+\textbf{记号.}如果某个性质在$\mathbb{R}^{n}$上每处都保持，除了对一个勒贝格测度为零的可测集，我们说这个性质几乎处处成立，简记为"a.e."。$\hfill\qedsymbol$
+\subsection{可测函数和积分}
+\noindent\textbf{定义.}令$f:\mathbb{R}^{n}\rightarrow\mathbb{R}$。我们说$f$是一个可测函数如果
+\begin{equation*}
+f^{-1}(U)\in M
+\end{equation*}
+对于每一个开集$U\subset\mathbb{R}$\par
+特别注意如果$f$是连续的，于是$f$是可测的。两个可测函数的求和和乘积是可测的。另外如果$\{f_{k}\}_{k=0}^{\infty}$是可测函数，于是$\text{limsup} f_{k}$和$\text{liminf}f_{k}$也是可测函数。
+\\
+\textbf{定理2}(伊戈洛夫定理)。令$\{f_{k}\}_{k=1}^{\infty}$，$f$为可测函数，并且
+\begin{equation*}
+f_{k}\rightarrow f\qquad  a.e.\quad on \quad A,
+\end{equation*}
+其中$A\subset\mathbb{R}^{n}$是可测的，$|A|<\infty$。于是对于每一个$\epsilon>0$存在一个可测集$E\subset A$有
+\begin{enumerate}[fullwidth,itemindent=2em]
+	\item[(i)]$|A-E|\leq \epsilon$
+	{\setlength{\parindent}{2em} \par 并且}\vspace{-0.7em}
+	\item[(ii)]$f_{k}\rightarrow f$在E上一致成立。 
+\end{enumerate}
+\par 现在如果$f$是一个非负的，可测函数，通过用简单函数对$f$逼近，有可能取定义勒贝格积分
+\begin{equation*}
+\int_{\mathbb{R}^{n}}fdx.
+\end{equation*}
+Cf.\S E.5在下文。这符合通常的积分如果$f$是连续的或者黎曼可积的。如果$f$是可测的，但是不是必然非负的，我们定义
+\begin{equation*}
+\int_{\mathbb{R}^{n}}fdx=\int_{R^{n}}f^{+}dx-\int_{\mathbb{R}^{n}}f^{-}dx,
+\end{equation*}
+假设在右手边至少有一项是有限的。在这种情况我们说$f$是可积分的(integrable)。\par
+\noindent\textbf{定义.}一个可测函数$f$是可积的(summable)如果
+\begin{equation*}
+\int_{\mathbb{R}^{n}}|f|dx<\infty.
+\end{equation*}
+\textbf{注记.}
+仔细注意我们的专业术语：一个可测函数是integrable如果它有一个积分(它可能等于$+\infty$或者$-\infty$)而是summable如果这个积分是有限。$\hfill\qedsymbol$\par
+\noindent\textbf{记号.}如果实值函数$f$是可测的，我们定义$f$的essential supremum(本性上界)为
+\begin{equation*}
+\text{ess sup}f:=\text{inf}\{\mu\in\mathbb{R}|\,|\{f>\mu\}|=0\}.
+\end{equation*}
+\par $\hfill\qedsymbol$
+\subsection{积分的收敛定理}
+积分的勒贝格理论特别有用因为它提供了下列有力的收敛定理。\par
+\noindent\textbf{定理 3}(Fatou引理)。假设函数$\{f_{k}\}_{k=1}^{\infty},f$是非负的且summable。于是
+\begin{equation*}
+\int_{\mathbb{R}^{n}}\liminf_{k\rightarrow\infty}f_{k}dx\leq\liminf_{k\rightarrow\infty}\int_{\mathbb{R}^{n}}f_{k}dxm
+\end{equation*}
+\textbf{定理 4}(单调收敛定理)。假设函数$\{f_{k}\}_{k=1}^{\infty}$是可测的，有
+\begin{equation*}
+f_{1}\leq f_{2}\cdots\leq f_{k}\leq f_{k+1}\leq\cdots
+\end{equation*}
+则有
+\begin{equation*}
+\int_{\mathbb{R}^{n}}\lim_{k\rightarrow\infty}f_{k}dx=\lim_{k\rightarrow\infty}\int_{\mathbb{R}^{n}}f_{k}dx.
+\end{equation*}
+\textbf{定理 5}(控制收敛定理)。假设函数$\{f_{k}\}_{k=1}^{\infty}$是integrable并且
+\begin{equation*}
+f_{k}\rightarrow f\qquad a.e.
+\end{equation*}
+也假设
+\begin{equation*}
+\left|f_{k}\right|\leq g\qquad a.e.,
+\end{equation*}
+对于某个summable函数g成立。则有
+\begin{equation*}
+\int_{\mathbb{R}^{n}}f_{k}dx\rightarrow\int_{\mathbb{R}^{n}}fdx.
+\end{equation*}
+
+
+\subsection{微分.}
+一个重要的事实是一个可积函数在几乎每一个点上是“近似连续的”。\\
+\textbf{定理 6}(勒贝格微分定理)。令$f:\mathbb{R}^{n}\rightarrow\mathbb{R}$为局部可积的。
+\begin{enumerate}[fullwidth,itemindent=2em]
+	\item[(i)]于是对于几乎处处点$x_{0}\in\mathbb{R}^{n}$，
+	\begin{equation*}
+	\dashint_{B(x_{0},r)}fdx\rightarrow f(x_{0})\qquad r\rightarrow 0.
+	\end{equation*}
+	\item[(ii)] 事实上，对于几乎处处点$x_{0}\in\mathbb{R}^{n}$,
+	\begin{equation}
+	\dashint_{B(x_{0},r)}\left|f(x)-f(x_{0})\right|dx\rightarrow 0\qquad \text{当}r\rightarrow 0.\tag{4}
+	\end{equation}
+\end{enumerate}\par
+一个令公式(4)成立的点$x_{0}$被称为$f$的一个勒贝格点。
+\\ \textbf{记号.}更加一般地，如果$f\in L_{loc}^{p}(\mathbb{R}^{n})$对于某个$1\leq p<\infty$，于是对于几乎处处点$x_{0}\in\mathbb{R}^{n}$我们有
+\begin{equation*}
+\dashint_{B(x_{0},r)}\left|f(x)-f(x_{0})\right|^{p}dx\rightarrow 0\qquad\text{当}r\rightarrow 0. 
+\end{equation*}
+$\hfill\qedsymbol$
+\subsection{巴拿赫空间值函数}
+我们拓展映射
+\begin{equation*}
+f:[0,T]\rightarrow X
+\end{equation*}
+度量和可积性的概念，这里$T>0$并且X是一个实的巴拿赫空间，带有范数$\|\,\|$。\\
+\textbf{定义.}(i)一个函数$s:[0,T]\rightarrow X$被称为简单的如果它有形式
+\begin{equation*}
+s(t)=\sum_{i=1}^{m}\chi_{E_{i}}(t)u_{i}\qquad (0\leq t\leq T),\tag{5}
+\end{equation*}
+这里每个$E_{i}$是$[0,T]$一个勒贝格可测子集并且$u_{i}\in X(i=1,...,m)$。\par
+(ii)一个函数$f:[0,T]\rightarrow X$是强可测的如果存在简单函数列$s_{k}:[0,T]\rightarrow X$以至于
+\begin{equation*}
+s_{k}(t)\rightarrow f(t)\qquad \text{对于}a.e.0\leq t\leq T.
+\end{equation*}
+\par
+(iii)一个函数$f:[0,T]\rightarrow X$是一个弱可测的如果对于每一个$u^{*}\in X^{*}$，映射$t\mapsto\left<u^{*},f(t)\right>$是勒贝格可测的。\\
+\textbf{定义.}我们说$f:[0,T]\rightarrow X$是几乎可分值的如果存在一个子集$N\subset[0,T]$，$|N|=0$，以至于集合$\{f(t)|t\in[0,T]-N\}$是可分的。\\
+\textbf{定理7}(Pettis).映射$f:[0,T]\rightarrow X$是强可测的当且仅当f是弱可测的并且几乎是可分值的。\\
+\textbf{定义.}(i)如果$s(t)=\sum_{i=1}^{m}\chi_{E_{i}}(t)u_{i}$是简单的，我们定义
+\begin{equation}
+\int_{0}^{T}s(t)dt:=\int_{i=1}^{m}|E_{i}|u_{i}.\tag{6}
+\end{equation}
+\par(ii)我们说$f:[0,T]\rightarrow X$是可积的如果存在一个序列$\{s_{k}\}_{k=1}^{\infty}$由简单函数组成以至于有
+\begin{equation}
+\int_{0}^{T}\|s_{k}(t)-f(t)\|dt\rightarrow 0\text{当}k\rightarrow\infty.\tag{7}
+\end{equation}
+\par(iii)如果$f$是可积的，我们定义
+\begin{equation}
+\int_{0}^{T}f(t)dt=\lim_{k\rightarrow\infty}\int_{0}^{T}s_{k}(t)dt.\tag{8}
+\end{equation}
+\textbf{定理8}(Bochner).一个强可测函数$f:[0,T]\rightarrow X$是可积的当且仅当$t\mapsto \|f(t)\|$。在这种情况
+\begin{equation*}
+\|\int_{0}^{T}f(t)dt\|\leq \int_{0}^{T}\|f(t)\|dt,
+\end{equation*}
+并且
+\begin{equation*}
+\left<u^{*},\int_{0}^{T}f(t)dt\right>=\int_{0}^{T}\left<u^{*},f(t)\right>dt
+\end{equation*}
+对于每个$u^{*}\in X^{*}$。\par
+一个测度理论的好书是Folland[F2]。见Yosida[Y,Chapter V,Sections 4-5]对于定理7，8的证明。
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\subsection{convex functions}
+
+
+The Pythagorean theorem is:
+\begin{equation}
+a^2 + b^2 = c^2 \label{pythagorean}
+g
+\end{equation}
+Equation \eqref{pythagorean} is
+called `Gougu theorem' in Chinese.
+\end{document}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

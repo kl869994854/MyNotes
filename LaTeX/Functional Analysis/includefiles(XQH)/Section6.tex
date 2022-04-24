@@ -1,0 +1,66 @@
+\section{Baire定理及其应用}
+\subsection{Baire空间}
+
+\begin{theorem}[Baire]
+    设$(E,d)$是完备度量空间，$(O_n)_{n\geq1}$是一列在$E$中稠密的开子集，则$O=\bigcap_{n\geq1}O_n$在$E$中稠密。
+\end{theorem}
+
+\begin{definition}
+    称拓扑空间$E$是一个Baire空间，若$E$中任意可数多个稠密开集的交仍然在$E$中稠密。
+\end{definition}
+
+\begin{theorem}
+    局部紧的Hausdorff空间是Baire空间。
+\end{theorem}
+
+\begin{theorem}
+    设$E$是$Baire$空间，则
+    \begin{enumerate}
+        \item $E$的任意开子集也是一个Baire空间。
+        \item 设$(F_n)_{n\geq1}$是$E$的一列闭子集，并且$E=\bigcup_{n\geq1}F_n $，那么$\bigcup_{n\geq1}\mathring{F}_n$在$E$中稠密。
+    \end{enumerate}
+\end{theorem}
+
+\begin{definition}
+    设$E$是拓扑空间。
+    \begin{enumerate}
+        \item 称$E$中可数多个开子集的交集为$G_{\delta}$集，称$E$中可数多个闭子集的并集为$F_{\sigma}$集。
+        \item 称$A\subset E$为贫集(或第一纲集)，若$A$为某个无内点的$F_{\sigma }$集的子集；称$A\subset E$为剩余集，若$A$包含一个稠密的$G_{\delta }$集。
+    \end{enumerate}
+\end{definition}
+
+\begin{theorem}
+    设$E$是Baire空间，$(F,\delta )$是度量空间。并设映射序列$(f_n)_n\subset C(E,F)$逐点收敛到函数$f$。那么$f$的所有连续点构成的集合$Cont(f)$是$E$中稠密的$G_{\delta }$集。
+\end{theorem}
+
+\begin{lemma}
+    
+\end{lemma}
+
+\subsection{Banach-Steinhaus定理}
+
+\begin{theorem}[Banach-Steinhaus]
+    设$E$是Banach空间，$F$是赋范空间，$(u_i)_{i\in I}$是一族从$E$到$F$的有界线性算子，即$(u_i)_{i\in I}\subset B(E,F)$。若对每一点$x\in E$，有$\sup _{i\in I}||u_i(x)||<\infty $，则
+    \begin{equation*}
+        \sup_{i\in I}||u_i||<\infty , 
+    \end{equation*}
+    即算子族$(u_i)_{i\in I}$在$B(E,F)$中有界。       
+\end{theorem}
+
+\subsection{开映射和闭图像定理}
+
+\begin{theorem}[(开映射定理)]
+    设$E$和$F$都是Banach空间，$u\in B(E,F)$。若像集$u(E)$不是$F$中的贫集，则
+    \begin{enumerate}
+        \item 存在$r>0$，使得$rB_F\subset u(B_E)$，这里$B_E$和$B_F$分别是$E$和$F$中的开单位球。并由此可得$u$是满射，即$u(E)=F$。
+        \item $u$是开映射。
+    \end{enumerate}
+\end{theorem}
+
+\begin{corollary}[(开映射定理)]
+    设$E$和$F$都是Banach空间，$u\in B(E,F)$是满射，则$u$是开映射并且存在$r>0$，使得$rB_F\subset u(B_E)$。
+\end{corollary}
+
+\begin{theorem}[(闭图像定理)]
+    设$E$和$F$都是Banach空间，$u:E\rightarrow F$是线性映射，则$u$连续当且仅当图像$G(u)$是闭的。
+\end{theorem}

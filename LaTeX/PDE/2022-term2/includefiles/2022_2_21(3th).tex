@@ -1,0 +1,79 @@
+\section{2022/2/21}
+
+\subsection{Harmonic polynomial}
+
+$\mathcal{P}^k=\{\text{homo polynomial of degree k}\}$
+\par
+{ \bfseries \large  Question:} dim of $\mathcal{P}^k$ ? Bias of $\mathcal{P}^k$ ?
+\par
+$\mathcal{H}^k(R^n)=\{\text{homo harmonic of deg=k}\}$
+\par
+{ \bfseries \large  Question:} dim of $\mathcal{H}^k$ ? Bias of $\mathcal{H}^k$ ?
+\par
+$\Delta :\mathcal{P}^k\rightarrow \mathcal{P}^{k-2}$ , then we have $\mathcal{H}^k=\ker \Delta$.
+\par
+$\Delta$'s adjoint operator is : $|x|^2:\mathcal{P}^{k-2}\rightarrow \mathcal{P}^k $
+\par
+$\Delta(|x|^2 p)=2np+4x\cdot\nabla p+|x|^2\Delta p$
+\par
+If $deg{\mathcal{P}}=k$ , then we have : $\nabla \mathcal{P}(x)\cdot x=k\mathcal{P}(x) $.
+\begin{proof}
+    Consider a normal form of $\mathcal{P}$:
+    \begin{equation*}
+        \mathcal{P}=\sum_{i=1}^n \alpha_i x_1^{k_1^i} x_2^{k_2^i}\cdots x_n^{k_n^i}
+    \end{equation*}
+    Consider i-th term : $\alpha_ix_1^{k_1^i}\cdots x_n^{k_n^i}$ , we have $\frac{\partial}{\partial _1}(\alpha_ix_1^{k_1^i}\cdots x_n^{k_n^i})\cdot x_1=\alpha_i k_1^i x_1^{k_1^i}\cdots x_n^{k_n^i}$ . It means that this term appear in $\nabla\mathcal{P}(x)\cdot x$ total $(k_1^i+k_2^i\cdots+k_n^i=k)$ times . So the conclusion is concluded.
+\end{proof}
+$(\mathcal{P}(\lambda x)=\lambda^{k-2}\mathcal{P}(x)\Rightarrow \nabla \mathcal{P}(\lambda x)\cdot x=(k-2)\lambda^{k-3}\mathcal{P}(x)$ ($\mathcal{P}\in \mathcal{P}^{k-2}$).
+\begin{proof}
+    $\nabla \mathcal{P}(\lambda x) \cdot x = \nabla \mathcal{P}(\lambda x) \cdot \frac{\lambda x}{\lambda}=(k-2)\frac{\mathcal{P}(\lambda x)}{\lambda}=(k-2)\lambda^{k-3}\mathcal{P}(x)$.
+\end{proof}
+
+Spherical harmonics.
+\\
+$\mathcal{R}^n$ , $(r,\theta)$
+\\
+laplace operator in Polar coordinate :
+$\Delta = \frac{\partial^2}{\partial r^2}+\frac{n-1}{r}\frac{\partial}{\partial r}+\frac{1}{r^2}\Delta_{\theta}$.
+\\
+$\Delta_{\theta}=$ Beltrami-laplace operator on $\mathcal{S}^{n-1}$
+\\
+$\mathcal{P}(\lambda x)=\lambda^k\mathcal{P}(x)\Rightarrow \mathcal P(r,\theta)=r^k\psi(\theta)$
+\\
+put $r^k\psi(\theta)$ into $\Delta$ , we have :
+\begin{equation*}
+    k(k-1)r^{k-2}\psi+(n-1)kr^{k-2}\psi+r^{k-2}\Delta_{\theta}\psi=0
+\end{equation*}
+then we have :
+\begin{equation*}
+    -\Delta_{\theta}\psi=k(n+k-2)\psi\quad \text{on} \mathcal{S}^{n-1}
+\end{equation*}
+eigenvalue problem????
+\\
+First, assume, $-\Delta_{\theta}\psi=\mu\psi$.
+\\
+we know $\mathcal{P}(r,\theta)=r^d\psi(\theta)$.
+\\
+then $\Delta \mathcal{P}=\left(d(n+d-2)\psi+\Delta_{\theta}\psi\right)r^{d-2}=\left(d(n+d-2)-\mu\right)r^{d-2}\psi$
+\\
+next we want to get $d$ is an integer.
+\\
+and $mathcal{P}(r,\theta)$ is a polynomial.
+\\
+when n=2  , $S'$ $\theta\in[0,2\pi]$
+\\
+$\Delta_{\theta}=\frac{d^2}{d\theta^2}$ . then we have:
+\begin{equation*}
+    \begin{cases}
+        -\frac{d^2}{d\theta^2}\psi(\theta)&=\mu_{k}()=k^2)\psi(\theta)\\
+        \psi(0)&=\psi(2\pi)
+    \end{cases}
+\end{equation*}
+then we have $\psi=\cos{k\theta},\sin{k\theta}$ , then $\mathcal{P}(r,\theta)=r^k\cos{k\theta},r^k\sin{k\theta}$ , this is a set of bias of $\mathcal{H}^k$.
+\subsection{generations of laplace operator}
+lattice
+\\
+$\Delta_{Z^n}f(a)=\frac{1}{2^n}\sum_{e_i}f(a+e_i)-f(a)$
+\\
+$\mathcal{P}^d=\{f:\exists C \, |f(a)|\leq C(1+|a|)^d\}$
+\\
